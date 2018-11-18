@@ -51,7 +51,7 @@ public class PlayerMovements : MonoBehaviour {
     IEnumerator MoveTowards(Vector3 direction)//协程控制向特定方向移动
     {
 
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 10);
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction );
         Debug.Log(hits.Length);
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
@@ -75,3 +75,4 @@ public class PlayerMovements : MonoBehaviour {
         Move();
     }
 }
+ 

@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour {
     private GameObject player;
     private PlayerMovements playerMov;
     public float dampTime;
+    public List<GameObject> mapEdges;
 
 	// Use this for initialization
 	void Start () {
@@ -24,13 +25,9 @@ public class CameraController : MonoBehaviour {
     {
         Vector3 currentV=Vector3.zero;
         Vector3 targetPos = player.transform.position+dis;
-        if (playerMov.targetArrived||PlayerOutOfView())
-        {
-            dampTime = 0.8f;
             if (PlayerOutOfView())
-                dampTime = 0.2f;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, Mathf.Infinity);
-        }
+                dampTime = 0.1f;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, Mathf.Infinity);
     }
 
     bool PlayerOutOfView()//判断角色是否即将越出视野

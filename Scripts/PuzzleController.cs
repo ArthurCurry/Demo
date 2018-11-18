@@ -88,7 +88,7 @@ public class PuzzleController : MonoBehaviour {
                 {
                     child.position = targetToReplace[index].position;
                     child.gameObject.layer = LayerMask.NameToLayer("Replaceable");
-                    child.parent = GameObject.Find("Map").transform;
+                    child.parent = GameObject.Find(fatherName).transform;
                     Destroy(targetToReplace[index].gameObject);
                     index++;
                 }
