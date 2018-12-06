@@ -12,6 +12,9 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindWithTag("Player");
+        Vector3 position = player.transform.position;
+        position.z = transform.position.z;
+        transform.position = position;
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
 	}
@@ -25,13 +28,9 @@ public class CameraController : MonoBehaviour {
     {
         Vector3 currentV=Vector3.zero;
         Vector3 targetPos = player.transform.position+dis;
-        if (playerMov.targetArrived||PlayerOutOfView())
-        {
-            dampTime = 0.8f;
-            if (PlayerOutOfView())
+        if (PlayerOutOfView())
                 dampTime = 0.1f;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, Mathf.Infinity);
-        }
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, Mathf.Infinity);
     }
 
     bool PlayerOutOfView()//判断角色是否即将越出视野
@@ -41,4 +40,6 @@ public class CameraController : MonoBehaviour {
             return true;
         return false;
     }
+
+   
 }
