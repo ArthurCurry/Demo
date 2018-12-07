@@ -73,7 +73,9 @@ public class PlayerMovements : MonoBehaviour {
             isMoving = false;
         }
         else
+        {
             StopAllCoroutines();
+        }
     }
 
     void OnGUI()
@@ -81,9 +83,15 @@ public class PlayerMovements : MonoBehaviour {
         Move();
     }
 
-    void EnterHouse()
+    void EnterHouse()//进入室内
     {
+        
+    }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.transform.name.Contains("entrance"))
+            EnterHouse();
     }
 
     void PickItems()

@@ -22,16 +22,15 @@ public class Portals : MonoBehaviour {
     void Start () {
         portals.Add(GameObject.Find("Portal0"));
         portals.Add(GameObject.Find("Portal1"));
-        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         number = portals.Count;
-        judge();
+        Judge();
 	}
 
-    private void judge()//判断传送以及进行传送
+    private void Judge()//判断传送以及进行传送
     {
         foreach( GameObject a in portals )
         {
