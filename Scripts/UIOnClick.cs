@@ -8,9 +8,10 @@ using UnityEngine.EventSystems;
 public class UIOnClick : MonoBehaviour,IPointerDownHandler,IPointerEnterHandler,IPointerExitHandler {
     public GameObject puzzle;//拼图
     public int puzzleLeft;//剩下的可使用拼图数量
+    Color c;
 	// Use this for initialization
 	void Start () {
-
+        c = GetComponent<Image>().color;
 	}
 	
 	// Update is called once per frame
@@ -34,7 +35,7 @@ public class UIOnClick : MonoBehaviour,IPointerDownHandler,IPointerEnterHandler,
 
     public void OnPointerExit(PointerEventData ped)
     {
-        GetComponent<Image>().color = Color.white;
+        GetComponent<Image>().color = c;
     }
 
     void InstanitiatePuzzle(GameObject puzzle)//生成拼图
