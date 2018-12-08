@@ -11,7 +11,7 @@ public class PuzzleController : MonoBehaviour {
     void Awake () {
         pickable = true;
 	}
-
+    
     void Start()
     {
         father = GameObject.Find(fatherName);

@@ -15,18 +15,18 @@ public class Following : Monster {
 		
 	}
 
-    public override void judge()
+    public override void Judge()
     {
         throw new System.NotImplementedException();
     }
-    public override void attack()
+    public override void Attack()
     {
         throw new System.NotImplementedException();
     }
-    public override void move()
+    public override void Move()
     { 
     }
-    public void follow(Vector3 a)
+    public void Follow(Vector3 a)
     {
         nextPos = player.transform;
 

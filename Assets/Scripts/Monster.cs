@@ -20,9 +20,9 @@ public abstract class Monster : MonoBehaviour {
 
     }
 
-    public abstract void judge();
+    public abstract void Judge();
 
-    public abstract void attack();
+    public abstract void Attack();
 
-    public abstract void move();
+    public abstract void Move();
 }

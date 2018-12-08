@@ -25,21 +25,21 @@ public class Patrol : Monster {
         }
         if(moving)
         {
-            toMove(towards);
+            ToMove(towards);
         }
 	}
     
-    public override void judge()
+    public override void Judge()
     {
 
     }
 
-    public override void attack()
+    public override void Attack()
     {
 
     }
 
-    public override void move()
+    public override void Move()
     {
         /*if (transform .position.Equals (latePos))
         {
@@ -70,7 +70,7 @@ public class Patrol : Monster {
            
         }*/
     }
-    public void toMove(Vector3 a)
+    public void ToMove(Vector3 a)
     {
             this.transform.position = Vector3.MoveTowards(transform.position, a, 3*Time.deltaTime );
             if (transform.position.Equals(latePos) || transform.position.Equals(nextPos.position))
