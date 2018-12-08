@@ -12,6 +12,7 @@ public class Patrol : Monster {
         towards = GameObject.Find("PatrolPoint2").transform.position;
         latePos = GameObject.Find("Player").transform.position;
         player = GameObject.Find("Player");
+        moving = false;
     }
 	
 	// Update is called once per frame
@@ -30,17 +31,29 @@ public class Patrol : Monster {
         {
             toMove(towards);
         }*/
+        judge();
         move();
+        
 	}
     
     public override void judge()
     {
+        float distance = Vector3.Distance(player.transform.position, this.transform.position);
+        Vector3 towards = player.transform.position - transform.position;
 
+        float angel = Vector3.Angle(towards, transform.up);
+        if (!moving&&!player.GetComponent<PlayerMovements >().isMoving)
+        {
+            if(distance<=1&&angel <= 45)
+            {
+                attack();
+            }
+        }
     }
 
     public override void attack()
     {
-
+        player.SetActive(false);
     }
 
     public override void move()
@@ -76,17 +89,19 @@ public class Patrol : Monster {
         nextPos = player.transform;
 
         if (!(nextPos.position == latePos) && !player.GetComponent<PlayerMovements>().isMoving){
-            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position - transform.up * 10);
+            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + transform.up * 10);
             //Debug.Log(hits.Length);
             if (hits.Length > 1 && hits[1].transform.tag == "Map")
             {
-                while (transform.position != hits[1].transform.position)
+                while (this.transform.position != hits[1].transform.position)
                 {
+                    moving = true;
                     transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, 2 * Time.deltaTime);
                 }
                 latePos = nextPos.position;
+                moving = false;
             }
-            if (transform.position.Equals(first) || transform.position.Equals(towards))
+            if (this.transform.position.Equals(first) || this.transform.position.Equals(towards))
             {
                 this.transform.Rotate(new Vector3(0, 0, 180));
             }

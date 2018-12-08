@@ -29,7 +29,7 @@ public class EyesMonster : Monster {
         Vector3 towards = player.transform.position - transform.position;
 
         float angel = Vector3.Angle(towards, transform.right);
-        if (angel <= 45 && distance <= 3)//判断是否在两格
+        if (angel <= 25 && distance <= 3)//判断是否在两格
         {
             attack();
         }
