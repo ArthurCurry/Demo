@@ -7,10 +7,16 @@ public class PlayerMovements : MonoBehaviour {
     public float moveSpeed;
     public bool isMoving;
     public bool targetArrived;
+
+    [SerializeField]
+    private float unitSize;
+    [SerializeField]
+    private float stopTime;
 	// Use this for initialization
 	void Start () {
         isMoving = false;
         targetArrived = true;
+        
 	}
 	
 	// Update is called once per frame
@@ -51,8 +57,8 @@ public class PlayerMovements : MonoBehaviour {
     IEnumerator MoveTowards(Vector3 direction)//协程控制向特定方向移动
     {
 
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 10);
-        Debug.Log(hits.Length);
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction*unitSize );
+        //Debug.Log(hits.Length);
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
             while (transform.position != hits[1].transform.position)
@@ -63,7 +69,7 @@ public class PlayerMovements : MonoBehaviour {
                 yield return null;
             }
             targetArrived = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(stopTime);
             isMoving = false;
         }
         else
@@ -73,6 +79,16 @@ public class PlayerMovements : MonoBehaviour {
     void OnGUI()
     {
         Move();
+    }
+
+    void EnterHouse()
+    {
+
+    }
+
+    void PickItems()
+    {
+
     }
 }
  
