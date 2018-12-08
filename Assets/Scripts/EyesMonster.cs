@@ -14,16 +14,16 @@ public class EyesMonster : Monster {
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Judge();
+        move();
+        judge();
     }
 
-    public override void Attack()
+    public override void attack()
     {
         Destroy(player.gameObject);
     }
 
-    public override void Judge()
+    public override void judge()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);//0.626一个差不多
         Vector3 towards = player.transform.position - transform.position;
@@ -31,11 +31,11 @@ public class EyesMonster : Monster {
         float angel = Vector3.Angle(towards, transform.right);
         if (angel <= 45 && distance <= 3)//判断是否在两格
         {
-            Attack();
+            attack();
         }
     }
 
-    public override void Move()
+    public override void move()
     {
         nextPos = GameObject.Find("Player").transform;
 

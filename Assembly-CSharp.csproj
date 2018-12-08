@@ -55,7 +55,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\EyesMonster.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\Patrol.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
