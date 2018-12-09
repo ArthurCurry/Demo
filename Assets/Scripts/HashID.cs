@@ -8,4 +8,5 @@ public static class HashID{
     public static string PUZZLE_3 = "Puzzle_3";
     public static string PLAYER = "Player";
     public static string CANVAS = "Canvas";
+    i
 }
