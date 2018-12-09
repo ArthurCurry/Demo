@@ -9,6 +9,7 @@ public class EyesMonster : Monster {
     {
         latePos = GameObject.Find("Player").transform.position;
         player = GameObject.FindWithTag("Player");
+        playerMovements = player.GetComponent<PlayerMovements>();
     }
 
     // Update is called once per frame
@@ -20,17 +21,17 @@ public class EyesMonster : Monster {
 
     public override void Attack()
     {
-        Destroy(player.gameObject);
+        Destroy(player.gameObject);//重生方法待定，暂时先采用销毁
     }
 
     public override void Judge()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);//0.626一个差不多
         Vector3 towards = player.transform.position - transform.position;
-
         float angel = Vector3.Angle(towards, transform.right);
         if (angel <= 45 && distance <= 3)//判断是否在两格
         {
+
             Attack();
         }
     }
@@ -39,18 +40,15 @@ public class EyesMonster : Monster {
     {
         nextPos = GameObject.Find("Player").transform;
 
-        float distance = Vector3.Distance(latePos, nextPos.position);
-        Vector3 towards = nextPos.position - transform.position;
-
-        if (towards == this.transform.right && distance <= 10)
-        {
-            //fire
-        }
-
-        if (!(nextPos.position == latePos)&&!player.GetComponent<PlayerMovements >().isMoving)
+        if (nextPos.position != latePos&&playerMovements.targetArrived)
         {
             this.transform.Rotate(new Vector3(0, 0, 90));
             latePos = nextPos.position;
         }
+    }
+
+    void Detect()
+    {
+
     }
 }

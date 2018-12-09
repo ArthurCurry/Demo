@@ -7,6 +7,7 @@ public abstract class Monster : MonoBehaviour {
     public Transform pos;
     public Transform nextPos;
     public GameObject player;
+    protected PlayerMovements playerMovements;
 
     // Use this for initialization
     void Start()
