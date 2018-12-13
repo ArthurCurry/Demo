@@ -7,7 +7,7 @@ public class EyesMonster : Monster {
     // Use this for initialization
     void Start()
     {
-        latePos = GameObject.Find("Player").transform.position;
+        latePos = GameObject.FindWithTag("Player").transform.position;
         player = GameObject.FindWithTag("Player");
         playerMovements = player.GetComponent<PlayerMovements>();
     }
@@ -21,7 +21,7 @@ public class EyesMonster : Monster {
 
     public override void Attack()
     {
-        Destroy(player.gameObject);//重生方法待定，暂时先采用销毁
+        PlayerMovements.InitData();//重生方法更改，回到起点
     }
 
     public override void Judge()
@@ -38,7 +38,7 @@ public class EyesMonster : Monster {
 
     public override void Move()
     {
-        nextPos = GameObject.Find("Player").transform;
+        nextPos = GameObject.FindWithTag(HashID.PLAYER).transform;
 
         if (nextPos.position != latePos&&playerMovements.targetArrived)
         {

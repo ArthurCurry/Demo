@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-		
+        Init();
 	}
 	
 	// Update is called once per frame
@@ -38,5 +38,8 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-
+    void Init()//初始化
+    {
+        BuildManager.Init();
+    }
 }

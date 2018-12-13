@@ -13,12 +13,16 @@ public class PlayerMovements : MonoBehaviour {
     [SerializeField]
     private float stopTime;
 	// Use this for initialization
-	public void InitData () {
-        isMoving = false;
-        targetArrived = true;
-        
+	public static void InitData () {
+        Transform start = GameObject.Find("start").transform;
+        GameObject.FindWithTag(HashID.PLAYER).transform.position = start.position;
 	}
 	
+    void Start()
+    {
+        isMoving = false;
+        targetArrived = true;
+    }
 	// Update is called once per frame
 	void Update () {
 
