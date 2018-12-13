@@ -8,5 +8,5 @@ public static class HashID{
     public static string PUZZLE_3 = "Puzzle_3";
     public static string PLAYER = "Player";
     public static string CANVAS = "Canvas";
-    //public static int Puzzle_1 = PUZZLE_1.GetHashCode();
+    public static string playerPath = "Prefabs/Player.prefab";
 }

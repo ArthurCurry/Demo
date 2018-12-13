@@ -13,7 +13,7 @@ public class PlayerMovements : MonoBehaviour {
     [SerializeField]
     private float stopTime;
 	// Use this for initialization
-	void Start () {
+	public void InitData () {
         isMoving = false;
         targetArrived = true;
         
