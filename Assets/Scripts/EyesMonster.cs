@@ -7,8 +7,8 @@ public class EyesMonster : Monster {
     // Use this for initialization
     void Start()
     {
-        latePos = GameObject.FindWithTag("Player").transform.position;
-        player = GameObject.FindWithTag("Player");
+        latePos = GameObject.FindWithTag(HashID .PLAYER).transform.position;
+        player = GameObject.FindWithTag(HashID .PLAYER);
         playerMovements = player.GetComponent<PlayerMovements>();
     }
 
@@ -29,7 +29,7 @@ public class EyesMonster : Monster {
         distance = Vector3.Distance(player.transform.position, transform.position);//0.626一个差不多
         Vector3 towards = player.transform.position - transform.position;
         float angel = Vector3.Angle(towards, transform.right);
-        if (angel <= 45 && distance <= 3)//判断是否在两格
+        if (angel <= 45 && distance <= 3 && !player.GetComponent<PlayerMovements>().isMoving)//判断是否在两格而且主角停下
         {
             Attack();
         }

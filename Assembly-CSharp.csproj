@@ -57,7 +57,9 @@
      <Compile Include="Assets\Scripts\Following.cs" />
      <Compile Include="Assets\Scripts\HashID.cs" />
      <Compile Include="Assets\Scripts\Monster.cs" />
+     <Compile Include="Assets\Scripts\MVC\CtrlManager.cs" />
      <Compile Include="Assets\Scripts\MVC\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MVC\ModelManager.cs" />
      <Compile Include="Assets\Scripts\MVC\UICtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\UIManager.cs" />
      <Compile Include="Assets\Scripts\MVC\UIModel.cs" />

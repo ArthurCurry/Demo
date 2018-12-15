@@ -78,6 +78,7 @@ public class PlayerMovements : MonoBehaviour {
         }
         else
             StopAllCoroutines();
+        GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
     }
 
     void OnGUI()
