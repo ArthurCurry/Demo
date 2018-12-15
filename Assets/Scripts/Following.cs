@@ -6,13 +6,13 @@ public class Following : Monster {
 
 	// Use this for initialization
 	void Start () {
-        latePos = GameObject.Find("Player").transform.position;
-        player = GameObject.Find("Player");
+        latePos = GameObject.FindWithTag(HashID .PLAYER).transform.position;
+        player = GameObject.FindWithTag(HashID.PLAYER);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        
 	}
 
     public override void Judge()
