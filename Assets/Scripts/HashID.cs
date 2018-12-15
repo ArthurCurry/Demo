@@ -10,4 +10,5 @@ public static class HashID{
     public static string CANVAS = "Canvas";
     public static string playerPath = "Prefabs/Player";//预制体路径，下同
     public static string levelPath = "Prefabs/Levels/";
+    public static string materialPath = "Materials";
 }

@@ -5,6 +5,8 @@ using UnityEditor;
 
 public class LevelEditor:EditorWindow{
     public float unitSize;
+    private GameObject unit;
+    private GameObject basePoint;
     private static string[] options = { "up", "down", "left", "right" };//下拉框选项
     private static Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
     int index = 0;//下拉框目录
@@ -34,6 +36,7 @@ public class LevelEditor:EditorWindow{
         }
         GUILayout.TextArea(unitSize.ToString());
         cloneTimes = EditorGUILayout.IntField("克隆次数",cloneTimes);
+        GUILayout.Label("克隆方向");
         index = EditorGUILayout.Popup(index, options);
         if(GUILayout.Button("复制"))
         {
@@ -53,7 +56,7 @@ public class LevelEditor:EditorWindow{
 
     void GetData()//刷新数据
     {
-        GameObject unit = GameObject.FindWithTag("Map");
+        unit = GameObject.FindWithTag("Map");
         if (unit == null)
             Debug.Log("未找到指定物体");
         else
@@ -61,5 +64,15 @@ public class LevelEditor:EditorWindow{
             //Debug.Log(unit.name);
             unitSize = unit.GetComponent<BoxCollider2D>().size.x;
         }
+    }
+
+    void Place()//将选定物体安排至指定位置
+    {
+
+    }
+
+    void SetBasePoint()//设置某个地图单元为编辑器的原点
+    {
+        basePoint = Selection.activeTransform.gameObject;
     }
 }
