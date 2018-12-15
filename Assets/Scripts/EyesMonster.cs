@@ -31,7 +31,6 @@ public class EyesMonster : Monster {
         float angel = Vector3.Angle(towards, transform.right);
         if (angel <= 45 && distance <= 3)//判断是否在两格
         {
-
             Attack();
         }
     }

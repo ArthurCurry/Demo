@@ -45,19 +45,22 @@ public class PuzzleController : MonoBehaviour {
     {
         Vector3 temp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 worldPos = new Vector2(temp.x, temp.y);
-        RaycastHit2D hit=Physics2D.Linecast(transform.position, worldPos, LayerMask.GetMask("Replaceable"));
-        if (hit.transform != null)
+        RaycastHit2D[] hits=Physics2D.LinecastAll(transform.position, worldPos, LayerMask.GetMask("Replaceable"));
+        foreach (RaycastHit2D hit in hits)
         {
-            transform.position = hit.transform.position;
-            transform.parent = father.transform;
-            transform.gameObject.layer = LayerMask.NameToLayer("Replaceable");
-            transform.GetComponent<SpriteRenderer>().sortingOrder = 0;
-            Destroy(hit.transform.gameObject);
-            pickable = false;
-        }
-        else
-        {
-            Destroy(this.gameObject);
+            if (hit.transform != null)
+            {
+                transform.position = hit.transform.position;
+                transform.parent = father.transform;
+                transform.gameObject.layer = LayerMask.NameToLayer("Replaceable");
+                transform.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                Destroy(hit.transform.gameObject);
+                pickable = false;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -72,29 +75,28 @@ public class PuzzleController : MonoBehaviour {
             Vector2 childPos = new Vector2(child.position.x, child.position.y);
             if (child.name != transform.name)
             {
-                RaycastHit2D hit = Physics2D.Linecast(childPos, childPos+(worldPos-childPos)*0.1f, LayerMask.GetMask("Replaceable"));
-                if (hit.transform != null)
+                RaycastHit2D[] hits = Physics2D.LinecastAll(childPos, childPos+(worldPos-childPos)*0.1f, LayerMask.GetMask("Replaceable"));
+                foreach (RaycastHit2D hit in hits )
                 {
-                    targetToReplace.Add(hit.transform);
+                    if (hit.transform != null)
+                    {
+                        Debug.Log(hit.transform.name);
+                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Replaceable"))
+                            child.position = hit.transform.position;
+                        child.gameObject.layer = LayerMask.NameToLayer("Replaceable");
+                        child.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                        child.parent = GameObject.Find(fatherName).transform;
+                        targetToReplace.Add(hit.transform);
+                    }
                 }
             }
         }
         //Debug.Log(targetToReplace.Count);
-        if(targetToReplace.Count==puzzleNum)
+        if(targetToReplace.Count>=puzzleNum)
         {
-            int index = 0;
-            foreach(Transform child in children)
-            {
-                if (child.name != transform.name)
-                {
-                    child.position = targetToReplace[index].position;
-                    child.gameObject.layer = LayerMask.NameToLayer("Replaceable");
-                    child.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                    child.parent = GameObject.Find(fatherName).transform;
-                    Destroy(targetToReplace[index].gameObject);
-                    index++;
-                }
-            }
+            
+            foreach (Transform go in targetToReplace)
+                Destroy(go.gameObject);
             Destroy(this.gameObject);
             return;
         }
