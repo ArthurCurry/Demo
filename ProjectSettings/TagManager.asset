@@ -9,11 +9,6 @@ TagManager:
   - Level
   - Enemy
   - Following
-  - PatrolPoint1
-  - PatrolPoint2
-  - PatrolPoint3
-  - PatrolPoint4
-  - PatrolPoint5
   layers:
   - Default
   - TransparentFX
