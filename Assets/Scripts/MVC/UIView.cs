@@ -2,37 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIView{
-    private UICtrl ctrl;
+public abstract class UIView{
+    protected GameObject panelObject;
+    protected UICtrl _ctrl;
 
-    public UIView(UICtrl ctrl)
-    {
-        this.ctrl = ctrl;
-    }
-    
-    public Dictionary<string, Transform> viewDict() //存储位置位置信息
-    {
-        return this._viewDict;
-    }
 
-    private Dictionary<string, Transform> _viewDict;
 
-    public GameObject FindObject(string name)
+    public void Init(UICtrl ctrl ,GameObject obj)
     {
-        return GameObject.Find(name);
+        this._ctrl = ctrl;
+        this.panelObject = obj;
+        this.BinObject();
     }
+    public void Show()
+    {
+        panelObject.SetActive(true);
+        this.OnShow();
+    }
+    public void Hide()
+    {
+        panelObject.SetActive(false);
+        this.OnHide();
+    }
+    public void Update()
+    {
+        this.OnUpdate();
+    }
+    public void Close()
+    {
+        GameObject.Destroy(panelObject);
+    }
+    protected abstract void OnShow();
+    protected abstract void OnHide();
+    protected abstract void OnUpdate();
 
-    public void InitData()//初始化数据
-    {
-        foreach (KeyValuePair <string ,GameObject> model in ctrl.Model().modelDict())
-        {
-            _viewDict.Add(model.Key, null);
-        }
-    }
 
-    public void InitView(string name ,Canvas canv)
-    {
-        GameObject a = GameObject.Instantiate(ctrl.Model().modelDict()[name], ctrl.view.viewDict()[name]) as GameObject;
-        a.transform.parent = canv.transform;
-    }
+    protected abstract void BinObject();
+
+
+
+
+
+
 }

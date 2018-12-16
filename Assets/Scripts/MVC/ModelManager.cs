@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ModelManager {
-    private Dictionary<string, UIModel> models;
+    private Dictionary<string, UIModel> models = new Dictionary<string, UIModel>();
 
-    public void Init(string name)
+
+    public void RigisterModels()
     {
-        models[name] = new UIModel();
+        models.Add(PanelID.BagPanel,new BagModel());
+        this.InitModels();
     }
 
-    public T GetT<T>(string name)where T:UIModel
+    private void InitModels()
     {
-        return (T)models[name];
+        foreach(UIModel model in models.Values)
+        {
+            model.InitModel();
+        }
+    }
+    public UIModel GetModel(string name)
+    {
+        return models[name];
     }
 
-    public void RemoveT<T>(string name) where T : UIModel
-    {
-        models.Remove(name);
-    }
 }
