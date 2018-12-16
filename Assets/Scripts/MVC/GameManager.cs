@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager {
+    private ModelManager modelManager;
+    private CtrlManager ctrlManager;
+    
 
-    public void OpenPanel(string name, UICtrl ctrl)
+    public void OpenPanel(string name)
     {
-
+        
     }
 
-    public void InitPanel(Transform target, bool active, string name)
+    public void InitPanel(string name)
     {
+        ctrlManager.Init(name);
 
     }
 

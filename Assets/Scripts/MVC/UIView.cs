@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIView : MonoBehaviour {
+public class UIView{
     private UICtrl ctrl;
 
     public UIView(UICtrl ctrl)
@@ -10,7 +10,7 @@ public class UIView : MonoBehaviour {
         this.ctrl = ctrl;
     }
     
-    public Dictionary<string, Transform> viewDict()
+    public Dictionary<string, Transform> viewDict() //存储位置位置信息
     {
         return this._viewDict;
     }
@@ -22,7 +22,7 @@ public class UIView : MonoBehaviour {
         return GameObject.Find(name);
     }
 
-    public void InitView()
+    public void InitData()//初始化数据
     {
         foreach (KeyValuePair <string ,GameObject> model in ctrl.Model().modelDict())
         {
@@ -30,9 +30,9 @@ public class UIView : MonoBehaviour {
         }
     }
 
-    public void IsActive(string name ,Canvas canv)
+    public void InitView(string name ,Canvas canv)
     {
-        GameObject a = Instantiate(ctrl.Model().modelDict()[name], ctrl.view.viewDict()[name]) as GameObject;
+        GameObject a = GameObject.Instantiate(ctrl.Model().modelDict()[name], ctrl.view.viewDict()[name]) as GameObject;
         a.transform.parent = canv.transform;
     }
 }

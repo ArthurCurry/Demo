@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIModel : MonoBehaviour {
+public class UIModel {
     public Dictionary<string, GameObject> modelDict()
     {
         return this._modelDict;
@@ -21,7 +21,7 @@ public class UIModel : MonoBehaviour {
         _modelDict[name].SetActive(false);
     }
 
-    public void OnClose(string name)
+    public void OnRemove(string name)
     {
         _modelDict.Remove(name);
     }
