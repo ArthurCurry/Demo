@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager {
+public class GameManager:MonoBehaviour {
     private ModelManager modelManager;
     private CtrlManager ctrlManager;
     
