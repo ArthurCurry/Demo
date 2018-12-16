@@ -77,10 +77,12 @@ public class PlayerMovements : MonoBehaviour {
             targetArrived = true;
             yield return new WaitForSeconds(stopTime);
             isMoving = false;
+            GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
         }
         else
             StopAllCoroutines();
-        GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
+        //if(GameObject.FindWithTag(HashID.FOLLOWING))
+         
     }
 
     void OnGUI()
