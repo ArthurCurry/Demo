@@ -70,6 +70,8 @@ public class PlayerMovements : MonoBehaviour {
                 targetArrived = false;
                 isMoving = true;
                 transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, moveSpeed * Time.deltaTime);
+                if ((transform.position - hits[1].transform.position).magnitude < 0.01)
+                    transform.position = hits[1].transform.position;
                 yield return null;
             }
             targetArrived = true;

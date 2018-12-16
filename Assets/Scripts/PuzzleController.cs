@@ -80,7 +80,6 @@ public class PuzzleController : MonoBehaviour {
                 {
                     if (hit.transform != null)
                     {
-                        Debug.Log(hit.transform.name);
                         if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Replaceable"))
                             child.position = hit.transform.position;
                         child.gameObject.layer = LayerMask.NameToLayer("Replaceable");
