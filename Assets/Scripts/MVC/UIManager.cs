@@ -2,27 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 public class UIManager : MonoBehaviour {
 
-    private Dictionary<string, GameObject> panelDict;
+   // private Dictionary<string, UIView> panelDict = new Dictionary<string, UIView>();
+    public static UIManager Instance;
+
+    private Dictionary<string,Type> viewTypeDict = new Dictionary<string, Type>();
     private Canvas rootCanv;
 
     private CtrlManager ctrlManager;
     private ModelManager modelManager;
-
-    public void Init(string name)
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        Instance=this;
+        this.Init();
+    }
+    public void Init()
     {
         ctrlManager = new CtrlManager();
         modelManager = new ModelManager();
 
         rootCanv = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
-        panelDict = new Dictionary<string, GameObject>();
+        GameObject.DontDestroyOnLoad(rootCanv.gameObject);
+        this.RigisterViewType();
+        ctrlManager.RigisterCtrls();
+        modelManager.RigisterModels();
+
+
+    
+      //  panelDict = new Dictionary<string, GameObject>();
     }
 
     public void HideUICanvas()
     {
-        rootCanv.enabled = false;
+        rootCanv.gameObject.SetActive(false);
+        //rootCanv.enabled = false;
         //GetComponent<CanvasGroup>().alpha = 0;
         //GetComponent<CanvasGroup>().interactable = false;
         //GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -30,38 +48,82 @@ public class UIManager : MonoBehaviour {
 
     public void ShowUICanvas()
     {
-        rootCanv.enabled = true;
+        rootCanv.gameObject.SetActive(true);
         //GetComponent<CanvasGroup>().alpha = 1;
         //GetComponent<CanvasGroup>().interactable = true;
         //GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
-    public void CreatCtrl(string name)
+    void Update()
     {
-        ctrlManager.Init(name);
+        ctrlManager.UpdateCtrls();
+
+
+    
     }
 
-    public void InitPanel(Canvas rootCanv , bool active , string ctrlName,string name,Transform t)
+
+    public void OpenPanel(string panelName)
     {
-        ctrlManager.GetT<UICtrl>(ctrlName).Model().InitModel(GameObject.Find(name), name);
-        ctrlManager.GetT<UICtrl>(ctrlName).OnCreat(t, name);
-        panelDict = ctrlManager.GetT<UICtrl>(ctrlName).Model().modelDict();
+        
+
+        
+        Type viewType = viewTypeDict[panelName];
+        if(viewType == null)
+        {
+            Debug.LogError("未找到输入字符串对应的UI面板");
+            return;
+        }
+        string path = UIConst.UIPrefabPathPrefix+panelName;
+        GameObject UIGameObjetPrefab = (GameObject)Resources.Load(path);
+        GameObject UIGameObjet = GameObject.Instantiate(UIGameObjetPrefab);
+        UIGameObjet.transform.parent=rootCanv.transform;
+        UIView view = (UIView)Activator.CreateInstance(viewType, true);
+        UICtrl ctrl = ctrlManager.GetCtrl(panelName);
+        UIModel model = modelManager.GetModel(panelName);
+        view.Init(ctrl,UIGameObjet);
+        ctrl.View=view;
+        ctrl.Model=model;
+        ctrl.Create();
+        ctrl.Show();
+        //ctrlManager.GetT<UICtrl>(ctrlName).Model().InitModel(GameObject.Find(name), name);
+        //ctrlManager.GetT<UICtrl>(ctrlName).OnCreat(t, name);
+
+
+
+       // panelDict = ctrlManager.GetT<UICtrl>(ctrlName).Model().modelDict();
     }
 
-    public void ShowPanel(string ctrlName,string name)
+    public void ShowPanel(string panelName)
     {
-        ctrlManager.GetT<UICtrl>(ctrlName).OnShow(name);
+
+        ctrlManager.GetCtrl(panelName).Show();
+        //ctrlManager.GetT<UICtrl>(ctrlName).OnShow(name);
     }
 
-    public void HidePanel(string ctrlName,string name)
+    public void HidePanel(string panelName)
     {
-        ctrlManager.GetT<UICtrl>(ctrlName).OnHide(name);
+         ctrlManager.GetCtrl(panelName).Hide();
+        //ctrlManager.GetT<UICtrl>(ctrlName).OnHide(name);
     }
 
-    public void ClosePanel(string name,bool isDestroyed,string ctrlName)
+    public void ClosePanel(string panelName)
     {
-        ctrlManager.GetT<UICtrl>(ctrlName).OnClose(name);
+
+        ctrlManager.GetCtrl(panelName).Close();
+
+        //ctrlManager.GetT<UICtrl>(ctrlName).OnClose(name);
     }
+
+
+    private void RigisterViewType()
+    {
+        viewTypeDict.Add(PanelID.BagPanel,typeof(BagView));
+
+
+    }
+
+
 
 
 }

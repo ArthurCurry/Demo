@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class UIModel {
+public class BagModel : UIModel {
 
+	public override void InitModel()
+	{
 
-
-    public abstract void InitModel();
-
-
+	}
 }

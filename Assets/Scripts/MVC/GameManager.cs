@@ -12,11 +12,7 @@ public class GameManager {
         
     }
 
-    public void InitPanel(string name)
-    {
-        ctrlManager.Init(name);
 
-    }
 
     public void ShowPanel(string name)
     {

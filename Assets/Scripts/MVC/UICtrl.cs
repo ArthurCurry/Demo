@@ -2,47 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UICtrl {
-    public UIModel Model()
-    {
-        return this._model;
+public abstract class UICtrl {
+
+
+
+    public abstract void Init();
+
+
+
+    protected UIView _view; 
+    protected UIModel _model;
+
+    public UIView View{
+        set{ _view = value;}
+    }
+    public UIModel Model{
+        set{ _model = value;}
     }
 
-    private UIModel _model = new UIModel();
-
-    public UIView view
+    public void Update()
     {
-        get
-        {
-            return this._view;
-        }
-
-        set
-        {
-            if (this._view == null)
-                _view = value;
-        }
+        this._view.Update();
+        this.OnUpdate();
+        
     }
-
-    private UIView _view; 
-
-    public void OnCreat(Transform t,string name)
+    public void Create()
     {
-        _view.viewDict()[name] = t;
+         this._view.Show();
+         this.OnCreate();
     }
-
-    public void OnShow(string name)
+    public void Show()
     {
-        _model.modelDict()[name].SetActive(true);
+        this._view.Show();
+        this.OnShow();
     }
-
-    public void OnHide(string name)
+    public void Hide()
     {
-        _model.modelDict()[name].SetActive(false);
+        this._view.Hide();
+        this.OnHide();
     }
-
-    public void OnClose(string name )
+    public void Close()
     {
-        GameObject.Destroy(_model.modelDict()[name]);
+
+        this._view.Close();
+        this.OnClose();
     }
+    protected abstract void OnCreate();
+
+
+    protected abstract void OnShow();
+
+    protected abstract void OnHide();
+    protected abstract void OnClose();
+    protected abstract void OnUpdate();
 }
