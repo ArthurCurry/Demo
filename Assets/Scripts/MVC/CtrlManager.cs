@@ -8,6 +8,12 @@ public class CtrlManager{
     public void Init(string name)
     {
         ctrls[name] = new UICtrl();
+
+
+
+
+
+
     }
 
     public T GetT<T>(string name) where T:UICtrl 

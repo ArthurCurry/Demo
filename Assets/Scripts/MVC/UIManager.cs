@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager{
+public class UIManager : MonoBehaviour {
 
     private Dictionary<string, GameObject> panelDict;
     private Canvas rootCanv;
