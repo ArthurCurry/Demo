@@ -5,13 +5,24 @@ using UnityEngine;
 public class CtrlManager{
     private Dictionary<string, UICtrl> ctrls;
 
-    public void Init()
+    public void Init(string name)
     {
-        ctrls["BagCtrl"] = new UICtrl();
+        ctrls[name] = new UICtrl();
+
+
+
+
+
+
     }
 
     public T GetT<T>(string name) where T:UICtrl 
     {
         return (T)ctrls[name];
+    }
+
+    public void RemoveT<T>(string name) where T:UICtrl
+    {
+        ctrls.Remove(name);
     }
 }

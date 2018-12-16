@@ -7,8 +7,18 @@ public class UIManager : MonoBehaviour {
 
     private Dictionary<string, GameObject> panelDict;
     private Canvas rootCanv;
-    private UICtrl ctrl;
-   
+
+    private CtrlManager ctrlManager;
+    private ModelManager modelManager;
+
+    public void Init(string name)
+    {
+        ctrlManager = new CtrlManager();
+        modelManager = new ModelManager();
+
+        rootCanv = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
+        panelDict = new Dictionary<string, GameObject>();
+    }
 
     public void HideUICanvas()
     {
@@ -26,54 +36,32 @@ public class UIManager : MonoBehaviour {
         //GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
-    public void CreatPanel(string name ,Transform t)
+    public void CreatCtrl(string name)
     {
-        this.ctrl.Model().InitModel(GameObject.Find(name), name);
-        this.ctrl.OnCreat(t, name);
+        ctrlManager.Init(name);
     }
 
-    public void InitPanel(Canvas rootCanv , bool active , string name)
+    public void InitPanel(Canvas rootCanv , bool active , string ctrlName,string name,Transform t)
     {
-
-        ctrl.view.IsActive(name,rootCanv);
-        panelDict = ctrl.Model().modelDict();
+        ctrlManager.GetT<UICtrl>(ctrlName).Model().InitModel(GameObject.Find(name), name);
+        ctrlManager.GetT<UICtrl>(ctrlName).OnCreat(t, name);
+        panelDict = ctrlManager.GetT<UICtrl>(ctrlName).Model().modelDict();
     }
 
-    public void ShowPanel(string name)
+    public void ShowPanel(string ctrlName,string name)
     {
-        this.ctrl.OnShow(name);
+        ctrlManager.GetT<UICtrl>(ctrlName).OnShow(name);
     }
 
-    public void HidePanel(string name)
+    public void HidePanel(string ctrlName,string name)
     {
-        this.ctrl.OnHide(name);
+        ctrlManager.GetT<UICtrl>(ctrlName).OnHide(name);
     }
 
-    public void ClosePanel(string name,bool isDestroyed)
+    public void ClosePanel(string name,bool isDestroyed,string ctrlName)
     {
-        this.ctrl.OnClose(name);
+        ctrlManager.GetT<UICtrl>(ctrlName).OnClose(name);
     }
 
-    public void Init()
-    {
-        ctrl = new UICtrl();
-        ctrl.view = new UIView(ctrl);
-        rootCanv = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
-        panelDict = new Dictionary<string, GameObject>();
-    }
 
-    private void Awake()
-    {
-        Init();
-    }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UICtrl : MonoBehaviour {
+public class UICtrl {
     public UIModel Model()
     {
         return this._model;
@@ -19,7 +19,7 @@ public class UICtrl : MonoBehaviour {
 
         set
         {
-            if (this._view = null)
+            if (this._view == null)
                 _view = value;
         }
     }
@@ -43,6 +43,6 @@ public class UICtrl : MonoBehaviour {
 
     public void OnClose(string name )
     {
-        Destroy(_model.modelDict()[name]);
+        GameObject.Destroy(_model.modelDict()[name]);
     }
 }
