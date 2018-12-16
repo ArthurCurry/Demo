@@ -111,7 +111,7 @@ public class UIManager : MonoBehaviour {
     {
 
         ctrlManager.GetCtrl(panelName).Close();
-
+    
         //ctrlManager.GetT<UICtrl>(ctrlName).OnClose(name);
     }
 

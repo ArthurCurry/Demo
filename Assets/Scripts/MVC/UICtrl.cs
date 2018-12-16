@@ -45,6 +45,7 @@ public abstract class UICtrl {
     {
 
         this._view.Close();
+        this._view = null;
         this.OnClose();
     }
     protected abstract void OnCreate();
