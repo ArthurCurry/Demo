@@ -26,7 +26,7 @@ public class EyesMonster : Monster {
 
     public override void Judge()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);//0.626一个差不多
+        distance = Vector3.Distance(player.transform.position, transform.position);//1.28一个差不多
         Vector3 towards = player.transform.position - transform.position;
         float angel = Vector3.Angle(towards, transform.right);
         if (angel <= 45 && distance <= 3 && !player.GetComponent<PlayerMovements>().isMoving)//判断是否在两格而且主角停下
