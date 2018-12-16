@@ -8,6 +8,8 @@ public class LevelEditor:EditorWindow{
     private GameObject unit;
     private GameObject basePoint;
     private Vector2 relPos;
+    private Object objectToPlace;
+    private bool fold;
     private static string[] options = { "up", "down", "left", "right" };//下拉框选项
     private static Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
     int index = 0;//下拉框目录
@@ -48,6 +50,15 @@ public class LevelEditor:EditorWindow{
         {
             SetRelativePosition(relPos.x, relPos.y, Selection.activeTransform.gameObject);
         }
+        fold = EditorGUILayout.Foldout(fold,"指定放置");
+        if(fold)
+        {
+            objectToPlace = EditorGUILayout.ObjectField(objectToPlace,typeof(GameObject),true);
+            if(GUILayout.Button("放置"))
+            {
+                SetPosition(Selection.activeTransform.gameObject);
+            }
+        }
     }
 
     void Align(int times)//复制并排列
@@ -85,5 +96,11 @@ public class LevelEditor:EditorWindow{
     {
         Vector3 relativePos = new Vector3(x * unitSize, y * unitSize, 0);
         selected.transform.position = basePoint.transform.position + relativePos;
+    }
+
+    void SetPosition(GameObject target)//设置指定位置，方便设置敌人障碍等
+    {
+        GameObject clone=(GameObject)GameObject.Instantiate(objectToPlace,null);
+        clone.transform.position = target.transform.position;
     }
 }
