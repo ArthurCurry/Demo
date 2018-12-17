@@ -216,7 +216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1987152077543274, guid: c6b0ea49a8047ad47acfd6d8f199ec9d, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6b0ea49a8047ad47acfd6d8f199ec9d, type: 2}
@@ -516,7 +516,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1657781521}
   - component: {fileID: 1657781520}
-  - component: {fileID: 1657781519}
   - component: {fileID: 1657781522}
   m_Layer: 0
   m_Name: Main Camera
@@ -525,13 +524,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1657781519
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1657781518}
-  m_Enabled: 1
 --- !u!20 &1657781520
 Camera:
   m_ObjectHideFlags: 0
