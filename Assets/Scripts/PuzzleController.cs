@@ -57,11 +57,9 @@ public class PuzzleController : MonoBehaviour {
                 Destroy(hit.transform.gameObject);
                 pickable = false;
             }
-            else
-            {
-                Destroy(this.gameObject);
-            }
         }
+        if (hits.Length<=0)
+            Destroy(this.gameObject);
     }
 
     void Replace(int puzzleNum)//替换多个地图单位

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager {
+public class GameManager:MonoBehaviour {
     private ModelManager modelManager;
     private CtrlManager ctrlManager;
     
@@ -12,11 +12,7 @@ public class GameManager {
         
     }
 
-    public void InitPanel(string name)
-    {
-        ctrlManager.Init(name);
 
-    }
 
     public void ShowPanel(string name)
     {

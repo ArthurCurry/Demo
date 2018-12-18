@@ -56,7 +56,7 @@ MonoBehaviour:
   isMoving: 0
   targetArrived: 0
   unitSize: 2
-  stopTime: 0.2
+  stopTime: 0
 --- !u!212 &212469097515760306
 SpriteRenderer:
   m_ObjectHideFlags: 1

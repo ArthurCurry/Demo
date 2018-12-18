@@ -58,12 +58,17 @@
      <Compile Include="Assets\Scripts\HashID.cs" />
      <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\MVC\CtrlManager.cs" />
+     <Compile Include="Assets\Scripts\MVC\Ctrls\BagCtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\GameManager.cs" />
      <Compile Include="Assets\Scripts\MVC\ModelManager.cs" />
+     <Compile Include="Assets\Scripts\MVC\Models\BagModel.cs" />
+     <Compile Include="Assets\Scripts\MVC\PanelID.cs" />
+     <Compile Include="Assets\Scripts\MVC\UIConst.cs" />
      <Compile Include="Assets\Scripts\MVC\UICtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\UIManager.cs" />
      <Compile Include="Assets\Scripts\MVC\UIModel.cs" />
      <Compile Include="Assets\Scripts\MVC\UIView.cs" />
+     <Compile Include="Assets\Scripts\MVC\Views\BagView.cs" />
      <Compile Include="Assets\Scripts\Patrol.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scripts\Portals.cs" />
