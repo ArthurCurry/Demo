@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     private Dictionary<string, GameObject> panelDict;
+
     private Canvas rootCanv;
+
 
     private CtrlManager ctrlManager;
     private ModelManager modelManager;
+
 
     public void Init(string name)
     {
@@ -41,7 +44,7 @@ public class UIManager : MonoBehaviour {
         ctrlManager.Init(name);
     }
 
-    public void InitPanel(Canvas rootCanv , bool active , string ctrlName,string name,Transform t)
+    public void InitPanel( bool active , string ctrlName,string name,Transform t)
     {
         ctrlManager.GetT<UICtrl>(ctrlName).Model().InitModel(GameObject.Find(name), name);
         ctrlManager.GetT<UICtrl>(ctrlName).OnCreat(t, name);
