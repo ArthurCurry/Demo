@@ -9,6 +9,9 @@ TagManager:
   - Level
   - Enemy
   - Following
+  - PatrolA
+  - PatrolB
+  - PatrolC
   layers:
   - Default
   - TransparentFX

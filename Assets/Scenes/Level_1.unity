@@ -175,7 +175,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!1001 &629064267
+--- !u!1001 &499112818
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -216,7 +216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1987152077543274, guid: c6b0ea49a8047ad47acfd6d8f199ec9d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6b0ea49a8047ad47acfd6d8f199ec9d, type: 2}
