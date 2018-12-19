@@ -55,12 +55,14 @@ public class PlayerMovements : MonoBehaviour {
                 Vector2 pos = target.position;
                 targetArrived = false;
                 isMoving = true;
-                rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
+            //rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
+                rb.velocity = (target.position - transform.position).normalized * moveSpeed;
                 if ((transform.position - target.position).magnitude < 0.01)
                     transform.position = target.transform.position;
             }
             else
             {
+                rb.velocity = Vector2.zero;
                 targetArrived = true;
                 Debug.Log(targetArrived);
                 isMoving = false;
