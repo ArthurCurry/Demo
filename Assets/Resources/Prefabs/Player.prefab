@@ -55,7 +55,7 @@ MonoBehaviour:
   moveSpeed: 2
   isMoving: 0
   targetArrived: 0
-  unitSize: 2
+  unitSize: 0.7
   stopTime: 0
 --- !u!212 &212469097515760306
 SpriteRenderer:
