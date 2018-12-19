@@ -7,6 +7,9 @@ public class PlayerMovements : MonoBehaviour {
     public float moveSpeed;
     public bool isMoving;
     public bool targetArrived;
+    private Dictionary<KeyCode, Vector3> directions=new Dictionary<KeyCode, Vector3>();
+    private Rigidbody2D rb;
+    private Transform targetFloor;
 
     [SerializeField]
     private float unitSize;
@@ -22,6 +25,9 @@ public class PlayerMovements : MonoBehaviour {
     {
         isMoving = false;
         targetArrived = true;
+        targetFloor = this.transform;
+        rb = transform.GetComponent<Rigidbody2D>();
+        LoadDirection();
     }
 	// Update is called once per frame
 	void Update () {
@@ -36,53 +42,31 @@ public class PlayerMovements : MonoBehaviour {
             Event e = Event.current;
             if (e.isKey)
                 key = e.keyCode;
-            switch(key)
-            {
-                case KeyCode.D:
-                    StartCoroutine("MoveTowards", transform.right);
-                    //StopAllCoroutines();
-                    break;
-                case KeyCode.A:
-                    StartCoroutine("MoveTowards", -transform.right);
-                    break;
-                case KeyCode.S:
-                    StartCoroutine("MoveTowards", -transform.up);
-                    break;
-                case KeyCode.W:
-                    StartCoroutine("MoveTowards", transform.up);
-                    break;
-                default:
-                    return;
-            }
+            if (directions.ContainsKey(key))
+                targetFloor=Detect(key);
         }
+        MoveTowards(targetFloor);
     }
 
-    IEnumerator MoveTowards(Vector3 direction)//协程控制向特定方向移动
+    void MoveTowards(Transform target)//控制向特定方向移动
     {
-
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction*unitSize );
-        //Debug.Log(hits.Length);
-        if (hits.Length > 1 && hits[1].transform.tag == "Map")
-        {
-            while (transform.position != hits[1].transform.position)
+            if (transform.position != target.position)
             {
+                Vector2 pos = target.position;
                 targetArrived = false;
                 isMoving = true;
-                transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, moveSpeed * Time.deltaTime);
-                if ((transform.position - hits[1].transform.position).magnitude < 0.01)
-                    transform.position = hits[1].transform.position;
-                yield return null;
+                rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
+                if ((transform.position - target.position).magnitude < 0.01)
+                    transform.position = target.transform.position;
             }
-            targetArrived = true;
-            //yield return new WaitForSeconds(stopTime);
-            isMoving = false;            
-        }
-        else
-            StopAllCoroutines();
+            else
+            {
+                targetArrived = true;
+                Debug.Log(targetArrived);
+                isMoving = false;
+            }
         //if(GameObject.FindWithTag(HashID.FOLLOWING))
-        if (GameObject.FindWithTag(HashID.FOLLOWING))
-            GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
-
+        
     }
 
     void OnGUI()
@@ -90,14 +74,32 @@ public class PlayerMovements : MonoBehaviour {
         Move();
     }
 
-    void EnterHouse()
-    {
-
-    }
 
     void PickItems()
     {
 
+    }
+
+    void LoadDirection()
+    {
+        directions.Add(KeyCode.W, transform.up);
+        directions.Add(KeyCode.S, -transform.up);
+        directions.Add(KeyCode.A, -transform.right);
+        directions.Add(KeyCode.D, transform.right);
+    }
+
+    Transform Detect(KeyCode key)
+    {
+        Vector3 direction = directions[key];
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * unitSize);
+        if (hits.Length > 1 && hits[1].transform.tag == "Map")
+        {
+            //Debug.Log(hits[1].transform.name);
+            if (GameObject.FindWithTag(HashID.FOLLOWING))
+                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
+            return hits[1].transform;
+        }
+        return this.transform;
     }
 }
  
