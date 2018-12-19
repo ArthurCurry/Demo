@@ -5,14 +5,11 @@ using UnityEngine;
 public class GameManager:MonoBehaviour {
     private ModelManager modelManager;
     private CtrlManager ctrlManager;
-    
 
     public void OpenPanel(string name)
     {
         
     }
-
-
 
     public void ShowPanel(string name)
     {
@@ -35,11 +32,12 @@ public class GameManager:MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        
+        BuildManager.WhileCG();
 	}
 
     void Init()//初始化
     {
-        BuildManager.Init();
+        BuildManager.InitCG("CG1");
     }
 }
