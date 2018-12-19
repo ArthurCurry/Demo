@@ -36,7 +36,6 @@ public class PlayerMovements : MonoBehaviour {
             Event e = Event.current;
             if (e.isKey)
                 key = e.keyCode;
-            //Debug.Log(key);
             switch(key)
             {
                 case KeyCode.D:
@@ -75,7 +74,7 @@ public class PlayerMovements : MonoBehaviour {
                 yield return null;
             }
             targetArrived = true;
-            yield return new WaitForSeconds(stopTime);
+            //yield return new WaitForSeconds(stopTime);
             isMoving = false;            
         }
         else
