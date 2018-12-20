@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEditor;
 
 public class LevelEditor:EditorWindow{
-    public float unitSize;
+    public float unitSize;//地图单位长度
     private GameObject unit;
     private GameObject basePoint;
     private Vector2 relPos;
     private Object objectToPlace;
-    private bool fold;
+    private bool fold_1;//窗口第一处折叠
+    private bool fold_2;//窗口第二处折叠
+    private int  horizontal;//地图水平长度
+    private int vertical;//地图竖直长度
     private static string[] options = { "up", "down", "left", "right" };//下拉框选项
     private static Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
     int index = 0;//下拉框目录
@@ -50,8 +53,8 @@ public class LevelEditor:EditorWindow{
         {
             SetRelativePosition(relPos.x, relPos.y, Selection.activeTransform.gameObject);
         }
-        fold = EditorGUILayout.Foldout(fold,"指定放置");
-        if(fold)
+        fold_1 = EditorGUILayout.Foldout(fold_1,"指定放置");
+        if(fold_1)
         {
             objectToPlace = EditorGUILayout.ObjectField(objectToPlace,typeof(GameObject),true);
             if(GUILayout.Button("放置"))
@@ -59,6 +62,9 @@ public class LevelEditor:EditorWindow{
                 SetPosition(Selection.activeTransform.gameObject);
             }
         }
+        fold_2 = EditorGUILayout.Foldout(fold_2, "创建地图");
+        if(fold_2)
+            CreatMap();
     }
 
     void Align(int times)//复制并排列
@@ -102,5 +108,40 @@ public class LevelEditor:EditorWindow{
     {
         GameObject clone=(GameObject)GameObject.Instantiate(objectToPlace,null);
         clone.transform.position = target.transform.position;
+    }
+
+    void CreatMap()//创建行列地图
+    {
+        //EditorGUILayout.BeginHorizontal();
+        horizontal= EditorGUILayout.IntField("横", horizontal);
+        vertical = EditorGUILayout.IntField("竖", vertical);
+        //EditorGUILayout.EndHorizontal();
+        if(GUILayout.Button("创建地图"))
+        {
+            List<GameObject> roads = new List<GameObject>();
+            GameObject father = new GameObject(HashID.Map_Roads);
+            GameObject temp = Resources.Load<GameObject>(HashID.mapUnit);
+            GameObject origin = GameObject.Instantiate(temp, Vector3.zero, temp.transform.rotation);
+            origin.transform.parent = father.transform;
+            origin.name = "floor";
+            Destroy(temp);
+            roads.Add(origin);
+            for(int i =0;i<horizontal-1;i++)
+            {
+                GameObject go = GameObject.Instantiate(origin, origin.transform.position + (i + 1) * unitSize * Vector3.right, origin.transform.rotation);
+                go.transform.parent = father.transform;
+                go.name = origin.name + "_" + (i+1)
+;               roads.Add(go);
+            }
+            foreach(GameObject unit in roads)
+            {
+                for(int i=0;i<vertical-1;i++)
+                {
+                    GameObject go = GameObject.Instantiate(unit, unit.transform.position + (i + 1) * unitSize * Vector3.up, unit.transform.rotation);
+                    go.transform.parent = unit.transform.parent;
+                    go.name = unit.name + "_" + (i + 1);
+                }
+            }
+        }
     }
 }

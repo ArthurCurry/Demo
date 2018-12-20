@@ -73,25 +73,31 @@ public class PuzzleController : MonoBehaviour {
             Vector2 childPos = new Vector2(child.position.x, child.position.y);
             if (child.name != transform.name)
             {
-                RaycastHit2D[] hits = Physics2D.LinecastAll(childPos, childPos+(worldPos-childPos)*0.1f, LayerMask.GetMask("Replaceable"));
+                RaycastHit2D[] hits = Physics2D.LinecastAll(childPos, childPos+(worldPos-childPos)*0.01f, LayerMask.GetMask("Replaceable"));
                 foreach (RaycastHit2D hit in hits )
                 {
                     if (hit.transform != null)
                     {
                         if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Replaceable"))
                             child.position = hit.transform.position;
-                        child.gameObject.layer = LayerMask.NameToLayer("Replaceable");
-                        child.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                        child.parent = GameObject.Find(fatherName).transform;
                         targetToReplace.Add(hit.transform);
                     }
                 }
             }
         }
-        //Debug.Log(targetToReplace.Count);
+        //Debug.Log(targetToReplace.Count+"  "+puzzleNum);
         if(targetToReplace.Count>=puzzleNum)
         {
-            
+            foreach(Transform child in children)
+            {
+                if (child.name != transform.name)
+                {
+                    child.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                    child.gameObject.layer = LayerMask.NameToLayer("Replaceable");
+                    child.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    child.parent = GameObject.Find(fatherName).transform;
+                }
+            }
             foreach (Transform go in targetToReplace)
                 Destroy(go.gameObject);
             Destroy(this.gameObject);

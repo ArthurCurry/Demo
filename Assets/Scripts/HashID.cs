@@ -11,6 +11,12 @@ public static class HashID{
     public static string FOLLOWING = "Following";
     public static string playerPath = "Prefabs/Player";//预制体路径，下同
     public static string levelPath = "Prefabs/Levels/";
+    public static string mapUnit = "Prefabs/floor";
     public static string cgPath = "Prefabs/CG/";
     public static string materialPath = "Materials";
+    public static float unitLength = 1.28f;
+    public static string ENEMY = "Enemy";
+    public static string ENEMY_EYE = "monster_eyeball";
+    public static string StartPoint = "start";
+    public static string Map_Roads = "Roads";
 }

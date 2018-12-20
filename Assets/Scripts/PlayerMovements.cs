@@ -10,6 +10,7 @@ public class PlayerMovements : MonoBehaviour {
     private Dictionary<KeyCode, Vector3> directions=new Dictionary<KeyCode, Vector3>();
     private Rigidbody2D rb;
     private Transform targetFloor;
+    public bool isDead;
 
     [SerializeField]
     private float unitSize;
@@ -19,10 +20,12 @@ public class PlayerMovements : MonoBehaviour {
 	public static void InitData () {
         Transform start = GameObject.Find("start").transform;
         GameObject.FindWithTag(HashID.PLAYER).transform.position = start.position;
+        GameObject.FindWithTag(HashID.PLAYER).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 	}
 	
     void Start()
     {
+        isDead = false;
         isMoving = false;
         targetArrived = true;
         targetFloor = this.transform;
@@ -31,8 +34,10 @@ public class PlayerMovements : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-
-	}
+        //Debug.Log(rb.velocity);
+        if (isDead)
+            Reborn();
+    }
 
     void Move()//移动
     {
@@ -48,7 +53,7 @@ public class PlayerMovements : MonoBehaviour {
         MoveTowards(targetFloor);
     }
 
-    void MoveTowards(Transform target)//控制向特定方向移动
+    public void MoveTowards(Transform target)//控制向特定方向移动
     {
             if (transform.position != target.position)
             {
@@ -62,9 +67,12 @@ public class PlayerMovements : MonoBehaviour {
             }
             else
             {
+                
+                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
                 rb.velocity = Vector2.zero;
                 targetArrived = true;
-                Debug.Log(targetArrived);
+                UpdateMonsters(float.PositiveInfinity);
+                //Debug.Log(targetArrived);
                 isMoving = false;
             }
         //if(GameObject.FindWithTag(HashID.FOLLOWING))
@@ -84,10 +92,10 @@ public class PlayerMovements : MonoBehaviour {
 
     void LoadDirection()
     {
-        directions.Add(KeyCode.W, transform.up);
-        directions.Add(KeyCode.S, -transform.up);
-        directions.Add(KeyCode.A, -transform.right);
-        directions.Add(KeyCode.D, transform.right);
+        directions.Add(KeyCode.W, Vector3.up);
+        directions.Add(KeyCode.S, Vector3.down);
+        directions.Add(KeyCode.A, Vector3.left);
+        directions.Add(KeyCode.D, Vector3.right);
     }
 
     Transform Detect(KeyCode key)
@@ -99,9 +107,34 @@ public class PlayerMovements : MonoBehaviour {
             //Debug.Log(hits[1].transform.name);
             if (GameObject.FindWithTag(HashID.FOLLOWING))
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
+            UpdateMonsters((hits[1].transform.position-transform.position).magnitude);
             return hits[1].transform;
         }
         return this.transform;
+    }
+
+    void UpdateMonsters(float length)
+    {
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag(HashID.ENEMY);
+        foreach(GameObject monster in monsters)
+        {
+            if(monster.name.Contains(HashID.ENEMY_EYE))
+            {
+                //EyesMonster em = monster.GetComponent<EyesMonster>();
+                //em.Move();
+                monster.GetComponent<Rigidbody2D>().angularVelocity = 90 / (length / moveSpeed);
+            }
+        }
+    }
+
+    void Reborn()//重生
+    {
+        rb.velocity = Vector2.zero;
+        targetFloor = GameObject.Find(HashID.StartPoint).transform;
+        transform.position = targetFloor.transform.position;
+        targetArrived = true;
+        isMoving = false;
+        isDead = false;
     }
 }
  

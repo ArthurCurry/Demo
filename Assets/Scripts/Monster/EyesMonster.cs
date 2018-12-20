@@ -4,24 +4,33 @@ using UnityEngine;
 
 public class EyesMonster : Monster {
     public float distance;
+    private float rotateSpeed;
     // Use this for initialization
     void Start()
     {
         latePos = GameObject.FindWithTag(HashID .PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID .PLAYER);
         playerMovements = player.GetComponent<PlayerMovements>();
+        rotateSpeed = (HashID.unitLength / playerMovements.moveSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
         Judge();
+        //Move();
+       
+    }
+
+    void LateUpdate()
+    {
+
     }
 
     public override void Attack()
     {
-        PlayerMovements.InitData();//重生方法更改，回到起点
+        playerMovements.isDead=true;//重生方法更改，回到起点
+        
     }
 
     public override void Judge()
@@ -31,19 +40,40 @@ public class EyesMonster : Monster {
         float angel = Vector3.Angle(towards, transform.right);
         if (angel <= 45 && distance <= 3 && !player.GetComponent<PlayerMovements>().isMoving)//判断是否在两格而且主角停下
         {
-            Attack();
+            if(playerMovements.targetArrived)
+                Attack();
         }
     }
 
     public override void Move()
     {
-        nextPos = GameObject.FindWithTag(HashID.PLAYER).transform;
+        //nextPos = GameObject.FindWithTag(HashID.PLAYER).transform;
+        
+        //if (nextPos.position != latePos&&playerMovements.targetArrived)
+        //{
+            Vector3 targetRot = transform.rotation.eulerAngles + new Vector3(0, 0, 90);
+            StartCoroutine(Rotate(targetRot));
+            //StopAllCoroutines();
+            //this.transform.Rotate(new Vector3(0, 0, 90));
+            //latePos = nextPos.position;
+        //}
+    }
 
-        if (nextPos.position != latePos&&playerMovements.targetArrived)
+    IEnumerator Rotate(Vector3 targetRot)
+    {
+        Debug.Log(targetRot);
+        while(transform.rotation.eulerAngles!=targetRot)
         {
-            this.transform.Rotate(new Vector3(0, 0, 90));
-            latePos = nextPos.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(targetRot), rotateSpeed*Time.deltaTime);
+            //transform.Rotate(0, 0, 90 * Time.deltaTime*rotateSpeed);
+            yield return null;
         }
+        StopAllCoroutines();
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
     }
 
     void Detect()

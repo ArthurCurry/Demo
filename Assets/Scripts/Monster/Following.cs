@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Following : Monster {
 
+    private Rigidbody2D rb;
+    private PlayerMovements pm;
 	// Use this for initialization
 	void Start () {
         latePos = GameObject.FindWithTag(HashID .PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
+        pm = player.GetComponent<PlayerMovements>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         
 	}
+
 
     public override void Judge()
     {
@@ -29,20 +34,21 @@ public class Following : Monster {
     public void Follow(Vector3 a)
     {
         nextPos = player.transform;
-
-        if (!(nextPos.position == latePos) && !player.GetComponent<PlayerMovements>().isMoving)
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + a * 10);
+        //Debug.Log(hits.Length);
+        if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
-            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + a * 10);
-            //Debug.Log(hits.Length);
-            if (hits.Length > 1 && hits[1].transform.tag == "Map")
-            {
-                
-                while (transform.position != hits[1].transform.position)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, 2 * Time.deltaTime);
-                }
-                latePos = nextPos.position;
-            }
+           if(transform.position != hits[1].transform.position)
+           {
+                rb.velocity = (hits[1].transform.position-transform.position).normalized * pm.moveSpeed;
+                //Debug.Log(rb.velocity);
+           }
+           latePos = nextPos.position;
         }
+    }
+
+    public void Stop()
+    {
+        rb.velocity = Vector2.zero;
     }
 }
