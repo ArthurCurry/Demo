@@ -28,12 +28,12 @@ public class XmlReader {
         XMLDout.Load(url);
     }
 
-    public int getCout(string tag, int index)
+    public int getCount(string tag, int index)
     {
-        Index = index;
         TAG = tag;
-        int inCout = XMLDout.GetElementsByTagName(tag)[index].ChildNodes.Count;
-        return inCout;
+        int x = XMLDout.GetElementsByTagName(tag).Count;
+        //int inCout = XMLDout.GetElementsByTagName(tag)[index].ChildNodes.Count;
+        return x;
     }
 
     public string getXML(string tag, int cout)

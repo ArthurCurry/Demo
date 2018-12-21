@@ -7,17 +7,20 @@ public class BuildManager {
     private static Dialog dialog;
     private static bool isCG;
     private static int x;
+    private static int count;
+    private static string name;
 
     public static void WhileCG()
     {        
         if (isCG)
         {
-            if (x < 6)
+            if (x < count)
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
                 {
                     Dialog(x);
                     x = x + 1;
+                    Debug.Log(x);
                 }
             }
             else
@@ -28,7 +31,8 @@ public class BuildManager {
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
         {
-            GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
+            if (GameObject.FindWithTag("CG"))
+                GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
             dialog.DestoryDiaLog();
         }
 
@@ -46,6 +50,12 @@ public class BuildManager {
             return;
         GameObject player = Resources.Load<GameObject>(HashID.playerPath);
         GameObject playerInstance=GameObject.Instantiate(player);
+        isCG = true;
+        x = 1;
+        name = "第一关";
+        GetCount(name);
+        instance.SetIndex(0);
+        BuildManager.InitDialog();
         //playerInstance.GetComponent<PlayerMovements>().InitData();
     }
 
@@ -60,6 +70,11 @@ public class BuildManager {
 
     public static void InitCG(string cgName)//实例化CG
     {
+        instance = new XmlReader();
+        instance.readXML("Resources/剧情对话.xml");
+        instance.SetIndex(0);
+        name = "旁白";
+        GetCount("旁白");
         x = 1;
         GameObject CG = Resources.Load<GameObject>(HashID.cgPath + cgName);
         GameObject canvas = GameObject.Find(HashID.CANVAS);
@@ -70,17 +85,19 @@ public class BuildManager {
 
     public static void InitDialog()//实例化对话框
     {
-        instance = new XmlReader();
-        instance.readXML("Resources/剧情对话.xml");
-        instance.SetIndex(0);
         dialog = new Dialog();
         dialog.showDialog();
-        dialog.setDialogText(instance.getXML("旁白", 0));
+        dialog.setDialogText(instance.getXML(name, 0));
     }
 
     public static void Dialog(int x)//更新对话框
     {
         instance.SetIndex(x);
-        dialog.setDialogText(instance.getXML("旁白", 0));
+        dialog.setDialogText(instance.getXML(name, 0));
+    }
+
+    public static void GetCount(string s)
+    {
+        count = instance.getCount(s, 0); 
     }
 }

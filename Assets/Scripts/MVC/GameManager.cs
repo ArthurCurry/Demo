@@ -31,9 +31,9 @@ public class GameManager:MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        
+	void Update () {        
         BuildManager.WhileCG();
+        
 	}
 
     void Init()//初始化

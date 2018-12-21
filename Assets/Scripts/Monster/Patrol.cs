@@ -8,7 +8,9 @@ public class Patrol : Monster
     private Dictionary<int, GameObject> patrols;
     private Transform stage;
 
+    [SerializeField]
     private bool moving;
+
     private bool finished;
     private bool isTime;
 
@@ -94,11 +96,14 @@ public class Patrol : Monster
         Attack();
         //if (moving)
         //{            
-            //ToMove(towards);
+        //ToMove(towards);
         //}
         this.Move();
     }
-
+    private void OnGUI()
+    {
+        
+    }
     public override void Judge()
     {
         float t = time - lateTime;
@@ -165,7 +170,7 @@ public class Patrol : Monster
         if (!(nextPos.position == latePos) && !player.GetComponent<PlayerMovements>().isMoving)
         {
             moving = true;
-            if(moving)
+            if (moving)
             {
                 RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + transform.right * 10);
                 //Debug.Log(hits.Length);
@@ -173,7 +178,10 @@ public class Patrol : Monster
                 {
                     while (transform.position != hits[1].transform.position)
                     {
-                        transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, 2 * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, 0.01f * Time.deltaTime);
+                        if ((transform.position - hits[1].transform.position).magnitude < 0.3)
+                            transform.position = hits[1].transform.position;
+                        //this.transform.Translate(transform.right * 1f*Time.deltaTime);
                     }
                     if (tagName.Equals("PatrolA"))
                     {
@@ -205,7 +213,6 @@ public class Patrol : Monster
                     latePos = nextPos.position;
                 }
             }
-
         }
     }
 
