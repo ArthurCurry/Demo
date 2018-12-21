@@ -96,7 +96,7 @@ public class EyesMonster : Monster {
         //throw new System.NotImplementedException();
         if (inPosition)
         {
-            Debug.Log(attackRangeUnit.Count);
+            //Debug.Log(attackRangeUnit.Count);
             Debug.DrawLine(transform.position+ transform.right * HashID.unitLength, transform.position + transform.right * attackRange * HashID.unitLength,Color.red);
             RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position+transform.right*HashID.unitLength, transform.position + transform.right * attackRange * HashID.unitLength, LayerMask.GetMask(HashID.Layer_Replaceable));
             //Debug.Log(hits.Length);

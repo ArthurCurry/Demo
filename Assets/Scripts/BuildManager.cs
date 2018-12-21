@@ -4,11 +4,32 @@ using UnityEngine;
 
 public class BuildManager {
     private static XmlReader instance;
+    public static XmlReader Instance
+    {
+        get { return instance; }
+    }
     private static Dialog dialog;
     private static bool isCG;
+    public static bool IsCG
+    {
+        set { isCG = value; }
+    }
     private static int x;
+    public static int X
+    {
+        set { x = value; }
+    }
     private static int count;
+    public static int Count
+    {
+        set { count = value; }
+    }
     private static string name;
+    public static string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
 
     public static void WhileCG()
     {        
@@ -20,7 +41,6 @@ public class BuildManager {
                 {
                     Dialog(x);
                     x = x + 1;
-                    Debug.Log(x);
                 }
             }
             else
@@ -34,6 +54,7 @@ public class BuildManager {
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
             dialog.DestoryDiaLog();
+            Talk.HasTalk = false;
         }
 
     }
