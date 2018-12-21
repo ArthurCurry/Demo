@@ -167,7 +167,7 @@ public class Patrol : Monster
             transform.Rotate(new Vector3(0, 0, -90));
             this.transform.position = towards;
         }
-        if (!(nextPos.position == latePos) && !player.GetComponent<PlayerMovements>().isMoving)
+        if (!(nextPos.position == latePos) && player.GetComponent<PlayerMovements>().targetArrived)
         {
             moving = true;
             if (moving)
@@ -230,6 +230,11 @@ public class Patrol : Monster
         }
         
     }  //自行移动
+
+    protected override void ShowAttackRange()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 

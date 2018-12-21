@@ -21,7 +21,7 @@ public class XmlReader {
         }
     }
 
-    public void readXML(string path)
+    public void ReadXML(string path)
     {
         XMLDout = new XmlDocument();
         string url = Application.dataPath + "/" + path;
@@ -36,7 +36,7 @@ public class XmlReader {
         return x;
     }
 
-    public string getXML(string tag, int cout)
+    public string GetXML(string tag, int cout)
     {
         string xml = XMLDout.GetElementsByTagName(tag)[Index].ChildNodes[cout].InnerText;
 

@@ -71,7 +71,7 @@ public class BuildManager {
     public static void InitCG(string cgName)//实例化CG
     {
         instance = new XmlReader();
-        instance.readXML("Resources/剧情对话.xml");
+        instance.ReadXML("Resources/剧情对话.xml");
         instance.SetIndex(0);
         name = "旁白";
         GetCount("旁白");
@@ -80,20 +80,19 @@ public class BuildManager {
         GameObject canvas = GameObject.Find(HashID.CANVAS);
         GameObject.Instantiate(CG, canvas.transform);
         isCG = true;
-        
     }
 
     public static void InitDialog()//实例化对话框
     {
         dialog = new Dialog();
         dialog.showDialog();
-        dialog.setDialogText(instance.getXML(name, 0));
+        dialog.setDialogText(instance.GetXML(name, 0));
     }
 
     public static void Dialog(int x)//更新对话框
     {
         instance.SetIndex(x);
-        dialog.setDialogText(instance.getXML(name, 0));
+        dialog.setDialogText(instance.GetXML(name, 0));
     }
 
     public static void GetCount(string s)

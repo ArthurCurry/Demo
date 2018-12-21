@@ -13,6 +13,7 @@ TagManager:
   - PatrolB
   - PatrolC
   - CG
+  - Mechanism
   layers:
   - Default
   - TransparentFX

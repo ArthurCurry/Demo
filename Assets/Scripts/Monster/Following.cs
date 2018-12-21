@@ -51,4 +51,9 @@ public class Following : Monster {
     {
         rb.velocity = Vector2.zero;
     }
+
+    protected override void ShowAttackRange()
+    {
+        throw new System.NotImplementedException();
+    }
 }
