@@ -21,14 +21,14 @@ public class XmlReader {
         }
     }
 
-    public void readXML(string path)
+    public void ReadXML(string path)
     {
         XMLDout = new XmlDocument();
         string url = Application.dataPath + "/" + path;
         XMLDout.Load(url);
     }
 
-    public int getCout(string tag, int index)
+    public int GetCout(string tag, int index)
     {
         Index = index;
         TAG = tag;
@@ -36,7 +36,7 @@ public class XmlReader {
         return inCout;
     }
 
-    public string getXML(string tag, int cout)
+    public string GetXML(string tag, int cout)
     {
         string xml = XMLDout.GetElementsByTagName(tag)[Index].ChildNodes[cout].InnerText;
 

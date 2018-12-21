@@ -15,7 +15,8 @@ public class LevelEditor:EditorWindow{
     private int vertical;//地图竖直长度
     private static string[] options = { "up", "down", "left", "right" };//下拉框选项
     private static Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
-    int index = 0;//下拉框目录
+    int index_1 = 0;//第一个下拉框目录,以下类推
+    int index_2 = 0;
     int cloneTimes;//克隆次数
 
     [MenuItem("Level/LevelEditor")]
@@ -43,28 +44,41 @@ public class LevelEditor:EditorWindow{
         GUILayout.TextArea(unitSize.ToString());
         cloneTimes = EditorGUILayout.IntField("克隆次数",cloneTimes);
         GUILayout.Label("克隆方向");
-        index = EditorGUILayout.Popup(index, options);
+
+
+        index_1 = EditorGUILayout.Popup(index_1, options);
         if(GUILayout.Button("复制"))
         {
             Align(cloneTimes);
         }
+
+
         relPos = EditorGUILayout.Vector2Field("相对位置", relPos);
         if(GUILayout.Button("设置相对位置"))
         {
             SetRelativePosition(relPos.x, relPos.y, Selection.activeTransform.gameObject);
         }
+
+
         fold_1 = EditorGUILayout.Foldout(fold_1,"指定放置");
         if(fold_1)
         {
+            EditorGUILayout.BeginHorizontal();
             objectToPlace = EditorGUILayout.ObjectField(objectToPlace,typeof(GameObject),true);
+            index_2 = EditorGUILayout.Popup(index_2, new string[] { "重叠", "替换" });
+            EditorGUILayout.EndHorizontal();
             if(GUILayout.Button("放置"))
             {
-                SetPosition(Selection.activeTransform.gameObject);
+                SetPosition(Selection.transforms,index_2);
             }
         }
+
+
         fold_2 = EditorGUILayout.Foldout(fold_2, "创建地图");
         if(fold_2)
             CreatMap();
+
+
     }
 
     void Align(int times)//复制并排列
@@ -73,7 +87,7 @@ public class LevelEditor:EditorWindow{
         //Debug.Log(target.name);
         for(int i=0;i<cloneTimes;i++)
         {
-            GameObject clone = GameObject.Instantiate(target, target.transform.position + (i+1) * unitSize * directions[index], target.transform.rotation);
+            GameObject clone = GameObject.Instantiate(target, target.transform.position + (i+1) * unitSize * directions[index_1], target.transform.rotation);
             clone.name = basePoint.name + "_" + i;
             clone.transform.parent = unit.transform.parent;
         }
@@ -104,10 +118,21 @@ public class LevelEditor:EditorWindow{
         selected.transform.position = basePoint.transform.position + relativePos;
     }
 
-    void SetPosition(GameObject target)//设置指定位置，方便设置敌人障碍等
+    void SetPosition(Transform[] targets,int index) //设置指定位置，方便设置敌人障碍等
     {
-        GameObject clone=(GameObject)GameObject.Instantiate(objectToPlace,null);
-        clone.transform.position = target.transform.position;
+        Debug.Log(index);
+        int num = 1;
+        foreach (Transform target in targets)
+        {
+            GameObject clone = (GameObject)GameObject.Instantiate(objectToPlace, null);
+            clone.name = clone.name.Split('(')[0] + "_" + num;
+            clone.transform.position = target.transform.position;
+            if(index==1)
+            {
+                DestroyImmediate(target.gameObject);
+            }
+            num++;
+        }
     }
 
     void CreatMap()//创建行列地图

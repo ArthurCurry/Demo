@@ -123,6 +123,12 @@ public class PlayerMovements : MonoBehaviour {
                 //EyesMonster em = monster.GetComponent<EyesMonster>();
                 //em.Move();
                 monster.GetComponent<Rigidbody2D>().angularVelocity = 90 / (length / moveSpeed);
+                if (length != float.PositiveInfinity)
+                    monster.GetComponent<EyesMonster>().inPosition = false;
+                else if (length == float.PositiveInfinity)
+                {
+                    monster.GetComponent<EyesMonster>().inPosition = true;
+                }
             }
         }
     }

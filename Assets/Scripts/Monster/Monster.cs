@@ -26,4 +26,6 @@ public abstract class Monster : MonoBehaviour {
     public abstract void Attack();
 
     public abstract void Move();
+
+    protected abstract void ShowAttackRange();
 }
