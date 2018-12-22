@@ -7,6 +7,8 @@ public class EyesMonster : Monster {
     private float rotateSpeed;
     public  bool inPosition;//旋转到位
     private List<Transform> attackRangeUnit = new List<Transform>();
+    private List<Transform> tempUnit = new List<Transform>();
+    private LineRenderer line;
     [SerializeField]
     private int attackRange;
 
@@ -23,9 +25,8 @@ public class EyesMonster : Monster {
     // Update is called once per frame
     void Update()
     {
-        Judge();
-        //Move();
-        //Debug.Log(attackRangeUnit.Count);
+        //Judge();
+        
         ShowAttackRange();
     }
 
@@ -96,39 +97,42 @@ public class EyesMonster : Monster {
         //throw new System.NotImplementedException();
         if (inPosition)
         {
-            //Debug.Log(attackRangeUnit.Count);
-            Debug.DrawLine(transform.position+ transform.right * HashID.unitLength, transform.position + transform.right * attackRange * HashID.unitLength,Color.red);
-            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position+transform.right*HashID.unitLength, transform.position + transform.right * attackRange * HashID.unitLength, LayerMask.GetMask(HashID.Layer_Replaceable));
-            //Debug.Log(hits.Length);
-            for (int i = 0; i < hits.Length; i++)
+            Vector3 end;
+            Vector3 start=transform.position+ transform.right * HashID.unitLength*0.5f;
+            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position + transform.right * HashID.unitLength, transform.position + transform.right * attackRange * HashID.unitLength, LayerMask.GetMask(HashID.Layer_Replaceable));
+            if (hits.Length > 0)
+                end = hits[hits.Length - 1].transform.position + transform.right * HashID.unitLength*0.5f;
+            else
+                end = transform.position+0.5f*HashID.unitLength*transform.right;
+            foreach(RaycastHit2D hit in hits)
             {
-                if (hits[i].transform.tag.Equals(HashID.Tag_Map))
+                if (hit.transform.tag.Equals(HashID.Tag_Map)||hit.transform.tag.Equals("Void")||hit.transform.tag.Equals(HashID.ENEMY))
                 {
-                    if (!hits[i].transform.gameObject.name.Contains("obstacle"))
-                    { 
-                            //Debug.Log(hits[i].transform.name);
-                            if(!attackRangeUnit.Contains(hits[i].transform))
-                                attackRangeUnit.Add(hits[i].transform);
-                            hits[i].transform.GetComponent<SpriteRenderer>().color= Color.red;
+                    if (hit.transform.gameObject.name.Contains(this.gameObject.name.Split('_')[1]))
+                    {
+                        start = hit.transform.position+transform.right*0.5f*HashID.unitLength;
+                        //Debug.Log(hits[i].transform.name);
+                        continue;
                     }
-                    
                 }
                 else
-                    break;
+                {
+                    end = hit.transform.position - 0.5f * HashID.unitLength * transform.right;
+                }
             }
+            line = GetComponent<LineRenderer>();
+            line.enabled = true;
+            line.SetPositions(new Vector3[2] { start, end});
+            line.startColor = new Color(1,0,0,0.5f);
+            line.endColor = new Color(1, 0, 0, 0.5f);
+            line.startWidth = 1.28f;
+            line.endWidth = 1.28f;
+            
         }
         else
         {
-            if(attackRangeUnit.Count>0)
-            {
-                
-                foreach(Transform unit in attackRangeUnit)
-                {
-                    //Debug.Log("change");
-                    transform.GetComponent<SpriteRenderer>().color = Color.white;
-                }
-                attackRangeUnit.Clear();
-            }
+            GetComponent<LineRenderer>().enabled = false;
         }
     }
+
 }

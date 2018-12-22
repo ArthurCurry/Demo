@@ -55,6 +55,7 @@ public class PlayerMovements : MonoBehaviour {
 
     public void MoveTowards(Transform target)//控制向特定方向移动
     {
+        //Debug.Log(target);
         if (transform.position != target.position)
         {
             Vector2 pos = target.position;
@@ -62,13 +63,13 @@ public class PlayerMovements : MonoBehaviour {
             isMoving = true;
             //rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
             rb.velocity = (target.position - transform.position).normalized * moveSpeed;
-            if ((transform.position - target.position).magnitude < 0.1)
+            if ((transform.position - target.position).magnitude < 0.01f)
                 transform.position = target.transform.position;
         }
         else
         {
-            targetFloor = this.transform;
-            GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
+            if(GameObject.FindWithTag(HashID.FOLLOWING))
+                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
             rb.velocity = Vector2.zero;
             targetArrived = true;
             UpdateMonsters(float.PositiveInfinity);
