@@ -20,7 +20,7 @@ public class Portals : MonoBehaviour {
 
     private void Judge()//传送
     {
-        if ((player.transform.position == this.transform.position)&&Input.GetButtonDown("Jump"))
+        if ((player.transform.position == this.transform.position)&&Input.GetKeyDown(KeyCode.E))
         {
             //Debug.Log(other.transform.position);
             StartCoroutine("Move");

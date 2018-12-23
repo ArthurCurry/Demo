@@ -68,6 +68,7 @@ public class PlayerMovements : MonoBehaviour {
         }
         else
         {
+            targetFloor = this.transform;
             if(GameObject.FindWithTag(HashID.FOLLOWING))
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
             rb.velocity = Vector2.zero;
