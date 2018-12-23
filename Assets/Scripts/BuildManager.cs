@@ -63,6 +63,7 @@ public class BuildManager {
     {
         InitPlayer();
         InitMap("Level_1-1");
+        MonsterManager.InitMonster();
     }
 
     public static void InitPlayer()//初始化玩家

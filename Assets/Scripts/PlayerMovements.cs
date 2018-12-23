@@ -9,6 +9,7 @@ public class PlayerMovements : MonoBehaviour {
     public bool targetArrived;
     private Dictionary<KeyCode, Vector3> directions=new Dictionary<KeyCode, Vector3>();
     private Rigidbody2D rb;
+    [SerializeField]
     private Transform targetFloor;
     public bool isDead;
 
@@ -37,13 +38,23 @@ public class PlayerMovements : MonoBehaviour {
         //Debug.Log(rb.velocity);
         if (isDead)
             Reborn();
+        //Move();
+    }
+
+    void LateUpdate()
+    {
+        if ((transform.position - targetFloor.position).magnitude < 0.001f)
+        {
+            transform.position = targetFloor.transform.position;
+            rb.velocity = Vector2.zero;
+        }
     }
 
     void Move()//移动
     {
         if(Input.anyKey&&!isMoving)
         {
-            KeyCode key=KeyCode.Space;
+            KeyCode key = KeyCode.None;
             Event e = Event.current;
             if (e.isKey)
                 key = e.keyCode;
@@ -60,11 +71,12 @@ public class PlayerMovements : MonoBehaviour {
         {
             Vector2 pos = target.position;
             targetArrived = false;
-            isMoving = true;
             //rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
             rb.velocity = (target.position - transform.position).normalized * moveSpeed;
-            if ((transform.position - target.position).magnitude < 0.01f)
-                transform.position = target.transform.position;
+            //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
+            //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
+            isMoving = true;
+            
         }
         else
         {
@@ -73,11 +85,9 @@ public class PlayerMovements : MonoBehaviour {
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
             rb.velocity = Vector2.zero;
             targetArrived = true;
-            UpdateMonsters(float.PositiveInfinity);
-            //Debug.Log(targetArrived);
+            MonsterManager.UpdateMonsters(float.PositiveInfinity);
             isMoving = false;
         }
-        //if(GameObject.FindWithTag(HashID.FOLLOWING))
         
     }
 
@@ -103,46 +113,33 @@ public class PlayerMovements : MonoBehaviour {
     Transform Detect(KeyCode key)
     {
         Vector3 direction = directions[key];
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * unitSize);
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 1.28f,LayerMask.GetMask(HashID.Layer_Replaceable));
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
             //Debug.Log(hits[1].transform.name);
             if (GameObject.FindWithTag(HashID.FOLLOWING))
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
-            UpdateMonsters((hits[1].transform.position-transform.position).magnitude);
+            MonsterManager.UpdateMonsters((hits[1].transform.position-transform.position).magnitude);
             return hits[1].transform;
         }
         else return this.transform;
     }
 
-    void UpdateMonsters(float length)
-    {
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag(HashID.ENEMY);
-        foreach(GameObject monster in monsters)
-        {
-            if(monster.name.Contains(HashID.ENEMY_EYE))
-            {
-                //EyesMonster em = monster.GetComponent<EyesMonster>();
-                //em.Move();
-                monster.GetComponent<Rigidbody2D>().angularVelocity = 90 / (length / moveSpeed);
-                if (length != float.PositiveInfinity)
-                    monster.GetComponent<EyesMonster>().inPosition = false;
-                else if (length == float.PositiveInfinity)
-                {
-                    monster.GetComponent<EyesMonster>().inPosition = true;
-                }
-            }
-        }
-    }
 
     void Reborn()//重生
     {
         rb.velocity = Vector2.zero;
         targetFloor = GameObject.Find(HashID.StartPoint).transform;
         transform.position = targetFloor.transform.position;
+        Camera.main.transform.position = this.transform.position;
         targetArrived = true;
         isMoving = false;
         isDead = false;
+    }
+
+    void StopAt(Transform target)
+    {
+        
     }
 }
  

@@ -27,7 +27,8 @@ public class CameraController : MonoBehaviour {
     void FollowPlayer()//色相头跟随
     {
         Vector3 currentV=Vector3.zero;
-        Vector3 targetPos = player.transform.position+dis;
+        Vector3 targetPos = player.transform.position;
+        targetPos.z += dis.z;
         if (PlayerOutOfView())
                 dampTime = 0.1f;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
