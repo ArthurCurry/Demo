@@ -9,14 +9,14 @@ public class EyeStatue : MonoBehaviour {
     private bool isRotating;//是否在转动
     private Vector3 targetRotation;
     [SerializeField]
-    private float rotateSpeed;
+    private float rotateTime;
     [SerializeField]
     private GameObject eyeball;
 
 	// Use this for initialization
 	void Start () {
         positions = new Vector3[] { transform.position + HashID.unitLength * transform.right, transform.position + HashID.unitLength*transform.up
-        ,transform.position+HashID.unitLength*-transform.right,transform.position+HashID.unitLength*transform.up};
+        ,transform.position+HashID.unitLength*-transform.right,transform.position+HashID.unitLength*-transform.up};
         player = GameObject.FindWithTag(HashID.PLAYER);
         isRotating = false;
     }
@@ -65,11 +65,13 @@ public class EyeStatue : MonoBehaviour {
     IEnumerator RotateEye(GameObject target)
     {
         Debug.Log("start");
-        while (target.transform.position.z != targetRotation.z)
+        int i = 0;
+        float count = Mathf.Abs(90f) / 180f * rotateTime;
+        float clip = 90f / count;
+        while(i<(int)count)
         {
-            Debug.Log("rotating");
-            target.transform.Rotate(new Vector3(0, 0,  Time.deltaTime * rotateSpeed));
-            isRotating = true;
+            target.transform.Rotate(new Vector3(0, 0, clip));
+            i++;
             yield return null;
         }
         isRotating = false;
