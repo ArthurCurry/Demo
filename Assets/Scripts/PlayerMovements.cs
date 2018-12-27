@@ -43,11 +43,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void LateUpdate()
     {
-        if ((transform.position - targetFloor.position).magnitude < 0.001f)
-        {
-            transform.position = targetFloor.transform.position;
-            rb.velocity = Vector2.zero;
-        }
+        
     }
 
     void Move()//移动
@@ -76,7 +72,7 @@ public class PlayerMovements : MonoBehaviour {
             //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
             //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
             isMoving = true;
-            
+            StopAt(targetFloor);
         }
         else
         {
@@ -139,7 +135,11 @@ public class PlayerMovements : MonoBehaviour {
 
     void StopAt(Transform target)
     {
-        
+        if ((transform.position - target.position).magnitude < 0.001f)
+        {
+            transform.position = target.transform.position;
+            rb.velocity = Vector2.zero;
+        }
     }
 }
  
