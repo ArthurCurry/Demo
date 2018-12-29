@@ -15,8 +15,8 @@ public class EyeStatue : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        positions = new Vector3[] { transform.position + HashID.unitLength * transform.right, transform.position + HashID.unitLength*transform.up
-        ,transform.position+HashID.unitLength*-transform.right,transform.position+HashID.unitLength*-transform.up};
+        positions = new Vector3[] { transform.position + HashID.unitLength * Vector3.right, transform.position + HashID.unitLength*Vector3.up
+        ,transform.position+HashID.unitLength*Vector3.left,transform.position+HashID.unitLength*Vector3.down};
         player = GameObject.FindWithTag(HashID.PLAYER);
         isRotating = false;
     }

@@ -30,7 +30,9 @@ public class CameraController : MonoBehaviour {
         Vector3 targetPos = player.transform.position;
         targetPos.z += dis.z;
         if (PlayerOutOfView())
-                dampTime = 0.1f;
+            dampTime = 0.1f;
+        else
+            dampTime = 0.2f;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
     }
 
@@ -42,5 +44,8 @@ public class CameraController : MonoBehaviour {
         return false;
     }
 
-   
+    private void BackgroundInView()//避免背景色出现在屏幕中
+    {
+
+    }
 }

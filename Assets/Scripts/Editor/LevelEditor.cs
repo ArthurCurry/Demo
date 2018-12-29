@@ -141,7 +141,7 @@ public class LevelEditor:EditorWindow{
         horizontal= EditorGUILayout.IntField("横", horizontal);
         vertical = EditorGUILayout.IntField("竖", vertical);
         //EditorGUILayout.EndHorizontal();
-        if(GUILayout.Button("创建地图"))
+        if(GUILayout.Button("创建格"))
         {
             List<GameObject> roads = new List<GameObject>();
             GameObject father = new GameObject(HashID.Map_Roads);
