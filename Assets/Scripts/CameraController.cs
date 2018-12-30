@@ -44,13 +44,16 @@ public class CameraController : MonoBehaviour {
     {
         currentV=Vector3.zero;
         targetPos = player.transform.position;
-        targetPos.z += dis.z;
         if (PlayerOutOfView() && !bgInView)
             dampTime = 0.1f;
         else
             dampTime = 0.2f;
-        bgInView =BackgroundInView();
+        //bgInView =BackgroundInView();
+        targetPos.z += dis.z;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
+        if(mapEdges.Length>1)
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapLowerlf.position.x + (width - HashID.unitLength) / 2, mapUpperrt.position.x - (width / 2 - HashID.unitLength)),
+            Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
     }
 
     bool PlayerOutOfView()//判断角色是否即将越出视野
@@ -63,10 +66,7 @@ public class CameraController : MonoBehaviour {
 
     private bool BackgroundInView()//避免背景色出现在屏幕中
     {
-        Vector2 llCorner = Camera.main.WorldToScreenPoint(mapLowerlf.position);
-        Vector2 urCorner = Camera.main.WorldToScreenPoint(mapUpperrt.position);
-        //Debug.Log(llCorner);
-        if((transform.position.x-mapLowerlf.position.x)<(width-HashID.unitLength)/2)
+        if((transform.position.x-mapLowerlf.position.x)<=(width-HashID.unitLength)/2)
         {
             Vector3 temp = this.transform.position;
             temp.x = mapLowerlf.position.x + (width - HashID.unitLength) / 2;
@@ -74,7 +74,7 @@ public class CameraController : MonoBehaviour {
             targetPos.x = transform.position.x;
             return true;
         }
-        if((transform.position.y - mapLowerlf.position.y) < (height - HashID.unitLength) / 2)
+        if((transform.position.y - mapLowerlf.position.y) <= (height - HashID.unitLength) / 2)
         {
             Vector3 temp = this.transform.position;
             temp.y = mapLowerlf.position.y + (height - HashID.unitLength) / 2;
@@ -82,7 +82,7 @@ public class CameraController : MonoBehaviour {
             targetPos.y = transform.position.y;
             return true;
         }
-        if((mapUpperrt.position.x-transform.position.x)< (width - HashID.unitLength) / 2)
+        if((mapUpperrt.position.x-transform.position.x)<= (width - HashID.unitLength) / 2)
         {
             Vector3 temp = this.transform.position;
             temp.x = mapUpperrt.position.x - (width - HashID.unitLength) / 2;
@@ -90,10 +90,10 @@ public class CameraController : MonoBehaviour {
             targetPos.x = transform.position.x;
             return true;
         }
-        if ((mapUpperrt.position.y-transform.position.y)< (height - HashID.unitLength) / 2)
+        if ((mapUpperrt.position.y-transform.position.y)<=(height - HashID.unitLength) / 2)
         {
             Vector3 temp = this.transform.position;
-            temp.x = mapUpperrt.position.y - (height - HashID.unitLength) / 2;
+            temp.y = mapUpperrt.position.y - (height - HashID.unitLength) / 2;
             this.transform.position = temp;
             targetPos.y = transform.position.y;
             return true;
