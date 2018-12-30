@@ -33,7 +33,7 @@ public class EyeStatue : MonoBehaviour {
                 StartCoroutine(RotateEye(eyeball));
             }
         }
-        Debug.Log(targetRotation);
+        //Debug.Log(targetRotation);
 	}
 
     private bool Judge()

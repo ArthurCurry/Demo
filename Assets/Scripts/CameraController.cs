@@ -7,16 +7,27 @@ public class CameraController : MonoBehaviour {
     private GameObject player;
     private PlayerMovements playerMov;
     public float dampTime;
-    public List<GameObject> mapEdges;
+    public Transform[] mapEdges;
+    private Transform mapLowerlf;//地图左下
+    private Transform mapUpperrt;//地图右上
+    private float width;//屏幕实际长度和宽度
+    private float height;
+    private bool lockX;
+    private bool lockY;
+    private Vector3 targetPos;
+    private Vector3 currentV;
+    [SerializeField]
+    private bool bgInView;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         player = GameObject.FindWithTag("Player");
         Vector3 position = player.transform.position;
         position.z = transform.position.z;
         transform.position = position;
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
+        //DetectEdges();
 	}
 	
 	// Update is called once per frame
@@ -24,15 +35,21 @@ public class CameraController : MonoBehaviour {
         FollowPlayer();
 	}
 
+    void LateUpdate()
+    {
+
+    }
+
     void FollowPlayer()//色相头跟随
     {
-        Vector3 currentV=Vector3.zero;
-        Vector3 targetPos = player.transform.position;
+        currentV=Vector3.zero;
+        targetPos = player.transform.position;
         targetPos.z += dis.z;
-        if (PlayerOutOfView())
+        if (PlayerOutOfView() && !bgInView)
             dampTime = 0.1f;
         else
             dampTime = 0.2f;
+        bgInView =BackgroundInView();
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
     }
 
@@ -44,8 +61,67 @@ public class CameraController : MonoBehaviour {
         return false;
     }
 
-    private void BackgroundInView()//避免背景色出现在屏幕中
+    private bool BackgroundInView()//避免背景色出现在屏幕中
     {
+        Vector2 llCorner = Camera.main.WorldToScreenPoint(mapLowerlf.position);
+        Vector2 urCorner = Camera.main.WorldToScreenPoint(mapUpperrt.position);
+        //Debug.Log(llCorner);
+        if((transform.position.x-mapLowerlf.position.x)<(width-HashID.unitLength)/2)
+        {
+            Vector3 temp = this.transform.position;
+            temp.x = mapLowerlf.position.x + (width - HashID.unitLength) / 2;
+            this.transform.position = temp;
+            targetPos.x = transform.position.x;
+            return true;
+        }
+        if((transform.position.y - mapLowerlf.position.y) < (height - HashID.unitLength) / 2)
+        {
+            Vector3 temp = this.transform.position;
+            temp.y = mapLowerlf.position.y + (height - HashID.unitLength) / 2;
+            this.transform.position = temp;
+            targetPos.y = transform.position.y;
+            return true;
+        }
+        if((mapUpperrt.position.x-transform.position.x)< (width - HashID.unitLength) / 2)
+        {
+            Vector3 temp = this.transform.position;
+            temp.x = mapUpperrt.position.x - (width - HashID.unitLength) / 2;
+            this.transform.position = temp;
+            targetPos.x = transform.position.x;
+            return true;
+        }
+        if ((mapUpperrt.position.y-transform.position.y)< (height - HashID.unitLength) / 2)
+        {
+            Vector3 temp = this.transform.position;
+            temp.x = mapUpperrt.position.y - (height - HashID.unitLength) / 2;
+            this.transform.position = temp;
+            targetPos.y = transform.position.y;
+            return true;
+        }
+        return false;
+    }
 
+    public void DetectEdges()
+    {
+        mapEdges = GameObject.Find(HashID.Edges).GetComponentsInChildren<Transform>();
+        foreach(Transform edge in mapEdges)
+        {
+            if(!edge.name.Equals(HashID.Edges))
+            {
+                Debug.Log(edge.name);
+                if (edge.name.Contains("left"))
+                    mapLowerlf = edge;
+                else if (edge.name.Contains("right"))
+                    mapUpperrt = edge;
+            }
+        }
+        Vector3 cornerPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, Mathf.Abs(Camera.main.transform.position.z)));
+        float leftBorder = Camera.main.transform.position.x - (cornerPos.x - Camera.main.transform.position.x);
+        float rightBorder = cornerPos.x;
+        float topBorder = cornerPos.y;
+        float downBorder = Camera.main.transform.position.y - (cornerPos.y - Camera.main.transform.position.y);
+        width = rightBorder - leftBorder;
+        height = topBorder - downBorder;
+        Debug.Log(width + "  " + height);
     }
 }
