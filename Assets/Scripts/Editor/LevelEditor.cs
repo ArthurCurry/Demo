@@ -125,8 +125,13 @@ public class LevelEditor:EditorWindow{
         foreach (Transform target in targets)
         {
             GameObject clone = (GameObject)GameObject.Instantiate(objectToPlace, null);
-            clone.name = clone.name.Split('(')[0] + "_" + num;
+            if(!clone.name.Contains("start")&&!clone.name.Contains("end"))
+                clone.name = clone.name.Split('(')[0] + "_" + num;
             clone.transform.position = target.transform.position;
+            if (clone.name.Contains("void"))
+                clone.transform.parent = GameObject.Find("voids").transform;
+            if (clone.name.Contains("obstacle"))
+                clone.transform.parent = GameObject.Find("obstacles").transform;
             if(index==1)
             {
                 DestroyImmediate(target.gameObject);
@@ -149,7 +154,7 @@ public class LevelEditor:EditorWindow{
             GameObject origin = GameObject.Instantiate(temp, Vector3.zero, temp.transform.rotation);
             origin.transform.parent = father.transform;
             origin.name = "floor";
-            Destroy(temp);
+            //DestroyImmediate(temp);
             roads.Add(origin);
             for(int i =0;i<horizontal-1;i++)
             {
