@@ -108,7 +108,7 @@ public class CameraController : MonoBehaviour {
         {
             if(!edge.name.Equals(HashID.Edges))
             {
-                Debug.Log(edge.name);
+                //Debug.Log(edge.name);
                 if (edge.name.Contains("left"))
                     mapLowerlf = edge;
                 else if (edge.name.Contains("right"))
@@ -122,6 +122,6 @@ public class CameraController : MonoBehaviour {
         float downBorder = Camera.main.transform.position.y - (cornerPos.y - Camera.main.transform.position.y);
         width = rightBorder - leftBorder;
         height = topBorder - downBorder;
-        Debug.Log(width + "  " + height);
+        //Debug.Log(width + "  " + height);
     }
 }
