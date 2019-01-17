@@ -120,6 +120,10 @@ public class EyesMonster : Monster {
                     end = hit.transform.position - 0.5f * HashID.unitLength * transform.right;
                 }
             }
+            Vector3 direction = end - start;
+            Vector3 playerDir = player.transform.position - this.transform.position;
+            if (Vector3.Angle(direction, playerDir) < 1f)
+                Attack();
             line = GetComponent<LineRenderer>();
             line.enabled = true;
             line.SetPositions(new Vector3[2] { start, end});
