@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow.cs" />
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow_Item.cs" />
      <Compile Include="Assets\Scripts\Talk.cs" />
+     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
      <Compile Include="Assets\Scripts\UIOnClick.cs" />
      <Compile Include="Assets\Scripts\XmlReader.cs" />
      <None Include="Assets\Resources\剧情对话.xml" />
