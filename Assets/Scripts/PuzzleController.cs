@@ -53,6 +53,7 @@ public class PuzzleController : MonoBehaviour {
                 transform.position = hit.transform.position;
                 transform.parent = father.transform;
                 transform.gameObject.layer = LayerMask.NameToLayer("Replaceable");
+                transform.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
                 transform.GetComponent<SpriteRenderer>().sortingOrder = 0;
                 Destroy(hit.transform.gameObject);
                 pickable = false;
