@@ -8,9 +8,8 @@ public class CtrlManager{
     public void RigisterCtrls()
     {
         
-        ctrls.Add(PanelID.BagPanel,new BagCtrl());
-
-
+        //ctrls.Add(PanelID.BagPanel,new BagCtrl());
+        ctrls.Add(PanelID.DialogPanel, new DialogCtrl());
 
         this.InitCtrls();
     }
@@ -28,11 +27,15 @@ public class CtrlManager{
             ctrl.Init();
         }
     }
+
     public UICtrl GetCtrl(string name)
     {
         UICtrl ctrl = ctrls[name];
         return ctrl;
     }
 
-
+    public T GetT <T>(string name) where T:UICtrl
+    {
+        return (T)ctrls[name];
+    }
 }

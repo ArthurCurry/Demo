@@ -41,16 +41,19 @@ public class PlayerMovements : MonoBehaviour {
 
     void Move()//移动
     {
-        if(Input.anyKey&&!isMoving)
+        if (!BuildManager.IsCG)
         {
-            KeyCode key=KeyCode.Space;
-            Event e = Event.current;
-            if (e.isKey)
-                key = e.keyCode;
-            if (directions.ContainsKey(key))
-                targetFloor=Detect(key);
+            if (Input.anyKey && !isMoving)
+            {
+                KeyCode key = KeyCode.Space;
+                Event e = Event.current;
+                if (e.isKey)
+                    key = e.keyCode;
+                if (directions.ContainsKey(key))
+                    targetFloor = Detect(key);
+            }
+            MoveTowards(targetFloor);
         }
-        MoveTowards(targetFloor);
     }
 
     public void MoveTowards(Transform target)//控制向特定方向移动
@@ -62,7 +65,7 @@ public class PlayerMovements : MonoBehaviour {
             isMoving = true;
             //rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
             rb.velocity = (target.position - transform.position).normalized * moveSpeed;
-            if ((transform.position - target.position).magnitude < 0.1)
+            if ((transform.position - target.position).magnitude < 0.0001)
                 transform.position = target.transform.position;
         }
         else

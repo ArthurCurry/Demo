@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Patrol : Monster
 {
+    private Rigidbody2D rg;
+    private PlayerMovements pm;
+
     [SerializeField]
     private Dictionary<int, GameObject> patrols;
     private Transform stage;
@@ -34,6 +37,8 @@ public class Patrol : Monster
         finished = true;
         isTime = true;
         lateTime = 0;
+        pm = GameObject.FindWithTag(HashID.PLAYER).GetComponent<PlayerMovements>();
+        rg = this.GetComponent<Rigidbody2D>();
     }
 
     public void Creat()
@@ -178,10 +183,11 @@ public class Patrol : Monster
                 {
                     while (transform.position != hits[1].transform.position)
                     {
+                        //rg.velocity = (hits[1].transform.position - transform.position).normalized * pm.moveSpeed;
                         transform.position = Vector3.MoveTowards(transform.position, hits[1].transform.position, 0.01f * Time.deltaTime);
+                        //transform.position = Vector2.Lerp(transform.position, hits[1].transform.position, 50000f * Time.deltaTime);
                         if ((transform.position - hits[1].transform.position).magnitude < 0.3)
                             transform.position = hits[1].transform.position;
-                        //this.transform.Translate(transform.right * 1f*Time.deltaTime);
                     }
                     if (tagName.Equals("PatrolA"))
                     {
@@ -230,6 +236,11 @@ public class Patrol : Monster
         }
         
     }  //自行移动
+
+    public void Stop()
+    {
+        rg.velocity = Vector2.zero;
+    }
 
     protected override void ShowAttackRange()
     {

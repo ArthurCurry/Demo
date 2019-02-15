@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         FollowPlayer();
 	}
 
@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour {
         Vector3 currentV=Vector3.zero;
         Vector3 targetPos = player.transform.position+dis;
         if (PlayerOutOfView())
-                dampTime = 0.1f;
+                dampTime = 0.05f;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, Mathf.Infinity);
     }
 
