@@ -9,12 +9,14 @@ public class EyesMonster : Monster {
     private List<Transform> attackRangeUnit = new List<Transform>();
     private List<Transform> tempUnit = new List<Transform>();
     private LineRenderer line;
+    private Rigidbody2D rb;
     [SerializeField]
     private int attackRange;
 
     // Use this for initialization
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         latePos = GameObject.FindWithTag(HashID .PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID .PLAYER);
         playerMovements = player.GetComponent<PlayerMovements>();
@@ -23,16 +25,20 @@ public class EyesMonster : Monster {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //Judge();
-        
-        ShowAttackRange();
-    }
 
     void LateUpdate()
     {
-        //ShowAttackRange();
+        if (playerMovements.isMoving == true)
+        {
+            rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
+            inPosition = false;
+        }
+        else
+        {
+            rb.angularVelocity = 0f;
+            inPosition = true;
+        }
+        ShowAttackRange();
     }
 
     public override void Attack()
@@ -79,6 +85,7 @@ public class EyesMonster : Monster {
             //transform.Rotate(0, 0, 90 * Time.deltaTime*rotateSpeed);
             yield return null;
         }
+        inPosition = true;
         StopAllCoroutines();
     }
 
@@ -92,7 +99,7 @@ public class EyesMonster : Monster {
 
     }
 
-    protected override void ShowAttackRange()
+    protected override void ShowAttackRange()//显示攻击范围和攻击
     {
         //throw new System.NotImplementedException();
         if (inPosition)

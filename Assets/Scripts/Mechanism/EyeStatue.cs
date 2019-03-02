@@ -39,7 +39,7 @@ public class EyeStatue : MonoBehaviour {
                 StartCoroutine(RotateEye(eyeball));
             }
         }
-        Debug.Log(Mathf.Abs(eyeball.transform.rotation.eulerAngles.z - targetRot));
+        //Debug.Log(Mathf.Abs(eyeball.transform.rotation.eulerAngles.z - targetRot));
         if (Mathf.Abs(eyeball.transform.rotation.eulerAngles.z - targetRot) < 0.1f && !inposition)
         {
             inposition = true;

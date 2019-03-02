@@ -36,9 +36,9 @@ public class PlayerMovements : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Debug.Log(rb.velocity);
+        Move();
         if (isDead)
             Reborn();
-        //Move();
     }
 
     void LateUpdate()
@@ -51,9 +51,17 @@ public class PlayerMovements : MonoBehaviour {
         if(Input.anyKey&&!isMoving)
         {
             KeyCode key = KeyCode.None;
-            Event e = Event.current;
+            /*Event e = Event.current;
             if (e.isKey)
-                key = e.keyCode;
+                key = e.keyCode;*/
+            foreach(KeyCode code in directions.Keys)
+            {
+                if (Input.GetKey(code))
+                {
+                    key = code;
+                    break;
+                }
+            }
             if (directions.ContainsKey(key))
                 targetFloor=Detect(key);
         }
@@ -81,7 +89,7 @@ public class PlayerMovements : MonoBehaviour {
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
             rb.velocity = Vector2.zero;
             targetArrived = true;
-            MonsterManager.UpdateMonsters(float.PositiveInfinity);
+            //MonsterManager.UpdateMonsters(float.PositiveInfinity);
             isMoving = false;
         }
         
@@ -89,7 +97,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void OnGUI()
     {
-        Move();
+        //Move();
     }
 
 
