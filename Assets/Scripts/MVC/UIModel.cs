@@ -4,9 +4,6 @@ using UnityEngine;
 
 public abstract class UIModel {
 
-
-
     public abstract void InitModel();
-
 
 }

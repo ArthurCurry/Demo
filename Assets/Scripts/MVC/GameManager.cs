@@ -26,7 +26,7 @@ public class GameManager:MonoBehaviour {
 
     }
     // Use this for initialization
-    void Start () {
+    void Awake () {
         Init();
 	}
 	
@@ -38,6 +38,7 @@ public class GameManager:MonoBehaviour {
     void Init()//初始化
     {
         BuildManager.InitCG("CG1");
+        //BuildManager.Init();
     }
 
 }

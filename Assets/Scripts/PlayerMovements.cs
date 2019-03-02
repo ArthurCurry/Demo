@@ -48,7 +48,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void Move()//移动
     {
-        if(Input.anyKey&&!isMoving)
+        if (!BuildManager.IsCG)
         {
             KeyCode key = KeyCode.None;
             /*Event e = Event.current;
@@ -65,7 +65,6 @@ public class PlayerMovements : MonoBehaviour {
             if (directions.ContainsKey(key))
                 targetFloor=Detect(key);
         }
-        MoveTowards(targetFloor);
     }
 
     public void MoveTowards(Transform target)//控制向特定方向移动

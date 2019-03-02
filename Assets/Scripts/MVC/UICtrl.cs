@@ -4,11 +4,7 @@ using UnityEngine;
 
 public abstract class UICtrl {
 
-
-
     public abstract void Init();
-
-
 
     protected UIView _view; 
     protected UIModel _model;
@@ -22,7 +18,8 @@ public abstract class UICtrl {
 
     public void Update()
     {
-        this._view.Update();
+        if (this._view != null)
+            this._view.Update();
         this.OnUpdate();
         
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Talk : MonoBehaviour {
-    private float distance;
     private GameObject player;
     private static bool hasTalk;
     public static bool HasTalk

@@ -8,7 +8,8 @@ public class ModelManager {
 
     public void RigisterModels()
     {
-        models.Add(PanelID.BagPanel,new BagModel());
+        //models.Add(PanelID.BagPanel,new BagModel());
+        models.Add(PanelID.DialogPanel, new DialogModel());
         this.InitModels();
     }
 
