@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
      <Compile Include="Assets\Scripts\Monster\EyesMonster.cs" />
+     <Compile Include="Assets\Scripts\Monster\FixedPatrol.cs" />
      <Compile Include="Assets\Scripts\Monster\Following.cs" />
      <Compile Include="Assets\Scripts\Monster\Monster.cs" />
      <Compile Include="Assets\Scripts\Monster\MonsterManager.cs" />
