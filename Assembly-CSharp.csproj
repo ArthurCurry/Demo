@@ -66,11 +66,13 @@
      <Compile Include="Assets\Scripts\Monster\Straight.cs" />
      <Compile Include="Assets\Scripts\MVC\CtrlManager.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\BagCtrl.cs" />
+     <Compile Include="Assets\Scripts\MVC\Ctrls\DialogCtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\GameManager.cs" />
      <Compile Include="Assets\Scripts\MVC\ModelManager.cs" />
      <Compile Include="Assets\Scripts\MVC\Models\BagModel.cs" />
      <Compile Include="Assets\Scripts\MVC\Models\Collector.cs" />
      <Compile Include="Assets\Scripts\MVC\Models\Consumable.cs" />
+     <Compile Include="Assets\Scripts\MVC\Models\DialogModel.cs" />
      <Compile Include="Assets\Scripts\MVC\Models\Item.cs" />
      <Compile Include="Assets\Scripts\MVC\PanelID.cs" />
      <Compile Include="Assets\Scripts\MVC\UIConst.cs" />
@@ -79,6 +81,7 @@
      <Compile Include="Assets\Scripts\MVC\UIModel.cs" />
      <Compile Include="Assets\Scripts\MVC\UIView.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\BagView.cs" />
+     <Compile Include="Assets\Scripts\MVC\Views\DialogView.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scripts\Portals.cs" />
      <Compile Include="Assets\Scripts\PuzzleController.cs" />
