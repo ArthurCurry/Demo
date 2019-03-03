@@ -41,7 +41,7 @@ public class EyesMonster : Monster {
         
     }
 
-    public override void Judge()
+    /*public override void Judge()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);//0.626一个差不多
         Vector3 towards = player.transform.position - transform.position;
@@ -51,6 +51,11 @@ public class EyesMonster : Monster {
             if(playerMovements.targetArrived)
                 Attack();
         }
+    }*/
+
+    public override void Judge()
+    {
+        
     }
 
     public override void Move()
@@ -122,7 +127,7 @@ public class EyesMonster : Monster {
             }
             Vector3 direction = end - start;
             Vector3 playerDir = player.transform.position - this.transform.position;
-            if (Vector3.Angle(direction, playerDir) < 1f)
+            if (Vector3.Angle(direction, playerDir) < 1f && direction.magnitude >= playerDir.magnitude)
                 Attack();
             line = GetComponent<LineRenderer>();
             line.enabled = true;

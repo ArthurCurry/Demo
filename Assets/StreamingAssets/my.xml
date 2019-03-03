@@ -1,0 +1,61 @@
+<gameObjects>
+  <scenes name="Assets/Scenes/Level_1.unity">
+    <gameObjects name="GameManager" asset="GameManager.prefab">
+      <transform>
+        <position>
+          <x>-0.8524247</x>
+          <y>7.825009</y>
+          <z>-0.1015625</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>1</x>
+          <y>1</y>
+          <z>1</z>
+        </scale>
+      </transform>
+    </gameObjects>
+    <gameObjects name="Main Camera" asset="Main Camera.prefab">
+      <transform>
+        <position>
+          <x>16</x>
+          <y>38.4</y>
+          <z>-10</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>1</x>
+          <y>1</y>
+          <z>1</z>
+        </scale>
+      </transform>
+    </gameObjects>
+    <gameObjects name="Canvas" asset="Canvas.prefab">
+      <transform>
+        <position>
+          <x>16</x>
+          <y>38.4</y>
+          <z>90</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>0.02597403</x>
+          <y>0.02597403</y>
+          <z>0.02597403</z>
+        </scale>
+      </transform>
+    </gameObjects>
+  </scenes>
+</gameObjects>

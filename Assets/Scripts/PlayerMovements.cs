@@ -38,7 +38,6 @@ public class PlayerMovements : MonoBehaviour {
         //Debug.Log(rb.velocity);
         if (isDead)
             Reborn();
-        //Move();
     }
 
     void LateUpdate()
@@ -48,15 +47,16 @@ public class PlayerMovements : MonoBehaviour {
 
     void Move()//移动
     {
-        if (!BuildManager.IsCG)
+        if (Input.anyKey && !isMoving)
         {
             KeyCode key = KeyCode.None;
             Event e = Event.current;
             if (e.isKey)
                 key = e.keyCode;
             if (directions.ContainsKey(key))
-                targetFloor=Detect(key);
+                targetFloor = Detect(key);
         }
+        MoveTowards(targetFloor);
     }
 
     public void MoveTowards(Transform target)//控制向特定方向移动
