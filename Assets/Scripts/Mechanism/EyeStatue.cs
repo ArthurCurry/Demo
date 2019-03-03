@@ -12,9 +12,15 @@ public class EyeStatue : MonoBehaviour {
     private float rotateTime;
     [SerializeField]
     private GameObject eyeball;
+    [SerializeField]
+    private float targetRot;//得到道具所需要的旋转位置
+    [SerializeField]
+    private Tool targetTool;//机关对应的道具，如果有的话
+    public bool inposition;
 
 	// Use this for initialization
 	void Start () {
+        inposition = false;
         positions = new Vector3[] { transform.position + HashID.unitLength * Vector3.right, transform.position + HashID.unitLength*Vector3.up
         ,transform.position+HashID.unitLength*Vector3.left,transform.position+HashID.unitLength*Vector3.down};
         player = GameObject.FindWithTag(HashID.PLAYER);
@@ -32,6 +38,16 @@ public class EyeStatue : MonoBehaviour {
                 targetRotation = angle;
                 StartCoroutine(RotateEye(eyeball));
             }
+        }
+        //Debug.Log(Mathf.Abs(eyeball.transform.rotation.eulerAngles.z - targetRot));
+        if (Mathf.Abs(eyeball.transform.rotation.eulerAngles.z - targetRot) < 0.1f && !inposition)
+        {
+            inposition = true;
+        }
+        if (inposition)
+        {
+            targetTool.curCondition += 1;
+            this.GetComponent<EyeStatue>().enabled = false;
         }
         //Debug.Log(targetRotation);
 	}
