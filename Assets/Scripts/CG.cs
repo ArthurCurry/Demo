@@ -71,11 +71,12 @@ public class CG : MonoBehaviour
             m_Statuss = FadeStatuss.None;
             m_Alpha = 1f;
             m_UpdateTime = 0.5f;
-            BuildManager.Init();
+            
         }
         //值为0的时候跳转场景
         else if (m_Alpha < 0.5 && m_Statuss == FadeStatuss.FadeOut)
         {
+            BuildManager.Init();
             Camera.main.GetComponent<CameraController>().enabled = true;
             if (m_Alpha < 0)
             {

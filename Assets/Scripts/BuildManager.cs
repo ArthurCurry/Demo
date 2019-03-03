@@ -8,11 +8,10 @@ public class BuildManager {
     {
         get { return instance; }
     }
-    private static DialogCtrl dialog;
+    private static Dialog dialog;
     private static bool isCG;
     public static bool IsCG
     {
-        get { return isCG; }
         set { isCG = value; }
     }
     private static int x;
@@ -33,7 +32,7 @@ public class BuildManager {
     }
 
     public static void WhileCG()
-    {        
+    {
         if (isCG)
         {
             if (x < count)
@@ -53,15 +52,11 @@ public class BuildManager {
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
         {
             if (GameObject.FindWithTag("CG"))
-            {
-                
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
-                
-            }
-            if (GameObject.Find("DialogBox(Clone)"))
-                dialog.DestroyDialog();
+            dialog.DestoryDiaLog();
             Talk.HasTalk = false;
         }
+
     }
 
     public static void Init()
@@ -71,30 +66,26 @@ public class BuildManager {
         MonsterManager.InitMonster();
     }
 
-    public static void InitAttribution(string name)
+    public static void InitPlayer()//初始化玩家
     {
+        if (GameObject.FindWithTag(HashID.PLAYER) != null)
+            return;
+        GameObject player = Resources.Load<GameObject>(HashID.playerPath);
+        GameObject playerInstance = GameObject.Instantiate(player);
         isCG = true;
         x = 1;
         name = "第一关";
         GetCount(name);
         instance.SetIndex(0);
         BuildManager.InitDialog();
-    }
-
-    public static void InitPlayer()//初始化玩家
-    {
-        if (GameObject.FindWithTag(HashID.PLAYER) != null)
-            return;
-        GameObject player = Resources.Load<GameObject>(HashID.playerPath);
-        GameObject playerInstance=GameObject.Instantiate(player);
         //playerInstance.GetComponent<PlayerMovements>().InitData();
     }
 
-    public static void InitMap(string levelName) //初始化地图
+    public static void InitMap(string levelName)//初始化地图
     {
         if (GameObject.FindWithTag("Level") != null)
             return;
-        GameObject level = Resources.Load<GameObject>(HashID.levelPath+levelName);
+        GameObject level = Resources.Load<GameObject>(HashID.levelPath + levelName);
         GameObject.Instantiate(level);
         PlayerMovements.InitData();
     }
@@ -115,19 +106,19 @@ public class BuildManager {
 
     public static void InitDialog()//实例化对话框
     {
-        dialog = UIManager.Instance.CtrlManager.GetT<DialogCtrl>(PanelID.DialogPanel);
-        dialog.CreateDialog();        
-        dialog.SetDialogView(instance.GetXML(name, 0));
+        dialog = new Dialog();
+        dialog.showDialog();
+        dialog.setDialogText(instance.GetXML(name, 0));
     }
 
     public static void Dialog(int x)//更新对话框
     {
         instance.SetIndex(x);
-        dialog.SetDialogView(instance.GetXML(name, 0));
+        dialog.setDialogText(instance.GetXML(name, 0));
     }
 
     public static void GetCount(string s)
     {
-        count = instance.getCount(s, 0); 
+        count = instance.getCount(s, 0);
     }
 }

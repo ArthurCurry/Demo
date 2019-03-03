@@ -22,7 +22,7 @@ public class FixedPatrol : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        Debug.Log(index);
+        //Debug.Log(index);
 		if(pm.isMoving)
         {
             direction = route[index + 1].position - route[index].position;
