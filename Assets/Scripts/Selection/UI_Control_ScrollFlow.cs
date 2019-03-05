@@ -45,7 +45,8 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
     public float _anim_speed = 1f;
 
     private float v = 0;
-    private List<UI_Control_ScrollFlow_Item> GotoFirstItems = new List<UI_Control_ScrollFlow_Item>(), GotoLaserItems = new List<UI_Control_ScrollFlow_Item>();
+    private List<UI_Control_ScrollFlow_Item> GotoFirstItems = new List<UI_Control_ScrollFlow_Item>(),
+        GotoLaserItems = new List<UI_Control_ScrollFlow_Item>();
     public event CallBack<UI_Control_ScrollFlow_Item> MoveEnd;
     public void Refresh()
     {
