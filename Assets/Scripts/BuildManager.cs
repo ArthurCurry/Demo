@@ -62,7 +62,7 @@ public class BuildManager {
     public static void Init()
     {
         InitPlayer();
-        InitMap("Level_3");
+        InitMap("Level_1-1");
         MonsterManager.InitMonster();
     }
 

@@ -10,6 +10,7 @@ public class EyesMonster : Monster {
     private List<Transform> tempUnit = new List<Transform>();
     private LineRenderer line;
     private Rigidbody2D rb;
+    private Vector3 targetRot;
     [SerializeField]
     private int attackRange;
 
@@ -21,6 +22,7 @@ public class EyesMonster : Monster {
         player = GameObject.FindWithTag(HashID.PLAYER);
         playerMovements = player.GetComponent<PlayerMovements>();
         rotateSpeed = (HashID.unitLength / playerMovements.moveSpeed);
+        targetRot = transform.rotation.eulerAngles;
         inPosition = true;
     }
 
@@ -28,17 +30,17 @@ public class EyesMonster : Monster {
 
     void LateUpdate()
     {
-        if (playerMovements.isMoving)
+        if (playerMovements.isMoving==true)
         {
-            rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
+            //rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
             //transform.Rotate(0, 0, 360f / (HashID.unitLength / playerMovements.moveSpeed) * Time.deltaTime);
-            //StartCoroutine(Rotate(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.eulerAngles.z + 90)));
+            StartCoroutine(Rotate(targetRot));
             inPosition = false;
         }
         else
         {
-                rb.angularVelocity = 0f;
-                inPosition = true;
+            rb.angularVelocity = 0f;
+            inPosition = true;
         }
         ShowAttackRange();
     }
@@ -79,15 +81,17 @@ public class EyesMonster : Monster {
     IEnumerator Rotate(Vector3 targetRot)
     {
 
-        //Debug.Log(targetRot);
+        Debug.Log(targetRot);
         while (transform.rotation.eulerAngles != targetRot)
         {
             //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(targetRot), rotateSpeed * Time.deltaTime);
             inPosition = false;
-            transform.Rotate(0, 0, 90 * Time.deltaTime*rotateSpeed);
+            //transform.Rotate(0, 0, 90 * Time.deltaTime*rotateSpeed);
+            rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
             yield return null;
         }
         inPosition = true;
+        targetRot.z += 90;
         StopAllCoroutines();
     }
 

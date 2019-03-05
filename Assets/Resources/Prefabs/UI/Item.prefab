@@ -89,7 +89,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1524732129437928, guid: 5fcc5cdd56f333c44837344f0cb6789d,
+        - m_Target: {fileID: 1042371841335296, guid: 5fcc5cdd56f333c44837344f0cb6789d,
             type: 2}
           m_MethodName: SetActive
           m_Mode: 6
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6dd522d73f3ca4f4d9c6e9d3df72e21b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5e750fe409b85646981e777828ac58f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

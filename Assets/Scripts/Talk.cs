@@ -23,7 +23,7 @@ public class Talk : MonoBehaviour {
 
     void TalkTo()
     {
-        if (this.transform.position.Equals(player.transform.position) && !hasTalk)
+        if ((this.transform.position-player.transform.position).magnitude<0.2f && !hasTalk)
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
