@@ -9,9 +9,9 @@ public class Dialog {
     public GameObject dialogBox;                //用于保存对话框的预置体
     public GameObject dialog;                   //用于获取场景组件中的对话框
     public Transform dialogText;                //文本
-    /// <summary>
+
     /// 单例
-    /// </summary>
+
     /// <value>The instance.</value>
     public static Dialog Instance
     {
@@ -24,18 +24,17 @@ public class Dialog {
             return instance;
         }
     }
-    /// <summary>
+
     /// Shows the dialog.
-    /// </summary>
+
     public void showDialog()
     {
         canvas = GameObject.Find(HashID.CANVAS).GetComponent <Canvas >();
         dialogBox = Resources.Load<GameObject>("Prefabs/DialogBox");
         GameObject.Instantiate(dialogBox,canvas .transform );
     }
-    /// <summary>
+
     /// Sets the dialog text.
-    /// </summary>
     /// <param name="sentence">Sentence.</param>
     public void setDialogText(string sentence)
     {
@@ -48,9 +47,9 @@ public class Dialog {
             dialogtext.text = dialogtext.text.Replace("\\n", "\n");
         }
     }
-    /// <summary>
+
     /// Destories the dialog.
-    /// </summary>
+
     public void DestoryDiaLog()
     {
         if (GameObject.Find("DialogBox(Clone)"))
@@ -60,9 +59,8 @@ public class Dialog {
         }
 
     }
-    /// <summary>
+
     /// Determines whether this instance is empty dialog.
-    /// </summary>
     /// <returns><c>true</c> if this instance is empty dialog; otherwise, <c>false</c>.</returns>
     public bool IsEmptyDialog()
     {

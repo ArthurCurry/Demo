@@ -52,7 +52,7 @@ public class EyesMonster : Monster {
 
     }
 
-    public override void Judge()
+    /*public override void Judge()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);//0.626一个差不多
         Vector3 towards = player.transform.position - transform.position;
@@ -62,6 +62,11 @@ public class EyesMonster : Monster {
             if (playerMovements.targetArrived)
                 Attack();
         }
+    }*/
+
+    public override void Judge()
+    {
+        
     }
 
     public override void Move()
