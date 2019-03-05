@@ -23,8 +23,7 @@ public class Talk : MonoBehaviour {
 
     void TalkTo()
     {
-        float distance = Vector3.Distance(this.transform.position, player.transform.position);
-        if (distance <=4 && !hasTalk)
+        if ((this.transform.position-player.transform.position).magnitude<0.2f && !hasTalk)
         {
             if (Input.GetKeyDown(KeyCode.X))
             {

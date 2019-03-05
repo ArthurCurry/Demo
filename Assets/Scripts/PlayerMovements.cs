@@ -122,6 +122,18 @@ public class PlayerMovements : MonoBehaviour {
         RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 1.28f, LayerMask.GetMask(HashID.Layer_Replaceable));
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
+            if(hits[hits.Length-1].transform.name.Contains("ice"))
+            {
+                RaycastHit2D[] ices=new RaycastHit2D[10];
+                int i = Physics2D.LinecastNonAlloc(hits[hits.Length-1].transform.position, hits[hits.Length-1].transform.position + direction * HashID.unitLength
+                    * 10f,ices);
+                Debug.Log(i);
+                for(int n=0;n<i ;n++)
+                {
+                    if (!ices[n].transform.tag.Contains("ice"))
+                        return ices[n - 1].transform;
+                }
+            }
             //Debug.Log(hits[1].transform.name);
             if (GameObject.FindWithTag(HashID.FOLLOWING))
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);

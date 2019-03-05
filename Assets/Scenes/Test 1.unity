@@ -1562,6 +1562,8 @@ MonoBehaviour:
   moveSpeed: 1.01
   isMoving: 0
   targetArrived: 0
+  targetFloor: {fileID: 0}
+  isDead: 0
   unitSize: 0
   stopTime: 0
 --- !u!50 &166242983
@@ -2589,6 +2591,8 @@ MonoBehaviour:
   pos: {fileID: 0}
   nextPos: {fileID: 0}
   player: {fileID: 166242979}
+  moving: 0
+  towards: {x: 0, y: 0, z: 0}
 --- !u!212 &419427413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11420,6 +11424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dampTime: 0
   mapEdges: []
+  bgInView: 0
 --- !u!1 &1776982955
 GameObject:
   m_ObjectHideFlags: 0
