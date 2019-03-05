@@ -4,7 +4,7 @@
       <transform>
         <position>
           <x>28.24</x>
-          <y>0.71</y>
+          <y>3.269998</y>
           <z>-0.07507306</z>
         </position>
         <rotation>
@@ -38,25 +38,6 @@
         </scale>
       </transform>
     </gameObjects>
-    <gameObjects name="Canvas" asset="Canvas.prefab">
-      <transform>
-        <position>
-          <x>28.24</x>
-          <y>5.07</y>
-          <z>90</z>
-        </position>
-        <rotation>
-          <x>0</x>
-          <y>0</y>
-          <z>0</z>
-        </rotation>
-        <scale>
-          <x>0.02597403</x>
-          <y>0.02597403</y>
-          <z>0.02597403</z>
-        </scale>
-      </transform>
-    </gameObjects>
     <gameObjects name="Main Camera" asset="Main Camera.prefab">
       <transform>
         <position>
@@ -73,6 +54,25 @@
           <x>1</x>
           <y>1</y>
           <z>1</z>
+        </scale>
+      </transform>
+    </gameObjects>
+    <gameObjects name="Canvas" asset="Canvas.prefab">
+      <transform>
+        <position>
+          <x>28.24</x>
+          <y>5.07</y>
+          <z>90</z>
+        </position>
+        <rotation>
+          <x>0</x>
+          <y>0</y>
+          <z>0</z>
+        </rotation>
+        <scale>
+          <x>0.02597403</x>
+          <y>0.02597403</y>
+          <z>0.02597403</z>
         </scale>
       </transform>
     </gameObjects>
