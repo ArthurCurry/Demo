@@ -18,6 +18,7 @@ public class PlayerMovements : MonoBehaviour {
     [SerializeField]
     private float stopTime;
     // Use this for initialization
+
     public static void InitData()
     {
         Transform start = GameObject.Find("start").transform;
