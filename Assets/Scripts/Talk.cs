@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Talk : MonoBehaviour {
+    private float distance;
     private GameObject player;
     private static bool hasTalk;
     public static bool HasTalk
@@ -23,7 +24,7 @@ public class Talk : MonoBehaviour {
 
     void TalkTo()
     {
-        if ((this.transform.position-player.transform.position).magnitude<0.2f && !hasTalk)
+        if (this.transform.position.Equals(player.transform.position) && !hasTalk)
         {
             if (Input.GetKeyDown(KeyCode.X))
             {

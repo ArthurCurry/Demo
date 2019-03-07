@@ -8,7 +8,6 @@ public class LevelEditor:EditorWindow{
     private GameObject unit;
     private GameObject basePoint;
     private Vector2 relPos;
-    private Vector2 plusPos;
     private Object objectToPlace;
     private bool fold_1;//窗口第一处折叠
     private bool fold_2;//窗口第二处折叠
@@ -79,14 +78,6 @@ public class LevelEditor:EditorWindow{
         if(fold_2)
             CreatMap();
 
-        plusPos = EditorGUILayout.Vector2Field("移动坐标", plusPos);
-        if(GUILayout.Button("移动"))
-        {
-            foreach(Transform transform in Selection.transforms)
-            {
-                transform.position=new Vector3(transform.position.x+plusPos.x*HashID.unitLength,transform.position.y+plusPos.y*HashID.unitLength,transform.position.z);
-            }
-        }
 
     }
 
@@ -97,8 +88,8 @@ public class LevelEditor:EditorWindow{
         for(int i=0;i<cloneTimes;i++)
         {
             GameObject clone = GameObject.Instantiate(target, target.transform.position + (i+1) * unitSize * directions[index_1], target.transform.rotation);
-            clone.name = target.name + "_" + i;
-            clone.transform.parent = target.transform.parent;
+            clone.name = basePoint.name + "_" + i;
+            clone.transform.parent = unit.transform.parent;
         }
     }
 

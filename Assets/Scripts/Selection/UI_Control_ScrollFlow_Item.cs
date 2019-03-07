@@ -10,6 +10,7 @@ public class UI_Control_ScrollFlow_Item : MonoBehaviour
     [HideInInspector]
     public RectTransform rect;
     public Image img;
+    public bool isSelected = false; 
 
     public float v=0;
     private Vector3 p, s;

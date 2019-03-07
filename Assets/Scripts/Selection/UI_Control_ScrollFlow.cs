@@ -45,8 +45,7 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
     public float _anim_speed = 1f;
 
     private float v = 0;
-    private List<UI_Control_ScrollFlow_Item> GotoFirstItems = new List<UI_Control_ScrollFlow_Item>(),
-        GotoLaserItems = new List<UI_Control_ScrollFlow_Item>();
+    private List<UI_Control_ScrollFlow_Item> GotoFirstItems = new List<UI_Control_ScrollFlow_Item>(), GotoLaserItems = new List<UI_Control_ScrollFlow_Item>();
     public event CallBack<UI_Control_ScrollFlow_Item> MoveEnd;
     public void Refresh()
     {
@@ -100,6 +99,29 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
         Check(v);
     }
     
+    public void OnClick()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            //add_vect = eventData.position - start_point;
+            v = 1;
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Items[i].Drag(v);
+            }
+            Check(v);
+        } 
+        else if(Input.GetKeyDown(KeyCode.A))
+        {
+            //add_vect = eventData.position - start_point;
+            v = -1;
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Items[i].Drag(v);
+            }
+            Check(v);
+        }
+    }
 
     public void Check(float _v)
     {
@@ -263,6 +285,7 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
 
     void Update()
     {
+        OnClick();
         if (_anim)
         {
             CurrentV = Time.deltaTime * _anim_speed * Vk;

@@ -13,7 +13,7 @@ public class CG : MonoBehaviour
         None,
         FadeOut
     }
-    private bool hasInit; //是否实例化场景和人物
+
     //设置的图片
     [SerializeField]
     public Image m_Sprite;
@@ -69,21 +69,23 @@ public class CG : MonoBehaviour
         {
             BuildManager.InitDialog();
             m_Statuss = FadeStatuss.None;
-            m_Alpha = 1f;
-            m_UpdateTime = 0.5f;
-            
+            m_Alpha = 1f;            
         }
         //值为0的时候跳转场景
-        else if (m_Alpha < 0.5 && m_Statuss == FadeStatuss.FadeOut)
+        else if (m_Alpha < 0.5&&m_Statuss ==FadeStatuss.FadeOut)
         {
-            BuildManager.Init();
-            Camera.main.GetComponent<CameraController>().enabled = true;
-            if (m_Alpha < 0)
+            if (!GameObject.FindWithTag("Level"))
             {
-                //Camera.main.GetComponent<CameraController>().DetectEdges();
+                BuildManager.Init();
+                BuildManager.Level = 1;
+            }
+            Camera.main.GetComponent<CameraController>().enabled = true;
+            if(m_Alpha < 0)
+            {
+                Camera.main.GetComponent<CameraController>().DetectEdges();
                 Destroy(this.gameObject);
             }
-        }        
+        }
     }
 
 }

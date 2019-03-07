@@ -26,6 +26,7 @@ public class BagCtrl : UICtrl
     protected override void OnShow()//在背包打开时才能打开Introduction
     {
         //条件判断是否点击图片
+        if(Input.GetMouseButtonDown(0))
         bagview.OpenInroductionPanel();
     }
     protected override void OnHide()
@@ -38,8 +39,6 @@ public class BagCtrl : UICtrl
     }
     protected override void OnUpdate()
     {
-        //GameObject root = GameObject.Find("Canvas");
-        //GameObject BagPanel = root.transform.Find("BagPanel").gameObject;
         if (Input.GetKeyDown(KeyCode.B) && IsOpened == false)
         {
             UIManager.Instance.ShowPanel("BagPanel");

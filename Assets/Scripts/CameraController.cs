@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour {
         transform.position = position;
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
-        DetectEdges();
+        //DetectEdges();
 	}
 	
 	// Update is called once per frame
@@ -51,8 +51,7 @@ public class CameraController : MonoBehaviour {
         //bgInView =BackgroundInView();
         targetPos.z += dis.z;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
-        //Debug.Log(player.transform.position.y +" "+ mapUpperrt.transform.position.y);
-        if(mapEdges.Length>1&&(player.transform.position.y<mapUpperrt.transform.position.y))
+        if(mapEdges.Length>1)
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapLowerlf.position.x + (width - HashID.unitLength) / 2, mapUpperrt.position.x - (width / 2 - HashID.unitLength)),
             Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
     }

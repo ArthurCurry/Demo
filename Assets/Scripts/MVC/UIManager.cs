@@ -4,20 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 public class UIManager : MonoBehaviour {
+
+
    // private Dictionary<string, UIView> panelDict = new Dictionary<string, UIView>();
     public static UIManager Instance;
 
     private Dictionary<string,Type> viewTypeDict = new Dictionary<string, Type>();
     private Canvas rootCanv;
 
+
     private CtrlManager ctrlManager;
-    public CtrlManager CtrlManager
-    {
-        get
-        {
-            return this.ctrlManager;
-        }
-    }
     private ModelManager modelManager;
 
     /// <summary>
@@ -28,7 +24,6 @@ public class UIManager : MonoBehaviour {
         Instance=this;
         this.Init();
     }
-
     public void Init()
     {
         ctrlManager = new CtrlManager();
@@ -37,14 +32,13 @@ public class UIManager : MonoBehaviour {
         rootCanv = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         GameObject.DontDestroyOnLoad(rootCanv.gameObject);
         this.RigisterViewType();
-        modelManager.RigisterModels();
         ctrlManager.RigisterCtrls();
+        modelManager.RigisterModels();
+        MouseMonitor.OnEnter += ctrlManager.GetT<BagCtrl>(PanelID.BagPanel).GridUI_OnEnter;
+        MouseMonitor.OnExit += ctrlManager.GetT<BagCtrl>(PanelID.BagPanel).GridUI_OnExit;
 
-        
 
-
-    
-      //  panelDict = new Dictionary<string, GameObject>();
+        //  panelDict = new Dictionary<string, GameObject>();
     }
 
     public void HideUICanvas()
@@ -66,7 +60,10 @@ public class UIManager : MonoBehaviour {
 
     void Update()
     {
-        ctrlManager.UpdateCtrls();   
+        ctrlManager.UpdateCtrls();
+
+
+    
     }
 
 
@@ -104,6 +101,7 @@ public class UIManager : MonoBehaviour {
 
     public void ShowPanel(string panelName)
     {
+
         ctrlManager.GetCtrl(panelName).Show();
         //ctrlManager.GetT<UICtrl>(ctrlName).OnShow(name);
     }
@@ -126,13 +124,14 @@ public class UIManager : MonoBehaviour {
     private void RigisterViewType()
     {
         viewTypeDict.Add(PanelID.BagPanel,typeof(BagView));
-        viewTypeDict.Add(PanelID.DialogPanel, typeof(DialogView));
+
 
     }
 
-    public UIModel GetModel(string name)
+    public UIModel GetModel(string a)
     {
-        return modelManager.GetModel(name);
+        return this.modelManager.GetModel(a);
     }
+
 
 }

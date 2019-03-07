@@ -6,8 +6,6 @@ public class Following : Monster {
 
     private Rigidbody2D rb;
     private PlayerMovements pm;
-    [SerializeField]
-    private float mode;
 	// Use this for initialization
 	void Start () {
         latePos = GameObject.FindWithTag(HashID .PLAYER).transform.position;
@@ -17,7 +15,7 @@ public class Following : Monster {
     }
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
         
 	}
 
@@ -35,7 +33,6 @@ public class Following : Monster {
     }
     public void Follow(Vector3 a)
     {
-        a = a * mode;
         nextPos = player.transform;
         RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + a * 10);
         //Debug.Log(hits.Length);

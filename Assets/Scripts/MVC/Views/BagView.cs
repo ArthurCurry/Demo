@@ -17,7 +17,6 @@ public class BagView : UIView
     protected override void BinObject()//绑定物体
     {
         GameObject root = GameObject.Find("Canvas");
-        //BagPanel = root.transform.Find("BagPanel").gameObject;
         IntroductionPanel = root.transform.Find("IntroductionPanel").gameObject;
         ToolTip = root.transform.Find("Tooltip").gameObject;
         OutlineText = ToolTip.GetComponent<Text>();
@@ -27,9 +26,7 @@ public class BagView : UIView
 
     protected override void OnShow()//打开时
     {
-        //GameObject BagPanel = Resources.Load<GameObject>("Prefabs/UI/GridPanel");
-        //GameObject IntroductionPanel = Resources.Load<GameObject>("Prefabs/UI/IntroductionPanel");
-        //GameObject Tooltip = Resources.Load<GameObject>("Prefabs/UI/Tooltip");
+
     }
     protected override void OnHide()//隐藏时
     {

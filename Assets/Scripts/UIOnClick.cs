@@ -24,11 +24,8 @@ public class UIOnClick : MonoBehaviour,IPointerDownHandler,IPointerEnterHandler,
     {
         //Debug.Log(name);
         //
-        if (puzzleLeft > 0)
-        {
+        if(puzzleLeft>0)
             InstanitiatePuzzle(puzzle);
-            puzzleLeft -= 1;
-        }
     }
 
     public void OnPointerEnter(PointerEventData ped)
