@@ -13,6 +13,7 @@ public class LoadGame
         //如果文件存在话开始解析。        
         if (File.Exists(filepath))
         {
+            Debug.Log(1);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filepath);
             XmlNodeList nodeList = xmlDoc.SelectSingleNode("gameObjects").ChildNodes;
@@ -22,9 +23,10 @@ public class LoadGame
                 string path = scene.GetAttribute("name");
                 string name = path.Substring(path.LastIndexOf('/') + 1, path.LastIndexOf('.') - path.LastIndexOf('/') - 1);
                 Debug.Log(name);
+                Debug.Log(Application.loadedLevelName);
                 if (!name.Equals(Application.loadedLevelName))
                 {
-                    continue;
+                    //continue;
                 }
                 foreach (XmlElement gameObjects in scene.ChildNodes)
                 {

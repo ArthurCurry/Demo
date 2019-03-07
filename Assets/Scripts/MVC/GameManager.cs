@@ -62,18 +62,13 @@ public class GameManager:MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log(1);
             if (B.gameObject.activeInHierarchy)
             {
-                Debug.Log(2);
                 B.gameObject.SetActive(false);
-                Debug.Log(3);
             }
             else
             {
-                Debug.Log(4);
                 B.gameObject.SetActive(true);
-                Debug.Log(5);
             }
         }
     }
