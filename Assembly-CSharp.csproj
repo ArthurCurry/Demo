@@ -59,7 +59,10 @@
      <Compile Include="Assets\Scripts\FixedPortal.cs" />
      <Compile Include="Assets\Scripts\HashID.cs" />
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
+     <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
+     <Compile Include="Assets\Scripts\Monster\AttcakMode2.cs" />
      <Compile Include="Assets\Scripts\Monster\EyesMonster.cs" />
      <Compile Include="Assets\Scripts\Monster\FixedPatrol.cs" />
      <Compile Include="Assets\Scripts\Monster\Following.cs" />

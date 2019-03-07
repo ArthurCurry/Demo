@@ -120,8 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   isMoving: 0
-  targetArrived: 0
-  targetFloor: {fileID: 0}
+  targetArrived: 1
+  targetFloor: {fileID: 4751395676646560}
   isDead: 0
   unitSize: 0.7
   stopTime: 0

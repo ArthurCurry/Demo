@@ -47,7 +47,7 @@ public class FixedPatrol : MonoBehaviour {
                 rb.velocity = Vector2.zero;
             }
         }
-        Debug.Log(index);
+        //Debug.Log(index);
         //MoveTo(route[index]);
         if ((transform.position - route[route.Count - 1].position).magnitude < 0.1f)
             DestroyImmediate(this.gameObject);

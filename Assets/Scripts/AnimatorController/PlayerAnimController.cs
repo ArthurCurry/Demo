@@ -16,18 +16,18 @@ public class PlayerAnimController : MonoBehaviour {
         pm = this.GetComponent<PlayerMovements>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
-    }
 
     void LateUpdate()
     {
         playerAnimator.SetFloat("speed_x", rb.velocity.x);
         playerAnimator.SetFloat("speed_y", rb.velocity.y);
-        if (rb.velocity==Vector2.zero&&direction!=Vector2.zero)
+        if (rb.velocity==Vector2.zero)
         {
-            
+            playerAnimator.SetInteger("speed",0);
+        }
+        else
+        {
+            playerAnimator.SetInteger("speed", 1);
         }
         direction = rb.velocity;
     }
