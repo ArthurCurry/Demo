@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour {
     private GameObject player;
-    private List<Vector3> pickPosition;//捡拾位置
+    private List<Vector3> pickPosition=new List<Vector3>();//捡拾位置
     [SerializeField]
     private int condition;
     [SerializeField]
@@ -15,6 +15,7 @@ public class Tool : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         hidden = true;
+        InitData();
 	}
 	
 	// Update is called once per frame

@@ -16,10 +16,6 @@ public class PlayerAnimController : MonoBehaviour {
         pm = this.GetComponent<PlayerMovements>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
-    }
 
     void LateUpdate()
     {
