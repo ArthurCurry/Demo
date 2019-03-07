@@ -35,8 +35,13 @@ public class EyesMonster : Monster {
     {
         if(playerRB.velocity!=Vector2.zero)
         {
-            inPosition = false;
-            rb.angularVelocity = 90 /(HashID.unitLength / playerMovements.moveSpeed);
+            if (transform.rotation.eulerAngles != targetRot)
+            {
+                inPosition = false;
+                rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
+            }
+            else
+                targetRot.z += 90;
         }
         else
         {

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class FixedPatrol : MonoBehaviour {
 
-    [SerializeField]
-    private List<Transform> route;//运动路径
+    public List<Transform> route;//运动路径
     private GameObject player;
     private PlayerMovements pm;
+    private Transform target;
     private Vector2 direction;//运动方向
+    private Vector3 playerPrePos;
     private int index;//路径点目录
+    private Rigidbody2D playerRB;
     private Rigidbody2D rb;
 
 	// Use this for initialization
@@ -17,22 +19,50 @@ public class FixedPatrol : MonoBehaviour {
         index = 0;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag(HashID.PLAYER);
+        playerPrePos = player.transform.position;
+        playerRB = player.GetComponent<Rigidbody2D>();
         pm = player.GetComponent<PlayerMovements>();
 	}
 	
+    void Update()
+    {
+        
+    }
+
 	// Update is called once per frame
 	void LateUpdate () {
-        //Debug.Log(index);
-		if(pm.isMoving)
+        //Debug.Log(route.Count);
+        //Debug.Log((transform.position - route[route.Count - 1].position).magnitude);
+        if (route.Count > 1)
         {
-            direction = route[index + 1].position - route[index].position;
-            rb.velocity = direction.normalized * pm.moveSpeed;
+            if (playerRB.velocity!=Vector2.zero)
+            {
+                direction = route[index].position - transform.position;
+                rb.velocity = direction.normalized * pm.moveSpeed;
+            }
+            else
+            {
+                if ((transform.position - route[index].position).magnitude < 0.1f&&player.transform.position!=playerPrePos)
+                    index += 1;
+                rb.velocity = Vector2.zero;
+            }
+        }
+        Debug.Log(index);
+        //MoveTo(route[index]);
+        if ((transform.position - route[route.Count - 1].position).magnitude < 0.1f)
+            DestroyImmediate(this.gameObject);
+        playerPrePos = player.transform.position;
+    }
+
+    void MoveTo(Transform target)
+    {
+        if (transform.position != target.position && playerRB.velocity != Vector2.zero)
+        {
+            rb.velocity = (target.position - transform.position).normalized * pm.moveSpeed;
         }
         else
         {
-            if ((transform.position - route[index].position).magnitude < 0.1f)
-                index += 1;
-            rb.velocity = Vector2.zero;
+            index += 1;
         }
-	}
+    }
 }
