@@ -51,10 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AnimatorController\PlayerAnimController.cs" />
      <Compile Include="Assets\Scripts\BuildManager.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CG.cs" />
      <Compile Include="Assets\Scripts\Dialog.cs" />
+     <Compile Include="Assets\Scripts\FixedPortal.cs" />
      <Compile Include="Assets\Scripts\HashID.cs" />
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
@@ -86,6 +88,10 @@
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scripts\Portals.cs" />
      <Compile Include="Assets\Scripts\PuzzleController.cs" />
+     <Compile Include="Assets\Scripts\Save\LoadGame.cs" />
+     <Compile Include="Assets\Scripts\Save\Save.cs" />
+     <Compile Include="Assets\Scripts\Save\ToLoad.cs" />
+     <Compile Include="Assets\Scripts\Save\ToSave.cs" />
      <Compile Include="Assets\Scripts\Selection\CallBack.cs" />
      <Compile Include="Assets\Scripts\Selection\testrefsh.cs" />
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow.cs" />
@@ -94,6 +100,7 @@
      <Compile Include="Assets\Scripts\Tools\Tool.cs" />
      <Compile Include="Assets\Scripts\UIOnClick.cs" />
      <Compile Include="Assets\Scripts\XmlReader.cs" />
+     <None Include="Assets\StreamingAssets\my.xml" />
      <None Include="Assets\Resources\剧情对话.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

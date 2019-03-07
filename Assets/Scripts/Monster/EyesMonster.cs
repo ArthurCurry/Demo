@@ -10,6 +10,7 @@ public class EyesMonster : Monster {
     private List<Transform> tempUnit = new List<Transform>();
     private LineRenderer line;
     private Rigidbody2D rb;
+    private Rigidbody2D playerRB;
     private Vector3 targetRot;
     [SerializeField]
     private int attackRange;
@@ -21,8 +22,10 @@ public class EyesMonster : Monster {
         latePos = GameObject.FindWithTag(HashID.PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
         playerMovements = player.GetComponent<PlayerMovements>();
+        playerRB = player.GetComponent<Rigidbody2D>();
         rotateSpeed = (HashID.unitLength / playerMovements.moveSpeed);
         targetRot = transform.rotation.eulerAngles;
+        //targetRot.z += 90;
         inPosition = true;
     }
 
@@ -30,17 +33,20 @@ public class EyesMonster : Monster {
 
     void LateUpdate()
     {
-        if (playerMovements.isMoving==true)
+        if(playerRB.velocity!=Vector2.zero)
         {
-            //rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
-            //transform.Rotate(0, 0, 360f / (HashID.unitLength / playerMovements.moveSpeed) * Time.deltaTime);
-            StartCoroutine(Rotate(targetRot));
-            inPosition = false;
+            if (transform.rotation.eulerAngles != targetRot)
+            {
+                inPosition = false;
+                rb.angularVelocity = 90 / (HashID.unitLength / playerMovements.moveSpeed);
+            }
+            else
+                targetRot.z += 90;
         }
         else
         {
-            rb.angularVelocity = 0f;
             inPosition = true;
+            rb.angularVelocity = 0f;
         }
         ShowAttackRange();
     }
@@ -96,6 +102,7 @@ public class EyesMonster : Monster {
             yield return null;
         }
         inPosition = true;
+        rb.angularVelocity = 0f;
         targetRot.z += 90;
         StopAllCoroutines();
     }

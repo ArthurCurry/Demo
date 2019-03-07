@@ -31,7 +31,7 @@ public class GameManager:MonoBehaviour {
     // Use this for initialization
     void Start () {
         Init();
-        Debug.Log(B.transform .position);
+        //Debug.Log(B.transform .position);
     }
 	
 	// Update is called once per frame
