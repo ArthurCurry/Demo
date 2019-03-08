@@ -136,7 +136,6 @@ public class PlayerMovements : MonoBehaviour {
                 RaycastHit2D[] ices = new RaycastHit2D[15];
                 int i = Physics2D.LinecastNonAlloc(hits[hits.Length - 1].transform.position, hits[hits.Length - 1].transform.position + direction * HashID.unitLength
                     * 10f, ices);
-                Debug.Log(ices.Length);
                 for (int n = 1; n < i; n++)
                 {
                     if (!ices[n].transform.name.Contains("ice"))
