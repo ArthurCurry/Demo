@@ -8,13 +8,16 @@ public class Tool : MonoBehaviour {
     [SerializeField]
     private int condition;
     [SerializeField]
-    private string toolsName;
+    private int ID;
+    [SerializeField]
     private bool hidden;
+    private bool picked;
     public int curCondition;
 
 	// Use this for initialization
 	void Start () {
         hidden = true;
+        picked = false;
         InitData();
 	}
 	
@@ -36,8 +39,9 @@ public class Tool : MonoBehaviour {
     {
         foreach(Vector3 pos in pickPosition)
         {
-            if ((player.transform.position - pos).magnitude < 0.1f)
+            if ((player.transform.position - pos).magnitude < 0.5f)
             {
+                picked = true;
                 Debug.Log("picked");
             }
         }

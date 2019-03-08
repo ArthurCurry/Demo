@@ -129,7 +129,7 @@ public class LevelEditor:EditorWindow{
 
     void SetPosition(Transform[] targets, int index) //设置指定位置，方便设置敌人障碍等
     {
-        Debug.Log(index);
+        //Debug.Log(index);
         int num = 1;
         foreach (Transform target in targets)
         {

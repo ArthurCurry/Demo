@@ -5,6 +5,7 @@ using UnityEngine;
 public class FixedPortal : MonoBehaviour {
     [SerializeField]
     private List<Transform> patrolRoute;
+    private List<Vector3> route=new List<Vector3>();
     [SerializeField]
     private int count;
     [SerializeField]
@@ -25,6 +26,7 @@ public class FixedPortal : MonoBehaviour {
         prePlayerPos = player.transform.position;
         counter = 0;
         distance = 0f;
+        InitRoute();
 	}
 	
     void Update()
@@ -48,11 +50,19 @@ public class FixedPortal : MonoBehaviour {
         {
             GameObject child=Instantiate(patrol, transform.position, patrol.transform.rotation);
             FixedPatrol fp = child.GetComponent<FixedPatrol>();
-            foreach(Transform pos in patrolRoute)
+            foreach(Vector3 node in route)
             {
-                fp.route.Add(pos);
+                fp.route.Add(node);
             }
             counter = 0;
+        }
+    }
+
+    void InitRoute()
+    {
+        foreach(Transform node in patrolRoute)
+        {
+            route.Add(node.position);
         }
     }
 }

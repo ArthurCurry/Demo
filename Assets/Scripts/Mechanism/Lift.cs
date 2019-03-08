@@ -20,7 +20,7 @@ public class Lift : MonoBehaviour {
     {
         if(!triggered)
         {
-            if((active.transform.position-passive.transform.position).magnitude<0.1f)
+            if((active.transform.position-passive.transform.position).magnitude<0.2f)
             {
                 triggered = true;
                 LiftUp();
@@ -34,6 +34,11 @@ public class Lift : MonoBehaviour {
         {
             if(!transform.name.Equals(this.transform.name))
             {
+                if(child.name.Contains("door"))
+                {
+                    child.gameObject.SetActive(false);
+                    continue;
+                }
                 child.GetComponent<BoxCollider2D>().enabled = true;
                 child.GetComponent<SpriteRenderer>().color = Color.white;
             }

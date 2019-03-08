@@ -137,7 +137,7 @@ public class EyesMonster : Monster {
             }
             Vector3 direction = end - start;
             Vector3 playerDir = player.transform.position - this.transform.position;
-            if (Vector3.Angle(direction, playerDir) < 1f && playerDir.magnitude <= (end - start).magnitude)
+            if ((Vector3.Angle(direction, playerDir) < 1f && playerDir.magnitude <= (end - start).magnitude)||playerDir.magnitude<0.1f)
                 Attack();
             line = GetComponent<LineRenderer>();
             line.enabled = true;
