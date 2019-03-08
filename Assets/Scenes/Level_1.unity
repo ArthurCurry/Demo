@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1859716926569368, guid: 410f153b08decc247b71a2e96064b7a1, type: 2}
-  puzzleLeft: 2
+  puzzleLeft: 4
 --- !u!114 &755367096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1703721651118486, guid: d5ef7ffe0fe63454993ae0ca477c652d, type: 2}
-  puzzleLeft: 2
+  puzzleLeft: 4
 --- !u!114 &1193002468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1927619528227656, guid: 64cf36cffd082094da4ea6768e5d4f87, type: 2}
-  puzzleLeft: 2
+  puzzleLeft: 4
 --- !u!114 &1619217796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,6 +1651,10 @@ Prefab:
     - target: {fileID: 4074600344417490, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786493834959924, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1990857245339034, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
       propertyPath: m_IsActive

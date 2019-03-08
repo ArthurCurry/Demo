@@ -29,7 +29,7 @@ public class GameManager:MonoBehaviour {
     void Start () {
         Init("CG1","旁白");
         BuildManager.XMLName = "第一关";
-        BuildManager.LevelName = "Level_1-1";
+        BuildManager.LevelName = "Level_2";
     }
 	
 	// Update is called once per frame
