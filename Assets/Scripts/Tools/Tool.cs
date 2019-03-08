@@ -31,7 +31,7 @@ public class Tool : MonoBehaviour {
         if(!hidden)
         {
             if (Input.GetKey(KeyCode.E))
-                BePicked();
+                Debug.Log("picked");
         }
 	}
 

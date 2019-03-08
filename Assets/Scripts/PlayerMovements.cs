@@ -128,9 +128,9 @@ public class PlayerMovements : MonoBehaviour {
                 int i = Physics2D.LinecastNonAlloc(hits[hits.Length - 1].transform.position, hits[hits.Length - 1].transform.position + direction * HashID.unitLength
                     * 10f, ices);
                 Debug.Log(i);
-                for (int n = 0; n < i; n++)
+                for (int n = 1; n < i; n++)
                 {
-                    if (!ices[n].transform.tag.Contains("ice"))
+                    if (!ices[n].transform.name.Contains("ice"))
                         return ices[n - 1].transform;
                 }
             }

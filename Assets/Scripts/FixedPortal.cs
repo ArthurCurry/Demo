@@ -36,12 +36,8 @@ public class FixedPortal : MonoBehaviour {
 
 	void LateUpdate () {
         //Debug.Log(counter);
-		if(playerRB.velocity==Vector2.zero)
-        {
-            distance += (player.transform.position - prePlayerPos).magnitude;
-            prePlayerPos = player.transform.position;
-        }
-        if (Mathf.Abs(distance - HashID.unitLength) < 0.1f)
+		
+        if (Mathf.Abs(distance - HashID.unitLength) < 0.1f|| Mathf.Abs(distance - HashID.unitLength)>2*HashID.unitLength)
         {
             counter += 1;
             distance = 0f;
@@ -49,12 +45,18 @@ public class FixedPortal : MonoBehaviour {
         if (counter >= count)
         {
             GameObject child=Instantiate(patrol, transform.position, patrol.transform.rotation);
+            child.transform.parent = this.transform.parent;
             FixedPatrol fp = child.GetComponent<FixedPatrol>();
             foreach(Vector3 node in route)
             {
                 fp.route.Add(node);
             }
             counter = 0;
+        }
+        if (playerRB.velocity == Vector2.zero)
+        {
+            distance += (player.transform.position - prePlayerPos).magnitude;
+            prePlayerPos = player.transform.position;
         }
     }
 
