@@ -80,9 +80,8 @@ public class BuildManager {
 
     public static void Init()
     {
-        Destroy_All();
-        InitPlayer();
         InitAttribute();
+        InitPlayer();
         InitMap(levelName);
         MonsterManager.InitMonster();
     }
@@ -152,17 +151,17 @@ public class BuildManager {
     {
         switch (level)
         {
-            case 1: LevelName = "Level_2";XMLname = "第二关";break;
-            case 2: LevelName = "Level_3"; XMLname = "第三关"; break;
+            case 1: levelName = "Level_2";XMLname = "第二关"; level += 1; break;
+            case 2: levelName = "Level_3"; XMLname = "第三关"; level += 1; break;
         }
     }
 
     public static void Destroy_All()
     {
         if (GameObject.FindWithTag(HashID.LEVEL))
-            Object.Destroy(GameObject.FindWithTag(HashID.LEVEL));
-        if (GameObject.FindWithTag(HashID.PLAYER))
-            Object.Destroy(GameObject.FindWithTag(HashID.PLAYER));
+            Object.DestroyImmediate(GameObject.FindWithTag(HashID.LEVEL));
+        if (GameObject.FindWithTag(HashID.PLAYER ))
+            Object.DestroyImmediate(GameObject.FindWithTag(HashID.PLAYER ));
     }
 
 }

@@ -27,16 +27,24 @@ public class PlayerMovements : MonoBehaviour {
 
     void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         isDead = false;
         isMoving = false;
         targetArrived = true;
         targetFloor = this.transform;
+        
         rb = transform.GetComponent<Rigidbody2D>();
         LoadDirection();
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(targetFloor.name);
+        Debug.Log(this.transform.position);
         //Debug.Log(rb.velocity);
         Move();
         if (isDead)
@@ -82,6 +90,7 @@ public class PlayerMovements : MonoBehaviour {
             //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
             //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
             isMoving = true;
+            Debug.Log(2);
             StopAt(targetFloor);
         }
         else
@@ -124,13 +133,13 @@ public class PlayerMovements : MonoBehaviour {
         {
             if (hits[hits.Length - 1].transform.name.Contains("ice"))
             {
-                RaycastHit2D[] ices = new RaycastHit2D[10];
+                RaycastHit2D[] ices = new RaycastHit2D[15];
                 int i = Physics2D.LinecastNonAlloc(hits[hits.Length - 1].transform.position, hits[hits.Length - 1].transform.position + direction * HashID.unitLength
                     * 10f, ices);
-                Debug.Log(i);
-                for (int n = 0; n < i; n++)
+                Debug.Log(ices.Length);
+                for (int n = 1; n < i; n++)
                 {
-                    if (!ices[n].transform.tag.Contains("ice"))
+                    if (!ices[n].transform.name.Contains("ice"))
                         return ices[n - 1].transform;
                 }
             }
@@ -157,8 +166,9 @@ public class PlayerMovements : MonoBehaviour {
 
     void StopAt(Transform target)
     {
-        if ((transform.position - target.position).magnitude < 0.001f)
+        if ((transform.position - target.position).magnitude < 0.01f)
         {
+            Debug.Log(1);
             transform.position = target.transform.position;
             rb.velocity = Vector2.zero;
         }

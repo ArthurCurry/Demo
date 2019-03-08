@@ -21,15 +21,20 @@ public class CameraController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Init();
+        //DetectEdges();
+	}
+	
+    public void Init()
+    {
         player = GameObject.FindWithTag("Player");
         Vector3 position = player.transform.position;
         position.z = transform.position.z;
         transform.position = position;
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
-        //DetectEdges();
-	}
-	
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
         FollowPlayer();

@@ -44,5 +44,6 @@ public class UIOnClick : MonoBehaviour,IPointerDownHandler,IPointerEnterHandler,
         worldPos.z = 0;
         //Debug.Log(worldPos);
         Instantiate(puzzle,worldPos,puzzle.transform.rotation);
+        puzzleLeft -= 1;
     }
 }

@@ -35,9 +35,14 @@ public class PuzzleController : MonoBehaviour {
         if(Input.GetMouseButtonUp(0))
         {
             if (transform.childCount > 0)
+            {
                 Replace(transform.childCount);
+                
+            }
             else
+            { 
                 Replace();
+            }
         }
     }
 

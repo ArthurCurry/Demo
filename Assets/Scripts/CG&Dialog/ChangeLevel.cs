@@ -21,7 +21,9 @@ public class ChangeLevel : MonoBehaviour {
         if(this.transform.position  == player.position)
         {
             BuildManager.Judge();
+            BuildManager.Destroy_All();
             BuildManager.Init();
+            Camera.main.GetComponent<CameraController>().Init();
         }
     }
 }
