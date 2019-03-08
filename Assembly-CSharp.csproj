@@ -51,11 +51,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ColorAdjustEffect.cs" />
+     <Compile Include="Assets\PostEffectBase.cs" />
+     <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\Scripts\AnimatorController\PlayerAnimController.cs" />
+     <Compile Include="Assets\Scripts\ApplicationManager.cs" />
      <Compile Include="Assets\Scripts\BuildManager.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\CG.cs" />
-     <Compile Include="Assets\Scripts\Dialog.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\CG.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeLevel.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\XmlReader.cs" />
+     <Compile Include="Assets\Scripts\ChangeColor.cs" />
+     <Compile Include="Assets\Scripts\DragMe.cs" />
+     <Compile Include="Assets\Scripts\DragPanel.cs" />
+     <Compile Include="Assets\Scripts\DropMe.cs" />
      <Compile Include="Assets\Scripts\FixedPortal.cs" />
      <Compile Include="Assets\Scripts\HashID.cs" />
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
@@ -88,22 +98,30 @@
      <Compile Include="Assets\Scripts\MVC\UIView.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\BagView.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\DialogView.cs" />
+     <Compile Include="Assets\Scripts\MVC\Views\DragMonitor.cs" />
+     <Compile Include="Assets\Scripts\MVC\Views\MouseMonitor.cs" />
+     <Compile Include="Assets\Scripts\PanelManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scripts\Portals.cs" />
      <Compile Include="Assets\Scripts\PuzzleController.cs" />
+     <Compile Include="Assets\Scripts\ResizePanel.cs" />
      <Compile Include="Assets\Scripts\Save\LoadGame.cs" />
      <Compile Include="Assets\Scripts\Save\Save.cs" />
      <Compile Include="Assets\Scripts\Save\ToLoad.cs" />
      <Compile Include="Assets\Scripts\Save\ToSave.cs" />
+     <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\Scripts\Selection\CallBack.cs" />
      <Compile Include="Assets\Scripts\Selection\testrefsh.cs" />
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow.cs" />
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow_Item.cs" />
+     <Compile Include="Assets\Scripts\ShowSliderValue.cs" />
      <Compile Include="Assets\Scripts\Talk.cs" />
+     <Compile Include="Assets\Scripts\TiltWindow.cs" />
      <Compile Include="Assets\Scripts\Tools\Tool.cs" />
      <Compile Include="Assets\Scripts\UIOnClick.cs" />
-     <Compile Include="Assets\Scripts\XmlReader.cs" />
      <None Include="Assets\StreamingAssets\my.xml" />
+     <None Include="Assets\aoqi\Bag\Materials\UI-Default-No-Alpha.shader" />
+     <None Include="Assets\pure black.shader" />
      <None Include="Assets\Resources\剧情对话.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

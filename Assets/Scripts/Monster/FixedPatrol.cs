@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FixedPatrol : MonoBehaviour {
 
-    public List<Transform> route;//运动路径
+    public List<Vector3> route;//运动路径
     private GameObject player;
     private PlayerMovements pm;
     private Transform target;
@@ -37,32 +37,22 @@ public class FixedPatrol : MonoBehaviour {
         {
             if (playerRB.velocity!=Vector2.zero)
             {
-                direction = route[index].position - transform.position;
+                direction = route[index] - transform.position;
                 rb.velocity = direction.normalized * pm.moveSpeed;
             }
             else
             {
-                if ((transform.position - route[index].position).magnitude < 0.1f&&player.transform.position!=playerPrePos)
+                if ((transform.position - route[index]).magnitude < 0.1f&&player.transform.position!=playerPrePos)
                     index += 1;
                 rb.velocity = Vector2.zero;
             }
         }
         //Debug.Log(index);
         //MoveTo(route[index]);
-        if ((transform.position - route[route.Count - 1].position).magnitude < 0.1f)
+        if ((transform.position - route[route.Count - 1]).magnitude < 0.1f)
             DestroyImmediate(this.gameObject);
         playerPrePos = player.transform.position;
     }
 
-    void MoveTo(Transform target)
-    {
-        if (transform.position != target.position && playerRB.velocity != Vector2.zero)
-        {
-            rb.velocity = (target.position - transform.position).normalized * pm.moveSpeed;
-        }
-        else
-        {
-            index += 1;
-        }
-    }
+
 }

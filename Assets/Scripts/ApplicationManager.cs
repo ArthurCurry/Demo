@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
@@ -12,4 +13,9 @@ public class ApplicationManager : MonoBehaviour {
 		Application.Quit();
 		#endif
 	}
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Level_1");
+    }
 }

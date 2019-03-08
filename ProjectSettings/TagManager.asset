@@ -16,6 +16,7 @@ TagManager:
   - Mechanism
   - Grid
   - Tool
+  - PuzzleUI
   layers:
   - Default
   - TransparentFX
