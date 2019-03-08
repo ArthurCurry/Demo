@@ -22,6 +22,7 @@ public class BagView : UIView
         OutlineText = ToolTip.GetComponent<Text>();
         ContentText = ToolTip.transform.Find("Content").GetComponent<Text>();
         PanelText = IntroductionPanel.transform.Find("Text").GetComponent<Text>();
+        this.RegisterGrid();
     }
 
     protected override void OnShow()//打开时
@@ -77,26 +78,26 @@ public class BagView : UIView
 
     public void RegisterGrid()
     {
-        Grids[0] = GameObject.Find("Grid").transform;
-        Grids[1] = GameObject.Find("Grid1").transform;
-        Grids[2] = GameObject.Find("Grid2").transform;
-        Grids[3] = GameObject.Find("Grid3").transform;
-        Grids[4] = GameObject.Find("Grid4").transform;
-        Grids[5] = GameObject.Find("Grid5").transform;
-        Grids[6] = GameObject.Find("Grid6").transform;
-        Grids[7] = GameObject.Find("Grid7").transform;
-        Grids[8] = GameObject.Find("Grid8").transform;
-        Grids[9] = GameObject.Find("Grid9").transform;
-        Grids[10] = GameObject.Find("Grid10").transform;
-        Grids[11] = GameObject.Find("Grid11").transform;
-        Grids[12] = GameObject.Find("Grid12").transform;
-        Grids[13] = GameObject.Find("Grid13").transform;
-        Grids[14] = GameObject.Find("Grid14").transform;
-        Grids[15] = GameObject.Find("Grid15").transform;
-        Grids[16] = GameObject.Find("Grid16").transform;
-        Grids[17] = GameObject.Find("Grid17").transform;
-        Grids[18] = GameObject.Find("Grid18").transform;
-        Grids[19] = GameObject.Find("Grid19").transform;
-
+        GameObject root = GameObject.Find("Canvas");
+        Grids[0] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid").gameObject.transform;
+        Grids[1] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid1").gameObject.transform;
+        Grids[2] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid2").gameObject.transform;
+        Grids[3] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid3").gameObject.transform;
+        Grids[4] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid4").gameObject.transform;
+        Grids[5] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid5").gameObject.transform;
+        Grids[6] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid6").gameObject.transform;
+        Grids[7] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid7").gameObject.transform;
+        Grids[8] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid8").gameObject.transform;
+        Grids[9] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid9").gameObject.transform;
+        Grids[10] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid10").gameObject.transform;
+        Grids[11] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid11").gameObject.transform;
+        Grids[12] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid12").gameObject.transform;
+        Grids[13] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid13").gameObject.transform;
+        Grids[14] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid14").gameObject.transform;
+        Grids[15] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid15").gameObject.transform;
+        Grids[16] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid16").gameObject.transform;
+        Grids[17] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid17").gameObject.transform;
+        Grids[18] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid18").gameObject.transform;
+        Grids[19] = root.transform.Find("BagPanel").gameObject.transform.Find("Grid19").gameObject.transform;
     }
 }

@@ -60,10 +60,7 @@ public class UIManager : MonoBehaviour {
 
     void Update()
     {
-        ctrlManager.UpdateCtrls();
-
-
-    
+        ctrlManager.UpdateCtrls();    
     }
 
 

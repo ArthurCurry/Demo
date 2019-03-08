@@ -7,17 +7,16 @@ using System;
 
 public class BagCtrl : UICtrl
 {
-
-    bool IsOpened = true;
+    bool BeRegister = false;
+    bool IsOpened = false;
     BagView bagview = new BagView();
 
 
     public override void Init()
     {
-        bagview.Init(this, GameObject.Find("BagPanel"));
+        GameObject root = GameObject.Find("Canvas");
+        bagview.Init(this, root.transform.Find("BagPanel").gameObject);
         this.View = bagview;
-        this.bagview.RegisterGrid();
-
     }
     protected override void OnCreate()
     {
@@ -127,11 +126,11 @@ public class BagCtrl : UICtrl
     public void GridUI_OnEnter(Transform gridTransform)
     {
 
-        Debug.Log(gridTransform.name);
+        //Debug.Log(gridTransform.name);
         Item item = BagModel.GetItem(gridTransform.name);
         if (item == null)
             return;
-        Debug.Log(1);
+        //Debug.Log(1);
         string text = GetTooltipText(item);
         bagview.UpdateTooltip(text);
         string text1 = GetPanelText(item);
@@ -142,7 +141,7 @@ public class BagCtrl : UICtrl
 
     public void GridUI_OnExit()
     {
-        Debug.Log(2);
+        //Debug.Log(2);
         IsOpened = false;
         ToolTipHide();
     }

@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Xml;
 using System.IO;
-using UnityEditor;
+//using UnityEditor;
 
 public class LoadGame
 {
-    [MenuItem("GameObject/ImprotXML")]
+    //[MenuItem("GameObject/ImprotXML")]
     public static void LoadSenceXML()
     {
         string filepath = Application.dataPath + "/StreamingAssets" + "/my.xml";

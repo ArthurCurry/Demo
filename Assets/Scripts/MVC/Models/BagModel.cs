@@ -30,6 +30,7 @@ public class BagModel : UIModel
 
         Consumable c2 = new Consumable(5, "蓝瓶", "加蓝", "mana bottle");
 
+        Debug.Log(w1.Name);
 
         ItemList.Add(w1.Id, w1);
 

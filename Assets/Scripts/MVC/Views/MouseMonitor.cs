@@ -11,14 +11,14 @@ public class MouseMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public static Action OnExit;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(1);
+        //Debug.Log(1);
         if (eventData.pointerEnter.tag == "Grid")
         {
-            Debug.Log(2);
+            //Debug.Log(2);
             if (OnEnter != null)
             {
                 OnEnter(transform);
-                Debug.Log(3);
+                //Debug.Log(3);
             }
 
         }

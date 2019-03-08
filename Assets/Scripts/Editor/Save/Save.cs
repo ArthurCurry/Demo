@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
 using System.Text;
-using UnityEditor.SceneManagement;
+//using UnityEditor.SceneManagement;
 
-public class Save : Editor
+public class Save
 {
     //将所有游戏场景导出为XML格式    
-    [MenuItem("GameObject/ExportXML")]
+    //[MenuItem("GameObject/ExportXML")]
     public static void ExportXML()
     {
         string filepath = Application.dataPath + @"/StreamingAssets/my.xml";
@@ -86,8 +88,10 @@ public class Save : Editor
                 }
             }
         }
-        //刷新Project视图， 不然需要手动刷新哦       
+        //刷新Project视图， 不然需要手动刷新哦  
+#if UNITY_EDITOR
         AssetDatabase.Refresh();
+#endif
     }
 
 }

@@ -48,7 +48,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void Move()//移动
     {
-        if(Input.anyKey&&!isMoving)
+        if(Input.anyKey&&!isMoving&&!BuildManager .IsCG)
         {
             KeyCode key = KeyCode.None;
             Event e = Event.current;

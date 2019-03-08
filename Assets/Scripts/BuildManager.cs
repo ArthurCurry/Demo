@@ -12,6 +12,7 @@ public class BuildManager {
     private static bool isCG;
     public static bool IsCG
     {
+        get { return isCG; }
         set { isCG = value; }
     }
     private static int x;
@@ -79,6 +80,7 @@ public class BuildManager {
 
     public static void Init()
     {
+        Destroy_All();
         InitPlayer();
         InitAttribute();
         InitMap(levelName);
@@ -157,8 +159,10 @@ public class BuildManager {
 
     public static void Destroy_All()
     {
-        Object.Destroy(GameObject.FindWithTag(HashID.LEVEL));
-        Object.Destroy(GameObject.FindWithTag(HashID.PLAYER));
+        if (GameObject.FindWithTag(HashID.LEVEL))
+            Object.Destroy(GameObject.FindWithTag(HashID.LEVEL));
+        if (GameObject.FindWithTag(HashID.PLAYER))
+            Object.Destroy(GameObject.FindWithTag(HashID.PLAYER));
     }
 
 }
