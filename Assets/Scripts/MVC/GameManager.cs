@@ -31,12 +31,12 @@ public class GameManager:MonoBehaviour {
     // Use this for initialization
     void Start () {
         GameObject root = GameObject.Find("Canvas");
-        escape = root.transform.Find("Save").gameObject;
-        Init("CG1","旁白");
+        //escape = root.transform.Find("Save").gameObject;
+        BuildManager.Level = 1;
         BuildManager.XMLName = "第一关";
         BuildManager.LevelName = "Level_1-1";
+        Init("CG1","旁白");
        // BuildManager.LevelName = "Level_2";
-        BuildManager.Level = 1;
     }
 	
 	// Update is called once per frame
