@@ -17389,7 +17389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4028217030304974}
   m_Layer: 0
-  m_Name: Level_1
+  m_Name: Level_4
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45544,7 +45544,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.52, y: 2.95}
+    oldSize: {x: 1.1733333, y: 0.98333335}
     newSize: {x: 3.52, y: 2.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -74069,7 +74069,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.52, y: 2.95}
+    oldSize: {x: 1.1733333, y: 0.98333335}
     newSize: {x: 3.52, y: 2.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -79469,6 +79469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44077dc885bf3234e89f311c610caf0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
 --- !u!114 &114337942917316134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79527,6 +79528,7 @@ MonoBehaviour:
   nextPos: {fileID: 0}
   player: {fileID: 0}
   mode: 0
+  trigger: {fileID: 0}
 --- !u!114 &114846533848168140
 MonoBehaviour:
   m_ObjectHideFlags: 1
