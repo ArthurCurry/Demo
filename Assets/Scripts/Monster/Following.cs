@@ -8,8 +8,6 @@ public class Following : Monster {
     private PlayerMovements pm;
     [SerializeField]
     private float mode;
-    [SerializeField]
-    private Transform trigger;
 
     // Use this for initialization
     void Start()

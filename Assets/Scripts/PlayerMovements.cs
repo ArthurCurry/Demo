@@ -43,8 +43,8 @@ public class PlayerMovements : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(targetFloor.name);
-        Debug.Log(this.transform.position);
+        //Debug.Log(targetFloor.name);
+        //Debug.Log(this.transform.position);
         //Debug.Log(rb.velocity);
         Move();
         if (isDead)

@@ -7692,6 +7692,7 @@ GameObject:
   - component: {fileID: 114459996235397754}
   - component: {fileID: 61371838530412390}
   - component: {fileID: 50792860155234628}
+  - component: {fileID: 114964038664866038}
   m_Layer: 8
   m_Name: following_1
   m_TagString: Following
@@ -14095,7 +14096,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990857245339034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.036227, y: 6.0275598, z: -0.16901062}
+  m_LocalPosition: {x: -19.2, y: 13.9, z: -0.16901062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4242390894793638}
@@ -42764,7 +42765,6 @@ MonoBehaviour:
   nextPos: {fileID: 0}
   player: {fileID: 0}
   mode: -1
-  trigger: {fileID: 0}
 --- !u!114 &114530707413198250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42795,7 +42795,6 @@ MonoBehaviour:
   nextPos: {fileID: 0}
   player: {fileID: 0}
   mode: -1
-  trigger: {fileID: 0}
 --- !u!114 &114577252741700662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42950,6 +42949,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c647d925c5fb64a9d597da675a1abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114964038664866038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1558681307074578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14493e6df3ed6445a44180bf53ac5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 4971655906878058}
 --- !u!114 &114970553329362120
 MonoBehaviour:
   m_ObjectHideFlags: 1
