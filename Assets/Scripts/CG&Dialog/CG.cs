@@ -76,7 +76,7 @@ public class CG : MonoBehaviour
         {
             if (BuildManager .Level ==1&&!GameObject.FindWithTag (HashID .LEVEL))
             {
-                BuildManager.Init();
+                BuildManager.Init();              
             }
             Camera.main.GetComponent<CameraController>().enabled = true;
             if(m_Alpha < 0)
