@@ -143,8 +143,8 @@ public class PlayerMovements : MonoBehaviour {
                 }
             }
             //Debug.Log(hits[1].transform.name);
-            if (GameObject.FindWithTag(HashID.FOLLOWING))
-                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
+            /*if (GameObject.FindWithTag(HashID.FOLLOWING))
+                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);*/
             MonsterManager.UpdateMonsters((hits[1].transform.position - transform.position).magnitude);
             return hits[1].transform;
         }

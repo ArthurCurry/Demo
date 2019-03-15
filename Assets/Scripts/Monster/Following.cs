@@ -6,6 +6,10 @@ public class Following : Monster {
 
     private Rigidbody2D rb;
     private PlayerMovements pm;
+    private Rigidbody2D playerRB;
+    private Vector3 playerPrePos;//玩家上一帧位置
+    private Vector2 thisPos;//自身位置
+    private Vector2 direction;//前进方向
     [SerializeField]
     private float mode;
 
@@ -14,6 +18,8 @@ public class Following : Monster {
     {
         latePos = GameObject.FindWithTag(HashID.PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
+        playerPrePos = player.transform.position;
+        playerRB = player.GetComponent<Rigidbody2D>();
         pm = player.GetComponent<PlayerMovements>();
         rb = this.GetComponent<Rigidbody2D>();
     }
@@ -21,7 +27,15 @@ public class Following : Monster {
     // Update is called once per frame
     void LateUpdate()
     {
-
+        if (playerPrePos != player.transform.position)
+        {
+            Follow();
+        }
+        else
+        {
+            Stop();
+        }
+        playerPrePos = player.transform.position;
     }
 
 
@@ -36,20 +50,19 @@ public class Following : Monster {
     public override void Move()
     {
     }
-    public void Follow(Vector3 a)
+    private void Follow()
     {
-        a = a * mode;
-        nextPos = player.transform;
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + a * 10);
+        direction = playerRB.velocity * mode;
+        thisPos = this.transform.position;
+        RaycastHit2D[] hits = Physics2D.LinecastAll(thisPos, thisPos+  direction* 10);
         //Debug.Log(hits.Length);
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
             if (transform.position != hits[1].transform.position)
             {
-                rb.velocity = (hits[1].transform.position - transform.position).normalized * pm.moveSpeed;
+                rb.velocity = direction;
                 //Debug.Log(rb.velocity);
             }
-            latePos = nextPos.position;
         }
     }
 
