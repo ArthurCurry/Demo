@@ -34,7 +34,7 @@ public class GameManager:MonoBehaviour {
         //escape = root.transform.Find("Save").gameObject;
         BuildManager.Level = 1;
         BuildManager.XMLName = "第一关";
-        BuildManager.LevelName = "Level_1-1";
+        BuildManager.LevelName = "Level_2";
         Init("CG1","旁白");
        // BuildManager.LevelName = "Level_2";
     }
