@@ -12,10 +12,15 @@ public class Following : Monster {
     private Vector2 direction;//前进方向
     [SerializeField]
     private float mode;
+    [SerializeField]
+    private Transform triggerPos;
+    [SerializeField]
+    private bool triggered;
 
     // Use this for initialization
     void Start()
     {
+        triggered = false;
         latePos = GameObject.FindWithTag(HashID.PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
         playerPrePos = player.transform.position;
@@ -27,15 +32,13 @@ public class Following : Monster {
     // Update is called once per frame
     void LateUpdate()
     {
-        if (playerPrePos != player.transform.position)
+        if (!triggered)
         {
-            Follow();
+            if ((player.transform.position - triggerPos.position).magnitude < 0.1f&&playerRB.velocity==Vector2.zero)
+                triggered = true;
         }
         else
-        {
-            Stop();
-        }
-        playerPrePos = player.transform.position;
+            Move();
     }
 
 
@@ -49,20 +52,17 @@ public class Following : Monster {
     }
     public override void Move()
     {
+            Follow();
     }
     private void Follow()
     {
         direction = playerRB.velocity * mode;
         thisPos = this.transform.position;
-        RaycastHit2D[] hits = Physics2D.LinecastAll(thisPos, thisPos+  direction* 10);
+        RaycastHit2D[] hits = Physics2D.LinecastAll(thisPos, thisPos+  direction.normalized* HashID.unitLength);
         //Debug.Log(hits.Length);
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
-            if (transform.position != hits[1].transform.position)
-            {
                 rb.velocity = direction;
-                //Debug.Log(rb.velocity);
-            }
         }
     }
 
