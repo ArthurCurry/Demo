@@ -43170,6 +43170,9 @@ MonoBehaviour:
   nextPos: {fileID: 0}
   player: {fileID: 0}
   mode: -1
+  triggerPoses:
+  - {fileID: 4971655906878058}
+  triggered: 0
 --- !u!114 &114460252813473702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43251,6 +43254,8 @@ MonoBehaviour:
   nextPos: {fileID: 0}
   player: {fileID: 0}
   mode: -1
+  triggerPoses: []
+  triggered: 0
 --- !u!114 &114651165913376898
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,7 +13,7 @@ public class Following : Monster {
     [SerializeField]
     private float mode;
     [SerializeField]
-    private Transform triggerPos;
+    private List<Transform> triggerPoses;
     [SerializeField]
     private bool triggered;
 
@@ -34,8 +34,14 @@ public class Following : Monster {
     {
         if (!triggered)
         {
-            if ((player.transform.position - triggerPos.position).magnitude < 0.1f&&playerRB.velocity==Vector2.zero)
-                triggered = true;
+            foreach (Transform triggerPos in triggerPoses)
+            {
+                if ((player.transform.position - triggerPos.position).magnitude < 0.1f && playerRB.velocity == Vector2.zero)
+                {
+                    triggered = true;
+                    break;
+                }
+            }
         }
         else
             Move();
