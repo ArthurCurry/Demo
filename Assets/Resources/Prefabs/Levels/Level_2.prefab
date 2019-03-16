@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 4615697335549326}
   - component: {fileID: 212906077422140046}
   - component: {fileID: 61070464088830858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_1
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -3669,7 +3669,7 @@ GameObject:
   - component: {fileID: 4262846137421144}
   - component: {fileID: 212028105835260990}
   - component: {fileID: 61738833495730898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_1
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -4743,7 +4743,7 @@ GameObject:
   - component: {fileID: 4044333711958924}
   - component: {fileID: 212767999773481090}
   - component: {fileID: 61917003792186362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_1
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -6177,7 +6177,7 @@ GameObject:
   - component: {fileID: 4665720371803846}
   - component: {fileID: 212014323852303588}
   - component: {fileID: 61454683410274406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_4
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -6345,7 +6345,7 @@ GameObject:
   - component: {fileID: 4108106833299882}
   - component: {fileID: 212561449278919306}
   - component: {fileID: 61092995454487102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_17
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -7311,7 +7311,7 @@ GameObject:
   - component: {fileID: 4975416145271296}
   - component: {fileID: 212633928496243262}
   - component: {fileID: 61541483179543538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_2
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -9462,7 +9462,7 @@ GameObject:
   - component: {fileID: 4751432062203912}
   - component: {fileID: 212830069387128084}
   - component: {fileID: 61793556086322064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_3
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -10691,7 +10691,7 @@ GameObject:
   - component: {fileID: 4495787873716294}
   - component: {fileID: 212697932206012928}
   - component: {fileID: 61226024160238300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -12392,7 +12392,7 @@ GameObject:
   - component: {fileID: 4621632966283686}
   - component: {fileID: 212769448287180838}
   - component: {fileID: 61497104000631884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1_1
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -12509,7 +12509,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4910132980050460}
-  - component: {fileID: 114458740567876518}
   - component: {fileID: 114530707413198250}
   m_Layer: 0
   m_Name: lift2
@@ -43140,20 +43139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c647d925c5fb64a9d597da675a1abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114458740567876518
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931129708691422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c26d9590d1a53864697ca25cab6fbf6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: {fileID: 0}
-  passive: {fileID: 0}
-  triggered: 0
 --- !u!114 &114459996235397754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43235,8 +43220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26d9590d1a53864697ca25cab6fbf6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: {fileID: 0}
-  passive: {fileID: 0}
+  active: {fileID: 1558681307074578}
+  passive: {fileID: 1005421090487608}
   triggered: 0
 --- !u!114 &114567523747721578
 MonoBehaviour:

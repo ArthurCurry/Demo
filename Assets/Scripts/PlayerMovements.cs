@@ -90,7 +90,7 @@ public class PlayerMovements : MonoBehaviour {
             //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
             //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
             isMoving = true;
-            Debug.Log(2);
+            //Debug.Log(2);
             StopAt(targetFloor);
         }
         else
@@ -167,7 +167,7 @@ public class PlayerMovements : MonoBehaviour {
     {
         if ((transform.position - target.position).magnitude < 0.01f)
         {
-            Debug.Log(1);
+            //Debug.Log(1);
             transform.position = target.transform.position;
             rb.velocity = Vector2.zero;
         }
