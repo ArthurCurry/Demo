@@ -67,22 +67,25 @@ public class CG : MonoBehaviour
         //透明值等于的1的时候 转换成淡出效果
         if (m_Alpha > 1f)
         {
-            BuildManager.InitDialog();
+
+            if (BuildManager.Need)
+            {
+                BuildManager.InitDialog();
+            }
             m_Statuss = FadeStatuss.None;
             m_Alpha = 1f;            
         }
         //值为0的时候跳转场景
         else if (m_Alpha < 0.5&&m_Statuss ==FadeStatuss.FadeOut)
         {
-            if (BuildManager .Level ==1&&!GameObject.FindWithTag (HashID .LEVEL))
+            if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
             {
                 BuildManager.Init();
+                Camera.main.GetComponent<CameraController>().enabled = true;
                 Camera.main.GetComponent<CameraController>().DetectEdges();
             }
-            Camera.main.GetComponent<CameraController>().enabled = true;
             if(m_Alpha < 0)
-            {
-                
+            {   
                 Destroy(this.gameObject);
             }
         }

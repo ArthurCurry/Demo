@@ -10793,6 +10793,7 @@ GameObject:
   - component: {fileID: 4543471235193028}
   - component: {fileID: 212397447581556178}
   - component: {fileID: 61348603176544802}
+  - component: {fileID: 114560604643176106}
   m_Layer: 8
   m_Name: floor_3_14
   m_TagString: Map
@@ -43223,6 +43224,17 @@ MonoBehaviour:
   active: {fileID: 1558681307074578}
   passive: {fileID: 1005421090487608}
   triggered: 0
+--- !u!114 &114560604643176106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789990531376734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6cdb1b6d59bf64ca8dbac2041c6266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114567523747721578
 MonoBehaviour:
   m_ObjectHideFlags: 1

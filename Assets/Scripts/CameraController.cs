@@ -62,6 +62,11 @@ public class CameraController : MonoBehaviour {
             Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
     }
 
+    public void FollowTarget(string target)
+    {
+        player = GameObject.Find(target);        
+    }
+
     bool PlayerOutOfView()//判断角色是否即将越出视野
     {
         Vector2 screenPos = Camera.main.WorldToScreenPoint(player.transform.position);
