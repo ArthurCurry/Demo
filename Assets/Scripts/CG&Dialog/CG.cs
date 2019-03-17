@@ -67,7 +67,11 @@ public class CG : MonoBehaviour
         //透明值等于的1的时候 转换成淡出效果
         if (m_Alpha > 1f)
         {
-            BuildManager.InitDialog();
+
+            if (BuildManager.Need)
+            {
+                BuildManager.InitDialog();
+            }
             m_Statuss = FadeStatuss.None;
             m_Alpha = 1f;            
         }
@@ -81,8 +85,7 @@ public class CG : MonoBehaviour
                 Camera.main.GetComponent<CameraController>().DetectEdges();
             }
             if(m_Alpha < 0)
-            {
-                
+            {   
                 Destroy(this.gameObject);
             }
         }

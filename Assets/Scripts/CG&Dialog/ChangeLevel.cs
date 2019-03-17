@@ -24,6 +24,7 @@ public class ChangeLevel : MonoBehaviour {
             BuildManager.Destroy_All();
             BuildManager.Init();
             Camera.main.GetComponent<CameraController>().Init();
+            BuildManager.Name = "异步敌人";
         }
     }
 }

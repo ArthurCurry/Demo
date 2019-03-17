@@ -15,15 +15,22 @@ public class BuildManager {
         get { return isCG; }
         set { isCG = value; }
     }
+    private static bool need;
+    public static bool Need
+    {
+        get { return need; }
+        set { need = value; }
+    }
     private static int x;
     public static int X
     {
         set { x = value; }
     }
-    private static int count;
+    private static int count; 
     public static int Count
     {
         set { count = value; }
+        get { return count; }
     }
     private static string name;
     public static string Name
@@ -152,7 +159,7 @@ public class BuildManager {
         switch (level)
         {
             case 1: levelName = "Level_2";XMLname = "第二关"; level += 1; break;
-            case 2: levelName = "Level_3"; XMLname = "第三关"; level += 1; break;
+            case 2: InitCG("CG2", "旁白"); InitCG("CG3", "旁白"); InitCG("CG4", "旁白"); levelName = "Level_3"; XMLname = "第三关"; level += 1; break;
         }
     }
 

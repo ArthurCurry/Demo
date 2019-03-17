@@ -32,6 +32,7 @@ public class GameManager:MonoBehaviour {
     void Start () {
         GameObject root = GameObject.Find("Canvas");
         //escape = root.transform.Find("Save").gameObject;
+        BuildManager.Need = true;
         BuildManager.Level = 1;
         BuildManager.XMLName = "第一关";
         BuildManager.LevelName = "Level_1-1";
