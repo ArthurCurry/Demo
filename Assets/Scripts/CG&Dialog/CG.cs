@@ -74,11 +74,11 @@ public class CG : MonoBehaviour
         //值为0的时候跳转场景
         else if (m_Alpha < 0.5&&m_Statuss ==FadeStatuss.FadeOut)
         {
-            if (BuildManager .Level ==1&&!GameObject.FindWithTag (HashID .LEVEL))
+            if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
             {
-                BuildManager.Init();              
+                BuildManager.Init();
+                Camera.main.GetComponent<CameraController>().enabled = true;
             }
-            Camera.main.GetComponent<CameraController>().enabled = true;
             if(m_Alpha < 0)
             {
                 Camera.main.GetComponent<CameraController>().DetectEdges();
