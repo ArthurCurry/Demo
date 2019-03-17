@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
      <Compile Include="Assets\Scripts\Monster\AttcakMode2.cs" />
+     <Compile Include="Assets\Scripts\Monster\BehaveTrigger.cs" />
      <Compile Include="Assets\Scripts\Monster\EyesMonster.cs" />
      <Compile Include="Assets\Scripts\Monster\FixedPatrol.cs" />
      <Compile Include="Assets\Scripts\Monster\Following.cs" />
@@ -105,10 +106,6 @@
      <Compile Include="Assets\Scripts\Portals.cs" />
      <Compile Include="Assets\Scripts\PuzzleController.cs" />
      <Compile Include="Assets\Scripts\ResizePanel.cs" />
-     <Compile Include="Assets\Scripts\Save\LoadGame.cs" />
-     <Compile Include="Assets\Scripts\Save\Save.cs" />
-     <Compile Include="Assets\Scripts\Save\ToLoad.cs" />
-     <Compile Include="Assets\Scripts\Save\ToSave.cs" />
      <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\Scripts\Selection\CallBack.cs" />
      <Compile Include="Assets\Scripts\Selection\testrefsh.cs" />

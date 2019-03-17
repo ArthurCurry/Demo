@@ -32,16 +32,16 @@ public class Lift : MonoBehaviour {
     {
         foreach(Transform child in this.GetComponentInChildren<Transform>())
         {
-            if(!transform.name.Equals(this.transform.name))
-            {
+            Debug.Log(child.name);
+
                 if(child.name.Contains("door"))
                 {
-                    child.gameObject.SetActive(false);
+                    Debug.Log("door");
+                    child.GetComponent<SpriteRenderer>().color = Color.white;
                     continue;
                 }
                 child.GetComponent<BoxCollider2D>().enabled = true;
-                child.GetComponent<SpriteRenderer>().color = Color.white;
-            }
+
         }
     }
 }

@@ -43,8 +43,8 @@ public class PlayerMovements : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(targetFloor.name);
-        Debug.Log(this.transform.position);
+        //Debug.Log(targetFloor.name);
+        //Debug.Log(this.transform.position);
         //Debug.Log(rb.velocity);
         Move();
         if (isDead)
@@ -90,7 +90,7 @@ public class PlayerMovements : MonoBehaviour {
             //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
             //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
             isMoving = true;
-            Debug.Log(2);
+            //Debug.Log(2);
             StopAt(targetFloor);
         }
         else
@@ -143,8 +143,8 @@ public class PlayerMovements : MonoBehaviour {
                 }
             }
             //Debug.Log(hits[1].transform.name);
-            if (GameObject.FindWithTag(HashID.FOLLOWING))
-                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);
+            /*if (GameObject.FindWithTag(HashID.FOLLOWING))
+                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);*/
             MonsterManager.UpdateMonsters((hits[1].transform.position - transform.position).magnitude);
             return hits[1].transform;
         }
@@ -167,7 +167,7 @@ public class PlayerMovements : MonoBehaviour {
     {
         if ((transform.position - target.position).magnitude < 0.01f)
         {
-            Debug.Log(1);
+            //Debug.Log(1);
             transform.position = target.transform.position;
             rb.velocity = Vector2.zero;
         }

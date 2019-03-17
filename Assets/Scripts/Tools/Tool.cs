@@ -12,14 +12,16 @@ public class Tool : MonoBehaviour {
     [SerializeField]
     private bool hidden;
     private bool picked;
+    private BagCtrl bc;
     public int curCondition;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         hidden = true;
         picked = false;
+        bc = new BagCtrl();
         InitData();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,7 +33,9 @@ public class Tool : MonoBehaviour {
         if(!hidden)
         {
             if (Input.GetKey(KeyCode.E))
-                Debug.Log("picked");
+            {
+                BePicked();
+            }
         }
 	}
 
@@ -42,6 +46,7 @@ public class Tool : MonoBehaviour {
             if ((player.transform.position - pos).magnitude < 0.5f)
             {
                 picked = true;
+                bc.StoreItem(ID);
                 Debug.Log("picked");
             }
         }
