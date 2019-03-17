@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Trigger.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
      <Compile Include="Assets\Scripts\Monster\AttcakMode2.cs" />
      <Compile Include="Assets\Scripts\Monster\BehaveTrigger.cs" />
@@ -105,7 +106,6 @@
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scripts\Portals.cs" />
      <Compile Include="Assets\Scripts\PuzzleController.cs" />
-     <Compile Include="Assets\Scripts\PuzzleManager.cs" />
      <Compile Include="Assets\Scripts\ResizePanel.cs" />
      <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\Scripts\Selection\CallBack.cs" />
