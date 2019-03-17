@@ -360,39 +360,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &964007939
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 964007940}
-  m_Layer: 5
-  m_Name: PuzzleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &964007940
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 964007939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1567662289}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1271523773
 Prefab:
   m_ObjectHideFlags: 0
@@ -546,14 +513,21 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2098039909}
+    - target: {fileID: 1925100704071744, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
+      propertyPath: m_TagString
+      value: PuzzleUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904528793708142, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
+      propertyPath: m_TagString
+      value: PuzzleUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848233163723036, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
+      propertyPath: m_TagString
+      value: PuzzleUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1567662289 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224208769436354898, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1271523773}
 --- !u!20 &2098039909 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20351179281290088, guid: a29e39a667abf7f408df295827bdad45,
