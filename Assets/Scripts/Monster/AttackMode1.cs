@@ -18,10 +18,7 @@ public class AttackMode1 : MonoBehaviour {
 
     void LateUpdate()
     {
-        if(playerRB.velocity==Vector2.zero)
-        {
             if ((player.transform.position - this.transform.position).magnitude < 0.1f)
                 pm.isDead = true;
-        }
     }
 }
