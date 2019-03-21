@@ -159,7 +159,8 @@ public class BuildManager {
         switch (level)
         {
             case 1: levelName = "Level_2";XMLname = "第二关"; level += 1; break;
-            case 2: InitCG("CG2", "旁白"); InitCG("CG3", "旁白"); InitCG("CG4", "旁白"); levelName = "Level_3"; XMLname = "第三关"; level += 1; break;
+            case 2: InitCG("CG2", "旁白"); levelName = "Level_3"; XMLname = "第三关"; level += 1; break;
+            case 3: InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; level += 1;break;
         }
     }
 

@@ -84,6 +84,17 @@ public class CG : MonoBehaviour
                 Camera.main.GetComponent<CameraController>().enabled = true;
                 Camera.main.GetComponent<CameraController>().DetectEdges();
             }
+            if (BuildManager.Level == 2)
+            {
+                if (this.name == "CG2")
+                {
+                    BuildManager.InitCG("CG3", "旁白");
+                }
+                if (this.name == "CG3")
+                {
+                    BuildManager.InitCG("CG4", "旁白");
+                }
+            }
             if(m_Alpha < 0)
             {   
                 Destroy(this.gameObject);
