@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Trigger.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
      <Compile Include="Assets\Scripts\Monster\AttcakMode2.cs" />
      <Compile Include="Assets\Scripts\Monster\BehaveTrigger.cs" />

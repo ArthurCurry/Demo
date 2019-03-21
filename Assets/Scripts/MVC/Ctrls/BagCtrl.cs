@@ -40,6 +40,7 @@ public class BagCtrl : UICtrl
     {
         if (Input.GetKeyDown(KeyCode.B) && IsOpened == false)
         {
+            Debug.Log("open");
             UIManager.Instance.ShowPanel("BagPanel");
             IsOpened = true;
         }

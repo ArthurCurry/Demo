@@ -5,8 +5,10 @@ using UnityEngine.UI;
 using System;
 public class UIManager : MonoBehaviour {
 
+    [SerializeField]
+    private UIOnClick[] puzzles;
 
-   // private Dictionary<string, UIView> panelDict = new Dictionary<string, UIView>();
+    // private Dictionary<string, UIView> panelDict = new Dictionary<string, UIView>();
     public static UIManager Instance;
 
     private Dictionary<string,Type> viewTypeDict = new Dictionary<string, Type>();
@@ -131,4 +133,10 @@ public class UIManager : MonoBehaviour {
     }
 
 
+    public void PuzzleAdd(int a, int b, int c)
+    {
+        puzzles[0].puzzleLeft += a;
+        puzzles[1].puzzleLeft += b;
+        puzzles[2].puzzleLeft += c;
+    }
 }
