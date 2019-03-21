@@ -152,10 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1857554574238736, guid: d22f11c797eb866499643bf6ed3dcbf7, type: 2}
-      propertyPath: m_Name
-      value: gostraight
-      objectReference: {fileID: 0}
     - target: {fileID: 1183523577271500, guid: d22f11c797eb866499643bf6ed3dcbf7, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -1221,6 +1217,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114133259104672230, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901,
+        type: 2}
+      propertyPath: puzzleUI.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4374310613883304, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.85242474
@@ -1253,26 +1254,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114133259104672230, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1589709318}
+    - target: {fileID: 114133259104672230, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 1351282209}
+    - target: {fileID: 114133259104672230, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[2]
+      value: 
+      objectReference: {fileID: 1796268411}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 594f1fe7d9fc0e1468cdcd6ddbe13901, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &815979126 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1857554574238736, guid: d22f11c797eb866499643bf6ed3dcbf7,
-    type: 2}
-  m_PrefabInternal: {fileID: 182149393}
---- !u!114 &815979127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 815979126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44077dc885bf3234e89f311c610caf0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0}
 --- !u!1001 &999944610
 Prefab:
   m_ObjectHideFlags: 0
@@ -1312,6 +1311,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1589709318}
+    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 1351282209}
+    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[2]
+      value: 
+      objectReference: {fileID: 1796268411}
+    - target: {fileID: 114096269147286094, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1589709318}
+    - target: {fileID: 114096269147286094, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 1351282209}
+    - target: {fileID: 114096269147286094, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[2]
+      value: 
+      objectReference: {fileID: 1796268411}
     - target: {fileID: 1990857245339034, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -1483,6 +1512,21 @@ Prefab:
     - target: {fileID: 1848233163723036, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
       propertyPath: m_TagString
       value: PuzzleUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 114330871683177422, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078182321039274, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114592850371549096, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}

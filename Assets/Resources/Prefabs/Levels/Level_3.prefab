@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 114860000298046518}
   - component: {fileID: 61802778533512586}
   - component: {fileID: 95940009242953148}
+  - component: {fileID: 50614940512601932}
   m_Layer: 8
   m_Name: Following_1
   m_TagString: Following
@@ -3195,6 +3196,7 @@ GameObject:
   - component: {fileID: 114455435337553710}
   - component: {fileID: 61572748769641736}
   - component: {fileID: 95400330271780148}
+  - component: {fileID: 50464254426909678}
   m_Layer: 8
   m_Name: Following_1
   m_TagString: Following
@@ -10143,6 +10145,7 @@ GameObject:
   - component: {fileID: 4386571235146082}
   - component: {fileID: 212368435201149064}
   - component: {fileID: 61281828751654128}
+  - component: {fileID: 114536104816076110}
   m_Layer: 8
   m_Name: start
   m_TagString: Map
@@ -11227,8 +11230,9 @@ GameObject:
   - component: {fileID: 212805114210589970}
   - component: {fileID: 61066400850178984}
   - component: {fileID: 114104143733977450}
+  - component: {fileID: 114565791158510052}
   m_Layer: 8
-  m_Name: still_1
+  m_Name: gostraight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24183,6 +24187,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!50 &50464254426909678
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225102754850492}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!50 &50545080468587072
 Rigidbody2D:
   serializedVersion: 4
@@ -24190,6 +24214,26 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983089484099058}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50614940512601932
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031937303429052}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -42583,6 +42627,7 @@ MonoBehaviour:
   condition: 1
   ID: 8
   hidden: 0
+  number: 
   curCondition: 1
 --- !u!114 &114413286866058338
 MonoBehaviour:
@@ -42614,6 +42659,21 @@ MonoBehaviour:
   triggerPoses:
   - {fileID: 4762898210555070}
   triggered: 0
+--- !u!114 &114536104816076110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772269882472750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 030000000100000001000000
+  active: {fileID: 0}
+  triggered: 0
 --- !u!114 &114565612648190376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42632,6 +42692,18 @@ MonoBehaviour:
   distance: 0
   inPosition: 0
   attackRange: 5
+--- !u!114 &114565791158510052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857554574238736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44077dc885bf3234e89f311c610caf0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 1, y: 0}
 --- !u!114 &114608484776387780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42646,6 +42718,7 @@ MonoBehaviour:
   condition: 1
   ID: 10
   hidden: 0
+  number: 
   curCondition: 1
 --- !u!114 &114752249305632186
 MonoBehaviour:
@@ -42661,6 +42734,7 @@ MonoBehaviour:
   condition: 1
   ID: 7
   hidden: 0
+  number: 
   curCondition: 1
 --- !u!114 &114860000298046518
 MonoBehaviour:
@@ -42695,6 +42769,7 @@ MonoBehaviour:
   condition: 1
   ID: 11
   hidden: 0
+  number: 
   curCondition: 1
 --- !u!114 &114951409889419622
 MonoBehaviour:
@@ -42710,6 +42785,7 @@ MonoBehaviour:
   condition: 1
   ID: 9
   hidden: 0
+  number: 
   curCondition: 1
 --- !u!114 &114975483781218548
 MonoBehaviour:

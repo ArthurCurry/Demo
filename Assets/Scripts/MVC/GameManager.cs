@@ -6,6 +6,7 @@ public class GameManager:MonoBehaviour {
     private ModelManager modelManager;
     private CtrlManager ctrlManager;
 
+
     private GameObject escape;
     private int count;
 
@@ -35,7 +36,7 @@ public class GameManager:MonoBehaviour {
         BuildManager.Need = true;
         BuildManager.Level = 1;
         BuildManager.XMLName = "第一关";
-        BuildManager.LevelName = "Level_1-1";
+        BuildManager.LevelName = "Level_2";
         Init("CG1","旁白");
        // BuildManager.LevelName = "Level_2";
     }
@@ -80,4 +81,5 @@ public class GameManager:MonoBehaviour {
             }
         }
     }
+
 }
