@@ -50,7 +50,9 @@ public class FixedPatrol : MonoBehaviour {
         //Debug.Log(index);
         //MoveTo(route[index]);
         if ((transform.position - route[route.Count - 1]).magnitude < 0.1f)
-            DestroyImmediate(this.gameObject);
+        {
+                DestroyImmediate(this.gameObject);
+        }
         playerPrePos = player.transform.position;
     }
 
