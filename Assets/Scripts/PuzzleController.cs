@@ -50,7 +50,7 @@ public class PuzzleController : MonoBehaviour {
     {
         Vector3 temp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 worldPos = new Vector2(temp.x, temp.y);
-        RaycastHit2D[] hits=Physics2D.LinecastAll(transform.position, worldPos, LayerMask.GetMask("Replaceable"));
+        RaycastHit2D[] hits=Physics2D.LinecastAll(transform.position, worldPos, LayerMask.GetMask("Replaceable","Enemy"));
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.transform != null)
@@ -79,9 +79,10 @@ public class PuzzleController : MonoBehaviour {
             Vector2 childPos = new Vector2(child.position.x, child.position.y);
             if (child.name != transform.name)
             {
-                RaycastHit2D[] hits = Physics2D.LinecastAll(childPos, childPos+(worldPos-childPos)*0.01f, LayerMask.GetMask("Replaceable"));
+                RaycastHit2D[] hits = Physics2D.LinecastAll(childPos, childPos+(worldPos-childPos)*0.01f, LayerMask.GetMask("Replaceable", "Enemy"));
                 foreach (RaycastHit2D hit in hits )
                 {
+                    Debug.Log(hit.transform.name);
                     if (hit.transform != null)
                     {
                         if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Replaceable"))
