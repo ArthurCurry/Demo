@@ -14,6 +14,10 @@ public class Lift : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         triggered = false;
+        if(active==null)
+        {
+            active = GameObject.FindWithTag(HashID.PLAYER);
+        }
 	}
 	
     void LateUpdate()
