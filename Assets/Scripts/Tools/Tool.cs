@@ -11,6 +11,8 @@ public class Tool : MonoBehaviour {
     private int ID;
     [SerializeField]
     private bool hidden;
+    [SerializeField]
+    private int[] number;
     private bool picked;
     private BagCtrl bc;
     public int curCondition;
@@ -45,8 +47,10 @@ public class Tool : MonoBehaviour {
         {
             if ((player.transform.position - pos).magnitude < 0.5f)
             {
-                picked = true;
+                if(number.Length>1&&!picked)
+                    PuzzleSupply.UpdatePuzzle(number[0],number[1],number[2]);
                 bc.StoreItem(ID);
+                picked = true;
                 Debug.Log("picked");
             }
         }

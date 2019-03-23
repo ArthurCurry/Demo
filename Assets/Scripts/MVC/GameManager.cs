@@ -6,6 +6,7 @@ public class GameManager:MonoBehaviour {
     private ModelManager modelManager;
     private CtrlManager ctrlManager;
 
+
     private GameObject escape;
     private int count;
 
@@ -90,4 +91,5 @@ public class GameManager:MonoBehaviour {
             }
         }
     }
+
 }

@@ -125,7 +125,7 @@ public class EyesMonster : Monster {
                 {
                     if (hit.transform.gameObject.name.Contains(this.gameObject.name.Split('_')[1]))
                     {
-                        start = hit.transform.position + transform.right * 0.5f * HashID.unitLength;
+                        end = hit.transform.position + transform.right * 0.5f * HashID.unitLength;
                         //Debug.Log(hits[i].transform.name);
                         continue;
                     }

@@ -34,4 +34,9 @@ public class AttcakMode2 : MonoBehaviour {
     {
         pm.isDead = true;
     }
+
+    void ShowAttackRange()
+    {
+
+    }
 }
