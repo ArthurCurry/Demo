@@ -21284,7 +21284,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382942481644648}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.196227, y: 8.052441, z: 0.16901062}
+  m_LocalPosition: {x: -5.196226, y: 6.7724414, z: 0.16901062}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 4495120245607648}
@@ -31477,7 +31477,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.25}
-    oldSize: {x: 0.8138462, y: 2.4046154}
+    oldSize: {x: 0.8107692, y: 2.4046154}
     newSize: {x: 3.52, y: 2.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -42720,7 +42720,7 @@ Animator:
   m_GameObject: {fileID: 1558681307074578}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c0257fa2f6590b4388f643764008730, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7698a327ec7b37e4c97af5d1651e67cb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -43246,7 +43246,8 @@ MonoBehaviour:
   nextPos: {fileID: 0}
   player: {fileID: 0}
   mode: -1
-  triggerPoses: []
+  triggerPoses:
+  - {fileID: 0}
   triggered: 0
 --- !u!114 &114651165913376898
 MonoBehaviour:
@@ -57843,7 +57844,7 @@ SpriteRenderer:
   m_SortingLayerID: -1854925305
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 678b4eda159eaa24991caf21b74b3b94, type: 3}
+  m_Sprite: {fileID: 21300006, guid: e90dc45d06fdd1b43891eb27bba17145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
