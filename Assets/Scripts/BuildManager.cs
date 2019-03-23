@@ -6,6 +6,7 @@ public class BuildManager {
     private static XmlReader instance;
     public static XmlReader Instance
     {
+        set { instance = value; }
         get { return instance; }
     }
     private static Dialog dialog;
@@ -87,7 +88,6 @@ public class BuildManager {
 
     public static void Init()
     {
-        InitAttribute();
         InitPlayer();
         InitMap(levelName);
         MonsterManager.InitMonster();
@@ -100,7 +100,11 @@ public class BuildManager {
         name = XMLname;
         GetCount(name);
         instance.SetIndex(0);
-        BuildManager.InitDialog();
+        if (need)
+        {
+            BuildManager.InitDialog();
+            need = false;
+        }
     }
 
     public static void InitPlayer()//初始化玩家
@@ -117,6 +121,10 @@ public class BuildManager {
     {
         if (GameObject.FindWithTag("Level") != null)
             return;
+        if(LevelName.Equals("Level_2"))
+        {
+            name = "异步敌人";
+        }
         GameObject level = Resources.Load<GameObject>(HashID.levelPath+levelName);
         GameObject.Instantiate(level);
         PlayerMovements.InitData();
@@ -127,19 +135,35 @@ public class BuildManager {
         instance = new XmlReader();
         instance.ReadXML("Resources/剧情对话.xml");
         instance.SetIndex(0);
-        name = Xname;
-        GetCount(Xname);
+        if (need)
+        {
+            name = Xname;
+            GetCount(Xname);
+            isCG = true;
+            Debug.Log(count);
+        }
+        else
+        {
+            count = 0;
+            isCG = false;
+        }
         x = 1;
         GameObject CG = Resources.Load<GameObject>(HashID.cgPath + cgName);
         GameObject canvas = GameObject.Find(HashID.CANVAS);
-        GameObject.Instantiate(CG, canvas.transform);
-        isCG = true;
+        GameObject.Instantiate(CG, canvas.transform);        
     }
 
     public static void InitDialog()//实例化对话框
     {
         dialog = new Dialog();
         dialog.showDialog();
+        dialog.setDialogText(instance.GetXML(name, 0));
+    }
+
+    public static void InitIntroduction()
+    {
+        dialog = new Dialog();
+        dialog.ShowIntroduction();
         dialog.setDialogText(instance.GetXML(name, 0));
     }
 
@@ -158,8 +182,9 @@ public class BuildManager {
     {
         switch (level)
         {
-            case 1: levelName = "Level_2";XMLname = "第二关"; level += 1; break;
-            case 2: InitCG("CG2", "旁白"); InitCG("CG3", "旁白"); InitCG("CG4", "旁白"); levelName = "Level_3"; XMLname = "第三关"; level += 1; break;
+            case 1: level += 1; levelName = "Level_2";XMLname = "第二关"; break;
+            case 2: level += 1; need=false; InitCG("CG2", "旁白"); levelName = "Level_3"; XMLname = "第三关";  break;
+            case 3: level += 1; InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; break;
         }
     }
 

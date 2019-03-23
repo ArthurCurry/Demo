@@ -16,8 +16,10 @@ public class Trigger : MonoBehaviour {
 		if(this.transform .position .Equals (player .position)&&dont)
         {
             BuildManager.IsCG = true;
+            BuildManager.X = 1;
             BuildManager.GetCount(BuildManager.Name);
-            BuildManager.InitDialog();
+            BuildManager .Instance.SetIndex(0);
+            BuildManager.InitIntroduction();
             dont = false;
         }
 	}
