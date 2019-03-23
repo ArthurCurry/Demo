@@ -14,14 +14,14 @@ public class Tool : MonoBehaviour {
     [SerializeField]
     private int[] number;
     private bool picked;
-    private BagCtrl bc;
+    private UIManager um;
     public int curCondition;
 
     // Use this for initialization
     void Start() {
         hidden = true;
         picked = false;
-        bc = new BagCtrl();
+        um = GameObject.Find("Canvas").GetComponent<UIManager>();
         InitData();
     }
 	
@@ -49,8 +49,8 @@ public class Tool : MonoBehaviour {
             {
                 if(number.Length>1&&!picked)
                     PuzzleSupply.UpdatePuzzle(number[0],number[1],number[2]);
-                bc.StoreItem(ID);
                 picked = true;
+                um._cm.GetT<BagCtrl>("BagPanel").StoreItem(ID);
                 Debug.Log("picked");
             }
         }

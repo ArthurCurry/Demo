@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4074600344417490, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.16901062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4074600344417490, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -152,21 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
-        type: 2}
-      propertyPath: puzzleUI.Array.data[0]
-      value: 
-      objectReference: {fileID: 1589709318}
-    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
-        type: 2}
-      propertyPath: puzzleUI.Array.data[1]
-      value: 
-      objectReference: {fileID: 1351282209}
-    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
-        type: 2}
-      propertyPath: puzzleUI.Array.data[2]
-      value: 
-      objectReference: {fileID: 1796268411}
     - target: {fileID: 114096269147286094, guid: 72fe4eff333d0e342ba3fd53903854cb,
         type: 2}
       propertyPath: puzzleUI.Array.data[0]
@@ -182,6 +167,25 @@ Prefab:
       propertyPath: puzzleUI.Array.data[2]
       value: 
       objectReference: {fileID: 1796268411}
+    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1589709318}
+    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 1351282209}
+    - target: {fileID: 114946179931686608, guid: 72fe4eff333d0e342ba3fd53903854cb,
+        type: 2}
+      propertyPath: puzzleUI.Array.data[2]
+      value: 
+      objectReference: {fileID: 1796268411}
+    - target: {fileID: 1990857245339034, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72fe4eff333d0e342ba3fd53903854cb, type: 2}
   m_IsPrefabParent: 0
@@ -194,11 +198,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4624164993239044, guid: a29e39a667abf7f408df295827bdad45, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.87
+      value: -14.8
       objectReference: {fileID: 0}
     - target: {fileID: 4624164993239044, guid: a29e39a667abf7f408df295827bdad45, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 27
+      value: 25.13
       objectReference: {fileID: 0}
     - target: {fileID: 4624164993239044, guid: a29e39a667abf7f408df295827bdad45, type: 2}
       propertyPath: m_LocalPosition.z
@@ -247,7 +251,12 @@ Prefab:
     - target: {fileID: 20351179281290088, guid: a29e39a667abf7f408df295827bdad45,
         type: 2}
       propertyPath: orthographic size
-      value: 5.65
+      value: 5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066467195084168, guid: a29e39a667abf7f408df295827bdad45,
+        type: 2}
+      propertyPath: dampTime
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a29e39a667abf7f408df295827bdad45, type: 2}
@@ -470,7 +479,7 @@ Prefab:
     - target: {fileID: 114951643172408370, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}
       propertyPath: puzzleLeft
-      value: 0
+      value: 357
       objectReference: {fileID: 0}
     - target: {fileID: 114894591873797584, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}

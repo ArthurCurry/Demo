@@ -31,10 +31,10 @@ public class GameManager:MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        //escape = root.transform.Find("Save").gameObject;
         BuildManager.Need = true;
         BuildManager.Level = 1;
-        GameObject root = GameObject.Find("Canvas");
-        //escape = root.transform.Find("Save").gameObject;
+        GameObject root = GameObject.Find("Canvas");        
         //BuildManager .Instance = new XmlReader();
         //BuildManager.Instance.ReadXML("Resources/剧情对话.xml");
         //BuildManager.Instance.SetIndex(0);
