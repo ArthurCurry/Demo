@@ -47,6 +47,14 @@ public class Dialog {
             dialogtext.text = sentence;
             dialogtext.text = dialogtext.text.Replace("\\n", "\n");
         }
+        else if(GameObject.Find("IntroductionBox(Clone)"))
+        {
+            dialog = GameObject.Find("IntroductionBox(Clone)");
+            dialogText = dialog.transform.Find("dialogText");
+            Text dialogtext = dialogText.GetComponent<Text>();
+            dialogtext.text = sentence;
+            dialogtext.text = dialogtext.text.Replace("\\n", "\n");
+        }
     }
     /// <summary>
     /// Destories the dialog.
@@ -56,6 +64,11 @@ public class Dialog {
         if (GameObject.Find("DialogBox(Clone)"))
         {
             dialog = GameObject.Find("DialogBox(Clone)");
+            GameObject.Destroy(dialog);
+        }
+        else if (GameObject.Find("IntroductionBox(Clone)"))
+        {
+            dialog = GameObject.Find("IntroductionBox(Clone)");
             GameObject.Destroy(dialog);
         }
 
@@ -78,4 +91,10 @@ public class Dialog {
 
     }
 
+    public void ShowIntroduction()
+    {
+        canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
+        dialogBox = Resources.Load<GameObject>("Prefabs/IntroductionBox");
+        GameObject.Instantiate(dialogBox, canvas.transform);
+    }
 }

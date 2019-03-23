@@ -30,14 +30,24 @@ public class GameManager:MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        GameObject root = GameObject.Find("Canvas");
-        //escape = root.transform.Find("Save").gameObject;
         BuildManager.Need = true;
         BuildManager.Level = 1;
+        GameObject root = GameObject.Find("Canvas");
+        //escape = root.transform.Find("Save").gameObject;
+        //BuildManager .Instance = new XmlReader();
+        //BuildManager.Instance.ReadXML("Resources/剧情对话.xml");
+        //BuildManager.Instance.SetIndex(0);
+        //BuildManager.Judge();
+        //BuildManager.InitAttribute();
+        //BuildManager.Init();
+        //Camera.main.GetComponent<CameraController>().Init();
+        //Camera.main.GetComponent<CameraController>().enabled = true;
+        //Camera.main.GetComponent<CameraController>().DetectEdges();
+        // BuildManager.LevelName = "Level_2";
+        //BuildManager.Name = "异步敌人";
         BuildManager.XMLName = "第一关";
         BuildManager.LevelName = "Level_1-1";
         Init("CG1","旁白");
-        //BuildManager.LevelName = "Level_2";
     }
 	
 	// Update is called once per frame

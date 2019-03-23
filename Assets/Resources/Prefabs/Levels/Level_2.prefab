@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 212086623976197984}
   - component: {fileID: 61120868634515720}
   - component: {fileID: 114889999348497120}
+  - component: {fileID: 114631834655826254}
   m_Layer: 8
   m_Name: end
   m_TagString: Map
@@ -43053,7 +43054,7 @@ MonoBehaviour:
   triggered: 0
 --- !u!114 &114631834655826254
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090890179176132}
