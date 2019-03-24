@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 114145832934409486}
   - component: {fileID: 114413286866058338}
   - component: {fileID: 50151942380291992}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: gostraight_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 114345289699598220}
   - component: {fileID: 95940009242953148}
   - component: {fileID: 50614940512601932}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Following_1
   m_TagString: Following
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 114341232612985550}
   - component: {fileID: 50296614489916826}
   - component: {fileID: 120417246618385590}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: monster_eyeball_4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1767,7 +1767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1107988342728370
 GameObject:
   m_ObjectHideFlags: 1
@@ -3202,7 +3202,7 @@ GameObject:
   - component: {fileID: 114734483441437002}
   - component: {fileID: 95400330271780148}
   - component: {fileID: 50464254426909678}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Following_1
   m_TagString: Following
   m_Icon: {fileID: 0}
@@ -3883,7 +3883,7 @@ GameObject:
   - component: {fileID: 114305834396079684}
   - component: {fileID: 50371614661361368}
   - component: {fileID: 120385821378074828}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: monster_eyeball_3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4160,7 +4160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1309509790488418
 GameObject:
   m_ObjectHideFlags: 1
@@ -5125,7 +5125,7 @@ GameObject:
   - component: {fileID: 114349753156755404}
   - component: {fileID: 114016209816246340}
   - component: {fileID: 50382205990857650}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: gostraight_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6673,7 +6673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1488970677960058
 GameObject:
   m_ObjectHideFlags: 1
@@ -7449,7 +7449,7 @@ GameObject:
   - component: {fileID: 114506424044401644}
   - component: {fileID: 50103684439377302}
   - component: {fileID: 120316265224839098}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: monster_eyeball_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -8114,7 +8114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1607383198768154
 GameObject:
   m_ObjectHideFlags: 1
@@ -11258,7 +11258,7 @@ GameObject:
   - component: {fileID: 114104143733977450}
   - component: {fileID: 114565791158510052}
   - component: {fileID: 50684077973739578}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: gostraight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12971,7 +12971,7 @@ GameObject:
   - component: {fileID: 114244348437073476}
   - component: {fileID: 50545080468587072}
   - component: {fileID: 120820271627155656}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: monster_eyeball_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -42868,7 +42868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleUI: []
+  puzzleUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   number: 030000000100000001000000
   active: {fileID: 0}
   triggered: 0

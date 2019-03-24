@@ -139,7 +139,11 @@ public class PlayerMovements : MonoBehaviour {
                 for (int n = 1; n < i; n++)
                 {
                     if (!ices[n].transform.name.Contains("ice"))
-                        return ices[n - 1].transform;
+                    {
+                        if(!ices[n].transform.tag.Equals("Map"))
+                            return ices[n-1].transform;
+                        return ices[n].transform;
+                    }
                 }
             }
             //Debug.Log(hits[1].transform.name);
