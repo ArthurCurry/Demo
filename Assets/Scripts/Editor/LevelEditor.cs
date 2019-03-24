@@ -152,8 +152,8 @@ public class LevelEditor:EditorWindow{
     void CreatMap()//创建行列地图
     {
         //EditorGUILayout.BeginHorizontal();
-        horizontal = EditorGUILayout.IntField("横", horizontal);
-        vertical = EditorGUILayout.IntField("竖", vertical);
+        horizontal = EditorGUILayout.IntField("列", horizontal);
+        vertical = EditorGUILayout.IntField("行", vertical);
         //EditorGUILayout.EndHorizontal();
         if (GUILayout.Button("创建格"))
         {
@@ -169,8 +169,8 @@ public class LevelEditor:EditorWindow{
             {
                 GameObject go = GameObject.Instantiate(origin, origin.transform.position + (i + 1) * unitSize * Vector3.right, origin.transform.rotation);
                 go.transform.parent = father.transform;
-                go.name = origin.name + "_" + (i + 1)
-; roads.Add(go);
+                go.name = origin.name + "_" + (i + 1);
+                roads.Add(go);
             }
             foreach (GameObject unit in roads)
             {
