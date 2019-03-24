@@ -12,6 +12,9 @@ public class PlayerMovements : MonoBehaviour {
     [SerializeField]
     private Transform targetFloor;
     public bool isDead;
+    public bool disEqUnit;
+    private Vector3 prePos;
+    private float totalDis;
 
     [SerializeField]
     private float unitSize;
@@ -27,6 +30,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void Start()
     {
+        prePos = this.transform.position;
         Init();
     }
 
@@ -49,6 +53,7 @@ public class PlayerMovements : MonoBehaviour {
         Move();
         if (isDead)
             Reborn();
+        prePos = this.transform.position;
     }
 
     void LateUpdate()
@@ -85,10 +90,7 @@ public class PlayerMovements : MonoBehaviour {
         {
             Vector2 pos = target.position;
             targetArrived = false;
-            //rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
             rb.velocity = (target.position - transform.position).normalized * moveSpeed;
-            //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
-            //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
             isMoving = true;
             //Debug.Log(2);
             StopAt(targetFloor);
