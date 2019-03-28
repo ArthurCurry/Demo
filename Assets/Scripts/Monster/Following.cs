@@ -10,6 +10,11 @@ public class Following : Monster {
     private Vector3 playerPrePos;//玩家上一帧位置
     private Vector2 thisPos;//自身位置
     private Vector2 direction;//前进方向
+    private Vector3 prePos;
+    private float totalDis;
+    private Transform targetFloor;
+    private bool targetArrived;
+    private bool isMoving;
     [SerializeField]
     private float mode;
     [SerializeField]
@@ -20,6 +25,9 @@ public class Following : Monster {
     // Use this for initialization
     void Start()
     {
+        prePos = this.transform.position;
+        totalDis = 0f;
+
         triggered = false;
         latePos = GameObject.FindWithTag(HashID.PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
@@ -27,11 +35,15 @@ public class Following : Monster {
         playerRB = player.GetComponent<Rigidbody2D>();
         pm = player.GetComponent<PlayerMovements>();
         rb = this.GetComponent<Rigidbody2D>();
+
+        targetArrived = true;
+        isMoving = false;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+
         if (!triggered)
         {
             foreach (Transform triggerPos in triggerPoses)
@@ -45,6 +57,8 @@ public class Following : Monster {
         }
         else
             Move();
+        totalDis += (this.transform.position - prePos).magnitude;
+        prePos = this.transform.position;
     }
 
 
@@ -58,18 +72,42 @@ public class Following : Monster {
     }
     public override void Move()
     {
-            Follow();
+        //Detect();
+        //MoveTowards(targetFloor);
+        Follow();
+
     }
     private void Follow()
     {
         direction = playerRB.velocity * mode;
         thisPos = this.transform.position;
-        RaycastHit2D[] hits = Physics2D.LinecastAll(thisPos, thisPos+  direction.normalized* HashID.unitLength);
-        //Debug.Log(hits.Length);
-        if (hits.Length > 1 && hits[1].transform.tag == "Map")
+        RaycastHit2D[] hits = Physics2D.LinecastAll(thisPos, thisPos + direction.normalized * HashID.unitLength, LayerMask.GetMask("Replaceable"));
+        Debug.Log(hits.Length);
+        if (hits.Length > 1)
         {
-                rb.velocity = direction;
+            if (!hits[1].transform.tag.Equals(HashID.Tag_Map))
+            {
+                if (Mathf.Abs((hits[1].transform.position - this.transform.position).magnitude - HashID.unitLength )<0.01f)
+                {
+                    Debug.Log("stopped");
+                    direction = Vector2.zero;
+                }
+            }
+            else
+            {
+                targetFloor = hits[1].transform;
+            }
         }
+        /*if (Mathf.Abs(totalDis - HashID.unitLength) < 0.05f)
+        {
+            if (hits.Length <= 1 || !hits[1].transform.tag.Equals(HashID.Tag_Map))
+            {
+                
+
+            }
+            totalDis = 0f;
+        }*/
+        rb.velocity = direction;
     }
 
     public void Stop()
@@ -80,5 +118,52 @@ public class Following : Monster {
     protected override void ShowAttackRange()
     {
         throw new System.NotImplementedException();
+    }
+
+    void MoveTowards(Transform target)//控制向特定方向移动
+    {
+        if (transform.position != target.position)
+        {
+            Vector2 pos = target.position;
+            targetArrived = false;
+            rb.velocity = (target.position - transform.position).normalized * pm.moveSpeed;
+            isMoving = true;
+            StopAt(targetFloor);
+        }
+        else
+        {
+            targetFloor = this.transform;
+            rb.velocity = Vector2.zero;
+            targetArrived = true;
+            isMoving = false;
+        }
+
+    }
+
+    void StopAt(Transform target)
+    {
+        if ((transform.position - target.position).magnitude < 0.01f)
+        {
+            //Debug.Log(1);
+            transform.position = target.transform.position;
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    void Detect()
+    {
+        direction = playerRB.velocity * mode;
+        RaycastHit2D[] hits = Physics2D.LinecastAll(thisPos, thisPos + direction.normalized * HashID.unitLength, LayerMask.GetMask("Replaceable"));
+        if(hits.Length > 1)
+        {
+            if (hits[1].transform.tag.Equals(HashID.Tag_Map))
+            {
+                targetFloor = hits[1].transform;
+            }
+            else
+            {
+                targetFloor = hits[0].transform;
+            }
+        }
     }
 }
