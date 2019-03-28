@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d498d606f3301c54891e1b2e449c14d2
-timeCreated: 1553759214
+guid: 6f1f004b672d66e4d9764c591185d580
+timeCreated: 1553759945
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: round2_0
+    21300000: fanhuijian_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: round2_0
+      name: fanhuijian_0
       rect:
         serializedVersion: 2
-        x: 629
-        y: 134
-        width: 660
-        height: 800
+        x: 33
+        y: 25
+        width: 141
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

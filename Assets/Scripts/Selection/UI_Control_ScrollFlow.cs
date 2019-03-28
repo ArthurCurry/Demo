@@ -56,7 +56,7 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
             if (item != null)
             {
 
-                item.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
+                //item.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
 
                 Items.Add(item);
                 item.Init(this);
