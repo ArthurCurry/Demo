@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\backToMenu.cs" />
      <Compile Include="Assets\ColorAdjustEffect.cs" />
      <Compile Include="Assets\PostEffectBase.cs" />
      <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
