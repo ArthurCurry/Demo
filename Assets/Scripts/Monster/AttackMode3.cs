@@ -27,6 +27,13 @@ public class AttackMode3 : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
         DetectRange();
+        if (faceDir != preDir)
+            ChangeRange(faceDir);
+        ShowAttackRange();
+        if(Judge())
+        {
+            Attack();
+        }
 	}
 
     private void ShowAttackRange()
@@ -45,6 +52,7 @@ public class AttackMode3 : MonoBehaviour {
         positions.Add(this.transform.position + forward * HashID.unitLength);
         positions.Add(this.transform.position + forward * HashID.unitLength + Quaternion.Euler(0, 0, 90f) * forward);
         positions.Add(this.transform.position + forward * HashID.unitLength + Quaternion.Euler(0, 0, -90f) * forward);
+        preDir = forward;
     }
 
     private void DetectRange()
@@ -67,5 +75,10 @@ public class AttackMode3 : MonoBehaviour {
                 return true;
         }
         return false;
+    }
+
+    private void Attack()
+    {
+        pm.isDead = true;
     }
 }

@@ -145,6 +145,8 @@ public class LevelEditor:EditorWindow{
                 clone.transform.parent = GameObject.Find("Roads").transform;
             if(clone.name.Contains("ice"))
                 clone.transform.parent = GameObject.Find("ices").transform;
+            if (clone.name.Contains("falling"))
+                clone.transform.parent = GameObject.Find("fallings").transform;
             if (index == 1)
             {
                 DestroyImmediate(target.gameObject);

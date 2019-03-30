@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\FixedPortal.cs" />
      <Compile Include="Assets\Scripts\HashID.cs" />
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Falling.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Trigger.cs" />

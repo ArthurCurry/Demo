@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61368580368249820}
   - component: {fileID: 50364650494152992}
   - component: {fileID: 120516641303566510}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: monster_eyeball
   m_TagString: Enemy
   m_Icon: {fileID: 0}
