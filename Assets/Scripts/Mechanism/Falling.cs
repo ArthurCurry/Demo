@@ -26,4 +26,12 @@ public class Falling : MonoBehaviour {
     {
 
     }
+
+    public static void Fall(Transform target)
+    {
+        GameObject replace = Resources.Load("Prefabs/void") as GameObject;
+        Instantiate(replace, target.position,replace.transform.rotation);
+        Destroy(target.gameObject);
+
+    }
 }
