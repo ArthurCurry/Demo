@@ -95,7 +95,7 @@ public class BagCtrl : UICtrl
         }
         Item temp = BagModel.ItemList[itemId];
         GameObject itemPrefab = Resources.Load<GameObject>("Prefabs/UI/Item");
-        Sprite s = Resources.Load<Sprite>("Materials/" + temp.Icon);
+        Sprite s = Resources.Load<Sprite>("Materials/map/round 1/bag item/" + temp.Icon);
         bagview.UpdateImage(itemPrefab, s);
         GameObject itemGo = GameObject.Instantiate(itemPrefab);
         itemGo.transform.SetParent(emptyGrid);
