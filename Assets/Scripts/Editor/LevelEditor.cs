@@ -147,6 +147,8 @@ public class LevelEditor:EditorWindow{
                 clone.transform.parent = GameObject.Find("ices").transform;
             if (clone.name.Contains("falling"))
                 clone.transform.parent = GameObject.Find("fallings").transform;
+            if (clone.tag.Equals("Enemy"))
+                clone.transform.parent = GameObject.Find("monsters").transform;
             if (index == 1)
             {
                 DestroyImmediate(target.gameObject);

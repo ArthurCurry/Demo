@@ -10,6 +10,16 @@ public class Lift : MonoBehaviour {
     private GameObject passive;
     [SerializeField]
     private bool triggered;
+    [SerializeField]
+    private Lift lift;
+
+    public bool m_triggered
+    {
+        get
+        {
+            return triggered;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +37,14 @@ public class Lift : MonoBehaviour {
             if((active.transform.position-passive.transform.position).magnitude<0.2f)
             {
                 triggered = true;
-                LiftUp();
             }
+        }
+        else
+        {
+            if (lift.Equals(null))
+                LiftUp();
+            else if (lift.m_triggered)
+                LiftUp();
         }
     }
 
