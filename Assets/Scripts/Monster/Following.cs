@@ -19,6 +19,7 @@ public class Following : Monster {
     private float mode;
     [SerializeField]
     private List<Transform> triggerPoses;
+    private List<Vector3> positions=new List<Vector3>();
     [SerializeField]
     private bool triggered;
 
@@ -35,7 +36,7 @@ public class Following : Monster {
         playerRB = player.GetComponent<Rigidbody2D>();
         pm = player.GetComponent<PlayerMovements>();
         rb = this.GetComponent<Rigidbody2D>();
-
+        InitPositions();
         targetArrived = true;
         isMoving = false;
     }
@@ -46,9 +47,9 @@ public class Following : Monster {
 
         if (!triggered)
         {
-            foreach (Transform triggerPos in triggerPoses)
+            for (int i=0;i<positions.Count;i++)
             {
-                if ((player.transform.position - triggerPos.position).magnitude < 0.1f && playerRB.velocity == Vector2.zero)
+                if ((player.transform.position - positions[i]).magnitude < 0.1f && playerRB.velocity == Vector2.zero)
                 {
                     triggered = true;
                     break;
@@ -164,6 +165,14 @@ public class Following : Monster {
             {
                 targetFloor = hits[0].transform;
             }
+        }
+    }
+
+    private void InitPositions()
+    {
+        foreach(Transform pos in triggerPoses)
+        {
+            positions.Add(pos.position);
         }
     }
 }
