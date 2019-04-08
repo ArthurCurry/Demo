@@ -26,9 +26,9 @@ GameObject:
   - component: {fileID: 114546446686135304}
   - component: {fileID: 95566681311119444}
   - component: {fileID: 50408536088082486}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: reverseFollowing
-  m_TagString: Following
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -16,14 +16,15 @@ public class PuzzleSupply : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (active==null)
+        {
+            active = GameObject.FindWithTag(HashID.PLAYER);
+        }
         triggered = false;
         puzzleUI[0] = GameObject.Find("Puzzle_1").GetComponent<UIOnClick>();
         puzzleUI[1] = GameObject.Find("Puzzle_2").GetComponent<UIOnClick>();
         puzzleUI[2] = GameObject.Find("Puzzle_3").GetComponent<UIOnClick>();
-        if (transform.name.Contains("start"))
-        {
-            active = GameObject.FindWithTag(HashID.PLAYER);
-        }
+        
 	}
 	
 	// Update is called once per frame

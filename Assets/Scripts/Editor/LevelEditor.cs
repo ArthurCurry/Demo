@@ -141,6 +141,14 @@ public class LevelEditor:EditorWindow{
                 clone.transform.parent = GameObject.Find("voids").transform;
             if (clone.name.Contains("obstacle"))
                 clone.transform.parent = GameObject.Find("obstacles").transform;
+            if (clone.name.Contains("floor"))
+                clone.transform.parent = GameObject.Find("Roads").transform;
+            if(clone.name.Contains("ice"))
+                clone.transform.parent = GameObject.Find("ices").transform;
+            if (clone.name.Contains("falling"))
+                clone.transform.parent = GameObject.Find("fallings").transform;
+            if (clone.tag.Equals("Enemy"))
+                clone.transform.parent = GameObject.Find("monsters").transform;
             if (index == 1)
             {
                 DestroyImmediate(target.gameObject);
@@ -152,8 +160,8 @@ public class LevelEditor:EditorWindow{
     void CreatMap()//创建行列地图
     {
         //EditorGUILayout.BeginHorizontal();
-        horizontal = EditorGUILayout.IntField("横", horizontal);
-        vertical = EditorGUILayout.IntField("竖", vertical);
+        horizontal = EditorGUILayout.IntField("列", horizontal);
+        vertical = EditorGUILayout.IntField("行", vertical);
         //EditorGUILayout.EndHorizontal();
         if (GUILayout.Button("创建格"))
         {
@@ -169,8 +177,8 @@ public class LevelEditor:EditorWindow{
             {
                 GameObject go = GameObject.Instantiate(origin, origin.transform.position + (i + 1) * unitSize * Vector3.right, origin.transform.rotation);
                 go.transform.parent = father.transform;
-                go.name = origin.name + "_" + (i + 1)
-; roads.Add(go);
+                go.name = origin.name + "_" + (i + 1);
+                roads.Add(go);
             }
             foreach (GameObject unit in roads)
             {

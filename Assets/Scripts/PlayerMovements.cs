@@ -12,6 +12,9 @@ public class PlayerMovements : MonoBehaviour {
     [SerializeField]
     private Transform targetFloor;
     public bool isDead;
+    public bool disEqUnit;
+    private Vector3 prePos;
+    private float totalDis;
 
     [SerializeField]
     private float unitSize;
@@ -27,6 +30,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void Start()
     {
+        prePos = this.transform.position;
         Init();
     }
 
@@ -49,6 +53,7 @@ public class PlayerMovements : MonoBehaviour {
         Move();
         if (isDead)
             Reborn();
+        prePos = this.transform.position;
     }
 
     void LateUpdate()
@@ -80,15 +85,12 @@ public class PlayerMovements : MonoBehaviour {
 
     public void MoveTowards(Transform target)//控制向特定方向移动
     {
-        //Debug.Log(target);
+        Debug.Log(target);
         if (transform.position != target.position)
         {
             Vector2 pos = target.position;
             targetArrived = false;
-            //rb.MovePosition(rb.position+(pos-rb.position).normalized*moveSpeed*Time.deltaTime);
             rb.velocity = (target.position - transform.position).normalized * moveSpeed;
-            //transform.position += (target.position - transform.position).normalized * Time.deltaTime*moveSpeed;
-            //transform.Translate((target.position - transform.position).normalized * moveSpeed * Time.deltaTime);
             isMoving = true;
             //Debug.Log(2);
             StopAt(targetFloor);
@@ -96,8 +98,6 @@ public class PlayerMovements : MonoBehaviour {
         else
         {
             targetFloor = this.transform;
-            if (GameObject.FindWithTag(HashID.FOLLOWING))
-                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Stop();
             rb.velocity = Vector2.zero;
             targetArrived = true;
             //MonsterManager.UpdateMonsters(float.PositiveInfinity);
@@ -128,27 +128,37 @@ public class PlayerMovements : MonoBehaviour {
     Transform Detect(KeyCode key)
     {
         Vector3 direction = directions[key];
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 1.28f, LayerMask.GetMask(HashID.Layer_Replaceable));
-        if (hits.Length > 1 && hits[1].transform.tag == "Map")
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 1.28f, LayerMask.GetMask(HashID.Layer_Replaceable,"Unwalkable"));
+        if (hits.Length > 1 && hits[1].transform.tag == "Map" )
         {
+            if (hits[0].transform.name.Contains("falling"))
+            {
+                Falling.Fall(hits[0].transform);
+            }
             if (hits[hits.Length - 1].transform.name.Contains("ice"))
             {
-                RaycastHit2D[] ices = new RaycastHit2D[15];
+                RaycastHit2D[] ices = new RaycastHit2D[20];
                 int i = Physics2D.LinecastNonAlloc(hits[hits.Length - 1].transform.position, hits[hits.Length - 1].transform.position + direction * HashID.unitLength
-                    * 10f, ices);
+                    * 20f, ices);
                 for (int n = 1; n < i; n++)
                 {
                     if (!ices[n].transform.name.Contains("ice"))
-                        return ices[n - 1].transform;
+                    {
+                        if(!ices[n].transform.tag.Equals("Map"))
+                            return ices[n-1].transform;
+                        return ices[n].transform;
+                    }
                 }
             }
+            
             //Debug.Log(hits[1].transform.name);
             /*if (GameObject.FindWithTag(HashID.FOLLOWING))
                 GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);*/
             MonsterManager.UpdateMonsters((hits[1].transform.position - transform.position).magnitude);
             return hits[1].transform;
         }
-        else return this.transform;
+        else
+            return this.transform;
     }
 
 

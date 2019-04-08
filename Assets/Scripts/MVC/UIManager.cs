@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
     [SerializeField]
     private UIOnClick[] puzzles;
@@ -11,16 +12,26 @@ public class UIManager : MonoBehaviour {
     // private Dictionary<string, UIView> panelDict = new Dictionary<string, UIView>();
     public static UIManager Instance;
 
-    private Dictionary<string,Type> viewTypeDict = new Dictionary<string, Type>();
+    private Dictionary<string, Type> viewTypeDict = new Dictionary<string, Type>();
     private Canvas rootCanv;
 
 
     private CtrlManager ctrlManager;
     private ModelManager modelManager;
 
+    public CtrlManager _cm
+    {
+        get
+        {
+            return ctrlManager;
+        }
+    }
+
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
+    /// 
     void Awake()
     {
         Instance=this;

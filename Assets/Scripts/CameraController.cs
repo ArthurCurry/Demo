@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     private bool bgInView;
 
+
     // Use this for initialization
     void Start () {
         Init();
@@ -38,8 +39,14 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        FollowPlayer();
-	}
+        if (Input.GetKey(KeyCode.Mouse1))
+            FollowMouse();
+        else
+            FollowPlayer();
+        if (mapEdges.Length > 1 && player.transform.position.y < mapUpperrt.transform.position.y)
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapLowerlf.position.x + (width - HashID.unitLength) / 2, mapUpperrt.position.x - (width  - HashID.unitLength)/2),
+            Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
+    }
 
     void LateUpdate()
     {
@@ -51,15 +58,13 @@ public class CameraController : MonoBehaviour {
         currentV=Vector3.zero;
         targetPos = player.transform.position;
         if (PlayerOutOfView() && !bgInView)
-            dampTime = 0.1f;
+            dampTime = 0.06f;
         else
-            dampTime = 0.2f;
+            dampTime = 0.15f;
         //bgInView =BackgroundInView();
         targetPos.z += dis.z;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
-        if(mapEdges.Length>1&&player.transform.position.y<mapUpperrt.transform.position.y)
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapLowerlf.position.x + (width - HashID.unitLength) / 2, mapUpperrt.position.x - (width / 2 - HashID.unitLength)),
-            Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
+        
     }
 
     public void FollowTarget(string target)
@@ -134,5 +139,14 @@ public class CameraController : MonoBehaviour {
         width = rightBorder - leftBorder;
         height = topBorder - downBorder;
         //Debug.Log(width + "  " + height);
+    }
+
+    private void FollowMouse()
+    {
+        Vector3 pos = Input.mousePosition;
+        pos.z = 10;
+        targetPos = Camera.main.ScreenToWorldPoint(pos);
+        targetPos.z = transform.position.z;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, 10f);
     }
 }

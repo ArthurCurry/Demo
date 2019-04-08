@@ -82,7 +82,7 @@ public class PuzzleController : MonoBehaviour {
                 RaycastHit2D[] hits = Physics2D.LinecastAll(childPos, childPos+(worldPos-childPos)*0.01f, LayerMask.GetMask("Replaceable", "Enemy"));
                 foreach (RaycastHit2D hit in hits )
                 {
-                    Debug.Log(hit.transform.name);
+                    //Debug.Log(hit.transform.name);
                     if (hit.transform != null)
                     {
                         if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Replaceable"))
