@@ -39,7 +39,6 @@ public class XmlReader {
     public string GetXML(string tag, int cout)
     {
         string xml = XMLDout.GetElementsByTagName(tag)[Index].ChildNodes[cout].InnerText;
-
         return xml;
     }
 

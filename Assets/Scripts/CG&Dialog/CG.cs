@@ -88,21 +88,23 @@ public class CG : MonoBehaviour
             {
                 if (this.name == "CG2(Clone)"&&!GameObject .Find ("CG3(Clone)"))
                 {
+                    BuildManager.Need = false;
                     BuildManager.InitCG("CG3", "旁白");
                 }
                 if (this.name == "CG3(Clone)"&&!GameObject.Find("CG4(Clone)"))
                 {
                     BuildManager.Need = true;
-                    BuildManager.InitCG("CG4", "第三关");                    
+                    BuildManager.InitCG("CG4", "第三关CG2");                    
                 }
             }
             if(m_Alpha < 0)
             {
                 if (this.gameObject.name.Equals("CG4(Clone)"))
                 {
-                    BuildManager.InitDialog();
+                    BuildManager.InitAttribute();
+                    BuildManager.Init();
+                    Camera.main.GetComponent<CameraController>().Init();
                 }
-                BuildManager.Need = false;
                 Destroy(this.gameObject);
             }
         }
