@@ -140,7 +140,6 @@ public class BuildManager {
             name = Xname;
             GetCount(Xname);
             isCG = true;
-            Debug.Log(count);
         }
         else
         {
@@ -183,7 +182,7 @@ public class BuildManager {
         switch (level)
         {
             case 1: level += 1; levelName = "Level_2";XMLname = "第二关"; break;
-            case 2: level += 1; need=false; InitCG("CG2", "旁白"); levelName = "Level_3"; XMLname = "第三关";  break;
+            case 2: level += 1; need = true; InitCG("CG2", "第三关CG1"); levelName = "Level_3"; XMLname = "第三关";  break;
             case 3: level += 1; InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; break;
         }
     }
