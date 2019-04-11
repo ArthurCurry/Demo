@@ -41,7 +41,7 @@ public class Lift : MonoBehaviour {
         }
         else
         {
-            if (lift.Equals(null))
+            if (lift==(null))
                 LiftUp();
             else if (lift.m_triggered)
                 LiftUp();

@@ -22,10 +22,13 @@ public class ChangeLevel : MonoBehaviour {
         {
             BuildManager.Judge();
             BuildManager.Destroy_All();
-            BuildManager.Need = true;
-            BuildManager.InitAttribute();
-            BuildManager.Init();
-            Camera.main.GetComponent<CameraController>().Init();
+            if (BuildManager.Level != 3)
+            {
+                BuildManager.Need = true;
+                BuildManager.InitAttribute();
+                BuildManager.Init();
+                Camera.main.GetComponent<CameraController>().Init();
+            }
             //BuildManager.Name = "异步敌人";
         }
     }
