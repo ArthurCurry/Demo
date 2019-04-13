@@ -3,9 +3,13 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
-	
 
-	public void Quit () 
+    public GameObject gameManager;
+    private void Start()
+    {
+        GameObject.DontDestroyOnLoad(gameManager.gameObject);
+    }
+    public void Quit () 
 	{
 		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;

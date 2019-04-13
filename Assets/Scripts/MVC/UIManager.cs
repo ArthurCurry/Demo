@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
     {
         Instance=this;
         this.Init();
+        this.Judge1();
     }
     public void Init()
     {
@@ -149,5 +150,11 @@ public class UIManager : MonoBehaviour
         puzzles[0].puzzleLeft += a;
         puzzles[1].puzzleLeft += b;
         puzzles[2].puzzleLeft += c;
+    }
+
+    public void Judge1()
+    {
+        GameObject gm = GameObject.Find("GameManager");
+        gm.GetComponent<GameManager>().enabled = true;
     }
 }

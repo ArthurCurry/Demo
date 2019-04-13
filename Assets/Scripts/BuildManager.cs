@@ -57,6 +57,7 @@ public class BuildManager {
         get { return XMLname; }
         set { XMLname = value; }
     }
+    public static bool CGEnd = false;
 
     public static void WhileCG()
     {        
@@ -74,10 +75,12 @@ public class BuildManager {
             {
                 isCG = false;
                 x = 0;
+               
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
         {
+            CGEnd = true;
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
             dialog.DestoryDiaLog();
@@ -145,6 +148,7 @@ public class BuildManager {
         {
             count = 0;
             isCG = false;
+            
         }
         x = 1;
         GameObject CG = Resources.Load<GameObject>(HashID.cgPath + cgName);
