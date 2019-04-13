@@ -12,6 +12,7 @@ public class Lift : MonoBehaviour {
     private bool triggered;
     [SerializeField]
     private Lift lift;
+    private bool lifted;
 
     public bool m_triggered
     {
@@ -46,6 +47,11 @@ public class Lift : MonoBehaviour {
             else if (lift.m_triggered)
                 LiftUp();
         }
+        if(lifted!=triggered)
+        {
+            TriggerDown();
+        }
+        lifted = triggered;
     }
 
     void LiftUp()
@@ -63,5 +69,12 @@ public class Lift : MonoBehaviour {
                 child.GetComponent<BoxCollider2D>().enabled = true;
 
         }
+    }
+
+    void TriggerDown()
+    {
+        Sprite sprite = Resources.Load<Sprite>("Materials/map/round 2/triggerDown");
+        Debug.Log(sprite);
+        passive.GetComponent<SpriteRenderer>().sprite = sprite;
     }
 }
