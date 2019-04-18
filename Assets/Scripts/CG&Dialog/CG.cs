@@ -103,6 +103,8 @@ public class CG : MonoBehaviour
                 {
                     BuildManager.InitAttribute();
                     BuildManager.Init();
+                    Camera.main.GetComponent<CameraController>().enabled = true;
+                    Camera.main.GetComponent<CameraController>().DetectEdges();
                     Camera.main.GetComponent<CameraController>().Init();
                 }
                 Destroy(this.gameObject);
