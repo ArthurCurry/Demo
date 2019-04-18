@@ -47,9 +47,10 @@ public class Tool : MonoBehaviour {
         {
             if ((player.transform.position - pos).magnitude < 0.5f)
             {
-                if (number.Length > 1 && !picked)
+                if (!picked)
                 {
-                    PuzzleSupply.UpdatePuzzle(number[0], number[1], number[2]);
+                    if(number.Length > 1 )
+                        PuzzleSupply.UpdatePuzzle(number[0], number[1], number[2]);
                     um._cm.GetT<BagCtrl>("BagPanel").StoreItem(ID);
                 }
                 picked = true;

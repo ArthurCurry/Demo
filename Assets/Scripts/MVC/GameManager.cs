@@ -49,7 +49,7 @@ public class GameManager:MonoBehaviour {
         //BuildManager.Name = "异步敌人";
 
         //BuildManager.XMLName = "第一关";
-        //BuildManager.LevelName = "Level_1";
+        //BuildManager.LevelName = "Level_2";
         
         //Init("CG1","旁白");
         if(BuildManager.Level==1)

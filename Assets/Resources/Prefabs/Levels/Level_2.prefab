@@ -43136,6 +43136,8 @@ MonoBehaviour:
   triggerPoses:
   - {fileID: 4971655906878058}
   triggered: 0
+  upperright: {fileID: 4139819875380252}
+  lowerleft: {fileID: 4971655906878058}
 --- !u!114 &114460252813473702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43266,6 +43268,8 @@ MonoBehaviour:
   triggerPoses:
   - {fileID: 4736263234703970}
   triggered: 0
+  upperright: {fileID: 0}
+  lowerleft: {fileID: 0}
 --- !u!114 &114570379311196556
 MonoBehaviour:
   m_ObjectHideFlags: 1

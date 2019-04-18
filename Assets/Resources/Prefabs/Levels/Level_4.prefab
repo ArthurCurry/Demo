@@ -55030,6 +55030,8 @@ MonoBehaviour:
   - {fileID: 4323635530986020}
   - {fileID: 4070222394926532}
   triggered: 0
+  upperright: {fileID: 4677683051922824}
+  lowerleft: {fileID: 4445232783801684}
 --- !u!114 &114096461365163472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55193,7 +55195,7 @@ MonoBehaviour:
   - {fileID: 4827754907254366}
   - {fileID: 4349242871300746}
   - {fileID: 4238158412011594}
-  - {fileID: 4167667552851814}
+  - {fileID: 0}
   - {fileID: 4875435207760684}
   - {fileID: 4423135551396554}
   - {fileID: 4627389157025224}
@@ -55221,6 +55223,8 @@ MonoBehaviour:
   - {fileID: 4972175556036690}
   - {fileID: 4130151622350562}
   triggered: 0
+  upperright: {fileID: 4191799495238726}
+  lowerleft: {fileID: 4359950591582310}
 --- !u!114 &114754655111885990
 MonoBehaviour:
   m_ObjectHideFlags: 1

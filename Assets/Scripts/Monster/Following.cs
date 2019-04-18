@@ -22,10 +22,16 @@ public class Following : Monster {
     private List<Vector3> positions=new List<Vector3>();
     [SerializeField]
     private bool triggered;
+    [SerializeField]
+    private Transform upperright;
+    [SerializeField]
+    private Transform lowerleft;
+    private List<Vector3> edes = new List<Vector3>();
 
     // Use this for initialization
     void Start()
     {
+        
         prePos = this.transform.position;
         totalDis = 0f;
 
@@ -39,6 +45,11 @@ public class Following : Monster {
         InitPositions();
         targetArrived = true;
         isMoving = false;
+        if (upperright != null && lowerleft != null)
+        {
+            edes.Add(lowerleft.position);
+            edes.Add(upperright.position);
+        }
     }
 
     // Update is called once per frame
@@ -88,9 +99,9 @@ public class Following : Monster {
         {
             if (!hits[1].transform.tag.Equals(HashID.Tag_Map))
             {
-                if (Mathf.Abs((hits[1].transform.position - this.transform.position).magnitude - HashID.unitLength )<0.01f)
+                if (Mathf.Abs((hits[1].transform.position - this.transform.position).magnitude - HashID.unitLength) < 0.01f)
                 {
-                    Debug.Log("stopped");
+                    //Debug.Log("stopped");
                     direction = Vector2.zero;
                 }
             }
@@ -99,6 +110,8 @@ public class Following : Monster {
                 targetFloor = hits[1].transform;
             }
         }
+        else
+            direction = Vector2.zero;
         /*if (Mathf.Abs(totalDis - HashID.unitLength) < 0.05f)
         {
             if (hits.Length <= 1 || !hits[1].transform.tag.Equals(HashID.Tag_Map))
@@ -174,5 +187,11 @@ public class Following : Monster {
         {
             positions.Add(pos.position);
         }
+    }
+
+    private bool OutOfRange()
+    {
+
+        return false;
     }
 }

@@ -85,7 +85,7 @@ public class PlayerMovements : MonoBehaviour {
 
     public void MoveTowards(Transform target)//控制向特定方向移动
     {
-        Debug.Log(target);
+        //Debug.Log(target);
         if (transform.position != target.position)
         {
             Vector2 pos = target.position;
