@@ -7,12 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public int i, x = 0,y = 0 ;
-    private int passed = 1;
+    public int level, x = 0,y = 0 ;
+    public static int passed = 6;
     private bool keyDownStatus;
     private int keyDownCount;
     private float lastTime;
     private float currentTime;
+    private GameObject gameManager;
+
+
+    void Awake()
+    {
+        gameManager = GameObject.Find("GameManager");
+    }
 
     //key -> 要监听的按键， timeElapse -> 双击之间最大时间间隔
     bool DoubleClick(double timeElapse)
@@ -71,7 +78,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Update()
     {
-        if (x == 1 && passed >= i && Input.GetMouseButtonDown(0))
+        if (x == 1 && passed >= level && Input.GetMouseButtonDown(0))
         {
             Debug.Log(2);
             y = 1;
@@ -80,7 +87,42 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (y == 1 && DoubleClick(0.3)==true)
         {
-            SceneManager.LoadScene(i);
+            
+            switch (level)
+            {
+                case 1:
+                    BuildManager.XMLName = "第一关";
+                    BuildManager.LevelName = "Level_1";
+                    BuildManager.Level = 1;
+                    break;
+                case 2:
+                    BuildManager.XMLName = "第二关";
+                    BuildManager.LevelName = "Level_2";
+                    BuildManager.Level = 2;
+                    break;
+                case 3:
+                    BuildManager.XMLName = "第三关";
+                    BuildManager.LevelName = "Level_3";
+                    BuildManager.Level = 3;
+                    break;
+                case 4:
+                    BuildManager.XMLName = "第四关";
+                    BuildManager.LevelName = "Level_4";
+                    BuildManager.Level = 4;
+                    break;
+                case 5:
+                    BuildManager.XMLName = "第五关";
+                    BuildManager.LevelName = "Level_5";
+                    BuildManager.Level = 5;
+                    break;
+                case 6:
+                    BuildManager.XMLName = "第六关";
+                    BuildManager.LevelName = "Level_6";
+                    BuildManager.Level = 6;
+                    break;
+            }
+            
+            SceneManager.LoadScene(2);
         }
     }
 
