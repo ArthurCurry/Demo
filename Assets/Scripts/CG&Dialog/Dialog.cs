@@ -29,7 +29,7 @@ public class Dialog {
     /// </summary>
     public void showDialog()
     {
-        canvas = GameObject.Find(HashID.CANVAS).GetComponent <Canvas >();
+        canvas = GameObject.Find(HashID.CANVAS).GetComponent <Canvas>();
         dialogBox = Resources.Load<GameObject>("Prefabs/DialogBox");
         GameObject.Instantiate(dialogBox,canvas .transform );
     }

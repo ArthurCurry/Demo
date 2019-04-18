@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MonsterTalk : MonoBehaviour {
 
+    private Canvas canvas; 
     private GameObject box;
     private GameObject player;
     private GameObject instantiation;
@@ -23,6 +24,7 @@ public class MonsterTalk : MonoBehaviour {
 
     private string levelName;
     private int count;
+    private int index;
     private float time;
     private float fixTime;
 
@@ -42,25 +44,34 @@ public class MonsterTalk : MonoBehaviour {
         this.Add();
         box = Resources.Load<GameObject>("Prefabs/MonsterBox");
         player = GameObject.FindWithTag(HashID.PLAYER);
+        canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         time = 0;
+        index = 0;
     }
 
     void Update () {
+        //Debug.Log(1);
         time += Time.deltaTime;
-        fixTime += Time.deltaTime;
+        if(instantiation != null)
+        {
+            this.Reset();
+        }
+        //Debug.Log(time);
         if (time >= 2)
         {
             if (girlsC.Count == 0)
             {
                 this.Add();
             }
+            index = 0;
             GirlsTalk();
             time = 0;
-            fixTime = 0;
         }
-        if (fixTime >= 1.8 && instantiation != null)
-        {
-            Destroy(instantiation);
+        if (time >= 1.5)
+        { if (instantiation != null)
+            {
+                Destroy(instantiation);
+            }
         }
 	}
 
@@ -115,11 +126,13 @@ public class MonsterTalk : MonoBehaviour {
             }
             else
             {
-                instantiation = CreatBox(kvp.Key);  // 给三个属性分别存储
-                Transform rBox = instantiation.transform.Find("dialogText");
-                Text dialogtext = rBox.GetComponent<Text>();
-                dialogtext.text = kvp.Value;
-                dialog.Remove(kvp.Key);
+                if (GameObject.Find("MonsterBox(Clone)")) {
+                    instantiation = GameObject.Find("MonsterBox(Clone)"); // 给三个属性分别存储
+                    Transform rBox = instantiation.transform.Find("dialogText");
+                    Text dialogtext = rBox.GetComponent<Text>();
+                    dialogtext.text = kvp.Value;
+                    dialog.Remove(kvp.Key);
+                }
             }
         }
     }
@@ -144,40 +157,57 @@ public class MonsterTalk : MonoBehaviour {
 
     void GirlsTalk()//按顺序遍历女生对话并进行实例化
     {
-        foreach(KeyValuePair<int,string > kvp in girlsC)
+        foreach (KeyValuePair<int, string> kvp in girlsC)
         {
-            if((kvp .Key/10) == 1)
+            if ((kvp .Key/10) == 1)
             {
-                instantiation = CreatBox(a);
+                this.CreatBox(a);
+                instantiation = GameObject.Find("MonsterBox(Clone)");
                 Transform rBox = instantiation.transform.Find("dialogText");
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
-                break;
+                index = 1;
+                time = 0;
+                goto To;
             }
             else if((kvp.Key / 10) == 2)
             {
-                instantiation = CreatBox(b);
+                this.CreatBox(a);
+                instantiation = GameObject.Find("MonsterBox(Clone)");
                 Transform rBox = instantiation.transform.Find("dialogText");
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
-                break;
+                index = 1;
+                time = 0;
+                goto To;
             }
             else if((kvp.Key / 10) == 3)
             {
-                instantiation = CreatBox(c);
+                this.CreatBox(a);
+                instantiation = GameObject.Find("MonsterBox(Clone)");
                 Transform rBox = instantiation.transform.Find("dialogText");
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
-                break;
+                index = 1;
+                time = 0;
+                goto To;
             }
         }
+To:
+        return;
     }
     //女该讲话方面的代码结束
-    GameObject CreatBox(Transform targetT)
+    void CreatBox(Transform targetT)
     {
-        return Instantiate(box, targetT);
+        GameObject a = Instantiate(box,canvas .transform );
+        a.GetComponent<RectTransform>().position= targetT.position;
+    }
+
+    private void Reset()
+    {
+        instantiation.GetComponent<RectTransform>().position = a.position;
     }
 }
