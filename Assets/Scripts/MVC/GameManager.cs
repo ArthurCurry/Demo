@@ -35,7 +35,8 @@ public class GameManager:MonoBehaviour {
         //escape = root.transform.Find("Save").gameObject;
         BuildManager.Need = true;
         //BuildManager.Level = 1;
-        GameObject root = GameObject.Find("Canvas");        
+        GameObject root = GameObject.Find("Canvas");
+        root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
         //BuildManager .Instance = new XmlReader();
         //BuildManager.Instance.ReadXML("Resources/剧情对话.xml");
         //BuildManager.Instance.SetIndex(0);
