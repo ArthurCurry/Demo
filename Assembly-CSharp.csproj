@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalk.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\PatrolTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Talk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Trigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\XmlReader.cs" />
