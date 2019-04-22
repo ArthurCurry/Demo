@@ -35,7 +35,8 @@ public class GameManager:MonoBehaviour {
         //escape = root.transform.Find("Save").gameObject;
         BuildManager.Need = true;
         //BuildManager.Level = 1;
-        GameObject root = GameObject.Find("Canvas");        
+        GameObject root = GameObject.Find("Canvas");
+        root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
         //BuildManager .Instance = new XmlReader();
         //BuildManager.Instance.ReadXML("Resources/剧情对话.xml");
         //BuildManager.Instance.SetIndex(0);
@@ -47,8 +48,9 @@ public class GameManager:MonoBehaviour {
         //Camera.main.GetComponent<CameraController>().DetectEdges();
         // BuildManager.LevelName = "Level_2";
         //BuildManager.Name = "异步敌人";
+
         //BuildManager.XMLName = "第一关";
-        //BuildManager.LevelName = "Level_1";
+        //BuildManager.LevelName = "Level_2";
         
         //Init("CG1","旁白");
         if(BuildManager.Level==1)
