@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class ChangeEffect : MonoBehaviour {
 
+    private bool finished;
+    public bool Finished
+    {
+        set { finished = value; }
+        get { return finished; }
+    }
+
     private RawImage rawImage;
 
     private float fadeTime;
@@ -24,8 +31,9 @@ public class ChangeEffect : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        finished = false;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
-        fadeTime = 0.5f;
+        fadeTime = 0.7f;
     }
 	
 	// Update is called once per frame
@@ -37,6 +45,10 @@ public class ChangeEffect : MonoBehaviour {
         if (m_State == State.FadeOut)
         {
             StartScene();
+            if(rawImage.color.a <= 0.5f)
+            {
+                finished = true;
+            }
         }
     }
 
