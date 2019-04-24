@@ -191,7 +191,6 @@ public class Following : Monster {
 
     private bool OutOfRange()
     {
-
         return false;
     }
 }

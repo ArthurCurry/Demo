@@ -60,9 +60,11 @@
      <Compile Include="Assets\Scripts\BuildManager.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\CG.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeEffect.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalk.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\PatrolTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Talk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Trigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\XmlReader.cs" />
