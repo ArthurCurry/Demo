@@ -26,7 +26,7 @@ public class Reset : MonoBehaviour {
 
     void Recover()
     {
-        if((player.transform.position-start.transform.position).magnitude<=0.01f)
+        if((pm.isDead))
         {
             transform.position = pos;
             transform.rotation = Quaternion.Euler(rot);

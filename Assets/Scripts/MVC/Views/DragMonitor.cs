@@ -68,7 +68,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (eventData.pointerEnter.tag == "Celection")
         {
-            Debug.Log(1);
+            //Debug.Log(1);
             x = 1;
 
 
@@ -80,7 +80,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (x == 1 && passed >= level && Input.GetMouseButtonDown(0))
         {
-            Debug.Log(2);
+            //Debug.Log(2);
             y = 1;
 
         }
