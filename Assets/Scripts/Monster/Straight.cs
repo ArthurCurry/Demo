@@ -31,11 +31,11 @@ public class Straight : MonoBehaviour {
 
     public void GoAndBack()
     {
-        if(Mathf.Abs(totalDis-HashID.unitLength)<0.01f)
+        if(Mathf.Abs(totalDis%HashID.unitLength)<0.01f)
         {
             Vector2 selfPos = this.transform.position;
             RaycastHit2D[] hits = Physics2D.LinecastAll(selfPos, direction * HashID.unitLength + selfPos,LayerMask.GetMask("Replaceable"));
-            //Debug.Log(hits.Length);
+            //Debug.Log(hits.Length+"  "+this.gameObject.name);
             if (hits.Length<=1||!hits[hits.Length - 1].transform.tag.Equals(HashID.Tag_Map))
                 direction = -direction;
             totalDis = 0f;
