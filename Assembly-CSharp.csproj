@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\Mechanism\Falling.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Trap.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode3.cs" />
      <Compile Include="Assets\Scripts\Monster\AttcakMode2.cs" />
