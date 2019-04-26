@@ -75,7 +75,7 @@ public class CG : MonoBehaviour
             m_Alpha = 1f;            
         }
         //值为0的时候跳转场景
-        else if (m_Alpha < 0.5&&m_Statuss ==FadeStatuss.FadeOut)
+        else if (m_Statuss ==FadeStatuss.FadeOut)
         {
             if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
             {

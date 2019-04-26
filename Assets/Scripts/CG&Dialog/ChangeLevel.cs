@@ -23,13 +23,16 @@ public class ChangeLevel : MonoBehaviour {
         {
             BuildManager.Judge();
             BuildManager.Destroy_All();
-            if (BuildManager.Level != 3)
-            {
-                BuildManager.Need = true;
-                BuildManager.InitAttribute();
-                BuildManager.Init();
-                Camera.main.GetComponent<CameraController>().Init();
-            }
+            GameObject root = GameObject.Find("Canvas");
+            root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+            root.GetComponent<ChangeEffect>().Finished = false;
+            //if (BuildManager.Level != 3)
+            //{
+            //    BuildManager.Need = true;
+            //    BuildManager.InitAttribute();
+            //    BuildManager.Init();
+            //   Camera.main.GetComponent<CameraController>().Init();
+            //}
             //BuildManager.Name = "异步敌人";
         }
     }
