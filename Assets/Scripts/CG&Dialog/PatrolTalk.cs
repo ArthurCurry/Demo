@@ -71,7 +71,7 @@ public class PatrolTalk : MonoBehaviour {
             if (Judge(level.transform.Find(targetName).GetChild(i).name) != null && dialog.Count <= 2)
             {
                 if ((level.transform.Find(targetName).GetChild(i).transform.position - player.transform.position).magnitude <= 5)
-                    dialog.Add(level.transform.Find(targetName).GetChild(i).transform, _Switch(Random.Range(0, 5)));
+                    dialog.Add(level.transform.Find(targetName).GetChild(i).transform, _Switch(Random.Range(0, 8)));
             }
         }
     }

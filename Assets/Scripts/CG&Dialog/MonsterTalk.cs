@@ -12,21 +12,10 @@ public class MonsterTalk : MonoBehaviour {
 
     [SerializeField]
     private Transform a;
-    [SerializeField]
-    private Transform b;
-    [SerializeField]
-    private Transform c;
 
-    private Dictionary<Transform , string> dialog; //查找视图目标节点下的目标child并存进数组
-    private Dictionary<Transform, string> comment;
     private Dictionary<int, string> girlsC;
-    private string[] patrolsC;
 
-    private string levelName;
-    private int count;
-    private int index;
     private float time;
-    private float fixTime;
 
     // Use this for initialization
 
@@ -34,19 +23,11 @@ public class MonsterTalk : MonoBehaviour {
 
     private void Start()
     {
-        patrolsC = new string[] {
-            "李老师讲课不仅无聊，而且还经常点同学上去做题，真是烦透了",
-            "这次小考排名又比上次进步了一点，加油！",
-            "我明明这么努力，怎么考试永远都考不好……",
-            "听说邻省的十一中有个女孩跳楼了，也不知道是真的还是假的……",
-            "一看见老李那张脸就烦，真是的，一天到晚板着张脸!"
-        };
         this.Add();
         box = Resources.Load<GameObject>("Prefabs/MonsterBox");
         player = GameObject.FindWithTag(HashID.PLAYER);
         canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         time = 0;
-        index = 0;
     }
 
     void Update () {
@@ -63,7 +44,6 @@ public class MonsterTalk : MonoBehaviour {
             {
                 this.Add();
             }
-            index = 0;
             GirlsTalk();
             time = 0;
         }
@@ -74,68 +54,6 @@ public class MonsterTalk : MonoBehaviour {
             }
         }
 	}
-
-    void AddInto(string targetName)
-    {
-        dialog = new Dictionary<Transform, string>();
-        GameObject level = GameObject.FindWithTag(HashID.LEVEL);
-        levelName = level.name;
-        count = level.transform.Find(targetName).childCount;
-        for (int i = 0; i < count; i++)
-        {
-            if (Judge(level.transform.GetChild(i).name) != null&&dialog .Count <=3)
-            {
-                if ((level.transform.GetChild(i).transform.position - player.transform.position).magnitude <= 10)
-                    dialog.Add(level.transform.GetChild(i).transform, _Switch(Random.Range(0, 5)));
-            }
-        }
-    }
-
-    string Judge(string name)
-    {
-        if(name.Contains("fixedroute"))
-        {
-            return ("");
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    string _Switch(int x)
-    {
-        switch (x)
-        {
-            case 0:return patrolsC[0];
-            case 1:return patrolsC[1];
-            case 2:return patrolsC[2];
-            case 3:return patrolsC[3];
-            case 4:return patrolsC[4];
-            default:return patrolsC[0];
-        }
-    }
-
-    void PatrolTalk()
-    {
-        foreach (KeyValuePair<Transform, string> kvp in dialog)
-        {
-            if (kvp.Key == null)
-            {
-                dialog.Remove(kvp.Key);
-            }
-            else
-            {
-                if (GameObject.Find("MonsterBox(Clone)")) {
-                    instantiation = GameObject.Find("MonsterBox(Clone)"); // 给三个属性分别存储
-                    Transform rBox = instantiation.transform.Find("dialogText");
-                    Text dialogtext = rBox.GetComponent<Text>();
-                    dialogtext.text = kvp.Value;
-                    dialog.Remove(kvp.Key);
-                }
-            }
-        }
-    }
 
     //下面为女孩讲话的代码
     void Add() //添加女孩对话内容
@@ -167,7 +85,6 @@ public class MonsterTalk : MonoBehaviour {
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
-                index = 1;
                 time = 0;
                 goto To;
             }
@@ -179,7 +96,6 @@ public class MonsterTalk : MonoBehaviour {
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
-                index = 1;
                 time = 0;
                 goto To;
             }
@@ -191,7 +107,6 @@ public class MonsterTalk : MonoBehaviour {
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
-                index = 1;
                 time = 0;
                 goto To;
             }
