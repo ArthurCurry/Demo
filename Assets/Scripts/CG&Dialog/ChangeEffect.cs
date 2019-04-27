@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class ChangeEffect : MonoBehaviour {
 
+    private bool finished;
+    public bool Finished
+    {
+        set { finished = value; }
+        get { return finished; }
+    }
+
     private RawImage rawImage;
 
     private float fadeTime;
@@ -24,8 +31,9 @@ public class ChangeEffect : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        finished = false;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
-        fadeTime = 0.5f;
+        fadeTime = 1f;
     }
 	
 	// Update is called once per frame
@@ -37,6 +45,28 @@ public class ChangeEffect : MonoBehaviour {
         if (m_State == State.FadeOut)
         {
             StartScene();
+            if(rawImage.color.a <= 0.8f&& !finished)
+            {
+                if (BuildManager.Level == 1)
+                {
+                    BuildManager.InitCG("CG1", "旁白");
+                }
+                else if (BuildManager.Level == 3)
+                {
+                    BuildManager.InitCG("CG2", "第三关CG1");
+                }
+                else if (BuildManager.Level == 4)
+                {
+                    BuildManager.InitCG("CG5", "旁白");
+                }
+                else
+                {
+                    BuildManager.Init();
+                    Camera.main.GetComponent<CameraController>().enabled = true;
+                    Camera.main.GetComponent<CameraController>().DetectEdges();
+                }
+                finished = true;
+            }
         }
     }
 
@@ -56,7 +86,7 @@ public class ChangeEffect : MonoBehaviour {
         if (rawImage.color.a <= 0.05f)
         {
             rawImage.color = Color.clear;
-            rawImage.enabled = false;
+            rawImage.enabled = false;            
             m_State = State.none;
         }
     }

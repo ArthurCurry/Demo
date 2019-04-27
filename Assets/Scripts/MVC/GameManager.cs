@@ -52,26 +52,7 @@ public class GameManager:MonoBehaviour {
         //BuildManager.XMLName = "第一关";
         //BuildManager.LevelName = "Level_2";
         
-        //Init("CG1","旁白");
-        if(BuildManager.Level==1)
-        {
-            Init("CG1", "旁白");
-        }
-        else if(BuildManager.Level==3)
-        {
-            Init("CG2", "第三关CG1");
-        }
-        else if(BuildManager.Level==4)
-        {
-            Init("CG5", "旁白");
-        }
-        else
-        {
-            BuildManager.Init();
-            Camera.main.GetComponent<CameraController>().enabled = true;
-            Camera.main.GetComponent<CameraController>().DetectEdges();
-        }
-        
+        //Init("CG1","旁白");       
     }
 	
 	// Update is called once per frame

@@ -65,7 +65,7 @@ public class BuildManager {
         {
             if (x < count)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z)||Input .GetMouseButtonDown (0))
                 {
                     Dialog(x);
                     x = x + 1;
@@ -78,7 +78,7 @@ public class BuildManager {
                
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
+        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z)|| Input.GetMouseButtonDown(0))
         {
             CGEnd = true;
             if (GameObject.FindWithTag("CG"))

@@ -20,6 +20,9 @@ public class CG : MonoBehaviour
     //透明值
     private float m_Alpha;
     //淡入淡出状态
+
+    private int status;
+
     private FadeStatuss m_Statuss;
 
     public FadeStatuss mStatuss
@@ -34,7 +37,7 @@ public class CG : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        status = 0;
         m_Sprite = this.gameObject.GetComponent<Image>();
         m_Alpha = 0f;
         m_UpdateTime = 1;
@@ -75,14 +78,15 @@ public class CG : MonoBehaviour
             m_Alpha = 1f;            
         }
         //值为0的时候跳转场景
-        else if (m_Alpha < 0.5&&m_Statuss ==FadeStatuss.FadeOut)
+        else if (m_Statuss ==FadeStatuss.FadeOut&&m_Alpha<=0.98)
         {
             if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
             {
-                BuildManager.InitAttribute();
+                BuildManager.Need = true;
                 BuildManager.Init();
                 Camera.main.GetComponent<CameraController>().enabled = true;
                 Camera.main.GetComponent<CameraController>().DetectEdges();
+                BuildManager.InitAttribute();
             }
             if (BuildManager.Level == 3)
             {

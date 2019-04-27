@@ -12,6 +12,7 @@ public class PatrolTalk : MonoBehaviour {
     private Dictionary<Transform, string> dialog; //查找视图目标节点下的目标child并存进数组
     private string[] patrolsC;
     private Dictionary <GameObject ,Transform> instantiations;
+    private List<GameObject> patrols;
 
     private string levelName;
     private int count;
@@ -20,14 +21,18 @@ public class PatrolTalk : MonoBehaviour {
     // Use this for initialization
     void Start () {
         patrolsC = new string[] {
-            "李老师讲课不仅无聊，而且还经常点同学上去做题，真是烦透了",
+            "李老师讲课不仅无聊，而且还经常点同学上去做题，真是烦透了。",
             "这次小考排名又比上次进步了一点，加油！",
             "我明明这么努力，怎么考试永远都考不好……",
             "听说邻省的十一中有个女孩跳楼了，也不知道是真的还是假的……",
-            "一看见老李那张脸就烦，真是的，一天到晚板着张脸!"
+            "一看见老李那张脸就烦，真是的，一天到晚板着张脸。",
+            "困死了，一到高三上学时间又提早了。",
+            "今天晚上游戏有新活动要开，我得早点回去开荒。",
+            "好烦啊，钱又不够用了。"
         };
         dialog = new Dictionary<Transform, string> ();
         instantiations = new Dictionary<GameObject, Transform>();
+        patrols = new List<GameObject>();
         box = Resources.Load<GameObject>("Prefabs/MonsterBox");
         player = GameObject.FindWithTag(HashID.PLAYER);
         canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
@@ -41,6 +46,7 @@ public class PatrolTalk : MonoBehaviour {
         if (time >= 4)
         {
             _Destroy();
+            ToDestroy();
             time = 0;
         }
         if(dialog.Count == 0 && instantiations.Count == 0)
@@ -65,7 +71,7 @@ public class PatrolTalk : MonoBehaviour {
             if (Judge(level.transform.Find(targetName).GetChild(i).name) != null && dialog.Count <= 2)
             {
                 if ((level.transform.Find(targetName).GetChild(i).transform.position - player.transform.position).magnitude <= 5)
-                    dialog.Add(level.transform.Find(targetName).GetChild(i).transform, _Switch(Random.Range(0, 5)));
+                    dialog.Add(level.transform.Find(targetName).GetChild(i).transform, _Switch(Random.Range(0, 8)));
             }
         }
     }
@@ -107,6 +113,7 @@ public class PatrolTalk : MonoBehaviour {
             {
                 GameObject instantiation = this.CreatBox(kvp.Key);
                 instantiations.Add(instantiation , kvp.Key);
+                patrols.Add(instantiation);
                 Transform rBox = instantiation.transform.Find("dialogText");
                 Text dialogtext = rBox.GetComponent<Text>();
                 dialogtext.text = kvp.Value;
@@ -129,6 +136,7 @@ public class PatrolTalk : MonoBehaviour {
         {
             if (kvp.Value == null || kvp.Key == null)
             {
+                Destroy(kvp.Key);
                 instantiations.Remove(kvp.Key);
             }
             else
@@ -145,6 +153,15 @@ public class PatrolTalk : MonoBehaviour {
         {
             Destroy(kvp.Key);
             instantiations.Remove(kvp.Key);
+        }
+    }
+
+    private void ToDestroy()
+    {
+        for(int i=0;i<patrols.Count; i++)
+        {
+            if (patrols[i] != null)
+                Destroy(patrols[1]);
         }
     }
 
