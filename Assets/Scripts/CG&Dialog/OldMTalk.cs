@@ -71,7 +71,7 @@ public class OldMTalk : MonoBehaviour {
         }
     }
 
-    void GirlsTalk()//按顺序遍历女生对话并进行实例化
+    void GirlsTalk()
     {
         if (done)
         {
@@ -88,7 +88,7 @@ public class OldMTalk : MonoBehaviour {
         Reflash();
         return;
     }
-    //女该讲话方面的代码结束
+
     GameObject CreatBox(Transform targetT)
     {
         GameObject a = Instantiate(box, canvas.transform);

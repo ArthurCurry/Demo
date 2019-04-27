@@ -82,11 +82,14 @@ public class CG : MonoBehaviour
         {
             if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
             {
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
                 BuildManager.Need = true;
-                BuildManager.Init();
-                Camera.main.GetComponent<CameraController>().enabled = true;
-                Camera.main.GetComponent<CameraController>().DetectEdges();
-                BuildManager.InitAttribute();
+                //BuildManager.Init();
+                //Camera.main.GetComponent<CameraController>().enabled = true;
+                //Camera.main.GetComponent<CameraController>().DetectEdges();
+                //BuildManager.InitAttribute();
             }
             if (BuildManager.Level == 3)
             {
