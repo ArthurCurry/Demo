@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CG : MonoBehaviour
 {
-
     //状态效果值
     public enum FadeStatuss
     {

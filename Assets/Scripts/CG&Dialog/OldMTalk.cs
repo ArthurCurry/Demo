@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class OldMTalk : MonoBehaviour {
 
@@ -80,7 +80,7 @@ public class OldMTalk : MonoBehaviour {
                 instantiation = this.CreatBox(a);
             }
             Transform rBox = instantiation.transform.Find("dialogText");
-            Text dialogtext = rBox.GetComponent<Text>();
+            TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
             dialogtext.text = comments[status];
             time = 0;
             done = false;
