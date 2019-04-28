@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class ChangeEffect : MonoBehaviour {
 
-    private bool finished;
-    public bool Finished
+    public enum o_status
     {
-        set { finished = value; }
-        get { return finished; }
+        start,
+        none,
+        end
     }
+    public o_status game;
 
     private RawImage rawImage;
 
@@ -31,7 +32,6 @@ public class ChangeEffect : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        finished = false;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
         fadeTime = 1f;
     }
@@ -41,11 +41,18 @@ public class ChangeEffect : MonoBehaviour {
         if (m_State == State.FadeIn)
         {
             EndScene();
+            if (rawImage.color.a >= 0.98f && game == o_status.end)
+            {
+                BuildManager.Init();
+                Camera.main.GetComponent<CameraController>().enabled = true;
+                Camera.main.GetComponent<CameraController>().DetectEdges();
+                BuildManager.InitAttribute();
+            }
         }
         if (m_State == State.FadeOut)
         {
             StartScene();
-            if(rawImage.color.a <= 0.8f&& !finished)
+            if(rawImage.color.a <= 0.8f&& game == o_status .start)
             {
                 if (BuildManager.Level == 1)
                 {
@@ -65,8 +72,8 @@ public class ChangeEffect : MonoBehaviour {
                     Camera.main.GetComponent<CameraController>().enabled = true;
                     Camera.main.GetComponent<CameraController>().DetectEdges();
                 }
-                finished = true;
-            }
+                game = o_status.none;
+            }            
         }
     }
 

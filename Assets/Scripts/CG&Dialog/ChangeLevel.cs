@@ -25,7 +25,7 @@ public class ChangeLevel : MonoBehaviour {
             BuildManager.Destroy_All();
             GameObject root = GameObject.Find("Canvas");
             root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
-            root.GetComponent<ChangeEffect>().Finished = false;
+            root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
             //if (BuildManager.Level != 3)
             //{
             //    BuildManager.Need = true;

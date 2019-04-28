@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PatrolTalk : MonoBehaviour {
     private Canvas canvas; 
@@ -115,7 +115,7 @@ public class PatrolTalk : MonoBehaviour {
                 instantiations.Add(instantiation , kvp.Key);
                 patrols.Add(instantiation);
                 Transform rBox = instantiation.transform.Find("dialogText");
-                Text dialogtext = rBox.GetComponent<Text>();
+                TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
                 dialog.Remove(kvp.Key);              
             }

@@ -985,7 +985,7 @@ Prefab:
     - target: {fileID: 224462465897028118, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000024796
+      value: 0.000024795998
       objectReference: {fileID: 0}
     - target: {fileID: 224462465897028118, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}
@@ -996,6 +996,11 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 511.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 223685518531423480, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
@@ -1021,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4351d12939832c54ab7d30b8b1e5b787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: 0
 --- !u!20 &2098039909 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20351179281290088, guid: a29e39a667abf7f408df295827bdad45,
