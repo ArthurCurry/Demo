@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class MonsterTalk : MonoBehaviour {
 
@@ -82,7 +82,7 @@ public class MonsterTalk : MonoBehaviour {
                 this.CreatBox(a);
                 instantiation = GameObject.Find("MonsterBox(Clone)");
                 Transform rBox = instantiation.transform.Find("dialogText");
-                Text dialogtext = rBox.GetComponent<Text>();
+                TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
                 time = 0;
@@ -93,7 +93,7 @@ public class MonsterTalk : MonoBehaviour {
                 this.CreatBox(a);
                 instantiation = GameObject.Find("MonsterBox(Clone)");
                 Transform rBox = instantiation.transform.Find("dialogText");
-                Text dialogtext = rBox.GetComponent<Text>();
+                TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
                 time = 0;
@@ -104,7 +104,7 @@ public class MonsterTalk : MonoBehaviour {
                 this.CreatBox(a);
                 instantiation = GameObject.Find("MonsterBox(Clone)");
                 Transform rBox = instantiation.transform.Find("dialogText");
-                Text dialogtext = rBox.GetComponent<Text>();
+                TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
                 girlsC.Remove(kvp.Key);
                 time = 0;

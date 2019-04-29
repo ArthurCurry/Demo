@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Dialog {
     private static Dialog instance;
@@ -43,7 +43,7 @@ public class Dialog {
         {
             dialog = GameObject.Find("DialogBox(Clone)");
             dialogText = dialog.transform.Find("dialogText");
-            Text dialogtext = dialogText.GetComponent<Text>();
+            TextMeshProUGUI dialogtext = dialogText.GetComponent<TextMeshProUGUI>();
             dialogtext.text = sentence;
             dialogtext.text = dialogtext.text.Replace("\\n", "\n");
         }
@@ -51,7 +51,7 @@ public class Dialog {
         {
             dialog = GameObject.Find("IntroductionBox(Clone)");
             dialogText = dialog.transform.Find("dialogText");
-            Text dialogtext = dialogText.GetComponent<Text>();
+            TextMeshProUGUI dialogtext = dialogText.GetComponent<TextMeshProUGUI>();
             dialogtext.text = sentence;
             dialogtext.text = dialogtext.text.Replace("\\n", "\n");
         }
