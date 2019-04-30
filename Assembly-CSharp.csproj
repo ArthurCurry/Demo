@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalk.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\OldMTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\PatrolTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Talk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Trigger.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\Scripts\Mechanism\Falling.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Spike.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Trap.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode3.cs" />
