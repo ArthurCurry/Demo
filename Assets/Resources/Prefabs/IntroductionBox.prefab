@@ -66,16 +66,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u5927\u4E3B\u6559"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36f59155e7faffa4a93c65ea95252551, type: 2}
-  m_sharedMaterial: {fileID: 21862180105433110, guid: 36f59155e7faffa4a93c65ea95252551,
+  m_fontAsset: {fileID: 11400000, guid: 5f659e988191f2546b8c4899250b2bd8, type: 2}
+  m_sharedMaterial: {fileID: 21675322925570442, guid: 5f659e988191f2546b8c4899250b2bd8,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278650879
-  m_fontColor: {r: 1, g: 0.030060584, b: 0.030060584, a: 1}
+    rgba: 4278255873
+  m_fontColor: {r: 0.007352948, g: 0.0049740532, b: 0.0049740532, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
