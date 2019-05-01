@@ -58,11 +58,11 @@ public class BagCtrl : UICtrl
             SetLocalPosition(position);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            int index = UnityEngine.Random.Range(0, 6);
-            StoreItem(index);
-        }
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    int index = UnityEngine.Random.Range(0, 6);
+        //    StoreItem(index);
+        //}
     }
 
     public void ToolTipShow()

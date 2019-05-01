@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    protected GameObject player;
+    protected PlayerMovements pm;
+    
 
     // Use this for initialization
     void Start()
@@ -17,9 +20,15 @@ public class Trap : MonoBehaviour
 
     }
 
+    protected void InitTrap()
+    {
+        player = GameObject.FindWithTag(HashID.PLAYER);
+        pm = player.GetComponent<PlayerMovements>();
+    }
+
     protected virtual void Attack()
     {
-        
+        pm.isDead = true;
     }
     
 }
