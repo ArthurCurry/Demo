@@ -57,7 +57,7 @@ public class Following : Monster {
     void LateUpdate()
     {
         Reset();
-        if (!triggered)
+        /*if (!triggered)
         {
             for (int i=0;i<positions.Count;i++)
             {
@@ -67,9 +67,14 @@ public class Following : Monster {
                     break;
                 }
             }
-        }
-        else 
+        }*/
+        if (OutOfRange())
+            triggered = false;
+        else
+        {
+            triggered = true;
             Move();
+        }
         totalDis += (this.transform.position - prePos).magnitude;
         prePos = this.transform.position;
     }
@@ -145,7 +150,10 @@ public class Following : Monster {
 
     private bool OutOfRange()
     {
-        return false;
+        if ((player.transform.position.x > lowerleft.position.x && player.transform.position.y > lowerleft.position.y) && (player.transform.position.x < upperright.position.x && player.transform.position.y < upperright.position.y))
+            return false;
+        else
+            return true;
     }
 
     private void Reset()
