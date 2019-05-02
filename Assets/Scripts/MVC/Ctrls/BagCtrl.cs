@@ -41,12 +41,16 @@ public class BagCtrl : UICtrl
         if (Input.GetKeyDown(KeyCode.B) && IsOpened == false)
         {
             Debug.Log("open");
-            UIManager.Instance.ShowPanel("BagPanel");
+            Debug.Log(IsOpened);
+            UIManager.Instance.ShowPanel("BagPanel");         
             IsOpened = true;
+            Debug.Log(IsOpened);
         }
         else if (Input.GetKeyDown(KeyCode.B) && IsOpened == true)
         {
+            Debug.Log("Close");            
             UIManager.Instance.HidePanel("BagPanel");
+            //UIManager.Instance.HidePanel("IntroductionPanel");
             IsOpened = false;
         }
         Vector2 position;
