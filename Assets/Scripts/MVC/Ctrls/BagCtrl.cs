@@ -9,6 +9,7 @@ public class BagCtrl : UICtrl
 {
     bool BeRegister = false;
     bool IsOpened = false;
+    bool IntroIsOpened = false;
     BagView bagview = new BagView();
 
 
@@ -56,7 +57,7 @@ public class BagCtrl : UICtrl
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(GameObject.Find
             ("Canvas").transform as RectTransform, Input.mousePosition, Camera.main, out position);
-        if (IsOpened)
+        if (IntroIsOpened)
         {
             Show();
             SetLocalPosition(position);
@@ -140,14 +141,14 @@ public class BagCtrl : UICtrl
         bagview.UpdateTooltip(text);
         string text1 = GetPanelText(item);
         bagview.UpdatePanel(text1);
-        IsOpened = true;
+        IntroIsOpened = true;
         ToolTipShow();
     }
 
     public void GridUI_OnExit()
     {
         //Debug.Log(2);
-        IsOpened = false;
+        IntroIsOpened = false;
         ToolTipHide();
     }
 }
