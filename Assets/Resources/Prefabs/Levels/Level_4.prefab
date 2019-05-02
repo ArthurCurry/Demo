@@ -6311,6 +6311,7 @@ GameObject:
   - component: {fileID: 4458361947191144}
   - component: {fileID: 212887827395312722}
   - component: {fileID: 61913253726192274}
+  - component: {fileID: 114460323792446482}
   m_Layer: 8
   m_Name: start
   m_TagString: Map
@@ -55202,6 +55203,21 @@ MonoBehaviour:
   distance: 0
   inPosition: 0
   attackRange: 5
+--- !u!114 &114460323792446482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373831138053466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 040000000100000000000000
+  active: {fileID: 0}
+  triggered: 0
 --- !u!114 &114499743793126150
 MonoBehaviour:
   m_ObjectHideFlags: 1
