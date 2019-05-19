@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 3
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &229149363
 GameObject:
@@ -410,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 10
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &468671105
 GameObject:
@@ -492,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 8
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &567204389
 GameObject:
@@ -574,7 +577,88 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 6
+  SpotImage: {fileID: 606040924}
   isWatched: 1
+--- !u!1 &606040924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 606040925}
+  - component: {fileID: 606040927}
+  - component: {fileID: 606040926}
+  - component: {fileID: 606040928}
+  m_Layer: 5
+  m_Name: SpotImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &606040925
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606040924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1473372618}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &606040926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606040924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &606040927
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606040924}
+--- !u!114 &606040928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606040924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862e895c9a5fbc94f80f1444d72899e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623421445
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 4
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &1007988994
 GameObject:
@@ -954,6 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 1
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &1171486014
 GameObject:
@@ -1138,6 +1224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 5
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &1473372614
 GameObject:
@@ -1227,6 +1314,7 @@ RectTransform:
   - {fileID: 1171486015}
   - {fileID: 61136299}
   - {fileID: 623421446}
+  - {fileID: 606040925}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1316,6 +1404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 2
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &1729277179
 GameObject:
@@ -1398,6 +1487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 9
+  SpotImage: {fileID: 606040924}
   isWatched: 1
 --- !u!1 &1752836235
 GameObject:
@@ -1480,4 +1570,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CGNumber: 7
+  SpotImage: {fileID: 606040924}
   isWatched: 1
