@@ -28,12 +28,15 @@ public class Following : Monster {
     private Transform lowerleft;
     private List<Vector3> edes = new List<Vector3>();
     private List<RaycastHit2D> hits = new List<RaycastHit2D>();
+    Vector2 ll = new Vector2();
+    Vector2 ur = new Vector2();
 
 
     // Use this for initialization
     void Start()
     {
-
+        ll = lowerleft.position;
+        ur = upperright.position;
         triggered = false;
         latePos = GameObject.FindWithTag(HashID.PLAYER).transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
@@ -57,7 +60,7 @@ public class Following : Monster {
     void LateUpdate()
     {
         Reset();
-        if (!triggered)
+        /*if (!triggered)
         {
             for (int i=0;i<positions.Count;i++)
             {
@@ -67,9 +70,15 @@ public class Following : Monster {
                     break;
                 }
             }
-        }
-        else 
+        }*/
+        if (OutOfRange(player))
+            triggered = false;
+        else
+        {
+            triggered = true;
             Move();
+        }
+        //this.transform.position = new Vector2(Mathf.Clamp(transform.position.x, ll.x, ur.x), Mathf.Clamp(transform.position.y, ll.y, ur.y));
         totalDis += (this.transform.position - prePos).magnitude;
         prePos = this.transform.position;
     }
@@ -143,9 +152,12 @@ public class Following : Monster {
         }
     }
 
-    private bool OutOfRange()
+    private bool OutOfRange(GameObject character)
     {
-        return false;
+        if ((character.transform.position.x >= lowerleft.position.x && character.transform.position.y >= lowerleft.position.y) && (character.transform.position.x <= upperright.position.x && character.transform.position.y <= upperright.position.y))
+            return false;
+        else
+            return true;
     }
 
     private void Reset()

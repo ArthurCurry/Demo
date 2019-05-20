@@ -6311,6 +6311,7 @@ GameObject:
   - component: {fileID: 4458361947191144}
   - component: {fileID: 212887827395312722}
   - component: {fileID: 61913253726192274}
+  - component: {fileID: 114460323792446482}
   m_Layer: 8
   m_Name: start
   m_TagString: Map
@@ -7117,6 +7118,7 @@ GameObject:
   - component: {fileID: 50923270763806318}
   - component: {fileID: 95139008599197968}
   - component: {fileID: 114865345350970880}
+  - component: {fileID: 114796644214872932}
   m_Layer: 8
   m_Name: Following_1
   m_TagString: Following
@@ -11908,6 +11910,7 @@ GameObject:
   - component: {fileID: 50739543189016686}
   - component: {fileID: 95425601841961266}
   - component: {fileID: 114754655111885990}
+  - component: {fileID: 114377751745239334}
   m_Layer: 8
   m_Name: Following_1
   m_TagString: Following
@@ -55184,6 +55187,21 @@ MonoBehaviour:
   passive: {fileID: 1411490629945276}
   triggered: 0
   lift: {fileID: 0}
+--- !u!114 &114377751745239334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1701628559324958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 020000000100000000000000
+  active: {fileID: 1411490629945276}
+  triggered: 0
 --- !u!114 &114405999147771898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55202,6 +55220,21 @@ MonoBehaviour:
   distance: 0
   inPosition: 0
   attackRange: 5
+--- !u!114 &114460323792446482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373831138053466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 040000000100000000000000
+  active: {fileID: 0}
+  triggered: 0
 --- !u!114 &114499743793126150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55325,6 +55358,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea1eb94868a62a47be723f383f2cd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114796644214872932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1423143775503084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 020000000100000000000000
+  active: {fileID: 1096909047132702}
+  triggered: 0
 --- !u!114 &114798522609315144
 MonoBehaviour:
   m_ObjectHideFlags: 1
