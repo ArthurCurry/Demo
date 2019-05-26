@@ -41,6 +41,7 @@ public class FLevelTrigger : MonoBehaviour {
 	void Update () {
         Judge();
         ShowDialog();
+        Reset();
 	}
 
     void InitAttribution(string n) // 赋予触发剧情的属性
@@ -105,8 +106,16 @@ public class FLevelTrigger : MonoBehaviour {
         }
     }
 
-    void ToFindMonster()
+    void Reset()
     {
-
+        if (dialog != null)
+        {
+            if (dialog.instantiation != null)
+            {
+                int x = GameObject.Find(HashID.CANVAS).transform.childCount;
+                Debug.Log(x);
+                dialog.instantiation.transform.SetSiblingIndex(x - 1);
+            }
+        }
     }
 }

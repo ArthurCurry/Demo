@@ -5,7 +5,7 @@ using TMPro;
 
 public class Dialog {
     private static Dialog instance;
-    private GameObject instantiation;
+    public GameObject instantiation;
     private Canvas canvas;
     public GameObject dialogBox;                //用于保存对话框的预置体
     public GameObject dialog;                   //用于获取场景组件中的对话框
