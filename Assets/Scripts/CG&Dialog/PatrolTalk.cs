@@ -147,7 +147,7 @@ public class PatrolTalk : MonoBehaviour {
         }
     }
 
-    private void _Destroy()
+    public void _Destroy()
     {
         foreach (KeyValuePair<GameObject, Transform> kvp in instantiations)
         {
@@ -156,7 +156,7 @@ public class PatrolTalk : MonoBehaviour {
         }
     }
 
-    private void ToDestroy()
+    public void ToDestroy()
     {
         for(int i=0;i<patrols.Count; i++)
         {

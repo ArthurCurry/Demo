@@ -21,8 +21,17 @@ public class ChangeLevel : MonoBehaviour {
     {
         if(this.transform.position  == player.position)
         {
+            if (BuildManager.Level == 1)
+            {
+                if (GameObject.Find("Level_1(Clone)"))
+                {
+                    GameObject level = GameObject.Find("Level_1(Clone)");
+                    level.GetComponent<PatrolTalk>()._Destroy();
+                    level.GetComponent<PatrolTalk>().enabled = false;
+                }
+            }
             BuildManager.Judge();
-            BuildManager.Destroy_All();
+            BuildManager.Destroy_All();           
             GameObject root = GameObject.Find("Canvas");
             root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
             root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
