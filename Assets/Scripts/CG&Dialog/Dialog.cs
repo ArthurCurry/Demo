@@ -5,6 +5,7 @@ using TMPro;
 
 public class Dialog {
     private static Dialog instance;
+    public GameObject instantiation;
     private Canvas canvas;
     public GameObject dialogBox;                //用于保存对话框的预置体
     public GameObject dialog;                   //用于获取场景组件中的对话框
@@ -31,7 +32,14 @@ public class Dialog {
     {
         canvas = GameObject.Find(HashID.CANVAS).GetComponent <Canvas>();
         dialogBox = Resources.Load<GameObject>("Prefabs/DialogBox");
-        GameObject.Instantiate(dialogBox,canvas .transform );
+        instantiation = GameObject.Instantiate(dialogBox,canvas .transform );
+    }
+
+    public void ShowIntroduction()
+    {
+        canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
+        dialogBox = Resources.Load<GameObject>("Prefabs/IntroductionBox");
+        GameObject.Instantiate(dialogBox, canvas.transform);
     }
     /// <summary>
     /// Sets the dialog text.
@@ -39,17 +47,9 @@ public class Dialog {
     /// <param name="sentence">Sentence.</param>
     public void setDialogText(string sentence)
     {
-        if (GameObject.Find("DialogBox(Clone)"))
+        if (instantiation != null)
         {
-            dialog = GameObject.Find("DialogBox(Clone)");
-            dialogText = dialog.transform.Find("dialogText");
-            TextMeshProUGUI dialogtext = dialogText.GetComponent<TextMeshProUGUI>();
-            dialogtext.text = sentence;
-            dialogtext.text = dialogtext.text.Replace("\\n", "\n");
-        }
-        else if(GameObject.Find("IntroductionBox(Clone)"))
-        {
-            dialog = GameObject.Find("IntroductionBox(Clone)");
+            dialog = instantiation;
             dialogText = dialog.transform.Find("dialogText");
             TextMeshProUGUI dialogtext = dialogText.GetComponent<TextMeshProUGUI>();
             dialogtext.text = sentence;
@@ -61,17 +61,10 @@ public class Dialog {
     /// </summary>
     public void DestoryDiaLog()
     {
-        if (GameObject.Find("DialogBox(Clone)"))
+        if (instantiation != null)
         {
-            dialog = GameObject.Find("DialogBox(Clone)");
-            GameObject.Destroy(dialog);
+            GameObject.Destroy(instantiation);
         }
-        else if (GameObject.Find("IntroductionBox(Clone)"))
-        {
-            dialog = GameObject.Find("IntroductionBox(Clone)");
-            GameObject.Destroy(dialog);
-        }
-
     }
     /// <summary>
     /// Determines whether this instance is empty dialog.
@@ -89,12 +82,5 @@ public class Dialog {
             return true;
         }
 
-    }
-
-    public void ShowIntroduction()
-    {
-        canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
-        dialogBox = Resources.Load<GameObject>("Prefabs/IntroductionBox");
-        GameObject.Instantiate(dialogBox, canvas.transform);
     }
 }

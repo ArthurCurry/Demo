@@ -93,8 +93,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u5927\u4E3B\u6559"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 266592a0bc0b806469f4dc5439051efd, type: 2}
-  m_sharedMaterial: {fileID: 21505593021494348, guid: 266592a0bc0b806469f4dc5439051efd,
+  m_fontAsset: {fileID: 11400000, guid: 2b8c0bdc8c589934697f0db0ab9d9bf6, type: 2}
+  m_sharedMaterial: {fileID: 21533229976800812, guid: 2b8c0bdc8c589934697f0db0ab9d9bf6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
