@@ -6,12 +6,13 @@ public class FLevelTrigger : MonoBehaviour {
 
     private bool toPause;
     private bool level1;
+    private bool level2;
 
     private float time;
 
     private XmlReader instance;
     private Dialog dialog;
-    private string name;
+    private string s;
     private int x;
     private int count;
 
@@ -31,6 +32,7 @@ public class FLevelTrigger : MonoBehaviour {
         cm = Camera.main.GetComponent<CameraController>();
         toPause = false;
         level1 = false;
+        level2 = false;
         time = 0;
         x = 0;
 	}
@@ -44,8 +46,8 @@ public class FLevelTrigger : MonoBehaviour {
     void InitAttribution(string n) // 赋予触发剧情的属性
     {
         x = 1;
-        name = n;
-        count = instance.getCount(name, 0);
+        s = n;
+        count = instance.getCount(s, 0);
         instance.SetIndex(0);
     }
 
@@ -53,7 +55,7 @@ public class FLevelTrigger : MonoBehaviour {
     {
         dialog = new Dialog();
         dialog.showDialog();
-        dialog.setDialogText(instance.GetXML(name, 0));
+        dialog.setDialogText(instance.GetXML(s, 0));
     }
 
     void ShowDialog()
@@ -65,7 +67,7 @@ public class FLevelTrigger : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
                 {
                     instance.SetIndex(x);
-                    dialog.setDialogText(instance.GetXML(name, 0));
+                    dialog.setDialogText(instance.GetXML(s, 0));
                     x = x + 1;
                 }
             }
@@ -85,13 +87,21 @@ public class FLevelTrigger : MonoBehaviour {
 
     void Judge()
     {
-        if (Mathf.Abs(player.transform.position.y - 13.5f )<= 0.01f&& !level1)
+        if (Mathf.Abs(player.transform.position.y - 13.5f) <= 0.01f && !level1)
         {
             cm.MoveCameraTo(monster);
             InitAttribution("第87行");
             InitDialog();
             toPause = true;
             level1 = true;
+        }
+        else if ((player.transform.position - square.transform.position).magnitude <= 10.02f && !level2)
+        {
+            cm.MoveCameraTo(square);
+            InitAttribution("广场");
+            InitDialog();
+            toPause = true;
+            level2 = true;
         }
     }
 
