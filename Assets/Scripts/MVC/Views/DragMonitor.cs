@@ -15,9 +15,16 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private float currentTime;
     private GameObject gameManager;
 
+    private AudioPlay ap;
+    private AudioSource audio;
+    private AudioClip clip;
+
 
     void Awake()
     {
+        ap = new AudioPlay();
+        audio = Camera.main.gameObject.GetComponent<AudioSource>();
+        clip = Resources.Load<AudioClip>("Audio/开门");
         gameManager = GameObject.Find("GameManager");
     }
 
@@ -121,7 +128,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                     BuildManager.Level = 6;
                     break;
             }
-            
+            ap.PlayOnShot(Camera.main.gameObject, "Audio/开门",1f);            
             SceneManager.LoadScene(2);
         }
     }

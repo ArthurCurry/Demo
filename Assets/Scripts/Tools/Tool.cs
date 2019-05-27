@@ -25,9 +25,16 @@ public class Tool : MonoBehaviour {
     private int x;
     private int count;
 
+    private AudioPlay ap;
+    [SerializeField]
+    private Vector2 position;
+    private AudioClip audioClip;
+
     // Use this for initialization
     void Start() {
         instance = new XmlReader();
+        ap = new AudioPlay();
+        //audioClip = ap.AddAudioClip("Audio/开门.mp3");
         instance.ReadXML("Resources/剧情对话.xml");
         hidden = true;
         picked = false;
@@ -117,6 +124,7 @@ public class Tool : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
         {
             dialog.DestoryDiaLog();
+            //ap.PlayClipAtPoint(audioClip, position);
         }
     }
 

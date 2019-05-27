@@ -4102,6 +4102,7 @@ MonoBehaviour:
   hidden: 0
   number: 
   curCondition: 1
+  position: {x: 0, y: 0}
 --- !u!212 &100512919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7707,6 +7708,7 @@ MonoBehaviour:
   hidden: 0
   number: 
   curCondition: 1
+  position: {x: 0, y: 0}
 --- !u!212 &208191493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17338,6 +17340,7 @@ MonoBehaviour:
   hidden: 0
   number: 
   curCondition: 1
+  position: {x: 0, y: 0}
 --- !u!212 &477303959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -78880,6 +78883,7 @@ MonoBehaviour:
   hidden: 0
   number: 
   curCondition: 1
+  position: {x: 0, y: 0}
 --- !u!212 &2053983444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79864,6 +79868,7 @@ MonoBehaviour:
   hidden: 0
   number: 
   curCondition: 1
+  position: {x: 0, y: 0}
 --- !u!212 &2083432065
 SpriteRenderer:
   m_ObjectHideFlags: 0
