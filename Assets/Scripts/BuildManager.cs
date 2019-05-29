@@ -60,6 +60,8 @@ public class BuildManager {
     public static bool CGEnd = false;
     public static bool toDestroy = false;
 
+    private static AudioPlay ap = new AudioPlay();
+
     public static void WhileCG()
     {        
         if (isCG)
@@ -69,6 +71,7 @@ public class BuildManager {
                 isCG = false;
                 x = 0;
                 CGEnd = true;
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                 if (GameObject.FindWithTag("CG"))
                     GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
                 dialog.DestoryDiaLog();
@@ -78,6 +81,7 @@ public class BuildManager {
             {
                 if (Input.GetKeyDown(KeyCode.Space)|| Input .GetMouseButtonDown (0))
                 {
+                    ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                     Dialog(x);
                     x = x + 1;
                 }
@@ -91,6 +95,7 @@ public class BuildManager {
         }
     else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
             CGEnd = true;
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
