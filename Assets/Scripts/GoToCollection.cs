@@ -8,10 +8,12 @@ public class GoToCollection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
 
     public bool isSelected = false;
+
+    private AudioPlay ap;
     // Use this for initialization
     void Start()
     {
-
+        ap = new AudioPlay();
     }
 
     // Update is called once per frame
@@ -21,6 +23,8 @@ public class GoToCollection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             if (Input.GetMouseButtonDown(0))
             {
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position);
+                DontDestroyOnLoad(GameObject.Find("One shot audio"));
                 SceneManager.LoadScene("Collection");
             }
         }

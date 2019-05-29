@@ -39,7 +39,7 @@ public class Dialog {
     {
         canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         dialogBox = Resources.Load<GameObject>("Prefabs/IntroductionBox");
-        GameObject.Instantiate(dialogBox, canvas.transform);
+        instantiation = GameObject.Instantiate(dialogBox, canvas.transform);
     }
     /// <summary>
     /// Sets the dialog text.

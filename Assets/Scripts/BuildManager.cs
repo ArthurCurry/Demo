@@ -58,6 +58,7 @@ public class BuildManager {
         set { XMLname = value; }
     }
     public static bool CGEnd = false;
+    public static bool toDestroy = false;
 
     public static void WhileCG()
     {        
@@ -101,6 +102,12 @@ public class BuildManager {
 
     public static void Init()
     {
+        if (instance == null)
+        {
+            instance = new XmlReader();
+            instance.ReadXML("Resources/剧情对话.xml");
+            instance.SetIndex(0);
+        }
         InitPlayer();
         InitMap(levelName);
         MonsterManager.InitMonster();

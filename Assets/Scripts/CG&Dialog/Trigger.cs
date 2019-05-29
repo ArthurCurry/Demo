@@ -17,7 +17,8 @@ public class Trigger : MonoBehaviour {
         {
             BuildManager.IsCG = true;
             BuildManager.X = 1;
-            BuildManager.GetCount(BuildManager.Name);
+            BuildManager.Name = "异步敌人";
+            BuildManager.GetCount("异步敌人");
             BuildManager .Instance.SetIndex(0);
             BuildManager.InitIntroduction();
             dont = false;

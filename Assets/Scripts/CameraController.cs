@@ -35,6 +35,7 @@ public class CameraController : MonoBehaviour {
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
         DetectEdges();
+        FollowPlayer();
     }
 
 	// Update is called once per frame

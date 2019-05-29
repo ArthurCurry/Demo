@@ -20,6 +20,8 @@ public class PlayerMovements : MonoBehaviour {
     private float unitSize;
     [SerializeField]
     private float stopTime;
+
+    private AudioPlay ap;
     // Use this for initialization
     public static void InitData()
     {
@@ -30,6 +32,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void Start()
     {
+        ap = new AudioPlay();
         prePos = this.transform.position;
         Init();
     }
@@ -68,7 +71,7 @@ public class PlayerMovements : MonoBehaviour {
             KeyCode key = KeyCode.None;
             /*Event e = Event.current;
             if (e.isKey)
-                key = e.keyCode;*/
+                key = e.keyCode;*/            
             foreach (KeyCode code in directions.Keys)
             {
                 if (Input.GetKey(code))
@@ -78,7 +81,13 @@ public class PlayerMovements : MonoBehaviour {
                 }
             }
             if (directions.ContainsKey(key))
+            {
+                if (Detect(key) != this.transform)
+                {
+                    ap.PlayClipAtPoint(ap.AddAudioClip("Audio/走路2"), Camera.main.transform.position, 1f);
+                }
                 targetFloor = Detect(key);
+            }
         }
         MoveTowards(targetFloor);
     }
@@ -91,7 +100,8 @@ public class PlayerMovements : MonoBehaviour {
             Vector2 pos = target.position;
             targetArrived = false;
             rb.velocity = (target.position - transform.position).normalized * moveSpeed;
-            isMoving = true;
+            isMoving = true;            
+            //ap.PlayClipAtPoint(ap.AddAudioClip("Audio/走路2"), Camera.main.transform.position, 1f);
             //Debug.Log(2);
             StopAt(targetFloor);
         }

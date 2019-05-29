@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class backToMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
+    private AudioPlay ap;
     public bool isSelected = false;
     // Use this for initialization
     void Start()
     {
-
+        ap = new AudioPlay();
 	}
 	
 	// Update is called once per frame
@@ -20,6 +20,8 @@ public class backToMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             if (Input.GetMouseButtonDown(0))
             {
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
+                DontDestroyOnLoad(GameObject.Find("One shot audio"));
                 SceneManager.LoadScene("Menu");
             }
         }
