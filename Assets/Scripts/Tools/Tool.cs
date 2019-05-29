@@ -27,14 +27,17 @@ public class Tool : MonoBehaviour {
 
     private AudioPlay ap;
     [SerializeField]
-    private Vector2 position;
+    private Vector3 position;
     private AudioClip audioClip;
+    private bool hasDone;
 
     // Use this for initialization
     void Start() {
         instance = new XmlReader();
         ap = new AudioPlay();
-        //audioClip = ap.AddAudioClip("Audio/开门.mp3");
+        position = Camera.main.transform.position;
+        audioClip = ap.AddAudioClip("Audio/上课铃");
+        hasDone = false;
         instance.ReadXML("Resources/剧情对话.xml");
         hidden = true;
         picked = false;
@@ -107,7 +110,7 @@ public class Tool : MonoBehaviour {
         {
             if (x < count)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     instance.SetIndex(x);
                     dialog.setDialogText(instance.GetXML(s, 0));
@@ -121,10 +124,14 @@ public class Tool : MonoBehaviour {
 
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
+        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             dialog.DestoryDiaLog();
-            //ap.PlayClipAtPoint(audioClip, position);
+            if (!hasDone)
+            {
+                hasDone = true;
+                ap.PlayClipAtPoint(audioClip, position);
+            }
         }
     }
 

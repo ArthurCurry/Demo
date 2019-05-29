@@ -63,9 +63,19 @@ public class BuildManager {
     {        
         if (isCG)
         {
+            if(Input .GetKeyDown (KeyCode.E))
+            {
+                isCG = false;
+                x = 0;
+                CGEnd = true;
+                if (GameObject.FindWithTag("CG"))
+                    GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
+                dialog.DestoryDiaLog();
+                Talk.HasTalk = false;
+            }
             if (x < count)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z)||Input .GetMouseButtonDown (0))
+                if (Input.GetKeyDown(KeyCode.Space)|| Input .GetMouseButtonDown (0))
                 {
                     Dialog(x);
                     x = x + 1;
@@ -78,7 +88,7 @@ public class BuildManager {
                
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z)|| Input.GetMouseButtonDown(0))
+    else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             CGEnd = true;
             if (GameObject.FindWithTag("CG"))

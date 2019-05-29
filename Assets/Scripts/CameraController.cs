@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour {
         player = target;
         Vector3 position = player.transform.position;
         position.z = transform.position.z;
-        transform.position = position;
+        transform.position = Vector3.SmoothDamp(transform.position, position, ref currentV, 0.01f);
         dis = Camera.main.transform.position - player.transform.position;
         DetectEdges();
     }

@@ -33,9 +33,12 @@ public class CG : MonoBehaviour
     //场景名称
     public string m_ScenesName;
 
+    private AudioPlay ap;
+
     // Use this for initialization
     void Start()
     {
+        ap = new AudioPlay();
         status = 0;
         m_Sprite = this.gameObject.GetComponent<Image>();
         m_Alpha = 0f;
@@ -84,6 +87,7 @@ public class CG : MonoBehaviour
                 GameObject root = GameObject.Find("Canvas");
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
+                ap.Play(Camera.main.gameObject);
                 BuildManager.Need = true;
                 //BuildManager.Init();
                 //Camera.main.GetComponent<CameraController>().enabled = true;

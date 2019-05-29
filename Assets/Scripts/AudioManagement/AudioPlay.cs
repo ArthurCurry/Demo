@@ -38,12 +38,12 @@ public class AudioPlay{
         a.GetComponent<AudioSource>().PlayOneShot(clip, volume);
     }
 
-    public void PlayClipAtPoint(AudioClip clip, Vector2 position, float volume)
+    public void PlayClipAtPoint(AudioClip clip, Vector3 position, float volume)
     {
         AudioSource.PlayClipAtPoint(clip, position, volume);
     }
 
-    public void PlayClipAtPoint(AudioClip clip, Vector2 position)
+    public void PlayClipAtPoint(AudioClip clip, Vector3 position)
     {
         AudioSource.PlayClipAtPoint(clip, position);
     }
