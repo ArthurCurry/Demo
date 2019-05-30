@@ -12,9 +12,11 @@ public class CGCollection : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public GameObject SpotImage;
     private bool canBeClick = false;
     public bool isWatched = false;
+    private AudioPlay ap;
 
 	void Start () {
         //SpotImage = GameObject.Find("SpotImage");
+        ap = new AudioPlay();
 	}
 	
 	void Update () {
@@ -27,6 +29,7 @@ public class CGCollection : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             if (Input.GetMouseButtonDown(0))
             {
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                 EnlargeImage(CGNumber);
             }
         }

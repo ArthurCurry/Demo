@@ -38,7 +38,7 @@ public class MonsterTalk : MonoBehaviour {
             this.Reset();
         }
         //Debug.Log(time);
-        if (time >= 2)
+        if (time >= 4)
         {
             if (girlsC.Count == 0)
             {
@@ -47,7 +47,7 @@ public class MonsterTalk : MonoBehaviour {
             GirlsTalk();
             time = 0;
         }
-        if (time >= 1.5)
+        if (time >= 3)
         { if (instantiation != null)
             {
                 Destroy(instantiation);

@@ -18,9 +18,12 @@ public class EyeStatue : MonoBehaviour {
     private Tool targetTool;//机关对应的道具，如果有的话
     public bool inposition;
 
+    private AudioPlay ap;
+
     // Use this for initialization
     void Start()
     {
+        ap = new AudioPlay();
         inposition = false;
         positions = new Vector3[] { transform.position + HashID.unitLength * Vector3.right, transform.position + HashID.unitLength*Vector3.up
         ,transform.position+HashID.unitLength*Vector3.left,transform.position+HashID.unitLength*Vector3.down};
@@ -33,6 +36,7 @@ public class EyeStatue : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E) && !isRotating)
         {
+            ap.PlayClipAtPoint(ap.AddAudioClip("Audio/石像转动"), Camera.main.transform.position, 1f);
             if (Judge())
             {
                 Vector3 angle = new Vector3(eyeball.transform.rotation.x, eyeball.transform.rotation.y, eyeball.transform.rotation.z + 90f);

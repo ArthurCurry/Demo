@@ -17,10 +17,31 @@ public class Tool : MonoBehaviour {
     private UIManager um;
     public int curCondition;
 
+    private bool toPause;
+    private bool status;
+    private XmlReader instance;
+    private Dialog dialog;
+    private string s;
+    private int x;
+    private int count;
+
+    private AudioPlay ap;
+    [SerializeField]
+    private Vector3 position;
+    private AudioClip audioClip;
+    private bool hasDone;
+
     // Use this for initialization
     void Start() {
+        instance = new XmlReader();
+        ap = new AudioPlay();
+        position = Camera.main.transform.position;
+        audioClip = ap.AddAudioClip("Audio/上课铃");
+        hasDone = false;
+        instance.ReadXML("Resources/剧情对话.xml");
         hidden = true;
         picked = false;
+        status = false;
         um = GameObject.Find("Canvas").GetComponent<UIManager>();
         InitData();
     }
@@ -39,6 +60,7 @@ public class Tool : MonoBehaviour {
                 BePicked();
             }
         }
+        ShowDialog();
 	}
 
     private void BePicked()
@@ -52,10 +74,18 @@ public class Tool : MonoBehaviour {
                     if(number.Length > 1 )
                         PuzzleSupply.UpdatePuzzle(number[0], number[1], number[2]);
                     um._cm.GetT<BagCtrl>("BagPanel").StoreItem(ID);
+                    ap.PlayClipAtPoint(ap.AddAudioClip("Audio/捡起东西"), Camera.main.transform.position, 1f);
                 }
                 picked = true;
                 Debug.Log("picked");
             }
+        }
+        if(picked && !status)
+        {
+            InitAttribution("捡起钥匙");
+            InitDialog();
+            toPause = true;
+            status = true;
         }
     }
 
@@ -73,5 +103,51 @@ public class Tool : MonoBehaviour {
     {
         this.GetComponent<BoxCollider2D>().enabled = true;
         this.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    void ShowDialog()
+    {
+        if (toPause)
+        {
+            if (x < count)
+            {
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                {
+                    instance.SetIndex(x);
+                    dialog.setDialogText(instance.GetXML(s, 0));
+                    x = x + 1;
+                }
+            }
+            else
+            {
+                toPause = false;
+                x = 0;
+
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            dialog.DestoryDiaLog();
+            if (!hasDone)
+            {
+                hasDone = true;
+                ap.PlayClipAtPoint(audioClip, position);
+            }
+        }
+    }
+
+    void InitDialog()
+    {
+        dialog = new Dialog();
+        dialog.showDialog();
+        dialog.setDialogText(instance.GetXML(s, 0));
+    }
+
+    void InitAttribution(string n) // 赋予触发剧情的属性
+    {
+        x = 1;
+        s = n;
+        count = instance.getCount(s, 0);
+        instance.SetIndex(0);
     }
 }

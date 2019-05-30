@@ -35,6 +35,7 @@ public class CameraController : MonoBehaviour {
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
         DetectEdges();
+        FollowPlayer();
     }
 
 	// Update is called once per frame
@@ -67,9 +68,14 @@ public class CameraController : MonoBehaviour {
         
     }
 
-    public void FollowTarget(string target)
+    public void MoveCameraTo(GameObject target)  // 镜头移动
     {
-        player = GameObject.Find(target);        
+        player = target;
+        Vector3 position = player.transform.position;
+        position.z = transform.position.z;
+        transform.position = Vector3.SmoothDamp(transform.position, position, ref currentV, 0.01f);
+        dis = Camera.main.transform.position - player.transform.position;
+        DetectEdges();
     }
 
     bool PlayerOutOfView()//判断角色是否即将越出视野

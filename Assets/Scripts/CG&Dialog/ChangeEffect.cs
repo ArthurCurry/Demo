@@ -45,7 +45,7 @@ public class ChangeEffect : MonoBehaviour {
             {
                 BuildManager.Init();
                 Camera.main.GetComponent<CameraController>().enabled = true;
-                Camera.main.GetComponent<CameraController>().DetectEdges();
+                Camera.main.GetComponent<CameraController>().Init();
                 BuildManager.InitAttribute();
             }
         }
@@ -70,7 +70,8 @@ public class ChangeEffect : MonoBehaviour {
                 {
                     BuildManager.Init();
                     Camera.main.GetComponent<CameraController>().enabled = true;
-                    Camera.main.GetComponent<CameraController>().DetectEdges();
+                    Camera.main.GetComponent<CameraController>().Init();
+                    BuildManager.InitAttribute();
                 }
                 game = o_status.none;
             }            

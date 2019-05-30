@@ -123,6 +123,7 @@ MonoBehaviour:
   targetArrived: 1
   targetFloor: {fileID: 4751395676646560}
   isDead: 0
+  disEqUnit: 0
   unitSize: 0.7
   stopTime: 0
 --- !u!114 &114631047399304948

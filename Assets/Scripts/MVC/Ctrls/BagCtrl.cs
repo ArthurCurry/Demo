@@ -12,9 +12,11 @@ public class BagCtrl : UICtrl
     bool IntroIsOpened = false;
     BagView bagview = new BagView();
 
+    private AudioPlay ap;
 
     public override void Init()
     {
+        ap = new AudioPlay();
         GameObject root = GameObject.Find("Canvas");
         bagview.Init(this, root.transform.Find("BagPanel").gameObject);
         this.View = bagview;
@@ -41,14 +43,16 @@ public class BagCtrl : UICtrl
     {
         if (Input.GetKeyDown(KeyCode.B) && IsOpened == false)
         {
-            Debug.Log("open");
-            Debug.Log(IsOpened);
+            //Debug.Log("open");
+            //Debug.Log(IsOpened);
+            ap.PlayClipAtPoint(ap.AddAudioClip("Audio/打开背包"), Camera.main.transform.position, 1f);
             UIManager.Instance.ShowPanel("BagPanel");         
             IsOpened = true;
-            Debug.Log(IsOpened);
+            //Debug.Log(IsOpened);
         }
         else if (Input.GetKeyDown(KeyCode.B) && IsOpened == true)
         {
+            ap.PlayClipAtPoint(ap.AddAudioClip("Audio/打开背包"), Camera.main.transform.position, 1f);
             Debug.Log("Close");            
             UIManager.Instance.HidePanel("BagPanel");
             //UIManager.Instance.HidePanel("IntroductionPanel");

@@ -15,9 +15,16 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private float currentTime;
     private GameObject gameManager;
 
+    private AudioPlay ap;
+    private AudioClip clip1;
+    private AudioClip clip2;
+
 
     void Awake()
     {
+        ap = new AudioPlay();
+        clip1 = ap.AddAudioClip("Audio/转场（选关界面进入游戏）");
+        clip2 = ap.AddAudioClip("Audio/点击");
         gameManager = GameObject.Find("GameManager");
     }
 
@@ -121,7 +128,8 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                     BuildManager.Level = 6;
                     break;
             }
-            
+            ap.PlayClipAtPoint(clip1, Camera.main.transform.position, 1f);
+            DontDestroyOnLoad(GameObject.Find("One shot audio"));
             SceneManager.LoadScene(2);
         }
     }
@@ -130,5 +138,11 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         x = 0;
         y = 0;
+    }
+
+    public void PlayAudio()
+    {
+        ap.PlayClipAtPoint(clip2, Camera.main.transform.position , 1f);
+        DontDestroyOnLoad(GameObject.Find("One shot audio"));
     }
 }

@@ -49,13 +49,14 @@ public class PatrolTalk : MonoBehaviour {
             ToDestroy();
             time = 0;
         }
-        if(dialog.Count == 0 && instantiations.Count == 0)
+        if (dialog.Count == 0 && instantiations.Count == 0 && time >= 3)
         {
             this.AddInto("portals");
+            time = 0;
         }
         else
         {
-            PTalk();   
+            PTalk();
         }
         Reset();
     }
@@ -147,7 +148,7 @@ public class PatrolTalk : MonoBehaviour {
         }
     }
 
-    private void _Destroy()
+    public void _Destroy()
     {
         foreach (KeyValuePair<GameObject, Transform> kvp in instantiations)
         {
@@ -156,7 +157,7 @@ public class PatrolTalk : MonoBehaviour {
         }
     }
 
-    private void ToDestroy()
+    public void ToDestroy()
     {
         for(int i=0;i<patrols.Count; i++)
         {
@@ -167,7 +168,7 @@ public class PatrolTalk : MonoBehaviour {
 
     private void Translate(Transform a)
     {
-        float y = a.position.y + 1;
+        float y = a.position.y + 1.5f;
         target = new Vector2(a.position.x, y);
     }
 }
