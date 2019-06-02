@@ -35,11 +35,11 @@ public class EyeStatue : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && !isRotating)
-        {
-            ap.PlayClipAtPoint(ap.AddAudioClip("Audio/石像转动"), Camera.main.transform.position, 1f);
+        {           
             if (Judge())
             {
                 Vector3 angle = new Vector3(eyeball.transform.rotation.x, eyeball.transform.rotation.y, eyeball.transform.rotation.z + 90f);
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/石像转动"), Camera.main.transform.position, 1f);
                 targetRotation = angle;
                 StartCoroutine(RotateEye(eyeball));
             }

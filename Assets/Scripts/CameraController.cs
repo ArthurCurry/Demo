@@ -19,10 +19,18 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     private bool bgInView;
 
+    private float xd;
+    private float yd;
+    private Transform aim;
+    private float xSpeed;
+    private float ySpeed;
+    private bool toMove;
+
 
     // Use this for initialization
     void Start () {
         Init();
+        toMove = false;
         //DetectEdges();
 	}
 	
@@ -35,11 +43,12 @@ public class CameraController : MonoBehaviour {
         playerMov = player.GetComponent<PlayerMovements>();
         dis = Camera.main.transform.position - player.transform.position;
         DetectEdges();
-        FollowPlayer();
+        //FollowPlayer();
     }
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        SmoothMove();
         if (Input.GetKey(KeyCode.Mouse1))
             FollowMouse();
         else
@@ -70,12 +79,49 @@ public class CameraController : MonoBehaviour {
 
     public void MoveCameraTo(GameObject target)  // 镜头移动
     {
+        aim = target.transform;
         player = target;
         Vector3 position = player.transform.position;
         position.z = transform.position.z;
-        transform.position = Vector3.SmoothDamp(transform.position, position, ref currentV, 0.01f);
+        xd = Mathf.Abs(transform.position.x - target.transform.position.x);
+        yd = Mathf.Abs(transform.position.y - target.transform.position.y);
+        xSpeed = 12;
+        ySpeed = 12;
+        //transform.position = Vector3.SmoothDamp(transform.position, position, ref currentV, 0.01f);
         dis = Camera.main.transform.position - player.transform.position;
+        toMove = true;
         DetectEdges();
+    }
+
+    private void SmoothMove()
+    {
+        if (toMove && aim!=null)
+        {
+            if (Mathf.Abs(transform.position.x - aim.position.x) >= 0.5)
+            {
+                if (transform.position.x < aim.position.x)
+                    transform.position = new Vector3(transform.position.x + xSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                else transform.position = new Vector3(transform.position.x - xSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(aim.position.x, transform.position.y, transform.position.z);
+            }
+            if (Mathf.Abs(transform.position.y - aim.position.y) >= 0.5)
+            {
+                if (transform.position.y < aim.position.y)
+                    transform.position = new Vector3(transform.position.x, transform.position.y + ySpeed * Time.deltaTime, transform.position.z);
+                else transform.position = new Vector3(transform.position.x, transform.position.y - ySpeed * Time.deltaTime, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, aim.position.y, transform.position.z);
+            }
+            if (transform.position.x == aim.position.x && transform.position.y == aim.position.y)
+            {
+                toMove = false;
+            }
+        }
     }
 
     bool PlayerOutOfView()//判断角色是否即将越出视野

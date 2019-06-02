@@ -32,6 +32,7 @@ public class ChangeEffect : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        game = o_status.start;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
         fadeTime = 1f;
     }
@@ -68,6 +69,10 @@ public class ChangeEffect : MonoBehaviour {
                 }
                 else
                 {
+                    if (BuildManager.Level == 2)
+                    {
+                        BuildManager .Need =true;
+                    }
                     BuildManager.Init();
                     Camera.main.GetComponent<CameraController>().enabled = true;
                     Camera.main.GetComponent<CameraController>().Init();

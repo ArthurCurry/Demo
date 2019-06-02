@@ -80,8 +80,11 @@ public class FLevelTrigger : MonoBehaviour {
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
-        {          
-            dialog.DestoryDiaLog();
+        {
+            if (dialog != null)
+            {
+                dialog.DestoryDiaLog();
+            }
             cm.MoveCameraTo(player);
         }
     }
@@ -113,7 +116,6 @@ public class FLevelTrigger : MonoBehaviour {
             if (dialog.instantiation != null)
             {
                 int x = GameObject.Find(HashID.CANVAS).transform.childCount;
-                Debug.Log(x);
                 dialog.instantiation.transform.SetSiblingIndex(x - 1);
             }
         }
