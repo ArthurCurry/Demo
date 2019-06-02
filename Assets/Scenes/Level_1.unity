@@ -49112,6 +49112,41 @@ Prefab:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 224026906396770292, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -278.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224026906396770292, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 200.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224026906396770292, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.675
+      objectReference: {fileID: 0}
+    - target: {fileID: 224026906396770292, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 195.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617139370599178, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224462465897028118, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224218084242554832, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
   m_IsPrefabParent: 0
