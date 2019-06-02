@@ -162,10 +162,13 @@ public class Following : Monster {
 
     private void Reset()
     {
-        if(pm.isDead)
+        if (pm != null)
         {
-            totalDis = 0f;
-            prePos = this.transform.position;
+            if (pm.isDead)
+            {
+                totalDis = 0f;
+                prePos = this.transform.position;
+            }
         }
     }
 }

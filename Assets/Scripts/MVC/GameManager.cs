@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager:MonoBehaviour {
     private ModelManager modelManager;
     private CtrlManager ctrlManager;
-
-
     private GameObject escape;
     private int count;
     private bool isBuild = false;
@@ -36,23 +35,8 @@ public class GameManager:MonoBehaviour {
         BuildManager.Need = true;
         //BuildManager.Level = 1;
         GameObject root = GameObject.Find("Canvas");
-        root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
-        //BuildManager .Instance = new XmlReader();
-        //BuildManager.Instance.ReadXML("Resources/剧情对话.xml");
-        //BuildManager.Instance.SetIndex(0);
-        //BuildManager.Judge();
-        //BuildManager.InitAttribute();
-        //BuildManager.Init();
-        //Camera.main.GetComponent<CameraController>().Init();
-        //Camera.main.GetComponent<CameraController>().enabled = true;
-        //Camera.main.GetComponent<CameraController>().DetectEdges();
-        // BuildManager.LevelName = "Level_2";
-        //BuildManager.Name = "异步敌人";
-
-        //BuildManager.XMLName = "第一关";
-        //BuildManager.LevelName = "Level_2";
-        
-        //Init("CG1","旁白");       
+        escape = root.transform.Find("Escape").gameObject;
+        root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn; 
     }
 	
 	// Update is called once per frame
@@ -89,7 +73,7 @@ public class GameManager:MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if (escape.active)
+            if (escape.activeSelf)
             {
                 escape.SetActive(false);
             }
@@ -101,6 +85,16 @@ public class GameManager:MonoBehaviour {
                 escape.transform.SetSiblingIndex(count - 1);
             }
         }
+    }
+
+    public void BackToMebu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void BackToGame()
+    {
+        escape.SetActive(false);
     }
 
 }
