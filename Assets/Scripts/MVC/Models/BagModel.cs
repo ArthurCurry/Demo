@@ -40,6 +40,8 @@ public class BagModel : UIModel
 
         Collector w11 = new Collector(11, "家访通知", "高三已经来临，为了深入了解各位同学的家庭状况，学校拟定于十一长假之后到各位同学的家中进行访问，还请做好准备。请将附件填写完整，按照班级上交。", "bag tongzhi");
 
+        Collector w12 = new Collector(12, "遗失的钥匙", "早餐店老板遗失的钥匙", "bag key");
+
         ItemList.Add(w1.Id, w1);
 
         ItemList.Add(w2.Id, w2);
@@ -62,6 +64,8 @@ public class BagModel : UIModel
 
         ItemList.Add(w11.Id, w11);
 
+        ItemList.Add(w12.Id, w12);
+
 
         GridItem.Add(w1.Name, w1);
         GridItem.Add(w2.Name, w2);
@@ -74,6 +78,7 @@ public class BagModel : UIModel
         GridItem.Add(w9.Name, w9);
         GridItem.Add(w10.Name, w10);
         GridItem.Add(w11.Name, w11);
+        GridItem.Add(w12.Name, w12);
     }
 
     public static void StoreItem(string name, Item item)
