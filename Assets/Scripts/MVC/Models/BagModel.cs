@@ -63,7 +63,6 @@ public class BagModel : UIModel
         Collector w22 = new Collector(63, "一个空的酒瓶", "酒精含量70%，目测是女孩父亲喝完扔掉的酒瓶，毕竟喝这么烈的酒的人很少。", "bag tongzhi");//美术素材还没好
 
 
-        Collector w12 = new Collector(12, "遗失的钥匙", "早餐店老板遗失的钥匙","bag key");
 
         ItemList.Add(w1.Id, w1);
 
@@ -89,7 +88,6 @@ public class BagModel : UIModel
 
         ItemList.Add(w12.Id, w12);
 
-<<<<<<< HEAD
         ItemList.Add(w13.Id, w13);
 
         ItemList.Add(w13.Id, w13);
@@ -111,8 +109,6 @@ public class BagModel : UIModel
         ItemList.Add(w21.Id, w21);
 
         ItemList.Add(w22.Id, w22);
-=======
->>>>>>> b01537d8fceeebc51ac180c5a20fa35f0c0b03d9
 
         GridItem.Add(w1.Name, w1);
         GridItem.Add(w2.Name, w2);
@@ -126,7 +122,6 @@ public class BagModel : UIModel
         GridItem.Add(w10.Name, w10);
         GridItem.Add(w11.Name, w11);
         GridItem.Add(w12.Name, w12);
-<<<<<<< HEAD
         GridItem.Add(w13.Name, w13);
         GridItem.Add(w14.Name, w14);
         GridItem.Add(w15.Name, w15);
@@ -137,8 +132,7 @@ public class BagModel : UIModel
         GridItem.Add(w20.Name, w20);
         GridItem.Add(w21.Name, w21);
         GridItem.Add(w22.Name, w22);
-=======
->>>>>>> b01537d8fceeebc51ac180c5a20fa35f0c0b03d9
+
     }
 
     public static void StoreItem(string name, Item item)

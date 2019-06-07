@@ -113,7 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &262061
 GameObject:
   m_ObjectHideFlags: 0
@@ -82097,5 +82096,3 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-=======
->>>>>>> b01537d8fceeebc51ac180c5a20fa35f0c0b03d9
