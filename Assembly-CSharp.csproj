@@ -54,12 +54,15 @@
      <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\Scripts\AnimatorController\PlayerAnimController.cs" />
      <Compile Include="Assets\Scripts\ApplicationManager.cs" />
+     <Compile Include="Assets\Scripts\AudioManagement\Audio.cs" />
+     <Compile Include="Assets\Scripts\AudioManagement\AudioPlay.cs" />
      <Compile Include="Assets\Scripts\BuildManager.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\CG.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeEffect.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\FLevelTrigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\OldMTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\PatrolTalk.cs" />
@@ -132,6 +135,7 @@
      <Compile Include="Assets\Scripts\shader\PostEffectBase.cs" />
      <Compile Include="Assets\Scripts\ShowSliderValue.cs" />
      <Compile Include="Assets\Scripts\TiltWindow.cs" />
+     <Compile Include="Assets\Scripts\ToDestroy.cs" />
      <Compile Include="Assets\Scripts\Tools\Tool.cs" />
      <Compile Include="Assets\Scripts\UIOnClick.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -168,7 +172,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\Fonts\汉字.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
@@ -176,8 +179,6 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\Fonts\zzzz\chinese.txt" />
-     <None Include="Assets\Fonts\zzz\chinese1.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -194,7 +195,7 @@
      <None Include="Assets\aoqi\Bag\Materials\UI-Default-No-Alpha.shader" />
      <None Include="Assets\Scripts\shader\pure black.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
-     <None Include="Assets\Fonts\zzz\chinese.txt" />
+     <None Include="Assets\Resources\Fonts\sources\chinese.txt" />
      <None Include="Assets\Resources\剧情对话.xml" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>

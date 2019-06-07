@@ -29,7 +29,7 @@ public class Tool : MonoBehaviour {
     [SerializeField]
     private Vector3 position;
     private AudioClip audioClip;
-    private bool hasDone;
+    private bool toDone;
 
     // Use this for initialization
     void Start() {
@@ -37,7 +37,7 @@ public class Tool : MonoBehaviour {
         ap = new AudioPlay();
         position = Camera.main.transform.position;
         audioClip = ap.AddAudioClip("Audio/上课铃");
-        hasDone = false;
+        toDone = false;
         instance.ReadXML("Resources/剧情对话.xml");
         hidden = true;
         picked = false;
@@ -80,7 +80,7 @@ public class Tool : MonoBehaviour {
                 Debug.Log("picked");
             }
         }
-        if(picked && !status)
+        if (picked && !status && this.name == "key")
         {
             InitAttribution("捡起钥匙");
             InitDialog();
@@ -121,16 +121,20 @@ public class Tool : MonoBehaviour {
             else
             {
                 toPause = false;
+                toDone = true;
                 x = 0;
 
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            dialog.DestoryDiaLog();
-            if (!hasDone)
+            if (dialog != null)
             {
-                hasDone = true;
+                dialog.DestoryDiaLog();
+            }
+            if (toDone && this.name == "key")
+            {
+                toDone = false;
                 ap.PlayClipAtPoint(audioClip, position);
             }
         }
