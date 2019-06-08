@@ -55,7 +55,7 @@ public class BagCtrl : UICtrl
             ap.PlayClipAtPoint(ap.AddAudioClip("Audio/打开背包"), Camera.main.transform.position, 1f);
             Debug.Log("Close");            
             UIManager.Instance.HidePanel("BagPanel");
-            //UIManager.Instance.HidePanel("IntroductionPanel");
+           // UIManager.Instance.HidePanel("IntroductionPanel");
             IsOpened = false;
         }
         Vector2 position;
