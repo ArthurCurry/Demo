@@ -56,17 +56,20 @@ public class Lift : MonoBehaviour {
 
     void LiftUp()
     {
+        
         foreach(Transform child in this.GetComponentInChildren<Transform>())
         {
             Debug.Log(child.name);
-
-                if(child.name.Contains("door"))
-                {
-                    Debug.Log("door");
-                    child.GetComponent<SpriteRenderer>().color = Color.white;
-                    continue;
-                }
-                child.GetComponent<BoxCollider2D>().enabled = true;
+            child.gameObject.SetActive(true);
+            if(child.name.Contains("door"))
+            {
+                Debug.Log("door");
+                child.GetComponent<SpriteRenderer>().color = Color.white;
+                continue;
+            }
+            if (child.name.Contains("gap"))
+                child.gameObject.SetActive(false);
+            child.GetComponent<BoxCollider2D>().enabled = true;
 
         }
     }
