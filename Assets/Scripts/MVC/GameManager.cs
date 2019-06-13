@@ -35,7 +35,7 @@ public class GameManager:MonoBehaviour {
         BuildManager.Need = true;
         //BuildManager.Level = 1;
         GameObject root = GameObject.Find("Canvas");
-        escape = root.transform.Find("Escape").gameObject;
+        //escape = root.transform.Find("Escape").gameObject;
         root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn; 
     }
 	
@@ -43,13 +43,13 @@ public class GameManager:MonoBehaviour {
 	void Update () {
         Show();
         BuildManager.WhileCG();
-        if (BuildManager.Level ==4 && BuildManager.CGEnd == true && isBuild == false)
-        {
-            BuildManager.Init();
-            Camera.main.GetComponent<CameraController>().enabled = true;
-            Camera.main.GetComponent<CameraController>().DetectEdges();
-            isBuild = true;
-        }
+        //if (BuildManager.Level ==4 && BuildManager.CGEnd == true && isBuild == false)
+        //{
+         //   BuildManager.Init();
+          //  Camera.main.GetComponent<CameraController>().enabled = true;
+         //   Camera.main.GetComponent<CameraController>().DetectEdges();
+         //   isBuild = true;
+       // }
     }
 
     public void Init(string CGName,string XMLName)//初始化

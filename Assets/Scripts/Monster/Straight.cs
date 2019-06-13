@@ -35,10 +35,10 @@ public class Straight : MonoBehaviour {
         {
             Vector2 selfPos = this.transform.position;
             RaycastHit2D[] hits = Physics2D.LinecastAll(selfPos, direction * HashID.unitLength + selfPos,LayerMask.GetMask("Replaceable"));
-            //Debug.Log(hits.Length+"  "+this.gameObject.name);
+            Debug.Log(hits.Length+"  "+this.gameObject.name+" "+this.direction);
             if (hits.Length<=1||!hits[hits.Length - 1].transform.tag.Equals(HashID.Tag_Map))
                 direction = -direction;
-            totalDis = 0f;
+            //totalDis = 0f;
             rb.velocity = direction.normalized * playerRb.velocity.magnitude;
             return;
         }
