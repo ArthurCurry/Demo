@@ -38,6 +38,7 @@ public class AttackMode3 : MonoBehaviour {
 
     private void ShowAttackRange()
     {
+        Debug.Log(faceDir);
         line.SetPositions(new Vector3[] { this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, 90f) * faceDir, this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, -90f) * faceDir });
         line.startWidth = HashID.unitLength;
         line.endWidth = HashID.unitLength;
