@@ -73,7 +73,7 @@ public class Tool : MonoBehaviour {
                 {
                     if(number.Length > 1 )
                         PuzzleSupply.UpdatePuzzle(number[0], number[1], number[2]);
-                    um._cm.GetT<BagCtrl>("BagPanel").StoreItem(ID);
+                    um._cm.GetT<BagCtrl>("Bag").StoreItem(ID);
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/捡起东西"), Camera.main.transform.position, 1f);
                 }
                 picked = true;
