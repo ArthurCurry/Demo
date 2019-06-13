@@ -7,6 +7,8 @@ public class FixedPortal : MonoBehaviour {
     private List<Transform> patrolRoute;
     private List<Vector3> route=new List<Vector3>();
     [SerializeField]
+    private bool reversed;
+    [SerializeField]
     private int count;
     [SerializeField]
     private int counter;

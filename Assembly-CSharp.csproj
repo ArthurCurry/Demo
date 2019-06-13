@@ -100,6 +100,7 @@
      <Compile Include="Assets\Scripts\Monster\MonsterManager.cs" />
      <Compile Include="Assets\Scripts\Monster\Patrol.cs" />
      <Compile Include="Assets\Scripts\Monster\Straight.cs" />
+     <Compile Include="Assets\Scripts\Monster\Truck.cs" />
      <Compile Include="Assets\Scripts\MVC\CtrlManager.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\backToMenu.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\BagCtrl.cs" />
