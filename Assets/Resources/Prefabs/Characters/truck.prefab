@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61181720875296804}
   - component: {fileID: 50560370354967268}
   - component: {fileID: 114782154991245876}
+  - component: {fileID: 114745051663438462}
   m_Layer: 0
   m_Name: truck
   m_TagString: Untagged
@@ -88,6 +89,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.95, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &114745051663438462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1786035456226050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c70162d1d7f19741840ac7da3858be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114782154991245876
 MonoBehaviour:
   m_ObjectHideFlags: 1

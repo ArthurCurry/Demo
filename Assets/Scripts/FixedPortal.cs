@@ -28,7 +28,12 @@ public class FixedPortal : MonoBehaviour {
         prePlayerPos = player.transform.position;
         counter = 0;
         distance = 0f;
+        if(reversed)
+        {
+            patrolRoute.Reverse();
+        }
         InitRoute();
+        //Debug.Log(patrolRoute[0].name+" "+this.name);
 	}
 	
     void Update()

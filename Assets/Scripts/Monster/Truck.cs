@@ -14,5 +14,9 @@ public class Truck : MonoBehaviour {
 		
 	}
 
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals(HashID.PLAYER))
+            other.GetComponent<PlayerMovements>().isDead = true;
+    }
 }

@@ -125,6 +125,7 @@
      <Compile Include="Assets\Scripts\MVC\Views\DialogView.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\DragMonitor.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\MouseMonitor.cs" />
+     <Compile Include="Assets\Scripts\NPC\RequireObject.cs" />
      <Compile Include="Assets\Scripts\numberChanged.cs" />
      <Compile Include="Assets\Scripts\PanelManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
