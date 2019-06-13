@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public int level, x = 0,y = 0 ;
+    public int level=1, x = 0,y = 0 ;
     public static int passed = 6;
     private bool keyDownStatus;
     private int keyDownCount;
@@ -144,5 +144,19 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ap.PlayClipAtPoint(clip2, Camera.main.transform.position , 1f);
         DontDestroyOnLoad(GameObject.Find("One shot audio"));
+    }
+
+    public void Add()
+    {
+        if (level == 6)
+            return;
+        level++;
+    }
+
+    public void Decrese()
+    {
+        if (level == 1)
+            return;
+        level--;
     }
 }

@@ -6,12 +6,18 @@ using TMPro;
 public class MonsterTalk : MonoBehaviour {
 
     private Canvas canvas; 
-    private GameObject box;
+    private GameObject boxA;
+    private GameObject boxB;
+    private GameObject boxC;
     private GameObject player;
     private GameObject instantiation;
 
     [SerializeField]
     private Transform a;
+    [SerializeField]
+    private Transform b;
+    [SerializeField]
+    private Transform c;
 
     private Dictionary<int, string> girlsC;
 
@@ -24,7 +30,9 @@ public class MonsterTalk : MonoBehaviour {
     private void Start()
     {
         this.Add();
-        box = Resources.Load<GameObject>("Prefabs/MonsterBox");
+        boxA = Resources.Load<GameObject>("Prefabs/MonsterBoxA");
+        boxB = Resources.Load<GameObject>("Prefabs/MonsterBoxB");
+        boxC = Resources.Load<GameObject>("Prefabs/MonsterBoxC");
         player = GameObject.FindWithTag(HashID.PLAYER);
         canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         time = 0;
@@ -61,8 +69,8 @@ public class MonsterTalk : MonoBehaviour {
         girlsC = new Dictionary<int, string> { };
         girlsC.Add(11, "我跟你说，XXX这个人，今天在课堂上又不知道在干什么，被老师狠狠地批评了一顿，叫到办公室去了。");
         girlsC.Add(31, "这是活该，我以前音乐课见到过她，摆着一副受着多大畏惧委屈的样子，一个字也不说，跟贞子一样哈哈哈。");
-        girlsC.Add(21, "哈哈哈哈，你这形容真是绝了，我之前听小玉说过她好像是在写小说。");
-        girlsC.Add(32, "咦，真的吗真的吗，你们知道她在写什么东西吗?");
+        girlsC.Add(21, "哈哈哈哈，你这形容真是绝了，小玉,你之前不是说过她好像是在写小说吗？");
+        girlsC.Add(32, "是的呀，今天她在课堂上估计也在写东西，咦，你坐的离她近，有看到她写了什么吗？");
         girlsC.Add(22, "我哪能知道，反正多半是一些乱七八糟的东西，看她也不像有什么才华的人，不知道好好学习净搞一些有的没的。");
         girlsC.Add(12, "你怎么能这么说别人呢哈哈哈哈，不过也是事实。");
         girlsC.Add(33, "对呀，说不定是在借小说逃避现实世界呢，我们以后少跟她接触。");
@@ -79,8 +87,7 @@ public class MonsterTalk : MonoBehaviour {
         {
             if ((kvp .Key/10) == 1)
             {
-                this.CreatBox(a);
-                instantiation = GameObject.Find("MonsterBox(Clone)");
+                instantiation = this.CreatBox(a, boxA);
                 Transform rBox = instantiation.transform.Find("dialogText");
                 TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
@@ -90,8 +97,7 @@ public class MonsterTalk : MonoBehaviour {
             }
             else if((kvp.Key / 10) == 2)
             {
-                this.CreatBox(a);
-                instantiation = GameObject.Find("MonsterBox(Clone)");
+                instantiation = this.CreatBox(a, boxB);
                 Transform rBox = instantiation.transform.Find("dialogText");
                 TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
@@ -101,8 +107,7 @@ public class MonsterTalk : MonoBehaviour {
             }
             else if((kvp.Key / 10) == 3)
             {
-                this.CreatBox(a);
-                instantiation = GameObject.Find("MonsterBox(Clone)");
+                instantiation = this.CreatBox(a, boxC);
                 Transform rBox = instantiation.transform.Find("dialogText");
                 TextMeshProUGUI dialogtext = rBox.GetComponent<TextMeshProUGUI>();
                 dialogtext.text = kvp.Value;
@@ -115,10 +120,11 @@ To:
         return;
     }
     //女该讲话方面的代码结束
-    void CreatBox(Transform targetT)
+    GameObject CreatBox(Transform targetT,GameObject box)
     {
         GameObject a = Instantiate(box,canvas .transform );
         a.GetComponent<RectTransform>().position= targetT.position;
+        return a;
     }
 
     private void Reset()

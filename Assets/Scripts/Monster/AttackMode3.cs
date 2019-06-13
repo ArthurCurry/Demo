@@ -4,8 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class AttackMode3 : MonoBehaviour {
-
-
     private List<Vector3> positions=new List<Vector3>();
     private LineRenderer line;
     private GameObject player;
@@ -16,7 +14,7 @@ public class AttackMode3 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        faceDir = this.transform.right;
+        faceDir = Vector2.up;
         preDir = faceDir;
         player = GameObject.FindWithTag(HashID.PLAYER);
         pm = player.GetComponent<PlayerMovements>();
@@ -38,11 +36,12 @@ public class AttackMode3 : MonoBehaviour {
 
     private void ShowAttackRange()
     {
-        line.SetPositions(new Vector3[] { this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, 90f) * faceDir, this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, -90f) * faceDir });
+        Debug.Log(faceDir);
+        line.SetPositions(new Vector3[] { this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, 90f) * faceDir*HashID.unitLength*1.5f, this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, -90f) * faceDir * HashID.unitLength * 1.5f });
         line.startWidth = HashID.unitLength;
         line.endWidth = HashID.unitLength;
-        line.startColor = new Color(1,0,0,0.5f);
-        line.endColor = new Color(1, 0, 0, 0.5f);
+        /*line.startColor = new Color(1,0,0,0.5f);
+        line.endColor = new Color(1, 0, 0, 0.5f);*/
     }
 
     private void ChangeRange(Vector3 forward)
@@ -57,14 +56,12 @@ public class AttackMode3 : MonoBehaviour {
 
     private void DetectRange()
     {
-        if(rb.velocity!=Vector2.zero)
+        if (rb.velocity != Vector2.zero)
         {
             faceDir = rb.velocity.normalized;
         }
-        else
-        {
-            faceDir = this.transform.right;
-        }
+        else if (pm.isDead)
+            faceDir = Vector2.up;
     }
 
     private bool Judge()

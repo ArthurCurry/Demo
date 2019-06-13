@@ -181,13 +181,15 @@ public class BuildManager {
     public static void InitDialog()//实例化对话框
     {
         dialog = new Dialog();
-        dialog.showDialog();
-        dialog.setDialogText(instance.GetXML(name, 0));
+        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+        dialog.showDialog(dialog.JudgeD(dialog.ID));
+        dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
     }
 
     public static void InitIntroduction()
     {
         dialog = new Dialog();
+        dialog.ID = null;
         dialog.ShowIntroduction();
         dialog.setDialogText(instance.GetXML(name, 0));
     }
@@ -195,7 +197,29 @@ public class BuildManager {
     public static void Dialog(int x)//更新对话框
     {
         instance.SetIndex(x);
-        dialog.setDialogText(instance.GetXML(name, 0));
+        if (dialog.ID != null)
+        {
+            if (!JudgeD(dialog.ID))
+            {
+                dialog.DestoryDiaLog();
+                dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+                dialog.showDialog(dialog.JudgeD(dialog.ID));
+            }
+            dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
+        }
+        else
+        {
+            dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 0));
+        }
+    }
+
+    public static bool JudgeD(string a)  //判断对话框的ID
+    {
+        if (a.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
+        {
+            return true;
+        }
+        else return false;
     }
 
     public static void GetCount(string s)
@@ -209,7 +233,9 @@ public class BuildManager {
         {
             case 1: level += 1; levelName = "Level_2";XMLname = "第二关"; break;
             case 2: level += 1; need = true; InitCG("CG2", "第三关CG1"); levelName = "Level_3"; XMLname = "第三关";  break;
-            case 3: level += 1; InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; break;
+            case 3: level += 1; need = true; InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; break;
+            case 4: level += 1; levelName = "Level_5";XMLname = "第五关"; break;
+            case 5: level += 1; levelName = "Level_6";XMLname = "第六关"; break;
         }
     }
 

@@ -55,8 +55,9 @@ public class FLevelTrigger : MonoBehaviour {
     void InitDialog()
     {
         dialog = new Dialog();
-        dialog.showDialog();
-        dialog.setDialogText(instance.GetXML(s, 0));
+        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
+        dialog.showDialog(dialog.JudgeD(dialog.ID));
+        dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
     }
 
     void ShowDialog()
@@ -68,7 +69,13 @@ public class FLevelTrigger : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
                 {
                     instance.SetIndex(x);
-                    dialog.setDialogText(instance.GetXML(s, 0));
+                    if (!JudgeD(dialog.ID))
+                    {
+                        dialog.DestoryDiaLog();
+                        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
+                        dialog.showDialog(dialog.JudgeD(dialog.ID));
+                    }
+                    dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
                     x = x + 1;
                 }
             }
@@ -107,6 +114,15 @@ public class FLevelTrigger : MonoBehaviour {
             toPause = true;
             level2 = true;
         }
+    }
+
+    public bool JudgeD(string name)  //判断对话框的ID
+    {
+        if (name.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
+        {
+            return true;
+        }
+        else return false;
     }
 
     void Reset()

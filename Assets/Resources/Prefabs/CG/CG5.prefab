@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1596774901980146}
+  m_RootGameObject: {fileID: 1001416465737804}
   m_IsPrefabParent: 1
---- !u!1 &1596774901980146
+--- !u!1 &1001416465737804
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224130435471660344}
-  - component: {fileID: 222823608135544326}
-  - component: {fileID: 114426435962726240}
-  - component: {fileID: 114975361401418786}
+  - component: {fileID: 224711751317541676}
+  - component: {fileID: 222603912015617332}
+  - component: {fileID: 114116312486530566}
+  - component: {fileID: 114824213982162222}
   m_Layer: 5
   m_Name: CG5
   m_TagString: CG
@@ -29,12 +29,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114426435962726240
+--- !u!114 &114116312486530566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596774901980146}
+  m_GameObject: {fileID: 1001416465737804}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -48,7 +48,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2eee07b7cacc625499ff85db6db50904, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32e42db0ae8e662489b2bd529cb8d24c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -56,12 +56,12 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114975361401418786
+--- !u!114 &114824213982162222
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596774901980146}
+  m_GameObject: {fileID: 1001416465737804}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe12b529cd63eb047a046c5ba1dc3755, type: 3}
@@ -70,18 +70,18 @@ MonoBehaviour:
   m_Sprite: {fileID: 0}
   m_UpdateTime: 0
   m_ScenesName: 
---- !u!222 &222823608135544326
+--- !u!222 &222603912015617332
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596774901980146}
---- !u!224 &224130435471660344
+  m_GameObject: {fileID: 1001416465737804}
+--- !u!224 &224711751317541676
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596774901980146}
+  m_GameObject: {fileID: 1001416465737804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

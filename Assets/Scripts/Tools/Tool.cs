@@ -73,7 +73,7 @@ public class Tool : MonoBehaviour {
                 {
                     if(number.Length > 1 )
                         PuzzleSupply.UpdatePuzzle(number[0], number[1], number[2]);
-                    um._cm.GetT<BagCtrl>("BagPanel").StoreItem(ID);
+                    um._cm.GetT<BagCtrl>("Bag").StoreItem(ID);
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/捡起东西"), Camera.main.transform.position, 1f);
                 }
                 picked = true;
@@ -114,7 +114,13 @@ public class Tool : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     instance.SetIndex(x);
-                    dialog.setDialogText(instance.GetXML(s, 0));
+                    if (!JudgeD(dialog.ID))
+                    {
+                        dialog.DestoryDiaLog();
+                        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+                        dialog.showDialog(dialog.JudgeD(dialog.ID));
+                    }
+                    dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
                     x = x + 1;
                 }
             }
@@ -143,8 +149,18 @@ public class Tool : MonoBehaviour {
     void InitDialog()
     {
         dialog = new Dialog();
-        dialog.showDialog();
-        dialog.setDialogText(instance.GetXML(s, 0));
+        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+        dialog.showDialog(dialog.JudgeD(dialog.ID));
+        dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
+    }
+
+    public bool JudgeD(string name)  //判断对话框的ID
+    {
+        if (name.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
+        {
+            return true;
+        }
+        else return false;
     }
 
     void InitAttribution(string n) // 赋予触发剧情的属性

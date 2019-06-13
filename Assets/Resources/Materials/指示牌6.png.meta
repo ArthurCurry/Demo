@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f588170187a995347b959468d2558491
 timeCreated: 1560432106
+=======
+guid: 07599c253abeabe4588f81a3dc689483
+timeCreated: 1560417061
+>>>>>>> c31e97afcc8e5b20b08659c33b6983d9fc8cc891
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -100,12 +105,21 @@ TextureImporter:
       name: "\u6307\u793A\u724C6_0"
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 85
         y: 67
         width: 342
         height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
+=======
+        x: 139
+        y: 91
+        width: 230
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> c31e97afcc8e5b20b08659c33b6983d9fc8cc891
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

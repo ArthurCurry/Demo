@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\ApplicationManager.cs" />
      <Compile Include="Assets\Scripts\AudioManagement\Audio.cs" />
      <Compile Include="Assets\Scripts\AudioManagement\AudioPlay.cs" />
+     <Compile Include="Assets\Scripts\BackGroundChanged.cs" />
      <Compile Include="Assets\Scripts\BuildManager.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\CG.cs" />
@@ -64,9 +65,12 @@
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\FLevelTrigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalk.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalkB.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalkC.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\OldMTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\PatrolTalk.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Talk.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\TLevelTrigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Trigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\XmlReader.cs" />
      <Compile Include="Assets\Scripts\CGCollection.cs" />
@@ -82,6 +86,7 @@
      <Compile Include="Assets\Scripts\Mechanism\Falling.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Shelf.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Spike.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Trap.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
@@ -119,6 +124,7 @@
      <Compile Include="Assets\Scripts\MVC\Views\DialogView.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\DragMonitor.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\MouseMonitor.cs" />
+     <Compile Include="Assets\Scripts\numberChanged.cs" />
      <Compile Include="Assets\Scripts\PanelManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scripts\Portals.cs" />
@@ -128,6 +134,7 @@
      <Compile Include="Assets\Scripts\ResizePanel.cs" />
      <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\Scripts\Selection\CallBack.cs" />
+     <Compile Include="Assets\Scripts\Selection\numberChange.cs" />
      <Compile Include="Assets\Scripts\Selection\testrefsh.cs" />
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow.cs" />
      <Compile Include="Assets\Scripts\Selection\UI_Control_ScrollFlow_Item.cs" />

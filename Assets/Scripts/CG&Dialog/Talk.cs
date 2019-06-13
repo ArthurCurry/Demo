@@ -29,7 +29,7 @@ public class Talk : MonoBehaviour {
     {
         if ((this.transform.position-player.transform.position).magnitude<0.3f && !hasTalk)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 BuildManager.IsCG = true;
                 BuildManager.Name = "老头";
