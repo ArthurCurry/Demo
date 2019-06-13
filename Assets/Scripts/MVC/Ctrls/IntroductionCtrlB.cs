@@ -37,7 +37,6 @@ public class IntroductionCtrlB : MonoBehaviour
     public void GetIntroductionText(Introduction introduction)
     {
         introductionText.GetComponent<TextMeshProUGUI>().text = introduction.IntroText;
-
     }
 
     public void GetIntroductionSprite(Introduction introduction)

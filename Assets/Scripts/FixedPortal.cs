@@ -7,6 +7,8 @@ public class FixedPortal : MonoBehaviour {
     private List<Transform> patrolRoute;
     private List<Vector3> route=new List<Vector3>();
     [SerializeField]
+    private bool reversed;
+    [SerializeField]
     private int count;
     [SerializeField]
     private int counter;
@@ -26,7 +28,12 @@ public class FixedPortal : MonoBehaviour {
         prePlayerPos = player.transform.position;
         counter = 0;
         distance = 0f;
+        if(reversed)
+        {
+            patrolRoute.Reverse();
+        }
         InitRoute();
+        //Debug.Log(patrolRoute[0].name+" "+this.name);
 	}
 	
     void Update()

@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\backgroundchanged.cs" />
      <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\Scripts\AnimatorController\PlayerAnimController.cs" />
      <Compile Include="Assets\Scripts\ApplicationManager.cs" />
@@ -100,11 +101,13 @@
      <Compile Include="Assets\Scripts\Monster\MonsterManager.cs" />
      <Compile Include="Assets\Scripts\Monster\Patrol.cs" />
      <Compile Include="Assets\Scripts\Monster\Straight.cs" />
+     <Compile Include="Assets\Scripts\Monster\Truck.cs" />
      <Compile Include="Assets\Scripts\MVC\CtrlManager.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\backToMenu.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\BagCtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\DialogCtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\IntroductionCtrl.cs" />
+     <Compile Include="Assets\Scripts\MVC\Ctrls\IntroductionCtrlB.cs" />
      <Compile Include="Assets\Scripts\MVC\GameManager.cs" />
      <Compile Include="Assets\Scripts\MVC\ModelManager.cs" />
      <Compile Include="Assets\Scripts\MVC\Models\BagModel.cs" />
@@ -124,6 +127,7 @@
      <Compile Include="Assets\Scripts\MVC\Views\DialogView.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\DragMonitor.cs" />
      <Compile Include="Assets\Scripts\MVC\Views\MouseMonitor.cs" />
+     <Compile Include="Assets\Scripts\NPC\RequireObject.cs" />
      <Compile Include="Assets\Scripts\numberChanged.cs" />
      <Compile Include="Assets\Scripts\PanelManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMovements.cs" />

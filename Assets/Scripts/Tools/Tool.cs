@@ -31,6 +31,15 @@ public class Tool : MonoBehaviour {
     private AudioClip audioClip;
     private bool toDone;
 
+    public bool Picked
+    {
+        get
+        {
+            return picked;
+        }
+    }
+
+
     // Use this for initialization
     void Start() {
         instance = new XmlReader();
