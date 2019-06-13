@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\backgroundchanged.cs" />
      <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\Scripts\AnimatorController\PlayerAnimController.cs" />
      <Compile Include="Assets\Scripts\ApplicationManager.cs" />
@@ -106,6 +107,7 @@
      <Compile Include="Assets\Scripts\MVC\Ctrls\BagCtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\DialogCtrl.cs" />
      <Compile Include="Assets\Scripts\MVC\Ctrls\IntroductionCtrl.cs" />
+     <Compile Include="Assets\Scripts\MVC\Ctrls\IntroductionCtrlB.cs" />
      <Compile Include="Assets\Scripts\MVC\GameManager.cs" />
      <Compile Include="Assets\Scripts\MVC\ModelManager.cs" />
      <Compile Include="Assets\Scripts\MVC\Models\BagModel.cs" />
