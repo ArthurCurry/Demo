@@ -130,7 +130,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
             ap.PlayClipAtPoint(clip1, Camera.main.transform.position, 1f);
             DontDestroyOnLoad(GameObject.Find("One shot audio"));
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 
