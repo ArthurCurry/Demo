@@ -30,8 +30,10 @@ public class ChangeEffect : MonoBehaviour {
         set { m_State = value; }
     }
 
+    private AudioPlay ap;
     // Use this for initialization
     void Start () {
+        ap = new AudioPlay();
         game = o_status.start;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
         fadeTime = 1f;
@@ -44,6 +46,7 @@ public class ChangeEffect : MonoBehaviour {
             EndScene();
             if (rawImage.color.a >= 0.98f && game == o_status.end)
             {
+                ap.Play(Camera.main.gameObject);
                 BuildManager.Init();
                 Camera.main.GetComponent<CameraController>().enabled = true;
                 Camera.main.GetComponent<CameraController>().Init();
@@ -73,6 +76,7 @@ public class ChangeEffect : MonoBehaviour {
                     {
                         BuildManager.Need = true;
                     }
+                    ap.Play(Camera.main.gameObject);
                     BuildManager.Init();
                     Camera.main.GetComponent<CameraController>().enabled = true;
                     Camera.main.GetComponent<CameraController>().Init();

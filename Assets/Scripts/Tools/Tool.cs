@@ -26,6 +26,7 @@ public class Tool : MonoBehaviour {
     private int count;
 
     private AudioPlay ap;
+    private IntroductionCtrlB itb;
     [SerializeField]
     private Vector3 position;
     private AudioClip audioClip;
@@ -39,9 +40,9 @@ public class Tool : MonoBehaviour {
         }
     }
 
-
     // Use this for initialization
     void Start() {
+        itb = GameObject.Find(HashID.CANVAS).GetComponent<IntroductionCtrlB>();
         instance = new XmlReader();
         ap = new AudioPlay();
         position = Camera.main.transform.position;
@@ -86,15 +87,33 @@ public class Tool : MonoBehaviour {
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/捡起东西"), Camera.main.transform.position, 1f);
                 }
                 picked = true;
-                Debug.Log("picked");
+                //Debug.Log("picked");
             }
         }
         if (picked && !status && this.name == "key")
         {
-            InitAttribution("捡起钥匙");
-            InitDialog();
+            itb.CompareTo("地图碎片是什么");
+            count = itb.number;
+            itb.OpenPanel();
+            itb.GetIntroductionTitle(itb.get[0]);
+            itb.GetIntroductionText(itb.get[0]);
+            itb.GetIntroductionSprite(itb.get[0]);
+            x = 1;
             toPause = true;
             status = true;
+        }
+        else if(picked && !status && !BuildManager.tocollect)
+        {
+            itb.CompareTo("收集物");
+            count = itb.number;
+            itb.OpenPanel();
+            itb.GetIntroductionTitle(itb.get[0]);
+            itb.GetIntroductionText(itb.get[0]);
+            itb.GetIntroductionSprite(itb.get[0]);
+            x = 1;
+            toPause = true;
+            status = true;
+            BuildManager.tocollect = true;
         }
     }
 
@@ -122,14 +141,9 @@ public class Tool : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    instance.SetIndex(x);
-                    if (!JudgeD(dialog.ID))
-                    {
-                        dialog.DestoryDiaLog();
-                        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
-                        dialog.showDialog(dialog.JudgeD(dialog.ID));
-                    }
-                    dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
+                    itb.GetIntroductionTitle(itb.get[x]);
+                    itb.GetIntroductionText(itb.get[x]);
+                    itb.GetIntroductionSprite(itb.get[x]);
                     x = x + 1;
                 }
             }
@@ -138,45 +152,31 @@ public class Tool : MonoBehaviour {
                 toPause = false;
                 toDone = true;
                 x = 0;
+                itb.number = 0;
 
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            if (dialog != null)
-            {
-                dialog.DestoryDiaLog();
-            }
-            if (toDone && this.name == "key")
+            if ((this.transform.position - player.transform.position).magnitude <= 5f)
+                itb.ClosePanel();
+            if (toDone && this.name == "key" )
             {
                 toDone = false;
+                if (!BuildManager.tocollect)
+                {
+                    itb.CompareTo("收集物");
+                    count = itb.number;
+                    itb.OpenPanel();
+                    itb.GetIntroductionTitle(itb.get[0]);
+                    itb.GetIntroductionText(itb.get[0]);
+                    itb.GetIntroductionSprite(itb.get[0]);
+                    x = 1;
+                    toPause = true;
+                    BuildManager.tocollect = true;
+                }
                 ap.PlayClipAtPoint(audioClip, position);
             }
         }
-    }
-
-    void InitDialog()
-    {
-        dialog = new Dialog();
-        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
-        dialog.showDialog(dialog.JudgeD(dialog.ID));
-        dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
-    }
-
-    public bool JudgeD(string name)  //判断对话框的ID
-    {
-        if (name.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
-        {
-            return true;
-        }
-        else return false;
-    }
-
-    void InitAttribution(string n) // 赋予触发剧情的属性
-    {
-        x = 1;
-        s = n;
-        count = instance.getCount(s, 0);
-        instance.SetIndex(0);
     }
 }

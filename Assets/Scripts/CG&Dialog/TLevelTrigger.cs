@@ -131,7 +131,7 @@ public class TLevelTrigger : MonoBehaviour {
 
     public bool JudgeD(string name)  //判断对话框的ID
     {
-        if (name.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
+        if (name.Equals(dialog.Split(instance.GetXML(s, 0), 0)))
         {
             return true;
         }

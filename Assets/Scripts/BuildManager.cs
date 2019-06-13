@@ -60,6 +60,8 @@ public class BuildManager {
     public static bool CGEnd = false;
     public static bool toDestroy = false;
 
+    public static bool tocollect = false;
+
     private static AudioPlay ap = new AudioPlay();
 
     public static void WhileCG()

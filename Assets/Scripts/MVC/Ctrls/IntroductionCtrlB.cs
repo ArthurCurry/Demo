@@ -8,15 +8,18 @@ using TMPro;
 public class IntroductionCtrlB : MonoBehaviour
 {
     private Introduction[] instantiation;
+    public Introduction[] get;
     public GameObject introductionText;
     public GameObject introTitle;
     public GameObject introSprite;
+    public GameObject panel;
     bool Changed = true;
-
+    public int number; 
 
     private void Start()
     {
         Init();
+        number = 0;
     }
 
     void Init()
@@ -32,6 +35,7 @@ public class IntroductionCtrlB : MonoBehaviour
         Introduction p9 = new Introduction("触发机关", "大门和铁栅栏不可以被覆盖。有机关可以打开大门，试着分析怎么样行动能让异步敌人触发该机关", "photo12");
         Introduction p10 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
         instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 };
+        get = new Introduction[2] { new Introduction("", "", ""), new Introduction("", "", "") };
     }
 
     public void GetIntroductionText(Introduction introduction)
@@ -51,12 +55,36 @@ public class IntroductionCtrlB : MonoBehaviour
 
     }
 
-    public bool CompareTo(string title,string toCompare)
+    public void CompareTo(string toCompare)
     {
-        if (title.Equals(toCompare))
+        for (int i = 0; i < instantiation.Length; i++)
         {
-            return true;
+            if(instantiation [i].Title.Equals (toCompare))
+            {
+                get[number] = instantiation[i];
+                number++;
+            }
         }
-        else { return false; }
+    }
+
+    public void OpenPanel()
+    {
+
+        panel = GameObject.Find(HashID.CANVAS).transform.Find("Introduction").gameObject;
+        panel.SetActive(true);
+
+        //else panel.SetActive(true);
+    }
+
+    public void ClosePanel()
+    {
+        if (panel != null)
+        {
+            if (panel.active)
+            {
+                panel.SetActive(false);
+                panel = null;
+            }
+        } 
     }
 }

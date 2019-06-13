@@ -17,6 +17,8 @@ TagManager:
   - Grid
   - Tool
   - PuzzleUI
+  - Celection
+  - Canvas
   layers:
   - Default
   - TransparentFX

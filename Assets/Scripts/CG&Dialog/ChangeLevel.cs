@@ -130,7 +130,7 @@ public class ChangeLevel : MonoBehaviour {
                     {
                         ap.PlayClipAtPoint(ap.AddAudioClip("Audio/传送"), Camera.main.transform.position, 1f);
                     }
-                        instance.SetIndex(x);
+                    instance.SetIndex(x);
                     if (!JudgeD(dialog.ID))
                     {
                         dialog.DestoryDiaLog();
@@ -179,7 +179,7 @@ public class ChangeLevel : MonoBehaviour {
 
     public bool JudgeD(string name)  //判断对话框的ID
     {
-        if (name.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
+        if (name.Equals(dialog.Split(instance.GetXML(s, 0), 0)))
         {
             return true;
         }
