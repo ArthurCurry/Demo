@@ -18,7 +18,8 @@ public class BagCtrl : UICtrl
     {
         ap = new AudioPlay();
         GameObject root = GameObject.Find("Canvas");
-        bagview.Init(this, root.transform.Find("BagPanel").gameObject);
+        GameObject bag = root.transform.Find("Bag").gameObject;
+        bagview.Init(this, root.transform.Find("Bag").gameObject);
         this.View = bagview;
     }
     protected override void OnCreate()
@@ -46,7 +47,7 @@ public class BagCtrl : UICtrl
             //Debug.Log("open");
             //Debug.Log(IsOpened);
             ap.PlayClipAtPoint(ap.AddAudioClip("Audio/打开背包"), Camera.main.transform.position, 1f);
-            UIManager.Instance.ShowPanel("BagPanel");         
+            UIManager.Instance.ShowPanel("Bag");
             IsOpened = true;
             //Debug.Log(IsOpened);
         }
@@ -54,7 +55,7 @@ public class BagCtrl : UICtrl
         {
             ap.PlayClipAtPoint(ap.AddAudioClip("Audio/打开背包"), Camera.main.transform.position, 1f);
             Debug.Log("Close");            
-            UIManager.Instance.HidePanel("BagPanel");
+            UIManager.Instance.HidePanel("Bag");
            // UIManager.Instance.HidePanel("IntroductionPanel");
             IsOpened = false;
         }
@@ -128,7 +129,7 @@ public class BagCtrl : UICtrl
         if (item == null)
             return "";
         StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("<color=black><size=20>描述:{0}</size></color>"
+        sb.AppendFormat("<color=black><size=16>描述:{0}</size></color>"
            , item.Description);
         return sb.ToString();
     }

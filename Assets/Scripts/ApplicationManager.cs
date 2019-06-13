@@ -27,7 +27,7 @@ public class ApplicationManager : MonoBehaviour {
     {
         ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
         DontDestroyOnLoad(GameObject.Find("One shot audio"));
-        SceneManager.LoadScene("Selection");
+        SceneManager.LoadScene("Selection2");
     }
 
     public void PlayAudio()
