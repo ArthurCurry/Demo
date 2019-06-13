@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChangeLevel : MonoBehaviour {
 
     private Transform player;
+    private AudioPlay ap;
 
     private XmlReader instance;
     private Dialog dialog;
@@ -17,6 +18,7 @@ public class ChangeLevel : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        ap = new AudioPlay();
         instance = new XmlReader();
         instance.ReadXML("Resources/剧情对话.xml");
         player = GameObject.FindWithTag(HashID.PLAYER).transform;
@@ -95,9 +97,9 @@ public class ChangeLevel : MonoBehaviour {
     void InitDialog()
     {
         dialog = new Dialog();
-        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
         dialog.showDialog(dialog.JudgeD(dialog.ID));
-        dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
+        dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
     }
 
     void InitAttribution(string n) // 赋予触发剧情的属性
@@ -116,14 +118,26 @@ public class ChangeLevel : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    instance.SetIndex(x);
+                    if (s.Equals("第四关结束") && x == 2)
+                    {
+                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/群人大笑"), Camera.main.transform.position, 1f);
+                    }
+                    else if(s.Equals("第六关结束") && x == 4)
+                    {
+                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/呕吐"), Camera.main.transform.position, 1f);
+                    }
+                    else if (s.Equals("第六关结束") && x == 11)
+                    {
+                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/传送"), Camera.main.transform.position, 1f);
+                    }
+                        instance.SetIndex(x);
                     if (!JudgeD(dialog.ID))
                     {
                         dialog.DestoryDiaLog();
-                        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+                        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
                         dialog.showDialog(dialog.JudgeD(dialog.ID));
                     }
-                    dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
+                    dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
                     x = x + 1;
                 }
             }
