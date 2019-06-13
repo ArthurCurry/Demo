@@ -38,7 +38,7 @@ public class IntroductionCtrl : MonoBehaviour
     public string GetIntroductionTitle(Introduction introduction)
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("<color=white><size=40>{0}</size></color>", introduction.Title);
+        sb.AppendFormat("<color=black><size=40>{0}</size></color>", introduction.Title);
         introTitle.GetComponent<Text>().text = introduction.Title;
         return sb.ToString();
 
