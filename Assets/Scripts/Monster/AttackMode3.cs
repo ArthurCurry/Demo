@@ -4,8 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class AttackMode3 : MonoBehaviour {
-
-
     private List<Vector3> positions=new List<Vector3>();
     private LineRenderer line;
     private GameObject player;
