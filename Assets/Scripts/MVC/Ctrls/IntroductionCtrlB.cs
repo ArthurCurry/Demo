@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
+using TMPro;
 
-public class IntroductionCtrl : MonoBehaviour
+public class IntroductionCtrlB : MonoBehaviour
 {
 
     public GameObject introductionText;
@@ -14,22 +15,23 @@ public class IntroductionCtrl : MonoBehaviour
     Introduction introduction = null;
     bool Changed = true;
 
-	void Start () {
-        
-        
-	}
+    void Start()
+    {
+
+
+    }
     public void GetIntroductionText(Introduction introduction)
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("<color=black><size=20>游戏介绍：{0}</size></color>",introduction.IntroText);
+        sb.AppendFormat("<color=black><size=20>游戏介绍：{0}</size></color>", introduction.IntroText);
         introductionText.GetComponent<Text>().text = introduction.IntroText;
-       
+
     }
 
     public void GetIntroductionSprite(Introduction introduction)
     {
         //Debug.Log(introduction.ImageIcon);
-        Sprite sp = Resources.Load<Sprite>("Prefabs/Introduction/"+introduction.ImageIcon);
+        Sprite sp = Resources.Load<Sprite>("Prefabs/Introduction/" + introduction.ImageIcon);
         introSprite.GetComponent<Image>().sprite = sp;
     }
 
@@ -40,36 +42,5 @@ public class IntroductionCtrl : MonoBehaviour
         introTitle.GetComponent<Text>().text = introduction.Title;
         return sb.ToString();
 
-    }
-
-    private void Update()
-    {
-        if(Changed == true)
-        {
-            IntroductionModel.PageList.TryGetValue(page, out introduction);
-            GetIntroductionSprite(introduction);
-            introTitle.GetComponent<Text>().text = GetIntroductionTitle(introduction);
-            introductionText.GetComponent<Text>().text = introduction.IntroText;
-            Changed = false;
-        }
-    }
-    public void AddPage()
-    {
-        if (page == 8) return;
-        else
-        {
-            page++;
-            Changed = true;
-        }       
-    }
-
-    public void DecresePage()
-    {
-        if (page == 1) return;
-        else
-        {
-            page--;
-            Changed = true;
-        }       
     }
 }

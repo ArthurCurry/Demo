@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f588170187a995347b959468d2558491
-timeCreated: 1560442482
+guid: 917929173fd35834e9ef3fe348ff1bae
+timeCreated: 1560445547
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: "\u6307\u793A\u724C6_0"
+    21300000: "\u5F00\u59CB\u754C\u9762\u6807\u9898_0"
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u6307\u793A\u724C6_0"
+      name: "\u5F00\u59CB\u754C\u9762\u6807\u9898_0"
       rect:
         serializedVersion: 2
-        x: 142
-        y: 95
-        width: 230
-        height: 260
+        x: 490
+        y: 786
+        width: 917
+        height: 201
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
