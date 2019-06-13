@@ -454,7 +454,7 @@ Prefab:
     - target: {fileID: 114951643172408370, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}
       propertyPath: puzzleLeft
-      value: 357
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114894591873797584, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}
