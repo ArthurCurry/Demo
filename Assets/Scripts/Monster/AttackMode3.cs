@@ -14,7 +14,7 @@ public class AttackMode3 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        faceDir = this.transform.right;
+        faceDir = Vector2.up;
         preDir = faceDir;
         player = GameObject.FindWithTag(HashID.PLAYER);
         pm = player.GetComponent<PlayerMovements>();
@@ -56,14 +56,12 @@ public class AttackMode3 : MonoBehaviour {
 
     private void DetectRange()
     {
-        if(rb.velocity!=Vector2.zero)
+        if (rb.velocity != Vector2.zero)
         {
             faceDir = rb.velocity.normalized;
         }
-        else
-        {
-            faceDir = this.transform.right;
-        }
+        else if (pm.isDead)
+            faceDir = Vector2.up;
     }
 
     private bool Judge()
