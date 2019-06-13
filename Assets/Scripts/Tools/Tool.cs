@@ -126,10 +126,10 @@ public class Tool : MonoBehaviour {
                     if (!JudgeD(dialog.ID))
                     {
                         dialog.DestoryDiaLog();
-                        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+                        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
                         dialog.showDialog(dialog.JudgeD(dialog.ID));
                     }
-                    dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
+                    dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
                     x = x + 1;
                 }
             }
@@ -158,9 +158,9 @@ public class Tool : MonoBehaviour {
     void InitDialog()
     {
         dialog = new Dialog();
-        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
         dialog.showDialog(dialog.JudgeD(dialog.ID));
-        dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
+        dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
     }
 
     public bool JudgeD(string name)  //判断对话框的ID

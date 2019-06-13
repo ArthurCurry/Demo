@@ -99,6 +99,10 @@ public class BuildManager {
             CGEnd = true;
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
+            if(GameObject .Find(HashID .CANVAS).transform.Find("CG6(Clone)"))
+            {
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
+            }
             dialog.DestoryDiaLog();
             Talk.HasTalk = false;
         }

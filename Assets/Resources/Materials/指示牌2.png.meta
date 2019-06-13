@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e1adbeaf2dbc4f047bc7c72ffc143592
-timeCreated: 1560416979
+guid: aeb22e2a0af4ba44780e5e6c78feec6b
+timeCreated: 1560442325
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -37,7 +37,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,12 +100,12 @@ TextureImporter:
       name: "\u6307\u793A\u724C2_0"
       rect:
         serializedVersion: 2
-        x: 133
-        y: 100
-        width: 230
-        height: 260
+        x: 130
+        y: 110
+        width: 236
+        height: 248
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

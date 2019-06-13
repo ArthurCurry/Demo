@@ -80,21 +80,9 @@ public class CG : MonoBehaviour
             m_Alpha = 1f;            
         }
         //值为0的时候跳转场景
-        else if (m_Statuss ==FadeStatuss.FadeOut&&m_Alpha<=0.98)
+        else if (m_Statuss ==FadeStatuss.FadeOut&&m_Alpha<=0.7)
         {
-            if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
-            {
-                GameObject root = GameObject.Find("Canvas");
-                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
-                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
-                ap.Play(Camera.main.gameObject);
-                BuildManager.Need = true;
-                //BuildManager.Init();
-                //Camera.main.GetComponent<CameraController>().enabled = true;
-                //Camera.main.GetComponent<CameraController>().DetectEdges();
-                //BuildManager.InitAttribute();
-            }
-            else if (BuildManager.Level == 3)
+            if (BuildManager.Level == 3)
             {
                 if (this.name == "CG2(Clone)"&&!GameObject .Find ("CG3(Clone)"))
                 {
@@ -114,20 +102,35 @@ public class CG : MonoBehaviour
                     BuildManager.Need = true;
                     BuildManager.InitCG("CG6", "第四关CG2");
                 }
-                else if (this.name == "CG3(Clone)" && !GameObject.Find("CG4(Clone)"))
+                else if (this.name == "CG6(Clone)" && !GameObject.Find("CG7(Clone)"))
                 {
                     BuildManager.Need = true;
                     BuildManager.InitCG("CG7", "第四关CG3");
                 }
             }
-            if(m_Alpha < 0)
+            if (m_Statuss == FadeStatuss.FadeOut && m_Alpha <= 0.98)
             {
-                if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)") || this.gameObject.name.Equals("CG8(Clone)"))
+                if (BuildManager.Level == 1 && !GameObject.FindWithTag(HashID.LEVEL))
+                {
+                    GameObject root = GameObject.Find("Canvas");
+                    root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                    root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
+                    ap.Play(Camera.main.gameObject);
+                    BuildManager.Need = true;
+                    //BuildManager.Init();
+                    //Camera.main.GetComponent<CameraController>().enabled = true;
+                    //Camera.main.GetComponent<CameraController>().DetectEdges();
+                    //BuildManager.InitAttribute();
+                }
+                else if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)") || this.gameObject.name.Equals("CG8(Clone)"))
                 {
                     GameObject root = GameObject.Find("Canvas");
                     root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                     root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
                 }
+            }
+            if (m_Alpha < 0)
+            {
                 Destroy(this.gameObject);
             }
         }

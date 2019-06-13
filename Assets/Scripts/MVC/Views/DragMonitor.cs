@@ -23,7 +23,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Awake()
     {
         ap = new AudioPlay();
-        clip1 = ap.AddAudioClip("Audio/转场（选关界面进入游戏）");
+        clip1 = ap.AddAudioClip("Audio/开门");
         clip2 = ap.AddAudioClip("Audio/点击");
         gameManager = GameObject.Find("GameManager");
     }
