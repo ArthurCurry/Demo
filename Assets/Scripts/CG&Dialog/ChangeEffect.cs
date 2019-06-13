@@ -65,13 +65,13 @@ public class ChangeEffect : MonoBehaviour {
                 }
                 else if (BuildManager.Level == 4)
                 {
-                    BuildManager.InitCG("CG5", "旁白");
+                    BuildManager.InitCG("CG5", "第四关CG1");
                 }
                 else
                 {
-                    if (BuildManager.Level == 2)
+                    if (BuildManager.Level == 2 || BuildManager.Level == 5 || BuildManager.Level == 6)
                     {
-                        BuildManager .Need =true;
+                        BuildManager.Need = true;
                     }
                     BuildManager.Init();
                     Camera.main.GetComponent<CameraController>().enabled = true;

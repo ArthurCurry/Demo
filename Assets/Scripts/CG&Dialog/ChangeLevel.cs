@@ -51,6 +51,36 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                 }
             }
+            else if (BuildManager.Level == 4)
+            {
+                if (!onlyOne)
+                {
+                    InitAttribution("第四关结束");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                }
+            }
+            else if (BuildManager.Level == 5)
+            {
+                if (!onlyOne)
+                {
+                    InitAttribution("第五关结束");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                }
+            }
+            else if(BuildManager .Level == 6)
+            {
+                if (!onlyOne)
+                {
+                    InitAttribution("第六关结束");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                }
+            }
             else
             {
                 BuildManager.Judge();
@@ -65,8 +95,9 @@ public class ChangeLevel : MonoBehaviour {
     void InitDialog()
     {
         dialog = new Dialog();
-        dialog.showDialog();
-        dialog.setDialogText(instance.GetXML(s, 0));
+        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+        dialog.showDialog(dialog.JudgeD(dialog.ID));
+        dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
     }
 
     void InitAttribution(string n) // 赋予触发剧情的属性
@@ -86,7 +117,13 @@ public class ChangeLevel : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     instance.SetIndex(x);
-                    dialog.setDialogText(instance.GetXML(s, 0));
+                    if (!JudgeD(dialog.ID))
+                    {
+                        dialog.DestoryDiaLog();
+                        dialog.ID = dialog.Split(instance.GetXML(name, 0), 0);
+                        dialog.showDialog(dialog.JudgeD(dialog.ID));
+                    }
+                    dialog.setDialogText(dialog.Split(instance.GetXML(name, 0), 1));
                     x = x + 1;
                 }
             }
@@ -103,11 +140,35 @@ public class ChangeLevel : MonoBehaviour {
             {
                 dialog.DestoryDiaLog();
             }
-            BuildManager.Judge();
-            BuildManager.Destroy_All();
-            GameObject root = GameObject.Find("Canvas");
-            root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
-            root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+            if (BuildManager.Level == 4)
+            {
+                BuildManager.InitCG("CG8", "旁白");
+            }
+            else if(BuildManager.Level == 6)
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+		Application.Quit();
+#endif
+            }
+            else
+            {
+                BuildManager.Judge();
+                BuildManager.Destroy_All();
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+            }
         }
+    }
+
+    public bool JudgeD(string name)  //判断对话框的ID
+    {
+        if (name.Equals(dialog.Split(instance.GetXML(name, 0), 0)))
+        {
+            return true;
+        }
+        else return false;
     }
 }
