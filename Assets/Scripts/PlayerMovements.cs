@@ -154,10 +154,12 @@ public class PlayerMovements : MonoBehaviour {
                 {
                     if (!ices[n].transform.name.Contains("ice"))
                     {
-                        if(!ices[n].transform.tag.Equals("Map"))
-                            return ices[n-1].transform;
+                        if (!ices[n].transform.tag.Equals("Map"))
+                            return ices[n - 1].transform;
                         return ices[n].transform;
                     }
+                    if (n == i - 1)
+                        return ices[n].transform;
                 }
             }
             
