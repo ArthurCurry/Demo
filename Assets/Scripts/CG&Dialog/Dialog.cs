@@ -10,6 +10,7 @@ public class Dialog {
     public GameObject dialogBox;                //用于保存对话框的预置体
     public GameObject dialog;                   //用于获取场景组件中的对话框
     public Transform dialogText;                //文本
+    public string ID;
     /// <summary>
     /// 单例
     /// </summary>
@@ -28,10 +29,10 @@ public class Dialog {
     /// <summary>
     /// Shows the dialog.
     /// </summary>
-    public void showDialog()
+    public void showDialog(string DName)
     {
         canvas = GameObject.Find(HashID.CANVAS).GetComponent <Canvas>();
-        dialogBox = Resources.Load<GameObject>("Prefabs/DialogBox");
+        dialogBox = Resources.Load<GameObject>("Prefabs/" + DName);
         instantiation = GameObject.Instantiate(dialogBox,canvas .transform );
     }
 
@@ -55,6 +56,25 @@ public class Dialog {
             dialogtext.text = sentence;
             dialogtext.text = dialogtext.text.Replace("\\n", "\n");
         }
+    }
+
+    public string Split(string target ,int n)
+    {
+        string[] split = target.Split(' ');
+        return split[n];
+    }
+
+    public string JudgeD(string a)
+    {
+        if (a.Equals("Z"))
+        {
+            return "ZTDialogBox";
+        }
+        else if (a.Equals("B"))
+        {
+            return "BDialogBox";
+        }
+        else return null;
     }
     /// <summary>
     /// Destories the dialog.

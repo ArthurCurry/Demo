@@ -94,28 +94,39 @@ public class CG : MonoBehaviour
                 //Camera.main.GetComponent<CameraController>().DetectEdges();
                 //BuildManager.InitAttribute();
             }
-            if (BuildManager.Level == 3)
+            else if (BuildManager.Level == 3)
             {
                 if (this.name == "CG2(Clone)"&&!GameObject .Find ("CG3(Clone)"))
                 {
                     BuildManager.Need = false;
                     BuildManager.InitCG("CG3", "旁白");
                 }
-                if (this.name == "CG3(Clone)"&&!GameObject.Find("CG4(Clone)"))
+                else if (this.name == "CG3(Clone)"&&!GameObject.Find("CG4(Clone)"))
                 {
                     BuildManager.Need = true;
                     BuildManager.InitCG("CG4", "第三关CG2");                    
                 }
             }
+            else if(BuildManager.Level == 4)
+            {
+                if (this.name == "CG5(Clone)" && !GameObject.Find("CG6(Clone)"))
+                {
+                    BuildManager.Need = true;
+                    BuildManager.InitCG("CG6", "第四关CG2");
+                }
+                else if (this.name == "CG3(Clone)" && !GameObject.Find("CG4(Clone)"))
+                {
+                    BuildManager.Need = true;
+                    BuildManager.InitCG("CG7", "第四关CG3");
+                }
+            }
             if(m_Alpha < 0)
             {
-                if (this.gameObject.name.Equals("CG4(Clone)"))
+                if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)") || this.gameObject.name.Equals("CG8(Clone)"))
                 {
-                    BuildManager.InitAttribute();
-                    BuildManager.Init();
-                    Camera.main.GetComponent<CameraController>().enabled = true;
-                    Camera.main.GetComponent<CameraController>().DetectEdges();
-                    Camera.main.GetComponent<CameraController>().Init();
+                    GameObject root = GameObject.Find("Canvas");
+                    root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                    root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
                 }
                 Destroy(this.gameObject);
             }

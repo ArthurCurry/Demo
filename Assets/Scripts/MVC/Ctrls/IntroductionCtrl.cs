@@ -16,7 +16,6 @@ public class IntroductionCtrl : MonoBehaviour
 
 	void Start () {
         
-        //IntroductionModel.PageList.TryGetValue(page, out introduction);
         
 	}
     public string GetIntroductionText(Introduction introduction)
