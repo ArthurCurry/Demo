@@ -18,27 +18,26 @@ public class IntroductionCtrl : MonoBehaviour
         
         
 	}
-    public void GetIntroductionText(Introduction introduction)
+    public void GetIntroductionText(Introduction it)
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("<color=black><size=20>游戏介绍：{0}</size></color>",introduction.IntroText);
-        introductionText.GetComponent<Text>().text = introduction.IntroText;
+        sb.AppendFormat("<color=black><size=20>游戏介绍：{0}</size></color>",it.IntroText);
+        introductionText.GetComponent<Text>().text = it.IntroText;
        
     }
 
-    public void GetIntroductionSprite(Introduction introduction)
+    public void GetIntroductionSprite(Introduction it)
     {
         //Debug.Log(introduction.ImageIcon);
-        Sprite sp = Resources.Load<Sprite>("Prefabs/Introduction/"+introduction.ImageIcon);
+        Sprite sp = Resources.Load<Sprite>("Prefabs/Introduction/"+it.ImageIcon);
         introSprite.GetComponent<Image>().sprite = sp;
     }
 
-    public string GetIntroductionTitle(Introduction introduction)
+    public void GetIntroductionTitle(Introduction it)
     {
         StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("<color=black><size=40>{0}</size></color>", introduction.Title);
-        introTitle.GetComponent<Text>().text = introduction.Title;
-        return sb.ToString();
+        sb.AppendFormat("<color=black><size=40>{0}</size></color>", it.Title);
+        introTitle.GetComponent<Text>().text = it.Title;
 
     }
 
@@ -48,8 +47,7 @@ public class IntroductionCtrl : MonoBehaviour
         {
             IntroductionModel.PageList.TryGetValue(page, out introduction);
             GetIntroductionSprite(introduction);
-            introTitle.GetComponent<Text>().text = GetIntroductionTitle(introduction);
-            introductionText.GetComponent<Text>().text = introduction.IntroText;
+            GetIntroductionTitle(introduction);
             Changed = false;
         }
     }

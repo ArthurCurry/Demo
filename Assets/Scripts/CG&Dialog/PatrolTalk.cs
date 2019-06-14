@@ -33,7 +33,7 @@ public class PatrolTalk : MonoBehaviour {
         dialog = new Dictionary<Transform, string> ();
         instantiations = new Dictionary<GameObject, Transform>();
         patrols = new List<GameObject>();
-        box = Resources.Load<GameObject>("Prefabs/MonsterBox");
+        box = Resources.Load<GameObject>("Prefabs/MonsterBoxA");
         player = GameObject.FindWithTag(HashID.PLAYER);
         canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         time = 0;
@@ -168,7 +168,7 @@ public class PatrolTalk : MonoBehaviour {
 
     private void Translate(Transform a)
     {
-        float y = a.position.y + 1.5f;
+        float y = a.position.y + 2.3f;
         target = new Vector2(a.position.x, y);
     }
 }

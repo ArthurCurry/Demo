@@ -29,7 +29,7 @@ public class OldMTalk : MonoBehaviour {
             "真是奇怪了……",
             "明明我昨天散步前还用过的。"
        };
-        box = Resources.Load<GameObject>("Prefabs/MonsterBox");
+        box = Resources.Load<GameObject>("Prefabs/MonsterBoxA");
         player = GameObject.FindWithTag(HashID.PLAYER);
         canvas = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
         time = 0;
