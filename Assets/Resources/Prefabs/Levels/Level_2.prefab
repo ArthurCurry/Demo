@@ -43334,8 +43334,8 @@ MonoBehaviour:
   triggerPoses:
   - {fileID: 4736263234703970}
   triggered: 0
-  upperright: {fileID: 0}
-  lowerleft: {fileID: 0}
+  upperright: {fileID: 4713271383786868}
+  lowerleft: {fileID: 4704384076099522}
 --- !u!114 &114570379311196556
 MonoBehaviour:
   m_ObjectHideFlags: 1
