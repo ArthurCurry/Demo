@@ -13,13 +13,14 @@ public class IntroductionCtrlB : MonoBehaviour
     public GameObject introTitle;
     public GameObject introSprite;
     public GameObject panel;
-    bool Changed = true;
+    public bool hasGot;
     public int number; 
 
     private void Start()
     {
         Init();
         number = 0;
+        hasGot = false;
     }
 
     void Init()
@@ -69,22 +70,24 @@ public class IntroductionCtrlB : MonoBehaviour
 
     public void OpenPanel()
     {
-
-        panel = GameObject.Find(HashID.CANVAS).transform.Find("Introduction").gameObject;
+        if (!hasGot)
+        {
+            panel = GameObject.Find(HashID.CANVAS).transform.Find("Introduction").gameObject;
+            hasGot = true;
+        }
         panel.SetActive(true);
-
-        //else panel.SetActive(true);
     }
 
     public void ClosePanel()
     {
-        if (panel != null)
+        if (panel != null && hasGot)
         {
-            if (panel.active)
+            if (panel.activeInHierarchy)
             {
                 panel.SetActive(false);
                 panel = null;
+                hasGot = false;
             }
-        } 
+        }
     }
 }

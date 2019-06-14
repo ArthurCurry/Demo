@@ -158,8 +158,7 @@ public class Tool : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            if ((this.transform.position - player.transform.position).magnitude <= 5f)
-                itb.ClosePanel();
+            itb.ClosePanel();
             if (toDone && this.name == "key" )
             {
                 toDone = false;
@@ -176,6 +175,11 @@ public class Tool : MonoBehaviour {
                     BuildManager.tocollect = true;
                 }
                 ap.PlayClipAtPoint(audioClip, position);
+            }
+            else if (toDone)
+            {
+                toDone = false;
+                this.gameObject.SetActive(false);
             }
         }
     }

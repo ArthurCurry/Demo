@@ -11,7 +11,6 @@ public class CtrlManager{
         ctrls.Add(PanelID.BagPanel,new BagCtrl());
 
 
-
         this.InitCtrls();
     }
     public void UpdateCtrls()
@@ -33,6 +32,7 @@ public class CtrlManager{
         UICtrl ctrl = ctrls[name];
         return ctrl;
     }
+
     public T GetT<T>(string name) where T : UICtrl
     {
         UICtrl ctrl = ctrls[name];
