@@ -53,6 +53,24 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                 }
             }
+            else if(BuildManager .Level == 3)
+            {
+                if(!onlyOne)
+                {
+                    if (GameObject.Find("Level_3(Clone)")) // Debug会话框不会消失。
+                    {
+                        GameObject level = GameObject.Find("Level_3(Clone)");
+                        level.GetComponent<MonsterTalk>()._Destroy();
+                        level.GetComponent<MonsterTalkB>()._Destroy();
+                        level.GetComponent<MonsterTalkC>()._Destroy();
+                    }
+                    BuildManager.Judge();
+                    BuildManager.Destroy_All();
+                    GameObject root = GameObject.Find("Canvas");
+                    root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                    root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+                }
+            }
             else if (BuildManager.Level == 4)
             {
                 if (!onlyOne)
@@ -166,7 +184,7 @@ public class ChangeLevel : MonoBehaviour {
 		Application.Quit();
 #endif
             }
-            else
+            else if(onlyOne)
             {
                 BuildManager.Judge();
                 BuildManager.Destroy_All();

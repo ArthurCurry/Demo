@@ -131,4 +131,13 @@ To:
     {
         instantiation.GetComponent<RectTransform>().position = a.position;
     }
+
+    public void _Destroy()
+    {
+        if (instantiation != null)
+        {
+            Destroy(instantiation);
+        }
+        this.enabled = false;
+    }
 }
