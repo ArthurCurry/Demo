@@ -98,7 +98,7 @@ public class FLevelTrigger : MonoBehaviour {
 
     void Judge()
     {
-        if (Mathf.Abs(player.transform.position.y - 13.5f) <= 0.01f && !level1)
+        if (Mathf.Abs(player.transform.position.y - 142.54f) <= 0.02f && !level1)
         {
             cm.MoveCameraTo(monster);
             InitAttribution("第87行");
