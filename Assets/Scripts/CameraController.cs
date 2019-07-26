@@ -51,6 +51,8 @@ public class CameraController : MonoBehaviour {
         SmoothMove();
         if (Input.GetKey(KeyCode.Mouse1))
             FollowMouse();
+        else if (Input.GetKey(KeyCode.Space))
+            BackOnPlayer();
         else
             FollowPlayer();
         if (mapEdges.Length > 1 && player.transform.position.y < mapUpperrt.transform.position.y)
@@ -200,5 +202,10 @@ public class CameraController : MonoBehaviour {
         targetPos = Camera.main.ScreenToWorldPoint(pos);
         targetPos.z = transform.position.z;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, 10f);
+    }
+
+    private void BackOnPlayer()
+    {
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
     }
 }
