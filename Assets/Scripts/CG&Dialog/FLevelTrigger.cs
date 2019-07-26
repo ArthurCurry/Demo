@@ -92,7 +92,7 @@ public class FLevelTrigger : MonoBehaviour {
             {
                 dialog.DestoryDiaLog();
             }
-            cm.MoveCameraTo(player);
+            //cm.MoveCameraTo(player);
         }
     }
 

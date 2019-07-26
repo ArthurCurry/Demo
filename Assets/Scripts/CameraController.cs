@@ -25,6 +25,10 @@ public class CameraController : MonoBehaviour {
     private float xSpeed;
     private float ySpeed;
     private bool toMove;
+    private Vector3 currentMousePos;
+    private Vector3 mousePosLF;
+    [SerializeField]
+    private float sensitivityAmt;
 
 
     // Use this for initialization
@@ -48,6 +52,10 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        /*Vector3 pos = Input.mousePosition;
+        pos.z = 10;
+        currentMousePos = Camera.main.ScreenToWorldPoint(pos);
+        currentMousePos.z = transform.position.z;*/
         SmoothMove();
         if (Input.GetKey(KeyCode.Mouse1))
             FollowMouse();
@@ -58,6 +66,7 @@ public class CameraController : MonoBehaviour {
         if (mapEdges.Length > 1 && player.transform.position.y < mapUpperrt.transform.position.y)
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapLowerlf.position.x + (width - HashID.unitLength) / 2, mapUpperrt.position.x - (width  - HashID.unitLength)/2),
             Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
+        //mousePosLF = currentMousePos;
     }
 
     void LateUpdate()
@@ -197,11 +206,12 @@ public class CameraController : MonoBehaviour {
 
     private void FollowMouse()
     {
-        Vector3 pos = Input.mousePosition;
-        pos.z = 10;
-        targetPos = Camera.main.ScreenToWorldPoint(pos);
-        targetPos.z = transform.position.z;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime, 10f);
+
+        Vector3 p0 = Camera.main.transform.position;
+        Vector3 p01 = p0 - Camera.main.transform.right * Input.GetAxisRaw("Mouse X") * sensitivityAmt * Time.timeScale;
+        Vector3 p03 = p01 - Camera.main.transform.up * Input.GetAxisRaw("Mouse Y") * sensitivityAmt * Time.timeScale;
+        Camera.main.transform.position = p03;
+        
     }
 
     private void BackOnPlayer()
