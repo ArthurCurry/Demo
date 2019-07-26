@@ -158,7 +158,8 @@ public class Tool : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            itb.ClosePanel();
+            if (toDone)
+                itb.ClosePanel();
             if (toDone && this.name == "key" )
             {
                 toDone = false;
