@@ -1720,6 +1720,7 @@ GameObject:
   - component: {fileID: 4940133887910452}
   - component: {fileID: 212247496063835980}
   - component: {fileID: 61760507754052424}
+  - component: {fileID: 114880932686762492}
   m_Layer: 8
   m_Name: trigger_2
   m_TagString: Map
@@ -6989,6 +6990,7 @@ GameObject:
   - component: {fileID: 4250117453229594}
   - component: {fileID: 212761783803824134}
   - component: {fileID: 61677195033839730}
+  - component: {fileID: 114312473558591162}
   m_Layer: 8
   m_Name: trigger_1
   m_TagString: Map
@@ -22994,7 +22996,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628850007704906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.7, y: 119.6, z: 0}
+  m_LocalPosition: {x: 98.79428, y: 106.10644, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4181317164950894}
@@ -55568,6 +55570,21 @@ MonoBehaviour:
   distance: 0
   inPosition: 0
   attackRange: 5
+--- !u!114 &114312473558591162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1411490629945276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 020000000100000000000000
+  active: {fileID: 0}
+  triggered: 0
 --- !u!114 &114344387654591196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55836,6 +55853,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea1eb94868a62a47be723f383f2cd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114880932686762492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096909047132702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleUI: []
+  number: 020000000100000000000000
+  active: {fileID: 0}
+  triggered: 0
 --- !u!114 &114891187137687060
 MonoBehaviour:
   m_ObjectHideFlags: 1
