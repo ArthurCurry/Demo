@@ -43182,16 +43182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91b89aeb017b7e4582e181fcc248886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latePos: {x: 0, y: 0, z: 0}
-  pos: {fileID: 0}
-  nextPos: {fileID: 0}
-  player: {fileID: 0}
   mode: -1
-  triggerPoses:
-  - {fileID: 4971655906878058}
-  triggered: 0
-  upperright: {fileID: 4139819875380252}
-  lowerleft: {fileID: 4971655906878058}
+  targetFloor: {fileID: 0}
+  moveSpeed: 2
+  isMoving: 0
+  targetArrived: 0
 --- !u!114 &114460252813473702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43326,16 +43321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91b89aeb017b7e4582e181fcc248886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latePos: {x: 0, y: 0, z: 0}
-  pos: {fileID: 0}
-  nextPos: {fileID: 0}
-  player: {fileID: 0}
   mode: -1
-  triggerPoses:
-  - {fileID: 4736263234703970}
-  triggered: 0
-  upperright: {fileID: 4713271383786868}
-  lowerleft: {fileID: 4704384076099522}
+  targetFloor: {fileID: 0}
+  moveSpeed: 2
+  isMoving: 0
+  targetArrived: 0
 --- !u!114 &114570379311196556
 MonoBehaviour:
   m_ObjectHideFlags: 1

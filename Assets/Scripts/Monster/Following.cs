@@ -2,173 +2,165 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Following : Monster {
+public class Following : MonoBehaviour{
 
-    private Rigidbody2D rb;
-    private PlayerMovements pm;
-    private Rigidbody2D playerRB;
-    private Vector3 playerPrePos;//玩家上一帧位置
-    private Vector2 thisPos;//自身位置
-    private Vector2 direction;//前进方向
-    private Vector3 prePos;
-    private float totalDis;
-    private Transform targetFloor;
-    private bool targetArrived;
-    private bool isMoving;
+ 
     [SerializeField]
     private float mode;
     [SerializeField]
-    private List<Transform> triggerPoses;
-    private List<Vector3> positions=new List<Vector3>();
-    [SerializeField]
-    private bool triggered;
-    [SerializeField]
-    private Transform upperright;
-    [SerializeField]
-    private Transform lowerleft;
-    private List<Vector3> edes = new List<Vector3>();
-    private List<RaycastHit2D> hits = new List<RaycastHit2D>();
-    Vector2 ll = new Vector2();
-    Vector2 ur = new Vector2();
+    private Transform targetFloor;
+
+    private Dictionary<KeyCode, Vector3> directions = new Dictionary<KeyCode, Vector3>();
+    private Vector3 prePos;
+    private Rigidbody2D rb;
+    public float moveSpeed;
+    public bool isMoving;
+    public bool targetArrived;
 
 
-    // Use this for initialization
     void Start()
     {
-        ll = lowerleft.position;
-        ur = upperright.position;
-        triggered = false;
-        latePos = GameObject.FindWithTag(HashID.PLAYER).transform.position;
-        player = GameObject.FindWithTag(HashID.PLAYER);
-        playerPrePos = player.transform.position;
-        playerRB = player.GetComponent<Rigidbody2D>();
-        pm = player.GetComponent<PlayerMovements>();
-        rb = this.GetComponent<Rigidbody2D>();
-        InitPositions();
-        targetArrived = true;
-        isMoving = false;
-        totalDis = HashID.unitLength;
         prePos = this.transform.position;
-        if (upperright != null && lowerleft != null)
-        {
-            edes.Add(lowerleft.position);
-            edes.Add(upperright.position);
-        }
+        Init();
     }
 
+    public void Init()
+    {
+        isMoving = false;
+        targetArrived = true;
+        targetFloor = this.transform;
+
+        rb = transform.GetComponent<Rigidbody2D>();
+        LoadDirection();
+    }
     // Update is called once per frame
+    void Update()
+    {
+        //Debug.Log(targetFloor.name);
+        //Debug.Log(this.transform.position);
+        //Debug.Log(rb.velocity);
+        Move();
+        prePos = this.transform.position;
+    }
+
     void LateUpdate()
     {
-        Reset();
-        /*if (!triggered)
+
+    }
+
+    void Move()//移动
+    {
+        if (Input.anyKey && !isMoving)
         {
-            for (int i=0;i<positions.Count;i++)
+            KeyCode key = KeyCode.None;
+            /*Event e = Event.current;
+            if (e.isKey)
+                key = e.keyCode;*/
+            foreach (KeyCode code in directions.Keys)
             {
-                if ((player.transform.position - positions[i]).magnitude < 0.1f && playerRB.velocity == Vector2.zero)
+                if (Input.GetKey(code))
                 {
-                    triggered = true;
+                    key = code;
                     break;
                 }
             }
-        }*/
-        if (OutOfRange(player))
-            triggered = false;
-        else
-        {
-            triggered = true;
-            Move();
-        }
-        //this.transform.position = new Vector2(Mathf.Clamp(transform.position.x, ll.x, ur.x), Mathf.Clamp(transform.position.y, ll.y, ur.y));
-        totalDis += (this.transform.position - prePos).magnitude;
-        prePos = this.transform.position;
-    }
-
-
-    public override void Judge()
-    {
-        throw new System.NotImplementedException();
-    }
-    public override void Attack()
-    {
-        throw new System.NotImplementedException();
-    }
-    public override void Move()
-    {
-        //Detect();
-        //MoveTowards(targetFloor);
-        Follow();
-
-    }
-    private void Follow()
-    {
-        direction = playerRB.velocity * mode;
-        thisPos = this.transform.position;
-        if (true)
-        {
-            hits.Clear();
-            RaycastHit2D[] hitObs =  Physics2D.LinecastAll(thisPos, thisPos + direction.normalized * HashID.unitLength, LayerMask.GetMask("Replaceable"));
-            foreach(RaycastHit2D rh in hitObs)
+            if (directions.ContainsKey(key))
             {
-                hits.Add(rh);
+                if (Detect(key) != this.transform)
+                {
+                    ;
+                }
+                targetFloor = Detect(key);
             }
         }
-        //Debug.Log(hits.Count+" "+this.gameObject.name+direction+" "+ pm.targetArrived);
-        if (hits.Count > 1)
+        MoveTowards(targetFloor);
+    }
+
+    public void MoveTowards(Transform target)//控制向特定方向移动
+    {
+        //Debug.Log(target);
+        if (transform.position != target.position)
         {
-            if (!hits[1].transform.tag.Equals(HashID.Tag_Map))
+            Vector2 pos = target.position;
+            targetArrived = false;
+            rb.velocity = (target.position - transform.position).normalized * moveSpeed;
+            isMoving = true;
+            //ap.PlayClipAtPoint(ap.AddAudioClip("Audio/走路2"), Camera.main.transform.position, 1f);
+            //Debug.Log(2);
+            StopAt(targetFloor);
+        }
+        else
+        {
+            targetFloor = this.transform;
+            rb.velocity = Vector2.zero;
+            targetArrived = true;
+            //MonsterManager.UpdateMonsters(float.PositiveInfinity);
+            isMoving = false;
+        }
+
+    }
+
+    void LoadDirection()
+    {
+        directions.Add(KeyCode.W, Vector3.up);
+        directions.Add(KeyCode.S, Vector3.down);
+        directions.Add(KeyCode.A, Vector3.left);
+        directions.Add(KeyCode.D, Vector3.right);
+    }
+
+    Transform Detect(KeyCode key)
+    {
+        Vector3 direction = directions[key]*mode;
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 1.28f, LayerMask.GetMask(HashID.Layer_Replaceable, "Unwalkable"));
+        if (hits.Length > 1 && hits[1].transform.tag == "Map")
+        {
+            if (hits[0].transform.name.Contains("falling"))
             {
-                if (Mathf.Abs((hits[1].transform.position - this.transform.position).magnitude-HashID.unitLength) < 0.01f)
+                Falling.Fall(hits[0].transform);
+            }
+            if (hits[hits.Length - 1].transform.name.Contains("ice"))
+            {
+                RaycastHit2D[] ices = new RaycastHit2D[20];
+                int i = Physics2D.LinecastNonAlloc(hits[hits.Length - 1].transform.position, hits[hits.Length - 1].transform.position + direction * HashID.unitLength
+                    * 20f, ices);
+                for (int n = 1; n < i; n++)
                 {
-                    Debug.Log("stopped");
-                    direction = Vector2.zero;
+                    if (!ices[n].transform.name.Contains("ice"))
+                    {
+                        if (!ices[n].transform.tag.Equals("Map"))
+                            return ices[n - 1].transform;
+                        return ices[n].transform;
+                    }
+                    if (n == i - 1)
+                        return ices[n].transform;
                 }
             }
-            else if(pm.targetArrived)
-            {
-                targetFloor = hits[1].transform;
-            }
+
+            //Debug.Log(hits[1].transform.name);
+            /*if (GameObject.FindWithTag(HashID.FOLLOWING))
+                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);*/
+            MonsterManager.UpdateMonsters((hits[1].transform.position - transform.position).magnitude);
+            return hits[1].transform;
         }
-        else if((totalDis/HashID.unitLength)%1<0.01f&& (totalDis / HashID.unitLength)>0.9f)
-            direction = Vector2.zero;
-        rb.velocity = direction;
-        Debug.Log((totalDis / HashID.unitLength) % 1);
-    }
-
-
-    protected override void ShowAttackRange()
-    {
-        throw new System.NotImplementedException();
-    }
-
-
-    
-    
-
-    private void InitPositions()
-    {
-        foreach(Transform pos in triggerPoses)
-        {
-            positions.Add(pos.position);
-        }
-    }
-
-    private bool OutOfRange(GameObject character)
-    {
-        if ((character.transform.position.x >= lowerleft.position.x && character.transform.position.y >= lowerleft.position.y) && (character.transform.position.x <= upperright.position.x && character.transform.position.y <= upperright.position.y))
-            return false;
         else
-            return true;
+            return this.transform;
     }
 
-    private void Reset()
+
+    void StopAt(Transform target)
     {
-        if (pm != null)
+        if ((transform.position - target.position).magnitude < 0.01f)
         {
-            if (pm.isDead)
-            {
-                totalDis = 0f;
-                prePos = this.transform.position;
-            }
+            //Debug.Log(1);
+            transform.position = target.transform.position;
+            rb.velocity = Vector2.zero;
         }
     }
+
+    IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(0.1f);
+    }
+
+   
 }

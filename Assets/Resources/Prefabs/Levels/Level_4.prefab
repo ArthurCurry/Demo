@@ -55460,41 +55460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91b89aeb017b7e4582e181fcc248886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latePos: {x: 0, y: 0, z: 0}
-  pos: {fileID: 0}
-  nextPos: {fileID: 0}
-  player: {fileID: 0}
   mode: 1
-  triggerPoses:
-  - {fileID: 4308055999074382}
-  - {fileID: 4174056621220838}
-  - {fileID: 4425150601262290}
-  - {fileID: 4677683051922824}
-  - {fileID: 4279519791577522}
-  - {fileID: 4940133887910452}
-  - {fileID: 4408288342924634}
-  - {fileID: 4351269836532650}
-  - {fileID: 4320298933558340}
-  - {fileID: 4627642170772194}
-  - {fileID: 4145009961630912}
-  - {fileID: 4820324965316572}
-  - {fileID: 4969753290373494}
-  - {fileID: 4808688937162668}
-  - {fileID: 4445232783801684}
-  - {fileID: 4061885413578882}
-  - {fileID: 4243327974535786}
-  - {fileID: 4337061489155350}
-  - {fileID: 4141366495077810}
-  - {fileID: 4399614058952866}
-  - {fileID: 4438048639643524}
-  - {fileID: 4546474262656674}
-  - {fileID: 4722519508280418}
-  - {fileID: 4682540437403184}
-  - {fileID: 4323635530986020}
-  - {fileID: 4070222394926532}
-  triggered: 0
-  upperright: {fileID: 4677683051922824}
-  lowerleft: {fileID: 4445232783801684}
+  targetFloor: {fileID: 0}
+  moveSpeed: 2
+  isMoving: 0
+  targetArrived: 0
 --- !u!114 &114096461365163472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55581,7 +55551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleUI: []
+  puzzleUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   number: 020000000100000000000000
   active: {fileID: 0}
   triggered: 0
@@ -55672,7 +55645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleUI: []
+  puzzleUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   number: 040000000100000000000000
   active: {fileID: 0}
   triggered: 0
@@ -55743,51 +55719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91b89aeb017b7e4582e181fcc248886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latePos: {x: 0, y: 0, z: 0}
-  pos: {fileID: 0}
-  nextPos: {fileID: 0}
-  player: {fileID: 0}
   mode: 1
-  triggerPoses:
-  - {fileID: 4439456573170708}
-  - {fileID: 4703314539557278}
-  - {fileID: 4240170974921654}
-  - {fileID: 4741732920850652}
-  - {fileID: 4193550038327230}
-  - {fileID: 4809257158044014}
-  - {fileID: 4155726331208992}
-  - {fileID: 4827754907254366}
-  - {fileID: 4349242871300746}
-  - {fileID: 4238158412011594}
-  - {fileID: 4875435207760684}
-  - {fileID: 4423135551396554}
-  - {fileID: 4627389157025224}
-  - {fileID: 4848948150479962}
-  - {fileID: 4940627774602304}
-  - {fileID: 4898751147726486}
-  - {fileID: 4016993381679794}
-  - {fileID: 4890095380095640}
-  - {fileID: 4558351223544642}
-  - {fileID: 4997181544937178}
-  - {fileID: 4570090539655744}
-  - {fileID: 4302046817510544}
-  - {fileID: 4758444122492098}
-  - {fileID: 4138544049281264}
-  - {fileID: 4204223018202068}
-  - {fileID: 4107339536275044}
-  - {fileID: 4359950591582310}
-  - {fileID: 4250117453229594}
-  - {fileID: 4354039095576802}
-  - {fileID: 4195712453297086}
-  - {fileID: 4003075501070002}
-  - {fileID: 4728453838453102}
-  - {fileID: 4328490333437570}
-  - {fileID: 4810660191999244}
-  - {fileID: 4972175556036690}
-  - {fileID: 4130151622350562}
-  triggered: 0
-  upperright: {fileID: 4191799495238726}
-  lowerleft: {fileID: 4359950591582310}
+  targetFloor: {fileID: 0}
+  moveSpeed: 2
+  isMoving: 0
+  targetArrived: 0
 --- !u!114 &114697825507518638
 MonoBehaviour:
   m_ObjectHideFlags: 1
