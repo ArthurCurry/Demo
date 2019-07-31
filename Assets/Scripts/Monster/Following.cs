@@ -43,10 +43,6 @@ public class Following : MonoBehaviour{
         prePos = this.transform.position;
     }
 
-    void LateUpdate()
-    {
-
-    }
 
     void Move()//移动
     {
@@ -135,11 +131,6 @@ public class Following : MonoBehaviour{
                         return ices[n].transform;
                 }
             }
-
-            //Debug.Log(hits[1].transform.name);
-            /*if (GameObject.FindWithTag(HashID.FOLLOWING))
-                GameObject.FindWithTag(HashID.FOLLOWING).GetComponent<Following>().Follow(direction);*/
-            MonsterManager.UpdateMonsters((hits[1].transform.position - transform.position).magnitude);
             return hits[1].transform;
         }
         else
