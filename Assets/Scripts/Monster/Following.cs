@@ -9,6 +9,11 @@ public class Following : MonoBehaviour{
     private float mode;
     [SerializeField]
     private Transform targetFloor;
+    private Rigidbody2D playerRB;
+    private PlayerMovements pm;
+    private GameObject player;
+    private Vector3 playerPrePos;
+
 
     private Dictionary<KeyCode, Vector3> directions = new Dictionary<KeyCode, Vector3>();
     private Vector3 prePos;
@@ -21,6 +26,10 @@ public class Following : MonoBehaviour{
     void Start()
     {
         prePos = this.transform.position;
+        player = GameObject.FindWithTag(HashID.PLAYER);
+        playerPrePos = player.transform.position;
+        playerRB = player.GetComponent<Rigidbody2D>();
+        pm = player.GetComponent<PlayerMovements>();
         Init();
     }
 
@@ -34,13 +43,16 @@ public class Following : MonoBehaviour{
         LoadDirection();
     }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        //moveSpeed = playerRB.velocity.magnitude;
+
         //Debug.Log(targetFloor.name);
         //Debug.Log(this.transform.position);
         //Debug.Log(rb.velocity);
         Move();
         prePos = this.transform.position;
+        playerPrePos = player.transform.position;
     }
 
 
@@ -110,10 +122,6 @@ public class Following : MonoBehaviour{
         RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, transform.position + direction * 1.28f, LayerMask.GetMask(HashID.Layer_Replaceable, "Unwalkable"));
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
-            if (hits[0].transform.name.Contains("falling"))
-            {
-                Falling.Fall(hits[0].transform);
-            }
             if (hits[hits.Length - 1].transform.name.Contains("ice"))
             {
                 RaycastHit2D[] ices = new RaycastHit2D[20];

@@ -9,9 +9,13 @@ public class Straight : MonoBehaviour {
     private Vector2 direction;
     private Transform targetFloor;
     private Vector3 prePos;
+    private GameObject player;
+    private Vector3 playerPrePos;
+    private Rigidbody2D playerRB;
+    private PlayerMovements pm;
     private float totalDis;
 
-    public float moveSpeed=2f;
+    public float moveSpeed;
     public bool isMoving;
     public bool targetArrived;
     public bool isDead;
@@ -22,6 +26,10 @@ public class Straight : MonoBehaviour {
     void Start()
     {
         prePos = this.transform.position;
+        player = GameObject.FindWithTag(HashID.PLAYER);
+        playerPrePos = player.transform.position;
+        playerRB = player.GetComponent<Rigidbody2D>();
+        pm = player.GetComponent<PlayerMovements>();
         Init();
     }
 
@@ -36,15 +44,13 @@ public class Straight : MonoBehaviour {
         LoadDirection();
     }
     // Update is called once per frame
-    void Update()
-    {
-        Move();
-        prePos = this.transform.position;
-    }
-
     void LateUpdate()
     {
-
+        moveSpeed = playerRB.velocity.magnitude;
+        //if(playerPrePos!=player.transform.position)
+            Move();
+        prePos = this.transform.position;
+        playerPrePos = player.transform.position;
     }
 
     void Move()//移动
@@ -72,6 +78,7 @@ public class Straight : MonoBehaviour {
                 targetFloor = Detect(key);
             }
         }
+
         MoveTowards(targetFloor);
     }
 
@@ -117,10 +124,6 @@ public class Straight : MonoBehaviour {
             direction = -direction;
         if (hits.Length > 1 && hits[1].transform.tag == "Map")
         {
-            if (hits[0].transform.name.Contains("falling"))
-            {
-                Falling.Fall(hits[0].transform);
-            }
             if (hits[hits.Length - 1].transform.name.Contains("ice"))
             {
                 RaycastHit2D[] ices = new RaycastHit2D[20];
