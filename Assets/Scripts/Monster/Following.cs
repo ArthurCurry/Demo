@@ -22,15 +22,42 @@ public class Following : MonoBehaviour{
     public bool isMoving;
     public bool targetArrived;
 
+    [SerializeField]
+    private Transform upperright;
+    [SerializeField]
+    private Transform lowerleft;
+
+    private Vector3 urPos;
+    private Vector3 llPos;
+
 
     void Start()
     {
+        urPos = upperright.position;
+        llPos = lowerleft.position;
+
         prePos = this.transform.position;
         player = GameObject.FindWithTag(HashID.PLAYER);
         playerPrePos = player.transform.position;
         playerRB = player.GetComponent<Rigidbody2D>();
         pm = player.GetComponent<PlayerMovements>();
         Init();
+    }
+
+    public Vector3 URPos
+    {
+        get
+        {
+            return urPos;
+        }
+    }
+
+    public Vector3 LLPos
+    {
+        get
+        {
+            return llPos;
+        }
     }
 
     public void Init()
@@ -43,6 +70,11 @@ public class Following : MonoBehaviour{
         LoadDirection();
     }
     // Update is called once per frame
+    void Update()
+    {
+        moveSpeed = playerRB.velocity.magnitude * IsPlayerInRange();
+    }
+
     void LateUpdate()
     {
         //moveSpeed = playerRB.velocity.magnitude;
@@ -50,6 +82,8 @@ public class Following : MonoBehaviour{
         //Debug.Log(targetFloor.name);
         //Debug.Log(this.transform.position);
         //Debug.Log(rb.velocity);
+        //if(IsPlayerInRange())
+        
         Move();
         prePos = this.transform.position;
         playerPrePos = player.transform.position;
@@ -81,7 +115,8 @@ public class Following : MonoBehaviour{
                 targetFloor = Detect(key);
             }
         }
-        MoveTowards(targetFloor);
+        if(!IsOutOfRange(targetFloor))
+            MoveTowards(targetFloor);
     }
 
     public void MoveTowards(Transform target)//控制向特定方向移动
@@ -161,5 +196,21 @@ public class Following : MonoBehaviour{
         yield return new WaitForSeconds(0.1f);
     }
 
+
+    bool IsOutOfRange(Transform target)
+    {
+        Vector3 targetFloor = target.position;
+        if ((targetFloor.x > urPos.x || targetFloor.x <llPos.x) || (targetFloor.y > urPos.y || targetFloor.y < llPos.y))
+            return true;
+        return false;
+    }
+
+    float IsPlayerInRange()
+    {
+        Vector3 playerPos = player.transform.position;
+        if ((playerPos.x > urPos.x || playerPos.x < llPos.x) || (playerPos.y > urPos.y || playerPos.y < llPos.y))
+            return 0f;
+        return 1f;
+    }
    
 }

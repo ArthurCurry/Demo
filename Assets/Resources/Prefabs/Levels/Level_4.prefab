@@ -55465,6 +55465,8 @@ MonoBehaviour:
   moveSpeed: 2
   isMoving: 0
   targetArrived: 0
+  upperright: {fileID: 4677683051922824}
+  lowerleft: {fileID: 4445232783801684}
 --- !u!114 &114096461365163472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55693,6 +55695,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: -1, y: 0}
+  moveSpeed: 0
+  isMoving: 0
+  targetArrived: 0
+  isDead: 0
+  disEqUnit: 0
 --- !u!114 &114661098611452198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55724,6 +55731,8 @@ MonoBehaviour:
   moveSpeed: 2
   isMoving: 0
   targetArrived: 0
+  upperright: {fileID: 4191799495238726}
+  lowerleft: {fileID: 4359950591582310}
 --- !u!114 &114697825507518638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55816,6 +55825,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: -1}
+  moveSpeed: 0
+  isMoving: 0
+  targetArrived: 0
+  isDead: 0
+  disEqUnit: 0
 --- !u!114 &114962926329006928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55828,6 +55842,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 1}
+  moveSpeed: 0
+  isMoving: 0
+  targetArrived: 0
+  isDead: 0
+  disEqUnit: 0
 --- !u!120 &120258544743166812
 LineRenderer:
   m_ObjectHideFlags: 1
