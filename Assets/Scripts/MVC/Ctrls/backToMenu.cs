@@ -22,6 +22,7 @@ public class backToMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                 DontDestroyOnLoad(GameObject.Find("One shot audio"));
+
                 SceneManager.LoadScene("Menu");
             }
         }
