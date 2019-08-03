@@ -175,7 +175,7 @@ Prefab:
     - target: {fileID: 20351179281290088, guid: a29e39a667abf7f408df295827bdad45,
         type: 2}
       propertyPath: orthographic size
-      value: 5.8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114066467195084168, guid: a29e39a667abf7f408df295827bdad45,
         type: 2}
@@ -186,6 +186,11 @@ Prefab:
         type: 2}
       propertyPath: near clip plane
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066467195084168, guid: a29e39a667abf7f408df295827bdad45,
+        type: 2}
+      propertyPath: sensitivityAmt
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a29e39a667abf7f408df295827bdad45, type: 2}

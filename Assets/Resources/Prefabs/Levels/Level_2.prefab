@@ -43513,7 +43513,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c87a281fe6484ea62099fb87ab4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleUI: []
+  puzzleUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   number: 010000000200000000000000
   active: {fileID: 1891499658750632}
   triggered: 0
