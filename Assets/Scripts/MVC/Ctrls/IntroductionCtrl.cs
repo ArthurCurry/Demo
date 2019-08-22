@@ -46,6 +46,7 @@ public class IntroductionCtrl : MonoBehaviour
         if(Changed == true)
         {
             IntroductionModel.PageList.TryGetValue(page, out introduction);
+            GetIntroductionText(introduction);
             GetIntroductionSprite(introduction);
             GetIntroductionTitle(introduction);
             Changed = false;

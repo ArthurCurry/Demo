@@ -20,7 +20,7 @@ public class backgroundchanged : MonoBehaviour {
         if (ColorAlpha >= 0.3)
         {
             ColorAlpha -= Time.deltaTime / 2;
-                Debug.Log(ColorAlpha);
+                //Debug.Log(ColorAlpha);
             Background.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, ColorAlpha);
         }
         if (ColorAlpha <= 0.3)

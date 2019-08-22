@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\AnimatorController",
-    "\\CG&Dialog",
-    "\\MVC",
-    "\\MVC\\Ctrls",
-    "\\MVC\\Models",
-    "\\MVC\\Views",
-    "\\Selection",
-    "\\shader",
-    "\\Tools"
+    ""
   ],
-  "SelectedNode": "\\MVC\\Models\\Collector.cs",
+  "SelectedNode": "\\Tools",
   "PreviewInSolutionExplorer": false
 }
