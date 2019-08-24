@@ -40,8 +40,7 @@ public class FixedPatrol : MonoBehaviour {
 	
     void Update()
     {
-        Move();
-        prePos = this.transform.position;
+       
     }
 
 	// Update is called once per frame
@@ -63,12 +62,15 @@ public class FixedPatrol : MonoBehaviour {
         }*/
         //Debug.Log(index);
         //MoveTo(route[index]);
+        moveSpeed = playerRB.velocity.magnitude;
         if ((transform.position - route[index]).magnitude < 0.1f && player.transform.position != playerPrePos)
             index += 1;
         if ((transform.position - route[route.Count - 1]).magnitude < 0.1f)
         {
                 DestroyImmediate(this.gameObject);
         }
+        Move();
+        prePos = this.transform.position;
         playerPrePos = player.transform.position;
     }
 
