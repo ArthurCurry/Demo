@@ -33,7 +33,7 @@ TagManager:
   - Enemy
   - Unwalkable
   - Dialog
-  - 
+  - OnlyPlayer
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 2440041991
+    locked: 0
+  - name: UI
+    uniqueID: 3135212019
     locked: 0

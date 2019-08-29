@@ -8,7 +8,9 @@ public class CameraController : MonoBehaviour {
     private PlayerMovements playerMov;
     public float dampTime;
     public Transform[] mapEdges;
+    [SerializeField]
     private Transform mapLowerlf;//地图左下
+    [SerializeField]
     private Transform mapUpperrt;//地图右上
     private float width;//屏幕实际长度和宽度
     private float height;
@@ -91,7 +93,6 @@ public class CameraController : MonoBehaviour {
     public void MoveCameraTo(GameObject target)  // 镜头移动
     {
         aim = target.transform;
-        player = target;
         Vector3 position = player.transform.position;
         position.z = transform.position.z;
         xd = Mathf.Abs(transform.position.x - target.transform.position.x);
@@ -99,7 +100,7 @@ public class CameraController : MonoBehaviour {
         xSpeed = 12;
         ySpeed = 12;
         //transform.position = Vector3.SmoothDamp(transform.position, position, ref currentV, 0.01f);
-        dis = Camera.main.transform.position - player.transform.position;
+        dis = Camera.main.transform.position -target.transform.position;
         toMove = true;
         DetectEdges();
     }

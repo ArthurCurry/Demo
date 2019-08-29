@@ -97,6 +97,7 @@
      <Compile Include="Assets\Scripts\Monster\EyesMonster.cs" />
      <Compile Include="Assets\Scripts\Monster\FixedPatrol.cs" />
      <Compile Include="Assets\Scripts\Monster\Following.cs" />
+     <Compile Include="Assets\Scripts\Monster\FollowingRestriction.cs" />
      <Compile Include="Assets\Scripts\Monster\Monster.cs" />
      <Compile Include="Assets\Scripts\Monster\MonsterManager.cs" />
      <Compile Include="Assets\Scripts\Monster\Patrol.cs" />

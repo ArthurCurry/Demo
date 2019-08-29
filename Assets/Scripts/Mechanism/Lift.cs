@@ -69,6 +69,7 @@ public class Lift : MonoBehaviour {
             }
             if (child.name.Contains("gap"))
                 child.gameObject.SetActive(false);
+            if(child.name.Contains("Unreplaceable"))
             child.GetComponent<BoxCollider2D>().enabled = true;
 
         }
