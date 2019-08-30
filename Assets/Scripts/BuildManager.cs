@@ -57,6 +57,14 @@ public class BuildManager {
         get { return XMLname; }
         set { XMLname = value; }
     }
+
+    private static GameObject map;
+    public static GameObject Map
+    {
+        get { return map; }
+        set { map = value; }
+    }
+
     public static bool CGEnd = false;
     public static bool toDestroy = false;
 
@@ -148,7 +156,7 @@ public class BuildManager {
         //playerInstance.GetComponent<PlayerMovements>().InitData();
     }
 
-    public static void InitMap(string levelName)//初始化地图
+    public static void InitMap(string levelName)//初始化地图 备份地图
     {
         if (GameObject.FindWithTag("Level") != null)
             return;
@@ -157,6 +165,8 @@ public class BuildManager {
             name = "异步敌人";
         }
         GameObject level = Resources.Load<GameObject>(HashID.levelPath+levelName);
+        map = GameObject.Instantiate(level);
+        map.SetActive(false);
         GameObject.Instantiate(level);
         PlayerMovements.InitData();
     }
