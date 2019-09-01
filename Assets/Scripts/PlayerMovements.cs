@@ -22,6 +22,8 @@ public class PlayerMovements : MonoBehaviour {
     private float stopTime;
 
     private AudioPlay ap;
+
+    private bool onlyOne;
     // Use this for initialization
     public static void InitData()
     {
@@ -176,13 +178,64 @@ public class PlayerMovements : MonoBehaviour {
 
     void Reborn()//重生
     {
+        isDead = false;
+        if (BuildManager.Level == 1)
+        {
+            if (!onlyOne)
+            {
+                if (GameObject.Find("Level_1(Clone)")) // Debug会话框不会消失。
+                {
+                    GameObject level = GameObject.Find("Level_1(Clone)");
+                    level.GetComponent<PatrolTalk>()._Destroy();
+                    level.GetComponent<PatrolTalk>().enabled = false;
+                }
+                if (GameObject.FindWithTag(HashID.LEVEL))
+                    Object.DestroyImmediate(GameObject.FindWithTag(HashID.LEVEL));
+                BuildManager.Map.SetActive(true);
+                BuildManager.Map = GameObject.Instantiate (Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
+                BuildManager.Map.SetActive(false);
+                onlyOne = true;
+            }
+        }
+        else if (BuildManager.Level == 3)
+        {
+            if (!onlyOne)
+            {
+                if (GameObject.Find("Level_3(Clone)")) // Debug会话框不会消失。
+                {
+                    GameObject level = GameObject.Find("Level_3(Clone)");
+                    level.GetComponent<MonsterTalk>()._Destroy();
+                    level.GetComponent<MonsterTalkB>()._Destroy();
+                    level.GetComponent<MonsterTalkC>()._Destroy();
+                }
+                if (GameObject.FindWithTag(HashID.LEVEL))
+                    Object.DestroyImmediate(GameObject.FindWithTag(HashID.LEVEL));
+                BuildManager.Map.SetActive(true);
+                BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
+                BuildManager.Map.SetActive(false);
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+
+            }
+        }     
+        else
+        {
+            if (GameObject.FindWithTag(HashID.LEVEL))
+                Object.DestroyImmediate(GameObject.FindWithTag(HashID.LEVEL));
+            BuildManager.Map.SetActive(true);
+            BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
+            BuildManager.Map.SetActive(false);
+            GameObject root = GameObject.Find("Canvas");
+            root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+            root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+        }
         rb.velocity = Vector2.zero;
         targetFloor = GameObject.Find(HashID.StartPoint).transform;
         transform.position = targetFloor.transform.position;
         Camera.main.transform.position = this.transform.position;
         targetArrived = true;
         isMoving = false;
-        isDead = false;
     }
 
     void StopAt(Transform target)
