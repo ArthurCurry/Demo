@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 95873956292313776}
   - component: {fileID: 114105469138642330}
   - component: {fileID: 114944964620802588}
+  - component: {fileID: 114003877269556440}
   m_Layer: 10
   m_Name: Following
   m_TagString: Enemy
@@ -108,6 +109,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114003877269556440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518807669873618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13eb3759c9e273648b3c760533aa9d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114105469138642330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,14 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91b89aeb017b7e4582e181fcc248886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latePos: {x: 0, y: 0, z: 0}
-  pos: {fileID: 0}
-  nextPos: {fileID: 0}
-  player: {fileID: 0}
   mode: 1
-  triggerPoses:
-  - {fileID: 0}
-  triggered: 0
+  targetFloor: {fileID: 0}
+  moveSpeed: 0
+  isMoving: 0
+  targetArrived: 0
+  upperright: {fileID: 0}
+  lowerleft: {fileID: 0}
 --- !u!114 &114944964620802588
 MonoBehaviour:
   m_ObjectHideFlags: 1
