@@ -5,12 +5,15 @@ using UnityEngine;
 public class Lift : MonoBehaviour {
 
     [SerializeField]
+    [Tooltip("触发该机关的主动方")]
     private GameObject active;
     [SerializeField]
+    [Tooltip("触发器")]
     private GameObject passive;
     [SerializeField]
     private bool triggered;
     [SerializeField]
+    [Tooltip("联动触发的另一个机关")]
     private Lift lift;
     private bool lifted;
 
@@ -60,19 +63,15 @@ public class Lift : MonoBehaviour {
         foreach(Transform child in this.GetComponentInChildren<Transform>())
         {
             Debug.Log(child.name);
-            child.gameObject.SetActive(true);
             if(child.name.Contains("door"))
             {
                 Debug.Log("door");
                 child.GetComponent<SpriteRenderer>().color = Color.white;
                 continue;
             }
-            if (child.name.Contains("gap"))
-                child.gameObject.SetActive(false);
-            if(child.name.Contains("Unreplaceable"))
-            child.GetComponent<BoxCollider2D>().enabled = true;
-
         }
+        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     void TriggerDown()
