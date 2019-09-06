@@ -92,13 +92,17 @@ public class LevelEditor:EditorWindow{
 
     void Align(int times)//复制并排列
     {
-        GameObject target = Selection.activeTransform.gameObject;
+        Transform[] targets = Selection.transforms;
         //Debug.Log(target.name);
-        for (int i = 0; i < cloneTimes; i++)
+        foreach (Transform target in targets)
         {
-            GameObject clone = GameObject.Instantiate(target, target.transform.position + (i + 1) * unitSize * directions[index_1], target.transform.rotation);
-            clone.name = target.name + "_" + i;
-            clone.transform.parent = target.transform.parent;
+            for (int i = 0; i < cloneTimes; i++)
+            {
+                GameObject clone = GameObject.Instantiate(target.gameObject, target.position + (i + 1) * unitSize * directions[index_1], target.rotation);
+                clone.name = target.gameObject.name + "_" + i;
+                clone.transform.parent = target.parent;
+            }
+
         }
     }
 
