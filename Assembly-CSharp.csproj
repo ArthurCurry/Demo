@@ -90,6 +90,7 @@
      <Compile Include="Assets\Scripts\Mechanism\MechManager.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Shelf.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Spike.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\Sting.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Trap.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode1.cs" />
      <Compile Include="Assets\Scripts\Monster\AttackMode3.cs" />
