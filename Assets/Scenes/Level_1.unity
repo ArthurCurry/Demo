@@ -1278,9 +1278,29 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -27.954727
       objectReference: {fileID: 0}
+    - target: {fileID: 1769739490086354, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b719222d9dc3e43943d0a9b7f7b5c7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &816011487 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1981449573454430, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 816011486}
+--- !u!114 &816011488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816011487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3873b72e27cdf9a4693d6672bb601207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &2098039909 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20351179281290088, guid: a29e39a667abf7f408df295827bdad45,

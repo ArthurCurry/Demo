@@ -71,6 +71,7 @@ public class BuildManager {
     public static bool tocollect = false;
 
     private static AudioPlay ap = new AudioPlay();
+    private static Guide guide = GameObject.Find(HashID.CANVAS).GetComponent<Guide>();
 
     public static void WhileCG()
     {        
@@ -114,6 +115,8 @@ public class BuildManager {
                 ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
             }
             dialog.DestoryDiaLog();
+            if (level == 1)
+                guide.GuideTo("基本的操作");
             Talk.HasTalk = false;
         }
 
