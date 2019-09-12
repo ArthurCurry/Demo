@@ -92,6 +92,10 @@ public class BuildManager {
             {
                 if (Input.GetKeyDown(KeyCode.Space)|| Input .GetMouseButtonDown (0))
                 {
+                    if(x==2 && GameObject.Find(HashID.CANVAS).transform.Find("CG6(Clone)"))
+                    {
+                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
+                    }
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                     Dialog(x);
                     x = x + 1;
@@ -110,20 +114,24 @@ public class BuildManager {
             CGEnd = true;
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
-            if(GameObject .Find(HashID .CANVAS).transform.Find("CG6(Clone)"))
-            {
-                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
-            }
             dialog.DestoryDiaLog();
-            switch (level)
+            if (!GameObject.FindWithTag("CG"))
             {
-                case 1:
-                    guide.GuideTo("基本的操作");
-                    break;
-                case 2:
-                    guide.GuideTo("攻击机关");
-                    break;
-
+                switch (level)
+                {
+                    case 1:
+                        guide.GuideTo("基本的操作");
+                        break;
+                    case 2:
+                        guide.GuideTo("攻击机关");
+                        break;
+                    case 3:
+                        guide.GuideTo("同步敌人");
+                        break;
+                    case 4:
+                        guide.GuideTo("冰面");
+                        break;
+                }
             }
             Talk.HasTalk = false;
         }
@@ -259,8 +267,8 @@ public class BuildManager {
         switch (level)
         {
             case 1: level += 1; levelName = "Level_2";XMLname = "第二关"; break;
-            case 2: level += 1; need = true; InitCG("CG2", "第三关CG1"); levelName = "Level_3"; XMLname = "第三关";  break;
-            case 3: level += 1; need = true; InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; break;
+            case 2: level += 1; need = true; levelName = "Level_3"; XMLname = "第三关";  break;
+            case 3: level += 1; need = true; levelName = "Level_4";XMLname = "第四关"; break;
             case 4: level += 1; levelName = "Level_5";XMLname = "第五关"; break;
             case 5: level += 1; levelName = "Level_6";XMLname = "第六关"; break;
         }

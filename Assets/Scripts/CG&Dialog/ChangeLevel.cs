@@ -69,8 +69,6 @@ public class ChangeLevel : MonoBehaviour {
                     {
                         GameObject level = GameObject.Find("Level_3(Clone)");
                         level.GetComponent<MonsterTalk>()._Destroy();
-                        level.GetComponent<MonsterTalkB>()._Destroy();
-                        level.GetComponent<MonsterTalkC>()._Destroy();
                     }
                     BuildManager.Judge();
                     BuildManager.Destroy_All();
@@ -179,10 +177,6 @@ public class ChangeLevel : MonoBehaviour {
             if (dialog != null)
             {
                 dialog.DestoryDiaLog();
-            }
-            if (BuildManager.Level == 4)
-            {
-                BuildManager.InitCG("CG8", "旁白");
             }
             else if(BuildManager.Level == 6)
             {

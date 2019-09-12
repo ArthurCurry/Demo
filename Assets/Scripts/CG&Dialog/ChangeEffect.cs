@@ -70,9 +70,13 @@ public class ChangeEffect : MonoBehaviour {
                 {
                     BuildManager.InitCG("CG5", "第四关CG1");
                 }
+                else if(BuildManager .Level == 5)
+                {
+                    BuildManager.InitCG("CG8", "第四关结束CG");
+                }
                 else
                 {
-                    if (BuildManager.Level == 2 || BuildManager.Level == 5 || BuildManager.Level == 6)
+                    if (BuildManager.Level == 2|| BuildManager.Level == 6)
                     {
                         BuildManager.Need = true;
                     }

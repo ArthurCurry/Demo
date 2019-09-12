@@ -31,11 +31,15 @@ public class IntroductionCtrlB : MonoBehaviour
         Introduction p4 = new Introduction("攻击机关", "眼球机关的攻击范围为面前五格。玩家每进行一次行走操作，机关则会顺时针转90度，否则将处于静止状态。", "photo8");
         Introduction p5 = new Introduction("收集道具·其一", "地图中充满着各种各样的收集道具。", "photo5");
         Introduction p6 = new Introduction("收集道具·其二", "这些道具包含着女孩高三一年的往事，有助于玩家更好地理解游戏剧情。", "photo6");
-        Introduction p7 = new Introduction("地图碎片是什么", "地图碎片主要会随着关卡中流程得到，每一关独立计算，关卡重新开始后数量重置。请谨慎地使用地图碎片，避开机关和敌人，搭建一条通往收集物和终点的道路吧。", "photo7");
-        Introduction p8 = new Introduction("异步敌人", "前方的敌人每一步都会往主角移动方向的反方向进行。", "photo11");
-        Introduction p9 = new Introduction("触发机关", "大门和铁栅栏不可以被覆盖。有机关可以打开大门，试着分析怎么样行动能让异步敌人触发该机关", "photo12");
-        Introduction p10 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
-        instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 };
+        Introduction p7 = new Introduction("同步敌人", "在前方的敌人是同步敌人，其每一步都会模仿主角的行动。", "photo7");
+        Introduction p8 = new Introduction("触发机关·其一", "这种有不详气息的机关无法由玩家进行操纵，必须诱导敌人踏上此机关以触发事件。", "photo11");
+        Introduction p9 = new Introduction("地图碎片·其一", "在红线框定的范围内，会给予玩家特定的物件——地图碎片。可以拖拽放置地图碎片，将异常的地面（包括无法行走的地面，坍塌地面，冰面）变成能够正常行走的地面。", "photo12");
+        Introduction p10 = new Introduction("地图碎片·其二", "请注意，地图碎片只对红线内地图有效。进入红线区域地图碎片会出现，一旦走出即会消失。", "photo13");
+        Introduction p11 = new Introduction("冰面", "无论是玩家还是敌人，在冰面上面都会滑行，直到遇到阻碍或者正常路面。滑行只算做一步操作。", "photo13");
+        Introduction p12 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
+        Introduction p13 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
+        Introduction p14 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
+        instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 ,p11, p12, p13, p14 };
         get = new Introduction[3] { new Introduction("", "", ""), new Introduction("", "", ""), new Introduction("", "", "") };
     }
 

@@ -21,24 +21,15 @@ public class TLevelTrigger : MonoBehaviour {
     private GameObject npc3;
     [SerializeField]
     private GameObject npc5;
-
-    private IntroductionCtrlB itb;
-    private bool status;
     private bool level;
-    [SerializeField]
-    private Transform upperright;
-    [SerializeField]
-    private Transform lowerleft;
 
     // Use this for initialization
     void Start()
     {
-        itb = GameObject.Find(HashID.CANVAS).GetComponent<IntroductionCtrlB>();
         instance = new XmlReader();
         instance.ReadXML("Resources/剧情对话.xml");
         player = GameObject.FindWithTag(HashID.PLAYER);
         toPause = false;
-        status = false;
         ahasTalk = false;
         bhasTalk = false;
         chasTalk = false;
@@ -75,49 +66,32 @@ public class TLevelTrigger : MonoBehaviour {
         if (toPause)
         {
             if (x < count)
-            {                
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
+            {
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    if (status)
+                    instance.SetIndex(x);
+                    if (!JudgeD(dialog.ID))
                     {
-                        itb.GetIntroductionTitle(itb.get[x]);
-                        itb.GetIntroductionText(itb.get[x]);
-                        itb.GetIntroductionSprite(itb.get[x]);
-                        x = x + 1;
+                        dialog.DestoryDiaLog();
+                        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
+                        dialog.showDialog(dialog.JudgeD(dialog.ID));
                     }
-                    else
-                    {
-                        instance.SetIndex(x);
-                        if (!JudgeD(dialog.ID))
-                        {
-                            dialog.DestoryDiaLog();
-                            dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
-                            dialog.showDialog(dialog.JudgeD(dialog.ID));
-                        }
-                        dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
-                        x = x + 1;
-                    }
+                    dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
+                    x = x + 1;
                 }
             }
             else
             {
-                if(status)
-                {
-                    status = false;
-                    itb.number = 0;
-                }
                 toPause = false;
                 x = 0;
-
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0))
+        else if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonDown(0))
         {
             if (dialog != null)
             {
                 dialog.DestoryDiaLog();
             }
-            itb.ClosePanel();
 
         }
     }
@@ -154,19 +128,6 @@ public class TLevelTrigger : MonoBehaviour {
                 chasTalk = true;
             }
         }
-        else if(!OutOfRange(player)&&!status&&!level)
-        {
-            itb.CompareTo("同步敌人");
-            count = itb.number;
-            itb.OpenPanel();
-            itb.GetIntroductionTitle(itb.get[0]);
-            itb.GetIntroductionText(itb.get[0]);
-            itb.GetIntroductionSprite(itb.get[0]);
-            x = 1;
-            status = true;
-            toPause = true;
-            level = true;
-        }
     }
 
     public bool JudgeD(string name)  //判断对话框的ID
@@ -188,13 +149,5 @@ public class TLevelTrigger : MonoBehaviour {
                 dialog.instantiation.transform.SetSiblingIndex(x - 1);
             }
         }
-    }
-
-    private bool OutOfRange(GameObject character)
-    {
-        if ((character.transform.position.x >= lowerleft.position.x && character.transform.position.y >= lowerleft.position.y) && (character.transform.position.x <= upperright.position.x && character.transform.position.y <= upperright.position.y))
-            return false;
-        else
-            return true;
     }
 }

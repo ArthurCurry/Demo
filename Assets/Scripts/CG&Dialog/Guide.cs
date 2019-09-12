@@ -80,6 +80,15 @@ public class Guide : MonoBehaviour {
                     case "收集道具·其一":
                         this.GuideTo("收集道具·其二");
                         break;
+                    case "同步敌人":
+                        this.GuideTo("触发机关·其一");
+                        break;
+                    case "触发机关·其一":
+                        this.GuideTo("地图碎片·其一");
+                        break;
+                    case "地图碎片·其一":
+                        this.GuideTo("地图碎片·其二");
+                        break;
                     default:
                         itb.ClosePanel();
                         break;
