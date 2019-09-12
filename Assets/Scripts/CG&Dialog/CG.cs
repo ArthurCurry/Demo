@@ -365,7 +365,6 @@ public class CG : MonoBehaviour
             {
                 toDo = true;
                 once = true;
-                break;
             }
             this.m_Statuss = FadeStatuss.FadeOut;
         }

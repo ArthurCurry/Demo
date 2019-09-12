@@ -127,6 +127,26 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                     BuildManager.LevelName = "Level_6";
                     BuildManager.Level = 6;
                     break;
+                case 7:
+                    BuildManager.XMLName = "第七关";
+                    BuildManager.LevelName = "Level_7";
+                    BuildManager.Level = 7;
+                    break;
+                case 8:
+                    BuildManager.XMLName = "第八关";
+                    BuildManager.LevelName = "Level_8";
+                    BuildManager.Level = 8;
+                    break;
+                case 9:
+                    BuildManager.XMLName = "第九关";
+                    BuildManager.LevelName = "Level_9";
+                    BuildManager.Level = 9;
+                    break;
+                case 10:
+                    BuildManager.XMLName = "第十关";
+                    BuildManager.LevelName = "Level_10";
+                    BuildManager.Level = 10;
+                    break;
             }
             ap.PlayClipAtPoint(clip1, Camera.main.transform.position, 1f);
             DontDestroyOnLoad(GameObject.Find("One shot audio"));

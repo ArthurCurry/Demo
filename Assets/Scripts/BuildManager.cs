@@ -297,6 +297,10 @@ public class BuildManager {
             case 3: level += 1; need = true; levelName = "Level_4";XMLname = "第四关"; break;
             case 4: level += 1; levelName = "Level_5";XMLname = "第五关"; break;
             case 5: level += 1; levelName = "Level_6";XMLname = "第六关"; break;
+            case 6: level += 1; levelName = "Level_7"; XMLname = "第七关"; break;
+            case 7: level += 1; levelName = "Level_8"; XMLname = "第八关"; break;
+            case 8: level += 1; levelName = "Level_9"; XMLname = "第九关"; break;
+            case 9: level += 1; levelName = "Level_10"; XMLname = "第十关"; break;
         }
     }
 
