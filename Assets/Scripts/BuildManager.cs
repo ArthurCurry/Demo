@@ -70,6 +70,11 @@ public class BuildManager {
 
     public static bool tocollect = false;
     private static bool toGuide = false;
+    public static bool ToGuide
+    {
+        get { return toGuide; }
+        set { toGuide = value; }
+    }
 
     private static AudioPlay ap = new AudioPlay();
     private static Guide guide = GameObject.Find(HashID.CANVAS).GetComponent<Guide>();
@@ -106,7 +111,6 @@ public class BuildManager {
             else
             {
                 isCG = false;
-                toGuide = true;
                 x = 0;
                
             }

@@ -35,8 +35,8 @@ public class SLevelTrigger : MonoBehaviour {
         {
             if (!onlyOne)
             {
-                InitAttribution("第六关触发");
-                InitDialog();
+                BuildManager.Need = true;
+                BuildManager.InitCG("CG10", "第六关触发1");
                 toPause = true;
                 onlyOne = true;
             }

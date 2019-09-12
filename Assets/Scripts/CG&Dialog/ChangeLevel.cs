@@ -117,16 +117,6 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                 }
             }
-            else if (BuildManager.Level == 8)
-            {
-                if (!onlyOne)
-                {
-                    InitAttribution("第八关结束");
-                    InitDialog();
-                    toPause = true;
-                    onlyOne = true;
-                }
-            }
             else if (BuildManager.Level == 9)
             {
                 if (!onlyOne)
