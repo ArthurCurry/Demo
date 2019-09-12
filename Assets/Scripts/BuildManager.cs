@@ -69,8 +69,15 @@ public class BuildManager {
     public static bool toDestroy = false;
 
     public static bool tocollect = false;
+    private static bool toGuide = false;
+    public static bool ToGuide
+    {
+        get { return toGuide; }
+        set { toGuide = value; }
+    }
 
     private static AudioPlay ap = new AudioPlay();
+    private static Guide guide = GameObject.Find(HashID.CANVAS).GetComponent<Guide>();
 
     public static void WhileCG()
     {        
@@ -81,6 +88,7 @@ public class BuildManager {
                 isCG = false;
                 x = 0;
                 CGEnd = true;
+                toGuide = true;
                 ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                 if (GameObject.FindWithTag("CG"))
                     GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
@@ -91,6 +99,10 @@ public class BuildManager {
             {
                 if (Input.GetKeyDown(KeyCode.Space)|| Input .GetMouseButtonDown (0))
                 {
+                    if(x==2 && GameObject.Find(HashID.CANVAS).transform.Find("CG6(Clone)"))
+                    {
+                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
+                    }
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                     Dialog(x);
                     x = x + 1;
@@ -109,11 +121,44 @@ public class BuildManager {
             CGEnd = true;
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
-            if(GameObject .Find(HashID .CANVAS).transform.Find("CG6(Clone)"))
-            {
-                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
-            }
             dialog.DestoryDiaLog();
+            if (!GameObject.FindWithTag("CG") && toGuide)
+            {
+                switch (level)
+                {
+                    case 1:
+                        guide.GuideTo("基本的操作");
+                        break;
+                    case 2:
+                        guide.GuideTo("攻击机关");
+                        break;
+                    case 3:
+                        guide.GuideTo("同步敌人");
+                        break;
+                    case 4:
+                        guide.GuideTo("冰面");
+                        break;
+                    case 5:
+                        guide.GuideTo("触发机关·其二");
+                        break;
+                    case 6:
+                        guide.GuideTo("异步敌人");
+                        break;
+                    case 7:
+                        guide.GuideTo("传送门");
+                        break;
+                    case 8:
+                        guide.GuideTo("针刺");
+                        break;
+                    case 9:
+                        guide.GuideTo("通道");
+                        break;
+                    case 10:
+                        guide.GuideTo("坍塌路面");
+                        break;
+                }
+                toGuide = false;
+            }
             Talk.HasTalk = false;
         }
 
@@ -248,10 +293,14 @@ public class BuildManager {
         switch (level)
         {
             case 1: level += 1; levelName = "Level_2";XMLname = "第二关"; break;
-            case 2: level += 1; need = true; InitCG("CG2", "第三关CG1"); levelName = "Level_3"; XMLname = "第三关";  break;
-            case 3: level += 1; need = true; InitCG("CG5", "旁白"); levelName = "Level_4";XMLname = "第四关"; break;
+            case 2: level += 1; need = true; levelName = "Level_3"; XMLname = "第三关";  break;
+            case 3: level += 1; need = true; levelName = "Level_4";XMLname = "第四关"; break;
             case 4: level += 1; levelName = "Level_5";XMLname = "第五关"; break;
             case 5: level += 1; levelName = "Level_6";XMLname = "第六关"; break;
+            case 6: level += 1; levelName = "Level_7"; XMLname = "第七关"; break;
+            case 7: level += 1; levelName = "Level_8"; XMLname = "第八关"; break;
+            case 8: level += 1; levelName = "Level_9"; XMLname = "第九关"; break;
+            case 9: level += 1; levelName = "Level_10"; XMLname = "第十关"; break;
         }
     }
 

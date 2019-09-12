@@ -36,7 +36,7 @@ public class GameManager:MonoBehaviour {
         //BuildManager.Level = 1;
         GameObject root = GameObject.Find("Canvas");
         //escape = root.transform.Find("Escape").gameObject;
-        root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn; 
+        root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
     }
 	
 	// Update is called once per frame

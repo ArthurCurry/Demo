@@ -7719,6 +7719,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4364176252726218}
+  - component: {fileID: 114813995174139032}
   m_Layer: 0
   m_Name: Level_6
   m_TagString: Level
@@ -34813,6 +34814,18 @@ MonoBehaviour:
   distance: 0
   inPosition: 0
   attackRange: 5
+--- !u!114 &114813995174139032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688850115199932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3c0d8dc49c4764fa8a007ba57697f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a: {fileID: 4331899609679608}
 --- !u!114 &114853453102489884
 MonoBehaviour:
   m_ObjectHideFlags: 1

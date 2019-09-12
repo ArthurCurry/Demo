@@ -27,6 +27,7 @@ public class ChangeEffect : MonoBehaviour {
     private State m_State;
     public State M_State
     {
+        get { return m_State; }
         set { m_State = value; }
     }
 
@@ -70,11 +71,31 @@ public class ChangeEffect : MonoBehaviour {
                 {
                     BuildManager.InitCG("CG5", "第四关CG1");
                 }
+                else if(BuildManager .Level == 5)
+                {
+                    BuildManager.InitCG("CG8", "第四关结束CG");
+                }
+                else if (BuildManager .Level == 6)
+                {
+                    BuildManager.InitCG("CG12", "第五关结束CG");
+                }
+                else if(BuildManager .Level == 8)
+                {
+                    BuildManager.InitCG("CG13", "第七关结束CG");
+                }
+                else if (BuildManager .Level == 9)
+                {
+                    BuildManager.InitCG("CG14", "第八关结束");
+                }
                 else
                 {
-                    if (BuildManager.Level == 2 || BuildManager.Level == 5 || BuildManager.Level == 6)
+                    if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
                     {
                         BuildManager.Need = true;
+                    }
+                    else
+                    {
+                        BuildManager.Need = false;
                     }
                     ap.Play(Camera.main.gameObject);
                     BuildManager.Init();
@@ -83,7 +104,7 @@ public class ChangeEffect : MonoBehaviour {
                     BuildManager.InitAttribute();
                 }
                 game = o_status.none;
-            }            
+            }
         }
     }
 
@@ -102,6 +123,10 @@ public class ChangeEffect : MonoBehaviour {
         FadeOut();
         if (rawImage.color.a <= 0.05f)
         {
+            if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
+            {
+                BuildManager.ToGuide = true;
+            }
             rawImage.color = Color.clear;
             rawImage.enabled = false;            
             m_State = State.none;

@@ -16,8 +16,17 @@ public class ChangeLevel : MonoBehaviour {
     private bool toPause;
     private bool onlyOne;
 
+    private float time;
+    private bool toDo;
+    private bool once;
+    private bool one;
+
     // Use this for initialization
     void Start () {
+        time = 0f;
+        toDo = false;
+        once = true;
+        one = false;
         ap = new AudioPlay();
         instance = new XmlReader();
         instance.ReadXML("Resources/剧情对话.xml");
@@ -31,6 +40,7 @@ public class ChangeLevel : MonoBehaviour {
 	void Update () {
         Judge();
         ShowDialog();
+        UpdateTime();
     }
 
     void Judge()
@@ -41,17 +51,25 @@ public class ChangeLevel : MonoBehaviour {
             {
                 if (!onlyOne)
                 {
-                    if (GameObject.Find("Level_1(Clone)")) // Debug会话框不会消失。
-                    {
-                        GameObject level = GameObject.Find("Level_1(Clone)");
-                        level.GetComponent<PatrolTalk>()._Destroy();
-                        level.GetComponent<PatrolTalk>().enabled = false;
-                    }
                     InitAttribution("到达终点");
                     InitDialog();
                     toPause = true;
                     onlyOne = true;
                 }
+            }
+            else if(BuildManager .Level == 2)
+            {
+                if (GameObject.Find("Level_2(Clone)")) // Debug会话框不会消失。
+                {
+                    GameObject level = GameObject.Find("Level_2(Clone)");
+                    level.GetComponent<PatrolTalk>()._Destroy();
+                    level.GetComponent<PatrolTalk>().enabled = false;
+                }
+                BuildManager.Judge();
+                BuildManager.Destroy_All();
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
             }
             else if(BuildManager .Level == 3)
             {
@@ -61,8 +79,6 @@ public class ChangeLevel : MonoBehaviour {
                     {
                         GameObject level = GameObject.Find("Level_3(Clone)");
                         level.GetComponent<MonsterTalk>()._Destroy();
-                        level.GetComponent<MonsterTalkB>()._Destroy();
-                        level.GetComponent<MonsterTalkC>()._Destroy();
                     }
                     BuildManager.Judge();
                     BuildManager.Destroy_All();
@@ -91,11 +107,21 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                 }
             }
-            else if(BuildManager .Level == 6)
+            else if(BuildManager .Level == 7)
             {
                 if (!onlyOne)
                 {
-                    InitAttribution("第六关结束");
+                    InitAttribution("第七关结束");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                }
+            }
+            else if (BuildManager.Level == 9)
+            {
+                if (!onlyOne)
+                {
+                    InitAttribution("第九关结束");
                     InitDialog();
                     toPause = true;
                     onlyOne = true;
@@ -140,14 +166,6 @@ public class ChangeLevel : MonoBehaviour {
                     {
                         ap.PlayClipAtPoint(ap.AddAudioClip("Audio/群人大笑"), Camera.main.transform.position, 1f);
                     }
-                    else if(s.Equals("第六关结束") && x == 4)
-                    {
-                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/呕吐"), Camera.main.transform.position, 1f);
-                    }
-                    else if (s.Equals("第六关结束") && x == 11)
-                    {
-                        ap.PlayClipAtPoint(ap.AddAudioClip("Audio/传送"), Camera.main.transform.position, 1f);
-                    }
                     instance.SetIndex(x);
                     if (!JudgeD(dialog.ID))
                     {
@@ -172,11 +190,7 @@ public class ChangeLevel : MonoBehaviour {
             {
                 dialog.DestoryDiaLog();
             }
-            if (BuildManager.Level == 4)
-            {
-                BuildManager.InitCG("CG8", "旁白");
-            }
-            else if(BuildManager.Level == 6)
+            else if (BuildManager.Level == 11)
             {
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
@@ -184,13 +198,19 @@ public class ChangeLevel : MonoBehaviour {
 		Application.Quit();
 #endif
             }
-            else if(onlyOne)
+            else if (s.Equals("第八关结束") && !once)
+            {
+                once = true;
+                toDo = true;
+            }
+            else if (onlyOne)
             {
                 BuildManager.Judge();
                 BuildManager.Destroy_All();
                 GameObject root = GameObject.Find("Canvas");
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+                onlyOne = false;
             }
         }
     }
@@ -202,5 +222,29 @@ public class ChangeLevel : MonoBehaviour {
             return true;
         }
         else return false;
+    }
+
+    void UpdateTime()
+    {
+        if (toDo)
+        {
+            time += Time.deltaTime;
+            if (time >= 1f)
+                toDo = false;
+        }
+    }
+
+    void Dialog()
+    {
+        if (time >= 1f && once && !toDo)
+        {
+            if (!one)
+            {
+                InitAttribution("第八关结束1");
+                InitDialog();
+                toPause = true;
+                one = true;
+            }
+        }
     }
 }
