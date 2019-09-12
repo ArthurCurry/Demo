@@ -35,9 +35,31 @@ public class CG : MonoBehaviour
 
     private AudioPlay ap;
 
+    private float time;
+    private bool toDo;
+    private bool once;
+
+    private XmlReader instance;
+    private Dialog dialog;
+    private GameObject player;
+    private string s;
+    private int x;
+    private int count;
+    private bool toPause;
+    private bool onlyOne;
+
     // Use this for initialization
     void Start()
     {
+        time = 0;
+        toDo = false;
+        once = false;
+        instance = new XmlReader();
+        instance.ReadXML("Resources/剧情对话.xml");
+        player = GameObject.FindWithTag(HashID.PLAYER);
+        toPause = false;
+        onlyOne = false;
+        x = 0;
         ap = new AudioPlay();
         status = 0;
         m_Sprite = this.gameObject.GetComponent<Image>();
@@ -60,6 +82,8 @@ public class CG : MonoBehaviour
             m_Alpha -= m_UpdateTime * Time.deltaTime;
         }
         UpdateColorAlpha();
+        UpdateTime();
+        Dialog();
     }
 
     void UpdateColorAlpha()
@@ -122,7 +146,21 @@ public class CG : MonoBehaviour
                     //Camera.main.GetComponent<CameraController>().DetectEdges();
                     //BuildManager.InitAttribute();
                 }
-                else if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)") || this.gameObject.name.Equals("CG8(Clone)")||this.gameObject .name .Equals ("CG9(Clone)"))
+                else if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)")
+                    || this.gameObject.name.Equals("CG8(Clone)") || this.gameObject.name.Equals("CG9(Clone)"))
+                {
+                    BuildManager.Need = true;
+                    GameObject root = GameObject.Find("Canvas");
+                    root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                    root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
+                }
+                else if (this.gameObject.name.Equals("CG10(Clone)") && !once)
+                {
+                    toDo = true;
+                    once = true;
+                    this.m_Statuss = FadeStatuss.None;
+                }
+                else if(this.gameObject.name.Equals("CG10(Clone)") && once)
                 {
                     GameObject root = GameObject.Find("Canvas");
                     root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
@@ -134,6 +172,91 @@ public class CG : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    void UpdateTime()
+    {
+        if (toDo)
+        {
+            time += Time.deltaTime;
+            if (time >= 1f)
+                toDo = false;
+        }
+    }
+
+    void Dialog()
+    {
+        if(time >=1f && once && !toDo)
+        {
+            if (!onlyOne)
+            {
+                InitAttribution("第七关结束CG1");
+                InitDialog();
+                toPause = true;
+                onlyOne = true;
+            }
+        }
+    }
+
+    void InitDialog()
+    {
+        dialog = new Dialog();
+        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
+        dialog.showDialog(dialog.JudgeD(dialog.ID));
+        dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
+    }
+
+    void InitAttribution(string n) // 赋予触发剧情的属性
+    {
+        x = 1;
+        s = n;
+        count = instance.getCount(s, 0);
+        instance.SetIndex(0);
+    }
+
+    void ShowDialog()
+    {
+        if (toPause)
+        {
+            if (x < count)
+            {
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                {
+                    instance.SetIndex(x);
+                    if (!JudgeD(dialog.ID))
+                    {
+                        dialog.DestoryDiaLog();
+                        dialog.ID = dialog.Split(instance.GetXML(s, 0), 0);
+                        dialog.showDialog(dialog.JudgeD(dialog.ID));
+                    }
+                    dialog.setDialogText(dialog.Split(instance.GetXML(s, 0), 1));
+                    x = x + 1;
+                }
+            }
+            else
+            {
+                toPause = false;
+                x = 0;
+
+            }
+        }
+        else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        {
+            if (dialog != null)
+            {
+                dialog.DestoryDiaLog();
+            }
+            this.m_Statuss = FadeStatuss.FadeOut;
+        }
+    }
+
+    public bool JudgeD(string name)  //判断对话框的ID
+    {
+        if (name.Equals(dialog.Split(instance.GetXML(s, 0), 0)))
+        {
+            return true;
+        }
+        else return false;
     }
 
 }

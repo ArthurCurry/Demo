@@ -88,7 +88,7 @@ public class Guide : MonoBehaviour {
                         break;
                     case "地图碎片·其一":
                         this.GuideTo("地图碎片·其二");
-                        break;
+                        break ;
                     default:
                         itb.ClosePanel();
                         break;

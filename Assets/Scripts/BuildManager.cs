@@ -69,6 +69,7 @@ public class BuildManager {
     public static bool toDestroy = false;
 
     public static bool tocollect = false;
+    private static bool toGuide = false;
 
     private static AudioPlay ap = new AudioPlay();
     private static Guide guide = GameObject.Find(HashID.CANVAS).GetComponent<Guide>();
@@ -82,6 +83,7 @@ public class BuildManager {
                 isCG = false;
                 x = 0;
                 CGEnd = true;
+                toGuide = true;
                 ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                 if (GameObject.FindWithTag("CG"))
                     GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
@@ -104,6 +106,7 @@ public class BuildManager {
             else
             {
                 isCG = false;
+                toGuide = true;
                 x = 0;
                
             }
@@ -115,7 +118,7 @@ public class BuildManager {
             if (GameObject.FindWithTag("CG"))
                 GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
             dialog.DestoryDiaLog();
-            if (!GameObject.FindWithTag("CG"))
+            if (!GameObject.FindWithTag("CG") && toGuide)
             {
                 switch (level)
                 {
@@ -137,7 +140,20 @@ public class BuildManager {
                     case 6:
                         guide.GuideTo("异步敌人");
                         break;
+                    case 7:
+                        guide.GuideTo("传送门");
+                        break;
+                    case 8:
+                        guide.GuideTo("针刺");
+                        break;
+                    case 9:
+                        guide.GuideTo("通道");
+                        break;
+                    case 10:
+                        guide.GuideTo("坍塌路面");
+                        break;
                 }
+                toGuide = false;
             }
             Talk.HasTalk = false;
         }
