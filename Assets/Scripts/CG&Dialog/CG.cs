@@ -122,7 +122,7 @@ public class CG : MonoBehaviour
                     //Camera.main.GetComponent<CameraController>().DetectEdges();
                     //BuildManager.InitAttribute();
                 }
-                else if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)") || this.gameObject.name.Equals("CG8(Clone)"))
+                else if (this.gameObject.name.Equals("CG4(Clone)") || this.gameObject.name.Equals("CG7(Clone)") || this.gameObject.name.Equals("CG8(Clone)")||this.gameObject .name .Equals ("CG9(Clone)"))
                 {
                     GameObject root = GameObject.Find("Canvas");
                     root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;

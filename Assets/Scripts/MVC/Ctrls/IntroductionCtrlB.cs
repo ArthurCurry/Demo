@@ -36,10 +36,13 @@ public class IntroductionCtrlB : MonoBehaviour
         Introduction p9 = new Introduction("地图碎片·其一", "在红线框定的范围内，会给予玩家特定的物件——地图碎片。可以拖拽放置地图碎片，将异常的地面（包括无法行走的地面，坍塌地面，冰面）变成能够正常行走的地面。", "photo12");
         Introduction p10 = new Introduction("地图碎片·其二", "请注意，地图碎片只对红线内地图有效。进入红线区域地图碎片会出现，一旦走出即会消失。", "photo13");
         Introduction p11 = new Introduction("冰面", "无论是玩家还是敌人，在冰面上面都会滑行，直到遇到阻碍或者正常路面。滑行只算做一步操作。", "photo13");
-        Introduction p12 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
-        Introduction p13 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
-        Introduction p14 = new Introduction("同步敌人", "前方的敌人每一步都会模仿主角的行动。", "photo13");
-        instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 ,p11, p12, p13, p14 };
+        Introduction p12 = new Introduction("触发机关·其二", "这种正常的机关可以由玩家进行触碰，并且触发相应的事件。", "photo13");
+        Introduction p13 = new Introduction("异步敌人", "在前方的敌人是异步敌人，其每一步都会与主角的行动相反。", "photo13");
+        Introduction p14 = new Introduction("传送门", "在传送门上面按E键，即可传送到另一相同颜色的传送门。", "photo13");
+        Introduction p15 = new Introduction("针刺", "从地面冒出的针刺，碰到就会致死。", "photo13");
+        Introduction p16 = new Introduction("通道", "从地方传送门中每隔固定回合会出现敌人，沿着固定的通道行走。", "photo13");
+        Introduction p17 = new Introduction("坍塌地面", "如图所示为塌陷地块，只要人物经过就会掉落，成为无法行走的区域。", "photo13");
+        instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17 };
         get = new Introduction[3] { new Introduction("", "", ""), new Introduction("", "", ""), new Introduction("", "", "") };
     }
 

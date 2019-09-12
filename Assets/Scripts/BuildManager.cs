@@ -131,6 +131,12 @@ public class BuildManager {
                     case 4:
                         guide.GuideTo("冰面");
                         break;
+                    case 5:
+                        guide.GuideTo("触发机关·其二");
+                        break;
+                    case 6:
+                        guide.GuideTo("异步敌人");
+                        break;
                 }
             }
             Talk.HasTalk = false;
