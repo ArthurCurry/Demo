@@ -115,8 +115,16 @@ public class BuildManager {
                 ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
             }
             dialog.DestoryDiaLog();
-            if (level == 1)
-                guide.GuideTo("基本的操作");
+            switch (level)
+            {
+                case 1:
+                    guide.GuideTo("基本的操作");
+                    break;
+                case 2:
+                    guide.GuideTo("攻击机关");
+                    break;
+
+            }
             Talk.HasTalk = false;
         }
 

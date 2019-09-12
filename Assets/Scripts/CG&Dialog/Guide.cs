@@ -10,7 +10,7 @@ public class Guide : MonoBehaviour {
     private bool toPause;
     private bool toDone;
 
-    private string name;
+    private string gname;
 
     private IntroductionCtrlB itb;
 
@@ -29,7 +29,7 @@ public class Guide : MonoBehaviour {
 
     public void GuideTo(string name)
     {
-        this.name = name;
+        this.gname = name;
         itb.CompareTo(name);
         itb.OpenPanel();
         itb.GetIntroductionText(itb.get[0]);
@@ -66,13 +66,19 @@ public class Guide : MonoBehaviour {
         else
         {
             if(Input .GetKeyDown (KeyCode .Space)||Input.GetMouseButtonDown(0))
-                switch (name)
+                switch (gname)
                 {
                     case "基本的操作":
                         this.GuideTo("敌人·其一");
                         break;
                     case "敌人·其一":
                         this.GuideTo("敌人·其二");
+                        break;
+                    case "攻击机关":
+                        this.GuideTo("收集道具·其一");
+                        break;
+                    case "收集道具·其一":
+                        this.GuideTo("收集道具·其二");
                         break;
                     default:
                         itb.ClosePanel();

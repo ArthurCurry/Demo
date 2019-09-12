@@ -41,17 +41,25 @@ public class ChangeLevel : MonoBehaviour {
             {
                 if (!onlyOne)
                 {
-                    if (GameObject.Find("Level_1(Clone)")) // Debug会话框不会消失。
-                    {
-                        GameObject level = GameObject.Find("Level_1(Clone)");
-                        level.GetComponent<PatrolTalk>()._Destroy();
-                        level.GetComponent<PatrolTalk>().enabled = false;
-                    }
                     InitAttribution("到达终点");
                     InitDialog();
                     toPause = true;
                     onlyOne = true;
                 }
+            }
+            else if(BuildManager .Level == 2)
+            {
+                if (GameObject.Find("Level_2(Clone)")) // Debug会话框不会消失。
+                {
+                    GameObject level = GameObject.Find("Level_2(Clone)");
+                    level.GetComponent<PatrolTalk>()._Destroy();
+                    level.GetComponent<PatrolTalk>().enabled = false;
+                }
+                BuildManager.Judge();
+                BuildManager.Destroy_All();
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
             }
             else if(BuildManager .Level == 3)
             {
@@ -191,6 +199,7 @@ public class ChangeLevel : MonoBehaviour {
                 GameObject root = GameObject.Find("Canvas");
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+                onlyOne = false;
             }
         }
     }
