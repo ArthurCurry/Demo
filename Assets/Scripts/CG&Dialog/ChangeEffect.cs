@@ -16,6 +16,10 @@ public class ChangeEffect : MonoBehaviour {
     private RawImage rawImage;
 
     private float fadeTime;
+    public float FadeTime
+    {
+        set { fadeTime = value; }
+    }
 
     public enum State
     {
@@ -37,7 +41,7 @@ public class ChangeEffect : MonoBehaviour {
         ap = new AudioPlay();
         game = o_status.start;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
-        fadeTime = 1f;
+        fadeTime = 10f;
     }
 	
 	// Update is called once per frame
@@ -61,31 +65,38 @@ public class ChangeEffect : MonoBehaviour {
             {
                 if (BuildManager.Level == 1)
                 {
-                    BuildManager.InitCG("CG1", "旁白");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG1", "旁白");
                 }
                 else if (BuildManager.Level == 3)
                 {
-                    BuildManager.InitCG("CG2", "第三关CG1");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG2", "第三关CG1");
                 }
                 else if (BuildManager.Level == 4)
                 {
-                    BuildManager.InitCG("CG5", "第四关CG1");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG5", "第四关CG1");
                 }
                 else if(BuildManager .Level == 5)
                 {
-                    BuildManager.InitCG("CG8", "第四关结束CG");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG8", "第四关结束CG");
                 }
                 else if (BuildManager .Level == 6)
                 {
-                    BuildManager.InitCG("CG12", "第五关结束CG");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG12", "第五关结束CG");
                 }
                 else if(BuildManager .Level == 8)
                 {
-                    BuildManager.InitCG("CG13", "第七关结束CG");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG13", "第七关结束CG");
                 }
                 else if (BuildManager .Level == 9)
                 {
-                    BuildManager.InitCG("CG14", "第八关结束");
+                    if (!GameObject.FindWithTag(HashID.LEVEL))
+                        BuildManager.InitCG("CG14", "第八关结束");
                 }
                 else
                 {
@@ -139,6 +150,7 @@ public class ChangeEffect : MonoBehaviour {
         FadeIn();
         if (rawImage.color.a >= 0.95f)
         {
+            this.fadeTime = 10f;
             rawImage.color = Color.black;
             m_State = State.FadeOut;
         }
