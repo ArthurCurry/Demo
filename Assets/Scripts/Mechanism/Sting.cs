@@ -34,6 +34,7 @@ public class Sting : MonoBehaviour {
         if (ready!=statusLastFrame)
             Switch();
         statusLastFrame = ready;
+        Debug.Log((pm.transform.position - triggerPoses[0].position).magnitude);
 	}
 
     void OnTriggerEnter2D()
@@ -64,7 +65,7 @@ public class Sting : MonoBehaviour {
             Vector3 playerPos = pm.transform.position;
             for(int i=0;i<triggerPoses.Count;i++)
             {
-                if ((playerPos - triggerPoses[i].position).magnitude <= (HashID.unitLength-0.02f))
+                if ((playerPos - triggerPoses[i].position).magnitude <= (HashID.unitLength+0.02f))
                     return true;
                 continue;
             }
