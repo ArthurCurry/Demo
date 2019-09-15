@@ -24,6 +24,7 @@ public class Sting : MonoBehaviour {
         statusLastFrame = ready;
         animator = GetComponent<Animator>();
         box = GetComponent<BoxCollider2D>();
+        Switch();
 	}
 	
 	// Update is called once per frame

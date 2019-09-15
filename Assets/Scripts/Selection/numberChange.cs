@@ -18,7 +18,7 @@ public class numberChange : MonoBehaviour {
 
     public void Add(int level)
     {
-        if (level == 6)
+        if (level == 10)
             return;
         level++;
     }

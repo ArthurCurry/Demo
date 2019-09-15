@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public int level=1, x = 0,y = 0 ;
-    public static int passed = 6;
+    public static int passed = 10;
     private bool keyDownStatus;
     private int keyDownCount;
     private float lastTime;
@@ -168,7 +168,7 @@ public class DragMonitor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void Add()
     {
-        if (level == 6)
+        if (level == 10)
             return;
         level++;
     }

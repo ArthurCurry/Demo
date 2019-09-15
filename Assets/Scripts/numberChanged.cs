@@ -18,7 +18,7 @@ public class numberChanged : MonoBehaviour {
 
     public void Add()
     {
-        if (ID == 6) return;
+        if (ID == 10) return;
         else
         {
             ID++;
