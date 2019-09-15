@@ -264,6 +264,7 @@ public class PlayerMovements : MonoBehaviour {
         Camera.main.transform.position = this.transform.position;
         targetArrived = true;
         isMoving = false;
+        Camera.main.GetComponent<CameraController>().DetectEdges();
     }
 
     void StopAt(Transform target)
