@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 4597607403413844}
   - component: {fileID: 212320165063837216}
   - component: {fileID: 61492758333862608}
+  - component: {fileID: 114562274306160258}
   m_Layer: 8
   m_Name: end
   m_TagString: Map
@@ -7480,6 +7481,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4074600344417490}
+  - component: {fileID: 114100129205505806}
   m_Layer: 0
   m_Name: Level_2
   m_TagString: Level
@@ -23183,6 +23185,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea1eb94868a62a47be723f383f2cd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114100129205505806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990857245339034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3fe043b34434f49ae8d6cbac9d01f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114298673680156990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23248,6 +23261,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44c647d925c5fb64a9d597da675a1abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114562274306160258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065107783913026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec31b60e09216a40b04f0203fd83faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114569884163634564
