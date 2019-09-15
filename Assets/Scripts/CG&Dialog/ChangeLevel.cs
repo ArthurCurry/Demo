@@ -149,7 +149,7 @@ public class ChangeLevel : MonoBehaviour {
                 }
                 else if (!onlyOne && status == 3 && this.gameObject.name.Equals("end"))
                 {
-                    ap.PlayClipAtPoint(ap.AddAudioClip("Audio/群人大笑"), Camera.main.transform.position, 1f);
+                    ap.PlayClipAtPoint(ap.AddAudioClip("Audio/门铃声音"), Camera.main.transform.position, 1f);
                     InitAttribution("第二次到家");
                     InitDialog();
                     toPause = true;
