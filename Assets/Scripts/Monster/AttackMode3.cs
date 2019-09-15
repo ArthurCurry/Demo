@@ -23,6 +23,8 @@ public class AttackMode3 : MonoBehaviour {
         line = GetComponent<LineRenderer>();
         line.startColor = new Color(1, 0, 0, 0.5f);
         line.endColor = new Color(1, 0, 0, 0.5f);
+        line.sortingLayerName = "Character";
+        line.sortingOrder = 1;
     }
 	
 	// Update is called once per frame

@@ -18,7 +18,8 @@ public class AttcakMode2 : MonoBehaviour {
         line = GetComponent<LineRenderer>();
         line.startColor = new Color(1, 0, 0, 0.5f);
         line.endColor = new Color(1, 0, 0, 0.5f);
-
+        line.sortingLayerName = "Character";
+        line.sortingOrder = 1;
     }
 	
 
