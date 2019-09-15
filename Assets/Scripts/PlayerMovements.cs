@@ -179,13 +179,13 @@ public class PlayerMovements : MonoBehaviour {
     void Reborn()//重生
     {
         isDead = false;
-        if (BuildManager.Level == 1)
+        if (BuildManager.Level == 2)
         {
             if (!onlyOne)
             {
-                if (GameObject.Find("Level_1(Clone)")) // Debug会话框不会消失。
+                if (GameObject.Find("Level_2(Clone)")) // Debug会话框不会消失。
                 {
-                    GameObject level = GameObject.Find("Level_1(Clone)");
+                    GameObject level = GameObject.Find("Level_2(Clone)");
                     level.GetComponent<PatrolTalk>()._Destroy();
                     level.GetComponent<PatrolTalk>().enabled = false;
                 }
@@ -194,7 +194,11 @@ public class PlayerMovements : MonoBehaviour {
                 BuildManager.Map.SetActive(true);
                 BuildManager.Map = GameObject.Instantiate (Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
                 BuildManager.Map.SetActive(false);
-                onlyOne = true;
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().FadeTime = 5f;
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+                onlyOne = false;
             }
         }
         else if (BuildManager.Level == 3)
@@ -205,8 +209,6 @@ public class PlayerMovements : MonoBehaviour {
                 {
                     GameObject level = GameObject.Find("Level_3(Clone)");
                     level.GetComponent<MonsterTalk>()._Destroy();
-                    level.GetComponent<MonsterTalkB>()._Destroy();
-                    level.GetComponent<MonsterTalkC>()._Destroy();
                 }
                 if (GameObject.FindWithTag(HashID.LEVEL))
                     Object.DestroyImmediate(GameObject.FindWithTag(HashID.LEVEL));
@@ -214,11 +216,35 @@ public class PlayerMovements : MonoBehaviour {
                 BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
                 BuildManager.Map.SetActive(false);
                 GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().FadeTime = 5f;
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+                onlyOne = false;
 
             }
-        }     
+        }
+        else if (BuildManager.Level == 4)
+        {
+            if (!onlyOne)
+            {
+                if (GameObject.Find("Level_4(Clone)")) // Debug会话框不会消失。
+                {
+                    GameObject level = GameObject.Find("Level_4(Clone)");
+                    level.GetComponent<MonsterTalkB>()._Destroy();
+                    level.GetComponent<MonsterTalkB>()._Destroy();
+                }
+                if (GameObject.FindWithTag(HashID.LEVEL))
+                    Object.DestroyImmediate(GameObject.FindWithTag(HashID.LEVEL));
+                BuildManager.Map.SetActive(true);
+                BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
+                BuildManager.Map.SetActive(false);
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().FadeTime = 5f;
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+                onlyOne = false;
+            }
+        }
         else
         {
             if (GameObject.FindWithTag(HashID.LEVEL))
@@ -227,8 +253,10 @@ public class PlayerMovements : MonoBehaviour {
             BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
             BuildManager.Map.SetActive(false);
             GameObject root = GameObject.Find("Canvas");
+            root.GetComponent<ChangeEffect>().FadeTime = 5f;
             root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
             root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
+            onlyOne = false;
         }
         rb.velocity = Vector2.zero;
         targetFloor = GameObject.Find(HashID.StartPoint).transform;

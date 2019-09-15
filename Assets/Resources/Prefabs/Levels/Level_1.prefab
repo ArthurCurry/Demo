@@ -968,6 +968,7 @@ GameObject:
   - component: {fileID: 4284239442249388}
   - component: {fileID: 212497879495986792}
   - component: {fileID: 61588867478180896}
+  - component: {fileID: 114844820545305722}
   m_Layer: 8
   m_Name: end
   m_TagString: Map
@@ -14998,6 +14999,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ea1eb94868a62a47be723f383f2cd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114844820545305722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206280372706712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec31b60e09216a40b04f0203fd83faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114915369052169010

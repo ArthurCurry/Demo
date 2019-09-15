@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 4442688310255990}
   - component: {fileID: 212032570728194538}
   - component: {fileID: 61217384409109510}
+  - component: {fileID: 114953226795151208}
   m_Layer: 8
   m_Name: end
   m_TagString: Map
@@ -25064,6 +25065,17 @@ MonoBehaviour:
   distance: 0
   inPosition: 0
   attackRange: 5
+--- !u!114 &114953226795151208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054080799107988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec31b60e09216a40b04f0203fd83faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114966515451555118
 MonoBehaviour:
   m_ObjectHideFlags: 1

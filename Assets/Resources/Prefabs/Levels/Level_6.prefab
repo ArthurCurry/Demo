@@ -6290,6 +6290,7 @@ GameObject:
   - component: {fileID: 4569386440956972}
   - component: {fileID: 212744352790723234}
   - component: {fileID: 61939991029249856}
+  - component: {fileID: 114380522033628348}
   m_Layer: 8
   m_Name: end
   m_TagString: Map
@@ -36464,6 +36465,17 @@ MonoBehaviour:
   passive: {fileID: 1834246854594210}
   triggered: 0
   lift: {fileID: 0}
+--- !u!114 &114380522033628348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522991899015162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec31b60e09216a40b04f0203fd83faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114397950663329344
 MonoBehaviour:
   m_ObjectHideFlags: 1
