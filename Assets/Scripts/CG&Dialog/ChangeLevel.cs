@@ -21,6 +21,8 @@ public class ChangeLevel : MonoBehaviour {
     private bool once;
     private bool one;
 
+    private int status; //第十关状态
+
     // Use this for initialization
     void Start () {
         time = 0f;
@@ -127,6 +129,34 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                 }
             }
+            else if (BuildManager .Level == 10)
+            {
+                if(!onlyOne && status == 1 && this.gameObject.name .Equals ("end"))
+                {
+                    InitAttribution("第一次到家");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                    status += 1;
+                }
+                else if (!onlyOne && status == 2&& this.gameObject.name.Equals("second_end"))
+                {
+                    InitAttribution("到棋牌室");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                    status += 1;
+                }
+                else if (!onlyOne && status == 3 && this.gameObject.name.Equals("end"))
+                {
+                    ap.PlayClipAtPoint(ap.AddAudioClip("Audio/群人大笑"), Camera.main.transform.position, 1f);
+                    InitAttribution("第二次到家");
+                    InitDialog();
+                    toPause = true;
+                    onlyOne = true;
+                    status += 1;
+                }
+            }
             else
             {
                 BuildManager.Judge();
@@ -190,18 +220,34 @@ public class ChangeLevel : MonoBehaviour {
             {
                 dialog.DestoryDiaLog();
             }
-            else if (BuildManager.Level == 11)
+            if (s.Equals("第八关结束") && !once)
+            {
+                once = true;
+                toDo = true;
+            }
+            else if (s.Equals ("第一次到家")&&!onlyOne)
+            {
+                onlyOne = false;
+            }
+            else if (s.Equals("到棋牌室") && !onlyOne)
+            {
+                onlyOne = false;
+            }
+            else if (s.Equals("第二次到家"))
+            {
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.none;
+                toDo = true;
+                once = true;
+            }
+            else if(s.Equals("第二次到家1"))
             {
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
 #else
 		Application.Quit();
 #endif
-            }
-            else if (s.Equals("第八关结束") && !once)
-            {
-                once = true;
-                toDo = true;
             }
             else if (onlyOne)
             {
@@ -245,7 +291,18 @@ public class ChangeLevel : MonoBehaviour {
 
     void Dialog()
     {
-        if (time >= 1f && once && !toDo)
+        if (time >= 1f && once && !toDo && BuildManager .Level ==10)
+        {
+            if (!one)
+            {
+                InitAttribution("第二次到家1");
+                InitDialog();
+                toPause = true;
+                one = true;
+                time = 0f;
+            }
+        }
+        else
         {
             if (!one)
             {
@@ -253,6 +310,7 @@ public class ChangeLevel : MonoBehaviour {
                 InitDialog();
                 toPause = true;
                 one = true;
+                time = 0f;
             }
         }
     }
