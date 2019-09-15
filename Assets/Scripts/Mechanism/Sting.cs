@@ -35,11 +35,8 @@ public class Sting : MonoBehaviour {
         ready = !ready;
     }
 
-    void ShowSprite()
+    void ControlAnimation()
     {
-        if (ready)
-            GetComponent<SpriteRenderer>().sprite = stingOn;
-        else
-            GetComponent<SpriteRenderer>().sprite = stingOff;
+        
     }
 }

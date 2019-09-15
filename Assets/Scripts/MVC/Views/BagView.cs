@@ -18,8 +18,7 @@ public class BagView : UIView
     {
         GameObject root = GameObject.Find("Canvas");
         GameObject bag = root.transform.Find("Bag").gameObject;
-        GameObject bagIntro = bag.transform.Find("IntroScrollRectPanel").gameObject;
-        IntroductionPanel = bagIntro.transform.Find("IntroductionPanel").gameObject;
+        IntroductionPanel = bag.transform.Find("IntroductionPanel").gameObject;
         ToolTip = root.transform.Find("Tooltip").gameObject;
         OutlineText = ToolTip.GetComponent<Text>();
         ContentText = ToolTip.transform.Find("Content").GetComponent<Text>();
