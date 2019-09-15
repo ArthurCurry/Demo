@@ -9,12 +9,15 @@ public class FollowingRestriction : MonoBehaviour {
     private Vector3 urPos;
     private Vector3 llPos;
 
+    private GameObject[] puzzleUIs;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindWithTag(HashID.PLAYER);
         following = GetComponent<Following>();
         urPos = following.URPos;
         llPos = following.LLPos;
+        puzzleUIs = GameObject.FindGameObjectsWithTag("PuzzleUI");
 	}
 	
 	// Update is called once per frame
