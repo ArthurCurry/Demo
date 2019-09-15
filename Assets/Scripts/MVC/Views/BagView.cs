@@ -12,7 +12,7 @@ public class BagView : UIView
     public Text ContentText;
     public Text PanelText;
     public GameObject ItemImage;
-    public Transform[] Grids = new Transform[20];
+    public Transform[] Grids = new Transform[28];
 
     protected override void BinObject()//绑定物体
     {
@@ -103,5 +103,13 @@ public class BagView : UIView
         Grids[17] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid17").gameObject.transform;
         Grids[18] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid18").gameObject.transform;
         Grids[19] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid19").gameObject.transform;
+        Grids[20] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid20").gameObject.transform;
+        Grids[21] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid21").gameObject.transform;
+        Grids[22] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid22").gameObject.transform;
+        Grids[23] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid23").gameObject.transform;
+        Grids[24] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid24").gameObject.transform;
+        Grids[25] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid25").gameObject.transform;
+        Grids[26] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid26").gameObject.transform;
+        Grids[27] = bagpa.transform.Find("BagPanel").gameObject.transform.Find("Grid27").gameObject.transform;
     }
 }
