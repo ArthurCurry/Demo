@@ -152,7 +152,14 @@ public class ChangeEffect : MonoBehaviour {
         {
             this.fadeTime = 10f;
             rawImage.color = Color.black;
-            m_State = State.FadeOut;
+            if (!(BuildManager.Level == 10 && this.game == o_status.none))
+            {
+                m_State = State.FadeOut;
+            }
+            else
+            {
+                m_State = State.none;
+            }
         }
     }
 }
