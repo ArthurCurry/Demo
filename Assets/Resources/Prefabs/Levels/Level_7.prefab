@@ -3809,6 +3809,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+=======
 --- !u!1 &1279027466852322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,6 +3827,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
 --- !u!1 &1279522954573950
 GameObject:
   m_ObjectHideFlags: 1
@@ -16079,6 +16082,8 @@ Transform:
   m_Father: {fileID: 4954113119535556}
   m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!4 &4309776941834828
 Transform:
   m_ObjectHideFlags: 1
@@ -16092,6 +16097,7 @@ Transform:
   m_Father: {fileID: 4160921449822562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
 --- !u!4 &4312124802597746
 Transform:
   m_ObjectHideFlags: 1
@@ -19993,7 +19999,10 @@ Transform:
   - {fileID: 4192466155554188}
   - {fileID: 4164134392507304}
   - {fileID: 4709601578928630}
+<<<<<<< HEAD
+=======
   - {fileID: 4160921449822562}
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20353,7 +20362,11 @@ Transform:
   - {fileID: 4834557111945176}
   - {fileID: 4014808163131874}
   m_Father: {fileID: 4683669159507808}
+<<<<<<< HEAD
+  m_RootOrder: 10
+=======
   m_RootOrder: 11
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4711880423174244
 Transform:
@@ -41919,6 +41932,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+<<<<<<< HEAD
+=======
 --- !u!212 &212022828720650486
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -41963,6 +41978,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
 --- !u!212 &212024121068987860
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -53701,7 +53717,11 @@ SpriteRenderer:
   m_SortingLayerID: -681651625
   m_SortingLayer: 1
   m_SortingOrder: 1
+<<<<<<< HEAD
+  m_Sprite: {fileID: 21300000, guid: d6245ba32f3de2d40a901efedb657a8c, type: 3}
+=======
   m_Sprite: {fileID: 21300000, guid: 8edf79a6894826743898eb3188b67552, type: 3}
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -67781,7 +67801,11 @@ SpriteRenderer:
   m_SortingLayerID: -681651625
   m_SortingLayer: 1
   m_SortingOrder: 1
+<<<<<<< HEAD
+  m_Sprite: {fileID: 21300000, guid: d6245ba32f3de2d40a901efedb657a8c, type: 3}
+=======
   m_Sprite: {fileID: 21300000, guid: 358f062fc87e6d74897f8ab557709660, type: 3}
+>>>>>>> 3235a0838d08a85c891a14b9ceb4417f4fe1e383
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
