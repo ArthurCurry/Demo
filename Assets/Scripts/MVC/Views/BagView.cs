@@ -23,7 +23,7 @@ public class BagView : UIView
         ToolTip = root.transform.Find("Tooltip").gameObject;
         OutlineText = ToolTip.GetComponent<Text>();
         ContentText = ToolTip.transform.Find("Content").GetComponent<Text>();
-        PanelText = IntroductionPanel.transform.Find("Text").GetComponent<Text>();
+        PanelText = IntroductionPanel.transform.Find("IntroText").GetComponent<Text>();
         this.RegisterGrid();
     }
 

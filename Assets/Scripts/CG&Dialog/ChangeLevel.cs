@@ -205,6 +205,15 @@ public class ChangeLevel : MonoBehaviour {
             }
             else if (onlyOne)
             {
+                if(s.Equals("第四关结束"))
+                {
+                    if (GameObject.Find("Level_4(Clone)")) // Debug会话框不会消失。
+                    {
+                        GameObject level = GameObject.Find("Level_4(Clone)");
+                        level.GetComponent<MonsterTalkB>()._Destroy();
+                        level.GetComponent<MonsterTalkC>()._Destroy();
+                    }
+                }
                 BuildManager.Judge();
                 BuildManager.Destroy_All();
                 GameObject root = GameObject.Find("Canvas");
