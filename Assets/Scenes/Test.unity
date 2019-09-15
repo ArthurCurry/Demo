@@ -350,6 +350,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1630211533488014, guid: 0b62765ba9aa48649bda066b6e97bbbf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b62765ba9aa48649bda066b6e97bbbf, type: 2}
   m_IsPrefabParent: 0
@@ -526,6 +530,7 @@ GameObject:
   - component: {fileID: 2038714596}
   - component: {fileID: 2038714598}
   - component: {fileID: 2038714597}
+  - component: {fileID: 2038714599}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -584,10 +589,10 @@ MonoBehaviour:
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_fontColorGradient:
-    topLeft: {r: 0.25735295, g: 0.25167605, b: 0.25167605, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 0.972}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 0.866}
+    bottomRight: {r: 1, g: 1, b: 1, a: 0.684}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -671,3 +676,16 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2038714595}
+--- !u!114 &2038714599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038714595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c761262b4d819d041bde1d5a80d1ed8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeIn: 0
+  fadeOut: 0
