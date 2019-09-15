@@ -20,7 +20,10 @@ public class AttackMode3 : MonoBehaviour {
         pm = player.GetComponent<PlayerMovements>();
         line = this.GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody2D>();
-	}
+        line = GetComponent<LineRenderer>();
+        line.startColor = new Color(1, 0, 0, 0.5f);
+        line.endColor = new Color(1, 0, 0, 0.5f);
+    }
 	
 	// Update is called once per frame
 	void LateUpdate () {
