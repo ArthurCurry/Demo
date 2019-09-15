@@ -26289,9 +26289,9 @@ BoxCollider2D:
   m_Offset: {x: -7.66, y: 10.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 39.680004}
-    newSize: {x: 32, y: 39.680004}
+    pivot: {x: 0.531946, y: -0.18}
+    oldSize: {x: 21.87, y: 9.53}
+    newSize: {x: 16.25, y: 19.420002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -28964,9 +28964,9 @@ BoxCollider2D:
   m_Offset: {x: -0.73, y: 10.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 39.680004}
-    newSize: {x: 32, y: 39.680004}
+    pivot: {x: 0.531946, y: -0.18}
+    oldSize: {x: 21.87, y: 9.53}
+    newSize: {x: 16.25, y: 19.420002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -30589,9 +30589,9 @@ BoxCollider2D:
   m_Offset: {x: 9.7, y: 5.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 39.680004}
-    newSize: {x: 32, y: 39.680004}
+    pivot: {x: 0.531946, y: -0.18}
+    oldSize: {x: 21.87, y: 9.53}
+    newSize: {x: 16.25, y: 19.420002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -34239,9 +34239,9 @@ BoxCollider2D:
   m_Offset: {x: 7.08, y: 10.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 39.680004}
-    newSize: {x: 32, y: 39.680004}
+    pivot: {x: 0.531946, y: -0.18}
+    oldSize: {x: 21.87, y: 9.53}
+    newSize: {x: 16.25, y: 19.420002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -39314,9 +39314,9 @@ BoxCollider2D:
   m_Offset: {x: -0.7, y: 1.85}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 39.680004}
-    newSize: {x: 32, y: 39.680004}
+    pivot: {x: 0.531946, y: -0.18}
+    oldSize: {x: 21.87, y: 9.53}
+    newSize: {x: 16.25, y: 19.420002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -44256,8 +44256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc3: {fileID: 1287706936588872}
   npc5: {fileID: 1611717881329410}
-  upperright: {fileID: 4730773937709848}
-  lowerleft: {fileID: 4977427228911288}
 --- !u!114 &114812372186545728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67583,7 +67581,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 32, y: 39.680004}
+  m_Size: {x: 16.25, y: 19.420002}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
