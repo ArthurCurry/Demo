@@ -12,7 +12,7 @@ public class BagView : UIView
     public Text ContentText;
     public Text PanelText;
     public GameObject ItemImage;
-    public Transform[] Grids = new Transform[20];
+    public Transform[] Grids = new Transform[28];
 
     protected override void BinObject()//绑定物体
     {
