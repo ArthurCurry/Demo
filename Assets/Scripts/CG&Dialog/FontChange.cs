@@ -23,30 +23,34 @@ public class FontChange : MonoBehaviour {
     public bool fadeOut;
     // Use this for initialization
     void Start () {
-        fadeIn = false ;
+        fadeIn = true ;
         fadeOut = true;
         target = this.gameObject.GetComponent<TextMeshProUGUI>();
         m_Alpha = 0f;
-        speed = 5f;
+        speed = 10000f;
+        
         c = target.color;
+        Debug.Log(c.a);
         color = target.colorGradient;
 	}
 
     void FadeIn()
     {
-        c = Color.Lerp(c, Color.black, speed * Time.deltaTime);
+
+        target.color = Color.Lerp(c, Color.white, speed * Time.deltaTime);
     }
 
     void UpdateColor()
     {
-        c.a = m_Alpha;
+        Debug.Log(c.a);
+        m_Alpha = c.a;
         if (fadeIn)
         {
             FadeIn();
-            if (m_Alpha >= 0.98)
+            if (m_Alpha >= 0.98f)
             {
                 c = Color.white;
-                fadeIn = false;
+                //fadeIn = false;
                 fadeOut = true;
             }
         }
@@ -109,8 +113,8 @@ public class FontChange : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //UpdateColor();
-        UpdateTR();
+        UpdateColor();
+        //UpdateTR();
        // UpdateTL();
         //UpdateBR();
         //UpdateBL();
