@@ -195,10 +195,10 @@ public class PlayerMovements : MonoBehaviour {
                 BuildManager.Map = GameObject.Instantiate (Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
                 BuildManager.Map.SetActive(false);
                 GameObject root = GameObject.Find("Canvas");
-                root.GetComponent<ChangeEffect>().FadeTime = 100f;
+                root.GetComponent<ChangeEffect>().FadeTime = 5f;
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
-                onlyOne = true;
+                onlyOne = false;
             }
         }
         else if (BuildManager.Level == 3)
@@ -216,7 +216,7 @@ public class PlayerMovements : MonoBehaviour {
                 BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
                 BuildManager.Map.SetActive(false);
                 GameObject root = GameObject.Find("Canvas");
-                root.GetComponent<ChangeEffect>().FadeTime = 100f;
+                root.GetComponent<ChangeEffect>().FadeTime = 5f;
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
                 onlyOne = false;
@@ -239,7 +239,7 @@ public class PlayerMovements : MonoBehaviour {
                 BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
                 BuildManager.Map.SetActive(false);
                 GameObject root = GameObject.Find("Canvas");
-                root.GetComponent<ChangeEffect>().FadeTime = 100f;
+                root.GetComponent<ChangeEffect>().FadeTime = 5f;
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
                 onlyOne = false;
@@ -253,7 +253,7 @@ public class PlayerMovements : MonoBehaviour {
             BuildManager.Map = GameObject.Instantiate(Resources.Load<GameObject>(HashID.levelPath + BuildManager.LevelName));
             BuildManager.Map.SetActive(false);
             GameObject root = GameObject.Find("Canvas");
-            root.GetComponent<ChangeEffect>().FadeTime = 100f;
+            root.GetComponent<ChangeEffect>().FadeTime = 5f;
             root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
             root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
             onlyOne = false;

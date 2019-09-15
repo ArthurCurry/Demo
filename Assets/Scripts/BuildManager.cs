@@ -78,6 +78,11 @@ public class BuildManager {
 
     private static AudioPlay ap = new AudioPlay();
     private static Guide guide;
+    private static bool done = false;
+    public static bool Done
+    {
+        set { done = value; }
+    }
 
     public static void WhileCG()
     {        
@@ -133,6 +138,7 @@ public class BuildManager {
                             break;
                     }
                     toGuide = false;
+                    done = false;
                 }
                 Talk.HasTalk = false;
             }
@@ -140,7 +146,7 @@ public class BuildManager {
             {
                 if (Input.GetKeyDown(KeyCode.Space)|| Input .GetMouseButtonDown (0))
                 {
-                    if(x==2 && GameObject.Find(HashID.CANVAS).transform.Find("CG6(Clone)"))
+                    if(x == 2 && GameObject.Find(HashID.CANVAS).transform.Find("CG6(Clone)"))
                     {
                         ap.PlayClipAtPoint(ap.AddAudioClip("Audio/上课铃"), Camera.main.transform.position, 1f);
                     }
@@ -156,16 +162,19 @@ public class BuildManager {
                
             }
         }
-    else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+    else
         {
-            ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
-            CGEnd = true;
-            if (GameObject.FindWithTag("CG"))
-                GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
-            dialog.DestoryDiaLog();
-            if (!GameObject.FindWithTag("CG") && toGuide)
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                if(guide==null)
+                ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
+                CGEnd = true;
+                if (GameObject.FindWithTag("CG"))
+                    GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
+                dialog.DestoryDiaLog();
+            }
+            if (!GameObject.FindWithTag ("Dialog")&&!GameObject.FindWithTag("CG") && toGuide)
+            {
+                if (guide == null)
                 {
                     guide = GameObject.Find(HashID.CANVAS).GetComponent<Guide>();
                 }
@@ -203,6 +212,7 @@ public class BuildManager {
                         break;
                 }
                 toGuide = false;
+                done = false;
             }
             Talk.HasTalk = false;
         }

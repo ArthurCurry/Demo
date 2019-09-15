@@ -19,6 +19,7 @@ TagManager:
   - PuzzleUI
   - Celection
   - Canvas
+  - Dialog
   layers:
   - Default
   - TransparentFX

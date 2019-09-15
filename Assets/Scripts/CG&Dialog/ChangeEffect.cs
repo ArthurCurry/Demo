@@ -41,7 +41,7 @@ public class ChangeEffect : MonoBehaviour {
         ap = new AudioPlay();
         game = o_status.start;
         rawImage = GameObject.Find(HashID.CANVAS).transform.Find("RawImage").GetComponent<RawImage>();
-        fadeTime = 10f;
+        fadeTime = 1.5f;
     }
 	
 	// Update is called once per frame
@@ -66,7 +66,9 @@ public class ChangeEffect : MonoBehaviour {
                 if (BuildManager.Level == 1)
                 {
                     if (!GameObject.FindWithTag(HashID.LEVEL))
+                    {
                         BuildManager.InitCG("CG1", "旁白");
+                    }
                 }
                 else if (BuildManager.Level == 3)
                 {
@@ -132,12 +134,15 @@ public class ChangeEffect : MonoBehaviour {
     void StartScene()
     {
         FadeOut();
-        if (rawImage.color.a <= 0.05f)
+        if(rawImage.color.a <= 0.15f)
         {
             if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
             {
                 BuildManager.ToGuide = true;
             }
+        }
+        if (rawImage.color.a <= 0.05f)
+        {
             rawImage.color = Color.clear;
             rawImage.enabled = false;            
             m_State = State.none;
@@ -147,10 +152,14 @@ public class ChangeEffect : MonoBehaviour {
     void EndScene()
     {
         rawImage.enabled = true;
+        if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
+        {
+            BuildManager.ToGuide = false;
+        }
         FadeIn();
         if (rawImage.color.a >= 0.95f)
         {
-            this.fadeTime = 10f;
+            this.fadeTime = 1.5f;
             rawImage.color = Color.black;
             if (!(BuildManager.Level == 10 && this.game == o_status.none))
             {

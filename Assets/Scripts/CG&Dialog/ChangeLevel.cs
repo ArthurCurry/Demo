@@ -220,7 +220,7 @@ public class ChangeLevel : MonoBehaviour {
             {
                 dialog.DestoryDiaLog();
             }
-            else if (s.Equals("第八关结束") && !once)
+            if (s.Equals("第八关结束") && !once)
             {
                 once = true;
                 toDo = true;
