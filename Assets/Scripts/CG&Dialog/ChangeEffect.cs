@@ -93,7 +93,10 @@ public class ChangeEffect : MonoBehaviour {
                 else if(BuildManager .Level == 8)
                 {
                     if (!GameObject.FindWithTag(HashID.LEVEL))
+                    {
+                        BuildManager.Need = true;
                         BuildManager.InitCG("CG13", "第七关结束CG");
+                    }
                 }
                 else if (BuildManager .Level == 9)
                 {

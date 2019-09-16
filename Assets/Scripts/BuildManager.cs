@@ -144,6 +144,7 @@ public class BuildManager {
                 }
                 Talk.HasTalk = false;
             }
+            else 
             if (x < count)
             {
                 if (Input.GetKeyDown(KeyCode.Space)|| Input .GetMouseButtonDown (0))

@@ -162,7 +162,7 @@ public class CG : MonoBehaviour
                 else if (this.name == "CG10(Clone)" && !GameObject.Find("CG11(Clone)"))
                 {
                     BuildManager.Need = true;
-                    BuildManager.InitCG("CG11", "第五关结束2");
+                    BuildManager.InitCG("CG11", "第六关触发2");
                 }
                 else if (this.name == "CG11(Clone)" && !level11)
                 {
@@ -178,6 +178,7 @@ public class CG : MonoBehaviour
             {
                 if (this.name == "CG13(Clone)" && !level13)
                 {
+                    Debug.Log(this.m_Statuss);
                     level13 = true;
                     GameObject root = GameObject.Find("Canvas");
                     root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
@@ -209,7 +210,7 @@ public class CG : MonoBehaviour
                     root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                     root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
                 }
-                else if (this.gameObject.name.Equals("CG10(Clone)") && !once)
+                else if (this.gameObject.name.Equals("CG11(Clone)") && !once)
                 {
                     toDo = true;
                     once = true;
@@ -256,9 +257,9 @@ public class CG : MonoBehaviour
         {
             if (!onlyOne)
             {
-                if (this.gameObject.name.Equals("CG10(Clone)"))
+                if (this.gameObject.name.Equals("CG11(Clone)"))
                 {
-                    InitAttribution("第七关结束CG1");
+                    InitAttribution("第六关触发3");
                     InitDialog();
                     time = 0f;
                     toPause = true;
@@ -396,7 +397,6 @@ public class CG : MonoBehaviour
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
                 dontDestroy = false;
             }
-            this.m_Statuss = FadeStatuss.FadeOut;
         }
     }
 
