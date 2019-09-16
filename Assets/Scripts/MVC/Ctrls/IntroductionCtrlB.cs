@@ -42,7 +42,8 @@ public class IntroductionCtrlB : MonoBehaviour
         Introduction p15 = new Introduction("针刺", "从地面冒出的针刺，碰到就会致死。", "第八关 针刺");
         Introduction p16 = new Introduction("通道", "从地方传送门中每隔固定回合会出现敌人，沿着固定的通道行走。", "第九关 传送门");
         Introduction p17 = new Introduction("坍塌地面", "如图所示为塌陷地块，只要人物经过就会掉落，成为无法行走的区域。", "第十关 坍塌地面");
-        instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17 };
+        Introduction p18 = new Introduction("针刺机关", "这些机关可以操纵针刺的出现，按E即可操纵", "1111");
+        instantiation = new Introduction[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17 , p18};
         get = new Introduction[3] { new Introduction("", "", ""), new Introduction("", "", ""), new Introduction("", "", "") };
     }
 
