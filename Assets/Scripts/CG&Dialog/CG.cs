@@ -363,7 +363,7 @@ public class CG : MonoBehaviour
             {
                 toStop = false;
             }
-            if (s.Equals("第五关结束2"))
+            if (s.Equals("第五关结束2") && !GameObject .FindWithTag ("Dialog"))
             {
                 BuildManager.Need = true;
                 BuildManager.InitCG("CG9", "第五关结束CG");
