@@ -115,7 +115,6 @@ public class PlayerMovements : MonoBehaviour {
             //MonsterManager.UpdateMonsters(float.PositiveInfinity);
             isMoving = false;
         }
-
     }
 
     void OnGUI()
@@ -294,6 +293,11 @@ public class PlayerMovements : MonoBehaviour {
     IEnumerator Stop()
     {
         yield return new WaitForSeconds(0.1f);
+    }
+
+    void OnTriggerEnter2D()
+    {
+
     }
 }
  

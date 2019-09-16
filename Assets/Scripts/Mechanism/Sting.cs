@@ -34,12 +34,13 @@ public class Sting : MonoBehaviour {
         if (ready!=statusLastFrame)
             Switch();
         statusLastFrame = ready;
-        Debug.Log((pm.transform.position - triggerPoses[0].position).magnitude);
+        //Debug.Log((pm.transform.position - triggerPoses[0].position).magnitude);
 	}
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        pm.isDead = true;
+        if(collider.transform.tag.Equals(HashID.PLAYER))
+            pm.isDead = true;
     }
 
     void Switch()

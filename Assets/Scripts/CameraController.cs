@@ -54,6 +54,8 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        Debug.Log(dis.magnitude);
+        Debug.Log(transform.position);
         /*Vector3 pos = Input.mousePosition;
         pos.z = 10;
         currentMousePos = Camera.main.ScreenToWorldPoint(pos);
@@ -68,6 +70,7 @@ public class CameraController : MonoBehaviour {
         if (mapEdges.Length > 1 && player.transform.position.y < mapUpperrt.transform.position.y)
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapLowerlf.position.x + (width - HashID.unitLength) / 2, mapUpperrt.position.x - (width  - HashID.unitLength)/2),
             Mathf.Clamp(transform.position.y, mapLowerlf.position.y + (height - HashID.unitLength) / 2, mapUpperrt.position.y - (height - HashID.unitLength) / 2), transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
         //mousePosLF = currentMousePos;
     }
 
@@ -86,6 +89,7 @@ public class CameraController : MonoBehaviour {
             dampTime = 0.15f;
         //bgInView =BackgroundInView();
         targetPos.z += dis.z;
+        targetPos.z = -10f;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentV, dampTime,10f);
         
     }
