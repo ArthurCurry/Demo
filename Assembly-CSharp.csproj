@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\FixedPortal.cs" />
      <Compile Include="Assets\Scripts\GoToCollection.cs" />
      <Compile Include="Assets\Scripts\HashID.cs" />
+     <Compile Include="Assets\Scripts\Mechanism\EndTrigger.cs" />
      <Compile Include="Assets\Scripts\Mechanism\EyeStatue.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Falling.cs" />
      <Compile Include="Assets\Scripts\Mechanism\Lift.cs" />

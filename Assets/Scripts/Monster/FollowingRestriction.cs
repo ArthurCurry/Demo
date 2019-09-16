@@ -14,7 +14,7 @@ public class FollowingRestriction : MonoBehaviour {
 
     [SerializeField]
     [Tooltip("每一种类型拼图给予的数量")]
-    private int puzzleNumber=2;
+    private int puzzleNumber=4;
 
 	// Use this for initialization
 	void Start () {
