@@ -141,10 +141,6 @@
      <Compile Include="Assets\Scripts\PuzzleSupply.cs" />
      <Compile Include="Assets\Scripts\Reset.cs" />
      <Compile Include="Assets\Scripts\ResizePanel.cs" />
-     <Compile Include="Assets\Scripts\Save\LoadGame.cs" />
-     <Compile Include="Assets\Scripts\Save\Save.cs" />
-     <Compile Include="Assets\Scripts\Save\ToLoad.cs" />
-     <Compile Include="Assets\Scripts\Save\ToSave.cs" />
      <Compile Include="Assets\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\Scripts\Selection\CallBack.cs" />
      <Compile Include="Assets\Scripts\Selection\numberChange.cs" />
