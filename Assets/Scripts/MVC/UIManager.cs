@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         modelManager = new ModelManager();
 
         rootCanv = GameObject.Find(HashID.CANVAS).GetComponent<Canvas>();
-        GameObject.DontDestroyOnLoad(rootCanv.gameObject);
+        //GameObject.DontDestroyOnLoad(rootCanv.gameObject);
         this.RigisterViewType();
         ctrlManager.RigisterCtrls();
         modelManager.RigisterModels();

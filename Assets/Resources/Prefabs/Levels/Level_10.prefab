@@ -8731,6 +8731,7 @@ GameObject:
   - component: {fileID: 212527313080199906}
   - component: {fileID: 61971599490273270}
   - component: {fileID: 114878627358187430}
+  - component: {fileID: 114569650073195320}
   m_Layer: 8
   m_Name: endtrigger
   m_TagString: Map
@@ -46385,6 +46386,17 @@ MonoBehaviour:
   number: 020000000200000001000000
   active: {fileID: 0}
   triggered: 0
+--- !u!114 &114569650073195320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637022912267416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec31b60e09216a40b04f0203fd83faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114586926552045646
 MonoBehaviour:
   m_ObjectHideFlags: 1
