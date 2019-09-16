@@ -8,11 +8,17 @@ public class FollowingRestriction : MonoBehaviour {
     private GameObject player;
     private Vector3 urPos;
     private Vector3 llPos;
+    private bool passed;
 
     private GameObject[] puzzleUIs;
 
+    [SerializeField]
+    [Tooltip("每一种类型拼图给予的数量")]
+    private int puzzleNumber=2;
+
 	// Use this for initialization
 	void Start () {
+        passed = false;
         player = GameObject.FindWithTag(HashID.PLAYER);
         following = GetComponent<Following>();
         urPos = following.URPos;
@@ -22,10 +28,7 @@ public class FollowingRestriction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        /*if (PlayerInRange())
-            this.GetComponent<Following>().enabled = true;
-        else
-            this.GetComponent<Following>().enabled = false;*/
+        ControlUI();
 	}
 
     bool PlayerInRange()
@@ -34,5 +37,35 @@ public class FollowingRestriction : MonoBehaviour {
         if ((playerPos.x > urPos.x || playerPos.x < llPos.x) || (playerPos.y > urPos.y || playerPos.y < llPos.y))
             return false;
         return true;
+    }
+
+    void ControlUI()
+    {
+        if (PlayerInRange())
+            ActiveUI();
+        else
+            DeactiveUI();
+    }
+
+    void ActiveUI()
+    {
+        foreach(GameObject ui in puzzleUIs)
+        {
+            UIOnClick puzzle = ui.GetComponent<UIOnClick>();
+            if (!passed)
+            {
+                puzzle.puzzleLeft += puzzleNumber;
+            }
+            ui.SetActive(true);
+        }
+        passed = true;
+    }
+
+    void DeactiveUI()
+    {
+        foreach (GameObject ui in puzzleUIs)
+        {
+            ui.SetActive(false);
+        }
     }
 }

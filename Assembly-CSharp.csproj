@@ -65,7 +65,7 @@
      <Compile Include="Assets\Scripts\CG&amp;Dialog\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Dialog.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\FLevelTrigger.cs" />
-     <Compile Include="Assets\Scripts\CG&amp;Dialog\Font.cs" />
+     <Compile Include="Assets\Scripts\CG&amp;Dialog\FontChange.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\Guide.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\LevelTrigger\SLevelTrigger.cs" />
      <Compile Include="Assets\Scripts\CG&amp;Dialog\MonsterTalk.cs" />

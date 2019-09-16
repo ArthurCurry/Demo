@@ -20,7 +20,10 @@ public class AttackMode3 : MonoBehaviour {
         pm = player.GetComponent<PlayerMovements>();
         line = this.GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody2D>();
-	}
+        line = GetComponent<LineRenderer>();
+        line.startColor = new Color(1, 0, 0, 0.5f);
+        line.endColor = new Color(1, 0, 0, 0.5f);
+    }
 	
 	// Update is called once per frame
 	void LateUpdate () {
@@ -36,7 +39,7 @@ public class AttackMode3 : MonoBehaviour {
 
     private void ShowAttackRange()
     {
-        Debug.Log(faceDir);
+        //Debug.Log(faceDir);
         line.SetPositions(new Vector3[] { this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, 90f) * faceDir*HashID.unitLength*1.5f, this.transform.position + faceDir * HashID.unitLength + Quaternion.Euler(0, 0, -90f) * faceDir * HashID.unitLength * 1.5f });
         line.startWidth = HashID.unitLength;
         line.endWidth = HashID.unitLength;

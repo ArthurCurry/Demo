@@ -8,13 +8,18 @@ public class AttcakMode2 : MonoBehaviour {
     private PlayerMovements pm;
     private Rigidbody2D playerRB;
     private List<Vector3> positions=new List<Vector3>();
+    private LineRenderer line;
 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindWithTag(HashID.PLAYER);
         pm = player.GetComponent<PlayerMovements>();
         playerRB = player.GetComponent<Rigidbody2D>();
-	}
+        line = GetComponent<LineRenderer>();
+        line.startColor = new Color(1, 0, 0, 0.5f);
+        line.endColor = new Color(1, 0, 0, 0.5f);
+
+    }
 	
 
     void LateUpdate()
