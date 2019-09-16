@@ -27,6 +27,7 @@ public class SLevelTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         ShowDialog();
+        Judge();
     }
 
     void Judge()
