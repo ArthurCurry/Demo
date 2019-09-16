@@ -28,7 +28,7 @@ public class ChangeEffect : MonoBehaviour {
         FadeOut
     }
 
-    private State m_State;
+    public State m_State;
     public State M_State
     {
         get { return m_State; }
@@ -88,7 +88,7 @@ public class ChangeEffect : MonoBehaviour {
                 else if (BuildManager .Level == 6)
                 {
                     if (!GameObject.FindWithTag(HashID.LEVEL))
-                        BuildManager.InitCG("CG12", "第五关结束CG");
+                        BuildManager.InitCG("CG12", "第五关结束1");
                 }
                 else if(BuildManager .Level == 8)
                 {
@@ -136,10 +136,7 @@ public class ChangeEffect : MonoBehaviour {
         FadeOut();
         if(rawImage.color.a <= 0.15f)
         {
-            if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
-            {
-                BuildManager.ToGuide = true;
-            }
+            BuildManager.ToGuide = true;
         }
         if (rawImage.color.a <= 0.05f)
         {
@@ -152,22 +149,19 @@ public class ChangeEffect : MonoBehaviour {
     void EndScene()
     {
         rawImage.enabled = true;
-        if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
-        {
-            BuildManager.ToGuide = false;
-        }
+        BuildManager.ToGuide = false;
         FadeIn();
         if (rawImage.color.a >= 0.95f)
         {
             this.fadeTime = 1.5f;
             rawImage.color = Color.black;
-            if (!(BuildManager.Level == 10 && this.game == o_status.none))
+            if (BuildManager.Level == 10 && this.game == o_status.none)
             {
-                m_State = State.FadeOut;
+                m_State = State.none;
             }
             else
             {
-                m_State = State.none;
+                m_State = State.FadeOut;
             }
         }
     }

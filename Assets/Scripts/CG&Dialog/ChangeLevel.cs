@@ -21,8 +21,6 @@ public class ChangeLevel : MonoBehaviour {
     private bool once;
     private bool one;
 
-    private int status; //第十关状态
-
     // Use this for initialization
     void Start () {
         time = 0f;
@@ -131,30 +129,30 @@ public class ChangeLevel : MonoBehaviour {
             }
             else if (BuildManager .Level == 10)
             {
-                if(!onlyOne && status == 1 && this.gameObject.name .Equals ("end"))
+                if(!onlyOne &&BuildManager.status == 1 && this.gameObject.name .Equals ("end"))
                 {
                     InitAttribution("第一次到家");
                     InitDialog();
                     toPause = true;
                     onlyOne = true;
-                    status += 1;
+                    BuildManager.status += 1;
                 }
-                else if (!onlyOne && status == 2&& this.gameObject.name.Equals("second_end"))
+                else if (!onlyOne && BuildManager.status == 2&& this.gameObject.name.Equals("second_end"))
                 {
                     InitAttribution("到棋牌室");
                     InitDialog();
                     toPause = true;
                     onlyOne = true;
-                    status += 1;
+                    BuildManager.status += 1;
                 }
-                else if (!onlyOne && status == 3 && this.gameObject.name.Equals("end"))
+                else if (!onlyOne && BuildManager.status == 3 && this.gameObject.name.Equals("end"))
                 {
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/门铃声音"), Camera.main.transform.position, 1f);
                     InitAttribution("第二次到家");
                     InitDialog();
                     toPause = true;
                     onlyOne = true;
-                    status += 1;
+                    BuildManager.status += 1;
                 }
             }
             else
