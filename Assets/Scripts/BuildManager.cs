@@ -208,7 +208,7 @@ public class BuildManager {
                         guide.GuideTo("通道");
                         break;
                     case 10:
-                        guide.GuideTo("坍塌路面");
+                        guide.GuideTo("坍塌地面");
                         break;
                 }
                 toGuide = false;

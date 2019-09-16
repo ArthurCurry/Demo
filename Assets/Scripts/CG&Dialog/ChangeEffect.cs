@@ -136,10 +136,7 @@ public class ChangeEffect : MonoBehaviour {
         FadeOut();
         if(rawImage.color.a <= 0.15f)
         {
-            if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
-            {
-                BuildManager.ToGuide = true;
-            }
+            BuildManager.ToGuide = true;
         }
         if (rawImage.color.a <= 0.05f)
         {
@@ -152,10 +149,7 @@ public class ChangeEffect : MonoBehaviour {
     void EndScene()
     {
         rawImage.enabled = true;
-        if (!(BuildManager.Level == 7 || BuildManager.Level == 8 || BuildManager.Level == 9))
-        {
-            BuildManager.ToGuide = false;
-        }
+        BuildManager.ToGuide = false;
         FadeIn();
         if (rawImage.color.a >= 0.95f)
         {
