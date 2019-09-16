@@ -43,7 +43,7 @@ public class FixedPortal : MonoBehaviour {
 
 	void LateUpdate () {
         //Debug.Log(counter);
-		
+		Debug.Log(distance);
         if (Mathf.Abs(distance - HashID.unitLength) < 0.1f|| Mathf.Abs(distance - HashID.unitLength)>2*HashID.unitLength)
         {
             counter += 1;

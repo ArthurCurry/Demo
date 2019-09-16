@@ -34543,7 +34543,7 @@ MonoBehaviour:
   reversed: 0
   count: 3
   counter: 0
-  patrol: {fileID: 0}
+  patrol: {fileID: 1416018913163560, guid: 77293eeaabbf20f4783727d277faea55, type: 2}
 --- !u!114 &114622210946854704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -34712,7 +34712,7 @@ MonoBehaviour:
   reversed: 0
   count: 3
   counter: 0
-  patrol: {fileID: 1450425043275224, guid: ac1c0ce45320d70458af9ab197171cb4, type: 2}
+  patrol: {fileID: 1416018913163560, guid: 77293eeaabbf20f4783727d277faea55, type: 2}
 --- !u!114 &114803378563657948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -34749,7 +34749,7 @@ MonoBehaviour:
   reversed: 0
   count: 3
   counter: 0
-  patrol: {fileID: 1450425043275224, guid: ac1c0ce45320d70458af9ab197171cb4, type: 2}
+  patrol: {fileID: 1416018913163560, guid: 77293eeaabbf20f4783727d277faea55, type: 2}
 --- !u!114 &114865422067991224
 MonoBehaviour:
   m_ObjectHideFlags: 1
