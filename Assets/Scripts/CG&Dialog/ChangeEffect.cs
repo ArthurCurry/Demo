@@ -96,7 +96,6 @@ public class ChangeEffect : MonoBehaviour {
                     {
                         BuildManager.Need = true;
                         BuildManager.InitCG("CG13", "第七关结束CG");
-                        Debug.Log(BuildManager.Need);
                     }
                 }
                 else if (BuildManager .Level == 9)
@@ -144,7 +143,6 @@ public class ChangeEffect : MonoBehaviour {
         }
         if (rawImage.color.a <= 0.05f)
         {
-            Debug.Log(1);
             rawImage.color = Color.clear;
             rawImage.enabled = false;            
             m_State = State.none;
