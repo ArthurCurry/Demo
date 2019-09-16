@@ -54,8 +54,8 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        Debug.Log(dis.magnitude);
-        Debug.Log(transform.position);
+        //Debug.Log(dis.magnitude);
+        //  Debug.Log(transform.position);
         /*Vector3 pos = Input.mousePosition;
         pos.z = 10;
         currentMousePos = Camera.main.ScreenToWorldPoint(pos);
