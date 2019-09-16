@@ -371,10 +371,9 @@ public class CG : MonoBehaviour
             }
             else if (s.Equals("第六关触发3"))
             {
-                BuildManager.Need = true;
                 GameObject root = GameObject.Find("Canvas");
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
-                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.none;
             }
             else if (s.Equals("第七关结束CG1"))
             {
