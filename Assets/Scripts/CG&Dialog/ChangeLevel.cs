@@ -129,7 +129,7 @@ public class ChangeLevel : MonoBehaviour {
             }
             else if (BuildManager .Level == 10)
             {
-                if(!onlyOne &&BuildManager.status == 1 && this.gameObject.name .Equals ("end"))
+                if(!onlyOne &&BuildManager.status == 1 && this.gameObject.name .Equals ("endtrigger"))
                 {
                     InitAttribution("第一次到家");
                     InitDialog();
@@ -137,7 +137,7 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                     BuildManager.status += 1;
                 }
-                else if (!onlyOne && BuildManager.status == 2&& this.gameObject.name.Equals("second_end"))
+                else if (!onlyOne && BuildManager.status == 2&& this.gameObject.name.Equals("end"))
                 {
                     InitAttribution("到棋牌室");
                     InitDialog();
@@ -145,7 +145,7 @@ public class ChangeLevel : MonoBehaviour {
                     onlyOne = true;
                     BuildManager.status += 1;
                 }
-                else if (!onlyOne && BuildManager.status == 3 && this.gameObject.name.Equals("end"))
+                else if (!onlyOne && BuildManager.status == 3 && this.gameObject.name.Equals("endtrigger"))
                 {
                     ap.PlayClipAtPoint(ap.AddAudioClip("Audio/门铃声音"), Camera.main.transform.position, 1f);
                     InitAttribution("第二次到家");
@@ -223,11 +223,11 @@ public class ChangeLevel : MonoBehaviour {
                 once = true;
                 toDo = true;
             }
-            else if (s.Equals ("第一次到家")&&!onlyOne)
+            else if (s.Equals ("第一次到家")&& onlyOne)
             {
                 onlyOne = false;
             }
-            else if (s.Equals("到棋牌室") && !onlyOne)
+            else if (s.Equals("到棋牌室") && onlyOne)
             {
                 onlyOne = false;
             }

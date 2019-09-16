@@ -177,6 +177,7 @@ public class PlayerMovements : MonoBehaviour {
 
     void Reborn()//重生
     {
+        Debug.Log(1);
         isDead = false;
         if (BuildManager.Level == 2)
         {
