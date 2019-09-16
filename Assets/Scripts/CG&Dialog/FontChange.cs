@@ -24,33 +24,30 @@ public class FontChange : MonoBehaviour {
     // Use this for initialization
     void Start () {
         fadeIn = true ;
-        fadeOut = true;
+        fadeOut = false;
         target = this.gameObject.GetComponent<TextMeshProUGUI>();
         m_Alpha = 0f;
-        speed = 10000f;
+        speed = 1f;
         
         c = target.color;
-        Debug.Log(c.a);
         color = target.colorGradient;
 	}
 
     void FadeIn()
     {
-
-        target.color = Color.Lerp(c, Color.white, speed * Time.deltaTime);
+        target.color = Color.Lerp(target .color, Color.white, speed * Time.deltaTime);
     }
 
     void UpdateColor()
     {
-        Debug.Log(c.a);
-        m_Alpha = c.a;
+        m_Alpha = target .color .a;
         if (fadeIn)
         {
             FadeIn();
-            if (m_Alpha >= 0.98f)
+            if (m_Alpha >= 0.92f)
             {
-                c = Color.white;
-                //fadeIn = false;
+                target.color = Color.white;
+                fadeIn = false;
                 fadeOut = true;
             }
         }
@@ -58,19 +55,13 @@ public class FontChange : MonoBehaviour {
 	
     void UpdateTR()
     {
-        Debug.Log(color.topRight.a);
         if (fadeOut && color .topRight .a != 0)
         {
-            color.topRight.a -= speed * Time.deltaTime;
-            //color.topRight = Color.Lerp(color.topRight, Color.clear, speed * Time.deltaTime);
+            color.topRight = Color.Lerp(color.topRight, Color.clear, speed * Time.deltaTime);
             if(color .topRight .a <= 0.05f)
             {
                 color.topRight = Color.clear;
             }
-        }
-        if (color.topRight.a <= 0.05f)
-        {
-            color.topRight = Color.clear;
         }
     }
 
@@ -114,9 +105,9 @@ public class FontChange : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         UpdateColor();
-        //UpdateTR();
-       // UpdateTL();
-        //UpdateBR();
-        //UpdateBL();
+        UpdateTR();
+        UpdateTL();
+        UpdateBR();
+        UpdateBL();
 	}
 }
