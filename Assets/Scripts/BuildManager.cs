@@ -239,7 +239,7 @@ public class BuildManager {
         name = XMLname;
         GetCount(name);
         instance.SetIndex(0);
-        if (need)
+        if (need && !GameObject .FindWithTag ("Dialog"))
         {
             BuildManager.InitDialog();
             need = false;

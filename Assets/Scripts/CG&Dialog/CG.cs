@@ -48,7 +48,9 @@ public class CG : MonoBehaviour
     private bool toPause;
     private bool onlyOne;
     private bool level9;
+    private bool one;
     private bool level11;
+    private bool level13;
     private bool toStop;
 
     private bool dontDestroy;
@@ -59,11 +61,14 @@ public class CG : MonoBehaviour
         time = 0;
         toDo = false;
         once = false;
+        one = false;
         level9 = false;
         level11 = false;
+        level13 = false;
         toStop = false;
         dontDestroy = false;
         instance = new XmlReader();
+        s = "";
         instance.ReadXML("Resources/剧情对话.xml");
         player = GameObject.FindWithTag(HashID.PLAYER);
         toPause = false;
@@ -94,6 +99,7 @@ public class CG : MonoBehaviour
         UpdateTime();
         Dialog();
         ToStopEffect();
+        ShowDialog();
     }
 
     void UpdateColorAlpha()
@@ -144,19 +150,14 @@ public class CG : MonoBehaviour
             }
             else if (BuildManager .Level == 6)
             {
-                if(this.name == "CG12(Clone)"&&!GameObject .Find("CG9(Clone)"))
-                {
-                    BuildManager.Need = true;
-                    BuildManager.InitCG("CG9", "第五关结束2");
-                }
-                else if(this.name == "CG9(Clone)"&& !level9)
+                if(this.name == "CG12(Clone)"&&!level9)
                 {
                     level9 = true;
                     GameObject root = GameObject.Find("Canvas");
                     root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                     root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.none;
                     toStop = true;
-                    this.m_Statuss = FadeStatuss.None;
+                    dontDestroy = true;
                 }
                 else if (this.name == "CG10(Clone)" && !GameObject.Find("CG11(Clone)"))
                 {
@@ -172,6 +173,19 @@ public class CG : MonoBehaviour
                     toStop = true;
                     this.m_Statuss = FadeStatuss.None;
                 }
+            }
+            else if(BuildManager .Level == 8)
+            {
+                if (this.name == "CG13(Clone)" && !level13)
+                {
+                    level13 = true;
+                    GameObject root = GameObject.Find("Canvas");
+                    root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                    root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.none;
+                    toStop = true;
+                    dontDestroy = true;
+                }
+
             }
             if (m_Statuss == FadeStatuss.FadeOut && m_Alpha <= 0.98)
             {
@@ -213,6 +227,7 @@ public class CG : MonoBehaviour
                     InitAttribution("第八关结束0");
                     InitDialog();
                     toStop = true;
+                    toPause = true;
                     dontDestroy = true;
                     once = true;
                 }
@@ -259,19 +274,29 @@ public class CG : MonoBehaviour
                 }
             }
         }
-        else if(level9 && this.m_Statuss == FadeStatuss.None)
+        else if(level9 && !one)
         {
             InitAttribution("第五关结束2");
             InitDialog();
             toPause = true;
             onlyOne = true;
+            one = true;
         }
-        else if (level11 && this .m_Statuss == FadeStatuss.None)
+        else if (level11 && !one)
         {
             InitAttribution("第六关触发3");
             InitDialog();
             toPause = true;
             onlyOne = true;
+            one = true;
+        }
+        else if( level13 && !one)
+        {
+            InitAttribution("第七关结束CG1");
+            InitDialog();
+            toPause = true;
+            onlyOne = true;
+            one = true;
         }
     }
 
@@ -279,7 +304,7 @@ public class CG : MonoBehaviour
     {
         if (toStop)
         {
-            if (!(GameObject.Find("Canvas").GetComponent<ChangeEffect>().M_State == ChangeEffect.State.none))
+            if (!(GameObject.Find("Canvas").GetComponent<ChangeEffect>().M_State == ChangeEffect.State.none || GameObject.Find("Canvas").GetComponent<ChangeEffect>().M_State==ChangeEffect.State.FadeIn))
             {
                 GameObject.Find("Canvas").GetComponent<ChangeEffect>().M_State = ChangeEffect.State.none;
             }
@@ -325,26 +350,23 @@ public class CG : MonoBehaviour
             {
                 toPause = false;
                 x = 0;
-
             }
         }
         else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             if (dialog != null)
             {
-                dialog.DestoryDiaLog();
-                if (toStop)
-                {
-                    toStop = false;
-                }
+                dialog.DestoryDiaLog();                
             }
-            if(s.Equals("第五关结束2"))
+            if (toStop)
+            {
+                toStop = false;
+            }
+            if (s.Equals("第五关结束2"))
             {
                 BuildManager.Need = true;
                 BuildManager.InitCG("CG9", "第五关结束CG");
-                GameObject root = GameObject.Find("Canvas");
-                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeOut;
-                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.none;
+                dontDestroy = false;
             }
             else if (s.Equals("第六关触发3"))
             {
@@ -359,12 +381,20 @@ public class CG : MonoBehaviour
                 GameObject root = GameObject.Find("Canvas");
                 root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
                 root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
-                Destroy(this.gameObject);
+                dontDestroy = false;
             }
             else if (s.Equals("第八关结束0"))
             {
                 toDo = true;
                 once = true;
+            }
+            else if (s.Equals("第八关结束1"))
+            {
+                BuildManager.Need = true;
+                GameObject root = GameObject.Find("Canvas");
+                root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+                root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.end;
+                dontDestroy = false;
             }
             this.m_Statuss = FadeStatuss.FadeOut;
         }

@@ -28,7 +28,7 @@ public class ChangeEffect : MonoBehaviour {
         FadeOut
     }
 
-    private State m_State;
+    public State m_State;
     public State M_State
     {
         get { return m_State; }
@@ -88,7 +88,7 @@ public class ChangeEffect : MonoBehaviour {
                 else if (BuildManager .Level == 6)
                 {
                     if (!GameObject.FindWithTag(HashID.LEVEL))
-                        BuildManager.InitCG("CG12", "第五关结束CG");
+                        BuildManager.InitCG("CG12", "第五关结束1");
                 }
                 else if(BuildManager .Level == 8)
                 {
@@ -161,13 +161,13 @@ public class ChangeEffect : MonoBehaviour {
         {
             this.fadeTime = 1.5f;
             rawImage.color = Color.black;
-            if (!(BuildManager.Level == 10 && this.game == o_status.none))
+            if (BuildManager.Level == 10 && this.game == o_status.none)
             {
-                m_State = State.FadeOut;
+                m_State = State.none;
             }
             else
             {
-                m_State = State.none;
+                m_State = State.FadeOut;
             }
         }
     }

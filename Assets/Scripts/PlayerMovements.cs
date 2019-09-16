@@ -254,7 +254,7 @@ public class PlayerMovements : MonoBehaviour {
             BuildManager.Map.SetActive(false);
             GameObject root = GameObject.Find("Canvas");
             root.GetComponent<ChangeEffect>().FadeTime = 5f;
-            root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
+          //  root.GetComponent<ChangeEffect>().M_State = ChangeEffect.State.FadeIn;
             root.GetComponent<ChangeEffect>().game = ChangeEffect.o_status.start;
             onlyOne = false;
         }
