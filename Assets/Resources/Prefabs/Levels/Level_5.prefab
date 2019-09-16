@@ -3829,9 +3829,9 @@ GameObject:
   - component: {fileID: 212505559677354054}
   - component: {fileID: 61013086378821208}
   - component: {fileID: 114153749486492126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9125,9 +9125,9 @@ GameObject:
   - component: {fileID: 212247924077434188}
   - component: {fileID: 61376483965883618}
   - component: {fileID: 114383889171380322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable_1
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

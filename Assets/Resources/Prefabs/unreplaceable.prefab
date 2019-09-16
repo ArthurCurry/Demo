@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212428605678655098}
   - component: {fileID: 61843386575926856}
   - component: {fileID: 114796170202018542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: unreplaceable
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
