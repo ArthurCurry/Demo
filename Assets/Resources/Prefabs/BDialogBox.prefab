@@ -66,7 +66,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u5927\u4E3B\u6559"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0b6a7e81b7589ff459e002e0c42075ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 31e43955fa7ae424fb699ac03d3d2f10, type: 2}
   m_sharedMaterial: {fileID: 21629087463180872, guid: b705cd51091baa044ad79dbe9c0be5c6,
     type: 2}
   m_fontSharedMaterials: []

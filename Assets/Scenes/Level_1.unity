@@ -1613,7 +1613,7 @@ Prefab:
         type: 2}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 0b6a7e81b7589ff459e002e0c42075ac,
+      objectReference: {fileID: 11400000, guid: 31e43955fa7ae424fb699ac03d3d2f10,
         type: 2}
     - target: {fileID: 114242985556376238, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}
@@ -1624,7 +1624,7 @@ Prefab:
         type: 2}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 0b6a7e81b7589ff459e002e0c42075ac,
+      objectReference: {fileID: 11400000, guid: 31e43955fa7ae424fb699ac03d3d2f10,
         type: 2}
     - target: {fileID: 114433191949654502, guid: 24b719222d9dc3e43943d0a9b7f7b5c7,
         type: 2}

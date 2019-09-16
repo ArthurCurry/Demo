@@ -70,7 +70,6 @@ public class Tool : MonoBehaviour {
                 BePicked();
             }
         }
-        ShowDialog();
 	}
 
     private void BePicked()
@@ -88,33 +87,7 @@ public class Tool : MonoBehaviour {
                 }
                 picked = true;
                 //Debug.Log("picked");
-            }
-        }
-        if (picked && !status && this.name == "key")
-        {
-            itb.CompareTo("地图碎片是什么");
-            count = itb.number;
-            itb.OpenPanel();
-            itb.GetIntroductionTitle(itb.get[0]);
-            itb.GetIntroductionText(itb.get[0]);
-            itb.GetIntroductionSprite(itb.get[0]);
-            x = 1;
-            toPause = true;
-            status = true;
-        }
-        else if(picked && !status && !BuildManager.tocollect)
-        {
-            itb.CompareTo("收集物");
-            count = itb.number;
-            itb.OpenPanel();
-            itb.GetIntroductionTitle(itb.get[0]);
-            itb.GetIntroductionText(itb.get[0]);
-            itb.GetIntroductionSprite(itb.get[0]);
-            x = 1;
-            toPause = true;
-            status = true;
-            BuildManager.tocollect = true;
-        }
+            }        }
     }
 
     private void InitData()
@@ -133,55 +106,4 @@ public class Tool : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    void ShowDialog()
-    {
-        if (toPause)
-        {
-            if (x < count)
-            {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-                {
-                    itb.GetIntroductionTitle(itb.get[x]);
-                    itb.GetIntroductionText(itb.get[x]);
-                    itb.GetIntroductionSprite(itb.get[x]);
-                    x = x + 1;
-                }
-            }
-            else
-            {
-                toPause = false;
-                toDone = true;
-                x = 0;
-                itb.number = 0;
-
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        {
-            if (toDone)
-                itb.ClosePanel();
-            if (toDone && this.name == "key" )
-            {
-                toDone = false;
-                if (!BuildManager.tocollect)
-                {
-                    itb.CompareTo("收集物");
-                    count = itb.number;
-                    itb.OpenPanel();
-                    itb.GetIntroductionTitle(itb.get[0]);
-                    itb.GetIntroductionText(itb.get[0]);
-                    itb.GetIntroductionSprite(itb.get[0]);
-                    x = 1;
-                    toPause = true;
-                    BuildManager.tocollect = true;
-                }
-                ap.PlayClipAtPoint(audioClip, position);
-            }
-            else if (toDone)
-            {
-                toDone = false;
-                this.gameObject.SetActive(false);
-            }
-        }
-    }
 }

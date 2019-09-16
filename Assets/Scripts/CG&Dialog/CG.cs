@@ -124,12 +124,12 @@ public class CG : MonoBehaviour
         {
             if (BuildManager.Level == 3)
             {
-                if (this.name == "CG2(Clone)"&&!GameObject .Find ("CG3(Clone)"))
+                if (this.name == "CG2(Clone)"&&!GameObject .Find ("CG3(Clone)") && !GameObject.FindWithTag("Dialog"))
                 {
                     BuildManager.Need = false;
                     BuildManager.InitCG("CG3", "旁白");
                 }
-                else if (this.name == "CG3(Clone)"&&!GameObject.Find("CG4(Clone)"))
+                else if (this.name == "CG3(Clone)"&&!GameObject.Find("CG4(Clone)") && !GameObject.FindWithTag("Dialog"))
                 {
                     BuildManager.Need = true;
                     BuildManager.InitCG("CG4", "第三关CG2");                    
@@ -137,12 +137,12 @@ public class CG : MonoBehaviour
             }
             else if(BuildManager.Level == 4)
             {
-                if (this.name == "CG5(Clone)" && !GameObject.Find("CG6(Clone)"))
+                if (this.name == "CG5(Clone)" && !GameObject.Find("CG6(Clone)") && !GameObject .FindWithTag ("Dialog"))
                 {
                     BuildManager.Need = true;
                     BuildManager.InitCG("CG6", "第四关CG2");
                 }
-                else if (this.name == "CG6(Clone)" && !GameObject.Find("CG7(Clone)"))
+                else if (this.name == "CG6(Clone)" && !GameObject.Find("CG7(Clone)") && !GameObject.FindWithTag("Dialog"))
                 {
                     BuildManager.Need = true;
                     BuildManager.InitCG("CG7", "第四关CG3");

@@ -76,6 +76,8 @@ public class BuildManager {
         set { toGuide = value; }
     }
 
+    public static int status = 1; //第十关状态
+
     private static AudioPlay ap = new AudioPlay();
     private static Guide guide;
     private static bool done = false;
@@ -134,7 +136,7 @@ public class BuildManager {
                             guide.GuideTo("通道");
                             break;
                         case 10:
-                            guide.GuideTo("坍塌路面");
+                            guide.GuideTo("坍塌地面");
                             break;
                     }
                     toGuide = false;
@@ -168,9 +170,9 @@ public class BuildManager {
             {
                 ap.PlayClipAtPoint(ap.AddAudioClip("Audio/点击"), Camera.main.transform.position, 1f);
                 CGEnd = true;
+                dialog.DestoryDiaLog();
                 if (GameObject.FindWithTag("CG"))
                     GameObject.FindWithTag("CG").GetComponent<CG>().mStatuss = CG.FadeStatuss.FadeOut;
-                dialog.DestoryDiaLog();
             }
             if (!GameObject.FindWithTag ("Dialog")&&!GameObject.FindWithTag("CG") && toGuide)
             {
