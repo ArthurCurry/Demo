@@ -25,10 +25,7 @@ public class backToMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
                 SceneManager.LoadScene("Menu");
             }
-        }
-        
-            
-        
+        }                           
 	}
 
     public void OnPointerEnter(PointerEventData eventData)
